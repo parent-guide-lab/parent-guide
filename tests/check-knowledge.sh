@@ -101,7 +101,7 @@ grep -q "M6.1" "$M" || { echo "FAIL: 15-month section must defer completion to M
 grep -q "何时联系医生" "$M" || { echo "FAIL: act-early guidance missing"; exit 1; }
 
 for f in sleep.md nutrition.md; do
-  grep -q "自写综述" "$K/$f" || { echo "FAIL: $f must declare itself a self-written review"; exit 1; }
+  grep -q "原创综述" "$K/$f" || { echo "FAIL: $f must declare itself a self-written review"; exit 1; }
 done
 
 echo "PASS: knowledge base structure OK (milestones 11 verified sections + 15mo stub; sleep, nutrition, emotion, activities reviews)"
