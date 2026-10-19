@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数学启蒙 · parent-guide</title>
+<meta name="description" content="数概念轨迹、在家干预证据与官方分龄口径">
+<meta property="og:title" content="数学启蒙 · parent-guide">
+<meta property="og:description" content="数概念轨迹、在家干预证据与官方分龄口径">
+<style>
+  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
+    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
+    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background-color:var(--bg); color:var(--ink); line-height:1.75;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:22px 22px;
+    font-variant-numeric:tabular-nums; }
+  a { color:var(--accent); }
+  .num-serif { font-family:Georgia,serif; }
+  header.site { position:sticky; top:0; z-index:10; background:rgba(253,253,251,.95);
+    border-bottom:1px solid var(--line); backdrop-filter:blur(6px); }
+  .nav { max-width:860px; margin:0 auto; padding:10px 16px; display:flex;
+    gap:4px; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .brand { font-weight:700; color:var(--ink); text-decoration:none;
+    white-space:nowrap; margin-right:8px; }
+  .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
+  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+    padding:4px 10px; border-radius:6px; white-space:nowrap; }
+  .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
+  .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
+  .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
+  .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
+  .badge { display:inline-block; background:#fff; color:var(--accent);
+    border:1px solid var(--grid-line); border-radius:6px;
+    padding:3px 14px; font-size:13px; margin:16px 0 6px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px; margin:20px 0; }
+  .toc-group { font-size:14.5px; color:var(--accent); margin:24px 0 -8px; }
+  .card { background-color:var(--card);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:14px 14px;
+    border:1px solid var(--grid-line); border-radius:10px;
+    padding:20px; text-decoration:none;
+    color:var(--ink); display:block; }
+  .card:hover { border-color:var(--accent); }
+  .card h3 { font-size:16px; margin-bottom:6px; }
+  .card p { font-size:13.5px; color:#4a6076; }
+  .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
+  .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
+    padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
+  .ghost { display:inline-block; margin-left:12px; color:var(--accent);
+    text-decoration:none; font-size:15px; }
+  article { background-color:var(--card);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:14px 14px;
+    border:1px solid var(--grid-line); border-radius:10px;
+    padding:26px 26px 18px; }
+  article h1 { font-size:24px; margin-bottom:6px; color:var(--ink); }
+  .pagehead .src { color:var(--sub); font-size:13px; margin-bottom:18px; }
+  article h2 { font-size:19px; margin:26px 0 10px; color:var(--ink); }
+  article h3 { font-size:16px; margin:20px 0 8px; }
+  article p { margin:10px 0; font-size:15.5px; }
+  article ul, article ol { margin:10px 0 10px 22px; font-size:15.5px; }
+  article li { margin:4px 0; }
+  article table { width:100%; border-collapse:collapse; margin:14px 0;
+    font-size:14px; display:block; overflow-x:auto; }
+  article th, article td { border:1px solid var(--line); padding:7px 10px;
+    text-align:left; vertical-align:top; }
+  article th { background:var(--accent-soft); font-weight:600; }
+  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+    padding:12px 14px; font-size:14px; margin:12px 0; }
+  article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
+    overflow-x:auto; font-size:13.5px; }
+  article code { background:var(--accent-soft); border-radius:5px;
+    padding:1px 6px; font-size:.92em; font-family:ui-monospace,Menlo,monospace; }
+  article pre code { background:none; padding:0; }
+  article hr { border:none; border-top:1px dashed var(--grid-line); margin:22px 0; }
+  .foot { margin-top:28px; padding-top:18px; border-top:1px solid var(--line);
+    color:var(--sub); font-size:12.5px; }
+  .foot p { margin:6px 0; }
+</style>
+</head>
+<body>
+<header class="site"><nav class="nav"><a class="brand" href="index.html">🧸 parent-guide<small>知识库</small></a><a class="t" href="quick-ref.html">速查</a><a class="t" href="growth.html">生长监测</a><a class="t" href="eczema.html">湿疹护理</a><a class="t" href="newborn.html">新生儿两题</a><a class="t" href="anticipatory.html">前瞻节点</a><a class="t" href="sleep.html">睡眠</a><a class="t" href="nutrition.html">营养与喂养</a><a class="t" href="toilet.html">如厕训练</a><a class="t" href="weaning.html">戒安抚物</a><a class="t" href="screen.html">屏幕执行层</a><a class="t" href="honesty.html">诚实与说谎</a><a class="t" href="emotion.html">情绪与管教</a><a class="t" href="tantrum.html">发脾气现场</a><a class="t" href="child-mind.html">孩子的逻辑</a><a class="t" href="fears.html">恐惧与脱敏</a><a class="t" href="praise.html">表扬与思维</a><a class="t" href="milestones.html">发育里程碑</a><a class="t" href="activities.html">活动与绘本</a><a class="t" href="toys.html">玩具与环境</a><a class="t" href="social.html">同伴与同胞</a><a class="t" href="english.html">英语启蒙</a><a class="t on" href="math.html">数学启蒙</a><a class="t" href="books.html">育儿书地图</a></nav></header>
+<div class="wrap">
+<div class="pagehead" style="margin-bottom:14px">
+  <span class="badge">循证参考</span>
+</div>
+<article>
+<h1>数学启蒙</h1>
+<div class="src">自写综述,基于教育部《3-6 指南》与公开发展研究整理 · 自写综述,不搬运机构原文</div>
+<h2>0. 一句话结论与三条纪律</h2>
+<p><b>结论:数学启蒙=数学认知(数感、计数、量、形状空间、模式),大头在 生活与游戏里,官方口径的上限很清楚——5-6 岁也只是「借助实物操作做 10 以内加减」,0-3 岁没有任何数数要求。它与「思维训练」是两个交叉的 领域:认知训练迁移到数学成绩的证据在 meta 层面薄弱,「报思维课=做数学 启蒙」这个等式不成立。家长侧两句话:孩子数不对总数多半是发展阶段没到 (约 3.5-4 岁才真正理解「数到最后一个=总数」);数手指是正常且有益的, 不要纠正(§2)。</b></p>
+<p>纪律(先于一切建议):</p>
+<ol><li><b>不抢跑</b>:0-3 岁官方无数数要求;提前教小学内容(拼音/识字/计算)</li></ol>
+<p>被教育部明文禁止,一年级坚持零起点教学(§3)。</p>
+<ol><li><b>生活与游戏优先,纸面计算不进学龄前</b>:《指南》全程强调实际情境</li></ol>
+<p>与实物操作;「实物操作下的 10 以内加减」是 5-6 岁上限,不是起点。</p>
+<ol><li><b>不按「练思维=学数学」决策</b>(§1):两个交叉领域,远迁移证据弱;</li></ol>
+<p>数学启蒙决定权留家长,本篇给证据与框架,不给标准答案。</p>
+<h2>1. 迷思拆解(先校准期望,再动手)</h2>
+<table><thead><tr><th>说法</th><th>判定</th><th>依据</th></tr></thead><tbody><tr><td>「数学敏感期 3-6 岁,错过就完了」</td><td><b>理论转述,非实证口径</b>。敏感期是蒙台梭利的理论框架;蒙氏教育的证据综述明言其「没有高质量随机对照试验」,全文没有任何关于数学敏感期的直接实证(Marshall 2017,原文级)。3-6 岁确是数概念形成的高峰期(§2.1),但「高峰期」≠「不可逆窗口」——各年龄段的数学学习都有效,数学能力终身可塑。中文媒体流传的「敏感期很短、12 岁后基本错过」无任何官方或研究来源</td><td>Marshall 2017</td></tr><tr><td>「数手指要纠正,心算才是真会」</td><td><b>错误,不应纠正</b>。手指是数概念的具身脚手架:手指使用与更强算术能力相关,手指训练的对照实验提升算术学习(Frey 2024,摘要级),2025 年课堂研究再证使用手指策略的孩子加法表现更好,研究者明确建议不要阻止(APA 新闻稿,机构级;原研究细节未读全文,如实标注)</td><td>Soylu 2018/Frey 2024/APA 2025</td></tr><tr><td>「男孩数学天生更好」</td><td><b>幼儿期不成立</b>。危险的是刻板印象先于差异内化:早在二年级、在真实数学成绩差异出现之前,儿童已在内隐与外显测量上持有「数学=男孩」的文化刻板(247 名 6-10 岁,Cvencek 2011,原文级摘要;美国样本)。家长侧:不在孩子面前说「我数学不好」「男孩数学好」这类话</td><td>Cvencek 2011</td></tr><tr><td>「提前教数数/算术会破坏兴趣或思维」</td><td><b>查无支持证据</b>。反向:学前数学干预(线性数字桌游等多项对照实验)报告一致正效应,未见「兴趣破坏」负效应(§2.3)。合理内核=高压、机械灌输可能伤兴趣——那是方式问题,且该假设本身同样缺乏直接检验,如实标注</td><td>§2.3 综合</td></tr><tr><td>「数学启蒙=会算数」</td><td><b>概念错位</b>。官方三目标里「数与量」只是一条,形状与空间、排列规律、生活中数学的应用并重(§3.1);计算上限=实物操作下 10 以内(5-6 岁)。数感、一一对应、量比较、空间语言都是数学,且都是生活里就能做的</td><td>教育部《指南》</td></tr><tr><td>「幼小衔接必须提前刷会 20 以内加减」</td><td><b>官方口径明确反向</b>。提前教授「计算」被 2018 年专项治理通知明令禁止(含社会培训机构);一年级设为入学适应期、坚持零起点教学(2021 意见);2026-08 教育部十问十答最新重申。按 CDC 筛查口径,「5 岁能数到 10」即在正常范围(§3.4)——刷题焦虑没有官方依据</td><td>教育部 2018/2021/2026</td></tr><tr><td>「报思维课/买思维练习=做数学启蒙」</td><td><b>领域错位</b>。数学认知与「思维训练」(执行功能/认知训练)是交叉而非包含关系的两个构念;认知训练的「远迁移」——迁移到数学等学业成绩——在 meta 层面效果小或不显著(Kassai 2019/Sala &amp; Gobet/Melby-Lervåg &amp; Hulme,摘要级;学前样本总体效应 g=0.352 且近远迁移无显著差异,Scionti 2020)。要数学就做数学本身(§2.3),别绕道</td><td>远迁移 meta 群</td></tr><tr><td>「看数学动画/玩数学 app=和真人教一样」</td><td><b>不等价,低龄差距更大</b>。0-6 岁从视频学习的成效系统性低于真人等价呈现(「视频缺陷效应」,meta 支持;量与共视口径见 screen.md,证据细节与英语库同源)。例外:app 作为<b>亲子互动媒介</b>——家长念题、孩子回答——有对照实验正效应(Berkowitz 2015,争议并陈见 §2.3)。差异不在用没用屏幕,在有没有成人为中介</td><td>Strouse 2021/Berkowitz 2015</td></tr></tbody></table>
+<h2>2. 数概念怎么长出来的,在家做什么(证据层)</h2>
+<h3>2.1 发展轨迹:孩子现在到哪一步了</h3>
+<ul><li><b>感数(不数就知道有几个)</b>:5-6 个月婴儿已能辨别小数量(注视时间</li></ul>
+<p>范式,是行为推断不是「会数数」);感数上限约 4,是前几个数词获得意义 的通路(Clements 1999,摘要级;Benoit 2004,摘要级)。</p>
+<ul><li><b>唱数 → 点数 → 基数,三步走</b>:约 2 岁开始口头唱数(背数字串,像背</li></ul>
+<p>儿歌);2-4 岁逐级成为「N-理解者」(能给对 1 个、2 个、3 个……); <b>约 3.5-4 岁达成基数原则</b>——真正理解「数到最后一个数=总数」 (Le Corre &amp; Carey 2007,摘要级;Sarnecka 2008,摘要级)。<b>家长侧 翻译:两三岁孩子指着图数完却说不对总数,不是笨也不是没学会数——基数 原则还没到,该在的阶段而已。</b></p>
+<ul><li>计数五原则(一一对应/固定顺序/基数/抽象/顺序无关)是 Gelman &amp;</li></ul>
+<p>Gallistel 1978 的<b>规范性理论框架</b>,不是实证发现本身——孩子不是 先懂原则再计数,而是逐级建构(Stanford 学前数学资源页,机构级)。</p>
+<ul><li><b>数线理解</b>:学前儿童对数量的估计从「对数压缩」向「线性」发展,</li></ul>
+<p>线性表征与数学能力相关;线性数字桌游可加速这一转变(Siegler &amp; Ramani 2008,摘要级)——这是 §2.3 桌游干预的机制。</p>
+<ul><li><b>数手指:正常且有益</b>,与更好的算术结果相关,干预实验方向一致</li></ul>
+<p>(§1 迷思行);随发展自然内化,无需干预。</p>
+<h3>2.2 早期数学预测什么(相关,不是因果)</h3>
+<ul><li>入学时的数学技能是后期学业成就的最强预测项之一——六个大型纵向数据</li></ul>
+<p>集汇总,数学强于阅读与注意力(Duncan 2007,摘要级);该预测持续到 八年级,但控制更严后关联强度约减半(Watts 2014,作者自存 PDF)。</p>
+<ul><li><b>两项都是观察性纵向相关,不是因果</b>:给家长的正确表述是「早期数学</li></ul>
+<p>是重要信号」,不是「早学数学决定一生」;机制追问仍在进行 (ten Braak 2022,摘要级)。</p>
+<h3>2.3 在家做什么:干预证据表</h3>
+<table><thead><tr><th>干预</th><th>证据强度</th><th>家长操作形态</th></tr></thead><tbody><tr><td><b>线性数字桌游(1-10)</b></td><td><b>最强</b>:多项小样本对照实验+独立复现(低收入学前样本);机制明确=空间线性排列——线性棋盘有效、圆形棋盘无效(Ramani &amp; Siegler 2008 系,摘要级)</td><td>买或自制 1-10 线性棋盘+骰子(棋子逐格走、大声念数字),每次 15-20 分钟、每周几次</td></tr><tr><td><b>日常数字语言(number talk)</b></td><td><b>强</b>:纵向(44 对亲子入户录音,家长数字词输入量与孩子 46 个月数知识相关 r=0.47,控制家庭背景后仍显著,且只预测数知识不预测一般词汇——Levine 2010,原文级)+ 因果实验(Gibson 2020,摘要级)</td><td>日常对话里数真实物件:「3 颗葡萄」「给你 2 块」——带着数量说话,而不是干背数字串</td></tr><tr><td>拼图/积木/空间游戏</td><td><b>中强</b>:纵向预测(2-4 岁拼图经验预测 4.5 岁空间技能,Levine 2012,摘要级)+ 2022 年 meta 支持空间训练对数学成绩的因果性提升(Hawes, Gilligan-Lee &amp; Mix 2022,摘要级;付费墙未读全文)</td><td>常玩拼图与自由积木;多用空间词(上下/里外/转一转/更长更短)</td></tr><tr><td>模式游戏(ABAB 排列)</td><td><b>中</b>:学前模式知识预测到五年级数学成绩(Rittle-Johnson 2017,摘要级);因果干预规模小、是否只是通用能力的代理仍有争议</td><td>珠子/积木排规律、找规律接龙、生活里指认模式(袜子条纹、地砖)</td></tr><tr><td>亲子数学 app/睡前数学</td><td><b>中等,有争议,并陈</b>:单一对照实验(587 名一年级学生,睡前数学 app 提升学年成绩,数学焦虑家长的子女受益最大——Berkowitz 2015,原文级摘要)遭遇统计方法质疑(Frank 2016),作者回应坚持结论,无大规模独立复现——可信度中等,不当定论宣传</td><td>若用屏幕,选「家长念题、孩子回答」的互动型;它有效的前提是替代焦虑家长的辅导,不是替代真人</td></tr><tr><td>手指游戏</td><td><b>中强(方向一致)</b>:相关+理论+干预实验(§1/§2.1)</td><td>不阻止掰手指,可主动玩手指游戏;自然内化</td></tr><tr><td><b>家长自身焦虑管理</b></td><td><b>中强</b>:大样本纵向——家长数学焦虑预测孩子数学成绩增长更少、孩子更焦虑,<b>但只在家长频繁辅导作业时出现</b>,对阅读无影响(Maloney 2015,原文级摘要;美国小学样本,向中国家庭「陪写作业」情境外推属降档)</td><td>数学焦虑高的家长少亲自「教」,改为一起玩(桌游/拼图)或用工具中介;与 Berkowitz 2015 交叉印证:传染路径可以被切断</td></tr></tbody></table>
+<h3>2.4 屏幕上学数学</h3>
+<p>视频缺陷效应的证据与英语库同源(Strouse 2021 meta,摘要级;0-6 岁从 视频学习系统性低于真人,越年幼差距越大),量与共视的底线口径归 screen.md,不在此重复。数学侧的结论与英语侧同构:<b>成人为中介是关键 变量</b>——亲子共玩/共读里的数学对话有证据,单独扔给 app 或动画没有。</p>
+<h2>3. 官方口径:各年龄段期待什么</h2>
+<h3>3.1 中国《3-6 岁儿童学习与发展指南》(2012):数学认知三目标</h3>
+<p>数学认知是「科学」领域下与「科学探究」并列的子领域,三条目标×三个 年龄段的「典型表现」要点(原文,全文见底稿 §4.5):</p>
+<table><thead><tr><th>目标</th><th>3-4 岁</th><th>4-5 岁</th><th>5-6 岁</th></tr></thead><tbody><tr><td>感知数学的有用有趣</td><td>感知物体形状多样;发现生活中很多地方用到数</td><td>(指导下)体会事物可用形状/数描述</td><td>发现排列规律并尝试创造;发现许多问题可用数学解决</td></tr><tr><td>感知数、量及数量关系</td><td>辨大小/多少/高矮;一一对应比多少;<b>手口一致点数 5 个以内并说出总数,能按数取物</b></td><td>辨粗细/厚薄/轻重;<b>通过数数比多少</b>;操作理解数间关系(「5 比 4 多 1」「2 和 3 合在一起是 5」)</td><td>理解量的相对性;<b>借助实际情境和操作理解加减的实际意义;能通过实物操作或其他方法进行 10 以内的加减运算</b></td></tr><tr><td>感知形状与空间关系</td><td>注意形状特征;理解上下/前后/里外</td><td>感知形体结构并拼搭;常见图形分类;更多方位词</td><td>用几何形体创意拼搭;按指示取放物品;辨别自己的左右</td></tr></tbody></table>
+<p>《指南》「说明」对提前教学的态度(原文):「要珍视游戏和生活的独特 价值……<b>严禁『拔苗助长』式的超前教育和强化训练</b>」;「忽视幼儿学习 品质培养,单纯追求知识技能学习的做法是短视而有害的」。</p>
+<h3>3.2 去小学化与幼小衔接(三份文件,一以贯之)</h3>
+<ul><li>2018 专项治理通知:「对于提前教授汉语拼音、识字、计算、英语等小学</li></ul>
+<p>课程内容的,要坚决予以禁止」——含社会培训机构;「小学坚持零起点 教学」(教育部官网,原文级)。</p>
+<ul><li>2021 幼小衔接意见:「幼儿园不得提前教授小学课程内容,不得布置读写算</li></ul>
+<p>家庭作业,不得设学前班」;「小学将一年级上学期设置为入学适应期」, 课程「游戏化、生活化、综合化」实施(教育部官网,原文级)。</p>
+<ul><li>2026-08 教育部「学段衔接十问十答」最新重申:零起点;一年级「认知以</li></ul>
+<p>具体形象思维为主……将数学知识嵌入游戏和真实生活情境」(央视网 转载,原文级)。</p>
+<h3>3.3 0-3 岁:官方没有任何数数要求</h3>
+<p>卫健委《托育机构保育指导大纲(试行)》(2021)七个领域里没有独立的 数学/数量条目;数量感知并入「认知」,25-36 月龄才出现「进行简单的 分类,<b>并感受生活中的数学</b>」——全程无点数、无数概念要求(政府网站 全文转载)。0-3 岁该做的是感官探索与生活体验,不是认数字。</p>
+<h3>3.4 国际口径对照(性质不同,不可直接比高低)</h3>
+<table><thead><tr><th>年龄</th><th>中国《指南》(教育目标)</th><th>英格兰 EYFS(5 岁末目标)</th><th>CDC 里程碑(75 分位筛查)</th></tr></thead><tbody><tr><td>3-4</td><td>点数 5 以内/按数取物/一一对应比多少</td><td>—</td><td>无数数条目</td></tr><tr><td>4-5</td><td>数数比多少/「5 比 4 多 1」/图形分类</td><td>—</td><td>无数数条目</td></tr><tr><td>5-6</td><td><b>实物操作下 10 以内加减</b>/规律/辨左右</td><td>数概念到 10(含构成、5 以内感数、数组合自动回忆);口头数过 20</td><td><b>数到 10</b>;指着能说出 1-5 的数字</td></tr></tbody></table>
+<p>对照口径:中国《指南》与 EYFS 都是教育目标,CDC 清单是发育筛查工具 (「到该年龄大多数儿童能做到」,75 分位)——<b>按 CDC 口径「5 岁数到 10」即属正常范围</b>;中外期待的差异真实存在,但它不是「必须提前刷题」 的理由,零起点教学政策正是对此的官方回应(§3.2)。原则侧补充:NAEYC 与 NCTM 联合立场声明主张「增强儿童对数学的自然兴趣、在游戏和日常 生活中整合数学」,不设年龄化算术指标(摘要级);AAP 无独立的早期数学 政策声明,其阅读推广项目的数学方向处于开发中(摘要级)。</p>
+<h2>4. 红旗:什么时候该专业评估(T2)</h2>
+<ul><li>计算障碍(dyscalculia)患病率约 3-7%,与读写障碍量级相当</li></ul>
+<p>(Haberstroh &amp; Schulte-Körne 2019,摘要级)。</p>
+<ul><li><b>学前红旗(家长级意识,不是诊断)</b>:数字与数量长期连不上(不理解</li></ul>
+<p>「3」对应三个东西)、开始计数明显晚于同伴、点数时经常丢对象、 「多/少/大/小」量级比较持续困难、按数量排序分类持续困难 (understood.org/Child Mind Institute,机构级)。</p>
+<ul><li>正式诊断通常 5-6 岁以后才可靠(数技能仍在形成期);区分口径=不是</li></ul>
+<p>「一时学不会」,而是<b>持续的、与整体发展水平不相称</b>的数概念困难。 发育筛查与就医路径走 milestones.md 红线;本篇只做红旗意识提示。</p>
+<h2>5. 来源与时效</h2>
+<p>全部来源 URL、溯源分级、矛盾处理与待补研清单见 docs/math-enlightenment-research-2026-10-19.md(§5 矛盾/§7 来源/§8 待补研)。本篇无价格/渠道类时点快照,复审重点=官方文件版本(《指南》 2012 版、课标 2022 版、去小学化政策连续性)与研究更新(Bedtime Math 复现状态、手指计数 2025 课堂研究原文);Bedtime Math 争议与模式训练 因果性两处已并陈,复审时先查有无新证据。</p>
+</article>
+<div class="foot">
+  <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>
+  <p>开源项目,数据本地:<a href="https://github.com/parent-guide-lab/parent-guide">GitHub 获取源码</a> ·
+  把它装进你的 AI,还能记录与回访你家孩子的计划。</p>
+</div>
+</div>
+</body>
+</html>
