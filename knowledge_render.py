@@ -97,13 +97,12 @@ def md_to_html(text: str) -> str:
 
     def flush_para():
         if para:
-            out.append("<p>" + " ".join(inline(x) for x in para) + "</p>")
+            out.append("<p>" + inline(" ".join(para)) + "</p>")
             para.clear()
 
     def flush_quote():
         if quote:
-            body = " ".join(inline(x) for x in quote)
-            out.append(f'<div class="note">{body}</div>')
+            out.append(f'<div class="note">{inline(" ".join(quote))}</div>')
             quote.clear()
 
     i = 0
