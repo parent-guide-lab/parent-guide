@@ -208,6 +208,14 @@
     "group": "发育与玩耍"
   },
   {
+    "file": "yundong.md",
+    "slug": "yundong",
+    "title": "运动与感统",
+    "hook": "动作发展口径、WHO 活动量与感统品类判定",
+    "src": "原创综述,基于教育部《3-6 指南》与 WHO 指南整理",
+    "group": "发育与玩耍"
+  },
+  {
     "file": "books.md",
     "slug": "books",
     "title": "育儿书地图",

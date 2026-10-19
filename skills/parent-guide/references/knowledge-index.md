@@ -102,6 +102,7 @@
 | 科学启蒙(自然观察·小实验·实验盒·科普纪录片·博物馆·STEAM 班·十万个为什么) | knowledge/kexue.md |
 | 音乐启蒙(莫扎特效应·胎教音乐·几岁学乐器·奥尔夫班·五音不全·跑调·音乐 App·考级·陪练) | knowledge/yinyue.md |
 | 美术启蒙(几岁学画·画得不像·要不要教·范画·简笔画·绘画敏感期·创意美术班·画材安全·考级·孩子让我画) | knowledge/meishu.md |
+| 运动体能/感统(感统训练要不要做·感统失调 80%·自测表·前庭训练·走路晚·大运动落后·放电·跳绳焦虑·平衡车·体适能·几岁学游泳·户外活动量) | knowledge/yundong.md |
 | 活动与绘本 | knowledge/activities.md |
 | 戒安抚物(奶嘴) | knowledge/weaning.md |
 | 如厕训练 | knowledge/toilet.md |
