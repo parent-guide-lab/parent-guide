@@ -4,13 +4,13 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 K="$ROOT/knowledge"
 
-for f in milestones.md sleep.md nutrition.md emotion.md activities.md tantrum-cdc.md anticipatory.md weaning.md toilet.md growth.md child-mind.md eczema.md newborn.md screen.md toys.md fears.md books.md praise.md honesty.md social.md english.md math.md thinking-training.md yuwen.md kexue.md; do
+for f in milestones.md sleep.md nutrition.md emotion.md activities.md tantrum-cdc.md anticipatory.md weaning.md toilet.md growth.md child-mind.md eczema.md newborn.md screen.md toys.md fears.md books.md praise.md honesty.md social.md english.md math.md thinking-training.md yuwen.md kexue.md yinyue.md; do
   [ -f "$K/$f" ] || { echo "FAIL: knowledge/$f missing"; exit 1; }
 done
 
 # provenance quartet (source + ingest date + verification method + next review quarter)
 # in every knowledge file header; the review quarter mirrors docs/knowledge-audit-LOG.md
-for f in milestones.md sleep.md nutrition.md emotion.md activities.md tantrum-cdc.md anticipatory.md weaning.md toilet.md growth.md child-mind.md eczema.md newborn.md screen.md toys.md fears.md books.md praise.md honesty.md social.md english.md math.md thinking-training.md yuwen.md kexue.md; do
+for f in milestones.md sleep.md nutrition.md emotion.md activities.md tantrum-cdc.md anticipatory.md weaning.md toilet.md growth.md child-mind.md eczema.md newborn.md screen.md toys.md fears.md books.md praise.md honesty.md social.md english.md math.md thinking-training.md yuwen.md kexue.md yinyue.md; do
   head -12 "$K/$f" | grep -q "入库" || { echo "FAIL: $f header lacks ingest-date line (入库)"; exit 1; }
   head -12 "$K/$f" | grep -q "核对=" || { echo "FAIL: $f header lacks verification method (核对=)"; exit 1; }
   head -15 "$K/$f" | grep -qE "下次复审:20[0-9]{2}-Q[1-4]" || { echo "FAIL: $f header lacks next-review quarter (下次复审:YYYY-QN, mirror of knowledge-audit-LOG.md)"; exit 1; }
@@ -24,7 +24,7 @@ grep -q "| 日期 |" "$K/BACKLOG.md" || { echo "FAIL: BACKLOG.md lacks table hea
 # (must stay in sync with the publish.sh whitelist)
 for f in "$K"/*.md; do
   case "$(basename "$f")" in
-    milestones.md|sleep.md|nutrition.md|emotion.md|activities.md|tantrum-cdc.md|anticipatory.md|weaning.md|toilet.md|growth.md|child-mind.md|eczema.md|newborn.md|screen.md|toys.md|fears.md|books.md|praise.md|honesty.md|social.md|english.md|math.md|thinking-training.md|yuwen.md|kexue.md|README.md|LICENSE.md|BACKLOG.md) ;;
+    milestones.md|sleep.md|nutrition.md|emotion.md|activities.md|tantrum-cdc.md|anticipatory.md|weaning.md|toilet.md|growth.md|child-mind.md|eczema.md|newborn.md|screen.md|toys.md|fears.md|books.md|praise.md|honesty.md|social.md|english.md|math.md|thinking-training.md|yuwen.md|kexue.md|yinyue.md|README.md|LICENSE.md|BACKLOG.md) ;;
     *) echo "FAIL: unknown root knowledge file '$f' — official set is closed; register it in publish.sh+here, or move it to knowledge/user/ (self-built layer)"; exit 1 ;;
   esac
 done
@@ -42,7 +42,7 @@ OFFICIAL = {"milestones.md", "sleep.md", "nutrition.md", "emotion.md", "activiti
             "tantrum-cdc.md", "anticipatory.md", "weaning.md", "toilet.md", "growth.md",
             "child-mind.md", "eczema.md", "newborn.md", "screen.md", "toys.md", "fears.md", "books.md",
             "praise.md", "honesty.md", "social.md", "english.md", "math.md",
-            "thinking-training.md", "yuwen.md", "kexue.md",
+            "thinking-training.md", "yuwen.md", "kexue.md", "yinyue.md",
             "quickref.md"}  # quickref lives in site-src/, not knowledge/
 REMAP = {"tantrum-cdc": "tantrum"}  # only non-same-name site page
 GROUPS = {"健康与身体", "喂养与睡眠", "习惯与界限", "情绪与行为", "发育与玩耍", "参考", "速查"}

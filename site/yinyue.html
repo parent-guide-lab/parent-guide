@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>音乐启蒙 · parent-guide</title>
+<meta name="description" content="莫扎特效应终审、乐器零官方口径与品类话术判定">
+<meta property="og:title" content="音乐启蒙 · parent-guide">
+<meta property="og:description" content="莫扎特效应终审、乐器零官方口径与品类话术判定">
+<style>
+  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
+    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
+    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background-color:var(--bg); color:var(--ink); line-height:1.75;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:22px 22px;
+    font-variant-numeric:tabular-nums; }
+  a { color:var(--accent); }
+  .num-serif { font-family:Georgia,serif; }
+  header.site { position:sticky; top:0; z-index:10; background:rgba(253,253,251,.95);
+    border-bottom:1px solid var(--line); backdrop-filter:blur(6px); }
+  .nav { max-width:860px; margin:0 auto; padding:10px 16px; display:flex;
+    gap:4px; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .brand { font-weight:700; color:var(--ink); text-decoration:none;
+    white-space:nowrap; margin-right:8px; }
+  .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
+  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+    padding:4px 10px; border-radius:6px; white-space:nowrap; }
+  .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
+  .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
+  .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
+  .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
+  .badge { display:inline-block; background:#fff; color:var(--accent);
+    border:1px solid var(--grid-line); border-radius:6px;
+    padding:3px 14px; font-size:13px; margin:16px 0 6px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px; margin:20px 0; }
+  .toc-group { font-size:14.5px; color:var(--accent); margin:24px 0 -8px; }
+  .card { background-color:var(--card);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:14px 14px;
+    border:1px solid var(--grid-line); border-radius:10px;
+    padding:20px; text-decoration:none;
+    color:var(--ink); display:block; }
+  .card:hover { border-color:var(--accent); }
+  .card h3 { font-size:16px; margin-bottom:6px; }
+  .card p { font-size:13.5px; color:#4a6076; }
+  .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
+  .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
+    padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
+  .ghost { display:inline-block; margin-left:12px; color:var(--accent);
+    text-decoration:none; font-size:15px; }
+  article { background-color:var(--card);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:14px 14px;
+    border:1px solid var(--grid-line); border-radius:10px;
+    padding:26px 26px 18px; }
+  article h1 { font-size:24px; margin-bottom:6px; color:var(--ink); }
+  .pagehead .src { color:var(--sub); font-size:13px; margin-bottom:18px; }
+  article h2 { font-size:19px; margin:26px 0 10px; color:var(--ink); }
+  article h3 { font-size:16px; margin:20px 0 8px; }
+  article p { margin:10px 0; font-size:15.5px; }
+  article ul, article ol { margin:10px 0 10px 22px; font-size:15.5px; }
+  article li { margin:4px 0; }
+  article table { width:100%; border-collapse:collapse; margin:14px 0;
+    font-size:14px; display:block; overflow-x:auto; }
+  article th, article td { border:1px solid var(--line); padding:7px 10px;
+    text-align:left; vertical-align:top; }
+  article th { background:var(--accent-soft); font-weight:600; }
+  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+    padding:12px 14px; font-size:14px; margin:12px 0; }
+  article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
+    overflow-x:auto; font-size:13.5px; }
+  article code { background:var(--accent-soft); border-radius:5px;
+    padding:1px 6px; font-size:.92em; font-family:ui-monospace,Menlo,monospace; }
+  article pre code { background:none; padding:0; }
+  article hr { border:none; border-top:1px dashed var(--grid-line); margin:22px 0; }
+  .foot { margin-top:28px; padding-top:18px; border-top:1px solid var(--line);
+    color:var(--sub); font-size:12.5px; }
+  .foot p { margin:6px 0; }
+</style>
+</head>
+<body>
+<header class="site"><nav class="nav"><a class="brand" href="index.html">🧸 parent-guide<small>知识库</small></a><a class="t" href="quick-ref.html">速查</a><a class="t" href="growth.html">生长监测</a><a class="t" href="eczema.html">湿疹护理</a><a class="t" href="newborn.html">新生儿两题</a><a class="t" href="anticipatory.html">前瞻节点</a><a class="t" href="sleep.html">睡眠</a><a class="t" href="nutrition.html">营养与喂养</a><a class="t" href="toilet.html">如厕训练</a><a class="t" href="weaning.html">戒安抚物</a><a class="t" href="screen.html">屏幕执行层</a><a class="t" href="honesty.html">诚实与说谎</a><a class="t" href="emotion.html">情绪与管教</a><a class="t" href="tantrum.html">发脾气现场</a><a class="t" href="child-mind.html">孩子的逻辑</a><a class="t" href="fears.html">恐惧与脱敏</a><a class="t" href="praise.html">表扬与思维</a><a class="t" href="milestones.html">发育里程碑</a><a class="t" href="activities.html">活动与绘本</a><a class="t" href="toys.html">玩具与环境</a><a class="t" href="social.html">同伴与同胞</a><a class="t" href="english.html">英语启蒙</a><a class="t" href="math.html">数学启蒙</a><a class="t" href="thinking-training.html">思维训练</a><a class="t" href="yuwen.html">语文启蒙</a><a class="t" href="kexue.html">科学启蒙</a><a class="t on" href="yinyue.html">音乐启蒙</a><a class="t" href="books.html">育儿书地图</a></nav></header>
+<div class="wrap">
+<div class="pagehead" style="margin-bottom:14px">
+  <span class="badge">循证参考</span>
+</div>
+<article>
+<h1>音乐启蒙</h1>
+<div class="src">原创综述,基于教育部《3-6 指南》与音乐发展研究整理 · 原创综述,不搬运机构原文 · 下次复审 2027-Q3</div>
+<h2>0. 一句话结论与四条纪律</h2>
+<p><b>结论:中外官方口径罕见地完全一致——学前音乐=「听好听的声音-自哼自唱-唱歌-律动-敲节拍」,《指南》与 EYFS 法定文本中「乐器」均 0 次出现,5-6 岁官方上限是「能用基本准确的节奏和音调唱歌」;官方课程链条上音乐分科从小学 3 年级才开始(课标 1-2 年级=艺术综合)。莫扎特效应=「大学生听莫扎特后空间推理暂时提升 10-15 分钟」被媒体扭曲成「听古典乐变聪明」,复制失败链+元分析≈0 已终审,原作者本人从未宣称提升智力。发展科学侧:婴儿向歌唱是证据最强的家庭音乐活动(母婴皮肤电同步下降=安抚的直接生理证据);节拍精确同步 5 岁前不成熟、12 岁仍未达无训练成人水平——「跟不上拍」不是问题;普通话背景音乐学生的绝对音感获得率在每个学琴起始段都更高,但 AP 是窄表型且早期训练必要不充分;失歌症是成人期才可诊断的 1.5% 神经发育状况,幼儿期唱不准极常见。音乐=非学科类合法在售(与思维训练/语文监管反向),但钢琴市场 2024 年起明显收缩(功利性学琴需求消退)。</b></p>
+<p>纪律(先于一切建议):</p>
+<ol><li><b>预期写在感受与表达上</b>:学前的音乐目标是爱听、敢唱、随乐动(官方四目标),不写「学会乐器」「考级」「音准达标」。</li><li><b>话术判定线</b>:「音乐敏感期」「学乐器黄金期」=无官方口径的营销话语(官方文件程序化检索 0 次);「绝对音感窗口」同为营销词(机构官网未捕获该宣称,AP 早期证据是群体统计不构成个体窗口)。</li><li><b>莫扎特效应判定线</b>:「听古典乐/莫扎特变聪明」=已终审的迷思(元分析≈0);给音乐投入的理由是音乐本身+互动,不是智力投资。</li><li><b>「跑调」「跟不上拍」不纠正</b>:儿童期唱不准极常见且随发展改善,失歌症成人期才可诊断;节拍精确同步是学龄期才成熟的技能——学前评价「音准节奏」是把发展终点当前提。</li></ol>
+<h2>1. 迷思拆解(先校准期望,再动手)</h2>
+<table><thead><tr><th>说法</th><th>判定</th><th>依据</th></tr></thead><tbody><tr><td>「听莫扎特/古典乐能变聪明,要从小听」</td><td><b>已终审的迷思</b>。1993 原始研究(Rauscher 等,Nature)=大学生听 K.448 后<b>空间推理分测验</b>暂时提升,<b>10-15 分钟内消失</b>,从未测量整体 IQ——原作者回复质疑原话「We made no such claim」(Rauscher 1999 Nature 回复,摘要级);复制失败链(Steele 1997 倒背数字无差异/1999 n=206 按 Rauscher 自定条件重做仍失败);Chabris 元分析=任何提升都很小、可用<b>享受度/唤醒度</b>解释(听莫扎特或听 Stephen King 故事都提升,仅限自报喜欢者);Pietschnig 2010 元分析(约 39 项)=效应量小到无实际意义+实验室归属调节+发表偏倚;德国官方报告「被动听莫扎特或任何你喜欢的音乐都不会变聪明」;Rauscher 本人公开表示(佐治亚送 CD)那笔钱更应花在音乐教育上</td><td>Jenkins 2001(原文级)+Pietschnig 2010(转述级;与 thinking-training.md §2.4 音乐训练迁移≈0 的结论方向一致);媒体史=NYT 1994→Don Campbell 商业化→1998 佐治亚政策</td></tr><tr><td>「胎教音乐启迪大脑,莫扎特 for baby」</td><td><b>无科学证据的品类</b>。胎教音乐的智力宣称与莫扎特效应同源(已终审);知乎主流口径「价值在调节孕妇情绪,勿贴腹大音量播放」方向正确;机构侧连销胎教产品的美育自己台湾站都发辟谣文(8 项研究)——「已被验证过的莫扎特」话术是效应余毒。听音乐让孕妇愉悦放松是真实价值(经母体情绪间接作用),不是「给宝宝大脑充电」</td><td>B 路+D 路(§3.5);贴腹大音量有胎儿听力安全顾虑(常识级,从严只说「勿贴腹大音量」)</td></tr><tr><td>「学乐器有黄金期/敏感期,越早越好」</td><td><b>无官方口径、无研究口径</b>。官方文件「音乐敏感期」「学乐器黄金期」类表述官方程序化检索 0 次;「乐器学习最佳起始年龄」的系统研究<b>未查到</b>;唯一硬年龄证据在绝对音感(≤4 岁训练 40% vs ≥9 岁 3%)——但 AP 是窄表型,且早期训练必要不充分;官方课程链条音乐分科 3 年级才开始。选择起始年龄取决于个体动作/注意/兴趣,不存在「过了 X 岁就晚了」的窗口;美育「孩子坐稳了就可以来上了——越早开始越重要」(6 个月起)=商业话术</td><td>官方程序化检索+B 路(§2.4);北京卫健委科普「5 岁以下不宜学钢琴」(转述级)方向一致</td></tr><tr><td>「五音不全会遗传,孩子跑调没救」</td><td><b>部分对,方向要修正</b>。失歌症家族聚集确实强(一级亲属同患率 46%,λs=10.8——复杂遗传非单基因);但发生率=<b>1.5%</b>(Peretz &amp; Vuvan 2017 n=20,000 新口径;「4%」是 1980 旧估)、不被音乐训练缓解、且<b>成人期才能可靠诊断</b>——儿童期唱不准极常见(发展现象),把幼儿跑调判为「遗传没救」双重错误;嗓音是可教授的技能,差异主要来自机会与教学(Welch/NAfME)</td><td>Peretz 系(摘要级)+Welch(转述级)</td></tr><tr><td>「奥尔夫音乐班=科学的音乐启蒙体系」</td><td><b>真实流派,但不等于效果证据</b>。奥尔夫/柯达伊/铃木是真实教学法体系(各有官方协会与教师认证,方法论层=T3 流派照 books.md 口径);市面「奥尔夫早教班」为商业延伸——Kindermusik 类机构宣称「融合奥尔夫/柯达伊/达克罗兹三大教学法」(底稿 D 路记录)——是把流派名当背书;体系教学效果的商品级 RCT 与思维训练品类同样缺位(thinking-training.md §2.5 同构);铃木属器乐技能教学体系,归学龄技能侧</td><td>A 路(机构级);与 thinking-training.md 判定线同构</td></tr><tr><td>「孩子跟不上节拍=没节奏感/没天赋」</td><td><b>发展时间表问题,不是天赋问题</b>。精确的感觉运动同步 5 岁前不成熟、6-11 岁渐近改善、12 岁仍未达无训练成人水平(Phillips-Silver 2024 运动捕捉);2.5 岁儿童在<b>社交情境</b>(与成人一起)已能对齐节拍、对鼓机完全失败(Kirschner &amp; Tomasello 2009,原文级)——一起拍手踏脚有效,对着节拍器要求孩子「打准」是反发展的</td><td>K&amp;T 2009(原文级)+Phillips-Silver 2024(摘要级)</td></tr><tr><td>「唱歌给宝宝能促进语言发育/建立依恋」</td><td><b>方向有证据,因果别写死</b>。婴儿向歌唱是真实普遍的养育行为:母亲唱摇篮曲时<b>母婴皮肤电导同步下降到基线以下</b>(安抚的直接生理证据),游戏歌注意更长(Cirelli 2020);婴儿对歌声的注意由「快乐音质」驱动(Corbeil 2013);唱歌音准与语言技能<b>相关</b>(Torppa 2026,关联非因果)——<b>「唱歌→语言/依恋」的因果 RCT 未查到</b>;可靠口径=唱歌调节婴儿注意与唤醒、维系互动(语言学习的背景条件),AAP:互动式唱歌优先于被动播放音乐</td><td>Trehub/Cirelli 系(摘要级)+AAP(转述级)</td></tr><tr><td>「学琴要趁早否则浪费绝对音感天赋」</td><td><b>群体统计不推断个体</b>。普通话(声调语言)背景音乐学生的 AP 率在每个学琴起始段都显著高于非声调语言学生(Deutsch 2006,JASA 原文级;上海音乐学院≤5 岁训练者音名辨认 83%,Deutsch 2013)——这是群体差异;且普通人也有「潜在绝对音高」(唱熟悉流行歌两次都在原调 2 半音内者 44%,Levitin 1994),罕见的只是「音高标签化」;AP 对普通音乐生活不是必需品,为 AP 窗口焦虑性早教不成比例</td><td>Deutsch 系列(原文级+摘要级)+Levitin 1994</td></tr></tbody></table>
+<h2>2. 证据层:话术背后是什么,证据到哪一步</h2>
+<h3>2.1 构念地图</h3>
+<table><thead><tr><th>用语</th><th>学术/官方对应</th><th>判定</th></tr></thead><tbody><tr><td>音乐启蒙</td><td>early childhood music education(ECME,ISME 官方委员会+专属期刊)+发展音乐心理学学前段</td><td>真实领域建制完整</td></tr><tr><td>音乐能力(musicality)</td><td>「自然的、自发发展的、受生物与认知约束的特质」(Honing/Peretz/Trehub 2015);构成=音高/节奏/和声/音色</td><td>真实构念(定义转述级)</td></tr><tr><td>绝对音感</td><td>absolute pitch:不经参照辨认音名;与语言背景相关</td><td>真实窄构念</td></tr><tr><td>失歌症</td><td>congenital amusia:音准编码先天缺陷,与 beat deafness 双重分离</td><td>真实(发生率 1.5%,成人期诊断)</td></tr><tr><td>奥尔夫/柯达伊/铃木</td><td>教学法流派(各有协会建制)</td><td>真实流派=方法论层 T3,非效果证据</td></tr><tr><td>「音乐敏感期」「乐器黄金期」</td><td>无对应</td><td><b>营销词(官方 0 次)</b></td></tr><tr><td>「全脑发展音乐课」</td><td>无对应构念</td><td><b>营销词</b>(美育式话术;右脑开发同款判定见 thinking-training.md)</td></tr></tbody></table>
+<h3>2.2 发展轨迹(外推降档随行)</h3>
+<table><thead><tr><th>线</th><th>时间表</th><th>证据</th></tr></thead><tbody><tr><td>节拍感知</td><td>新生儿即对节奏强拍建立预期(EEG)——先天</td><td>Winkler 2009 PNAS(摘要级)</td></tr><tr><td>节拍动作同步</td><td>2.5 岁:社交情境(与成人共同击鼓)可对齐节拍,对鼓机失败;3.5-4.5 岁两条件均可;<b>精确同步 5 岁前不成熟、6-11 岁渐近、12 岁未达无训练成人水平</b></td><td>K&amp;T 2009(<b>原文级</b>)+Phillips-Silver 2024(摘要级)</td></tr><tr><td>歌唱发展</td><td>Welch 分期:0-2 岁语言歌唱混合体→2-4 岁讲话型歌唱→4-7 岁近说话音高→约 5 岁起近似旋律(轮廓渐准)→6-7 岁巩固→7-8 岁胜任旋律歌唱→9-10+ 胜任歌者;<b>嗓音=可教授技能,差异主要来自机会与教学</b></td><td>Welch 2006(转述级,被引 400+)</td></tr><tr><td>音准</td><td>幼儿期唱不准极常见,随年龄与音乐活动量改善(关联证据);失歌症成人期才可诊断</td><td>Torppa 2026(摘要级)+Peretz 系</td></tr><tr><td>绝对音感</td><td>≤4 岁训练 40% vs ≥9 岁 3%(音乐家调查);普通话背景每个起始段更高;潜在绝对音高普通人 44%</td><td>Baharloo 1998/Deutsch 2006(<b>原文级</b>)/Levitin 1994(摘要级)</td></tr><tr><td>音乐偏好</td><td>协和音偏好存争议(熟悉性&gt;先天性,勿写定论)</td><td>Plantinga &amp; Trehub 2014(摘要级)</td></tr></tbody></table>
+<h3>2.3 家庭音乐活动证据分级表</h3>
+<table><thead><tr><th>活动</th><th>证据与状态</th><th>家长操作形态</th><th>分级与外推</th></tr></thead><tbody><tr><td><b>给婴儿唱歌(证据最强)</b></td><td>婴儿向歌唱跨文化普遍且可辨(音高更高速度更慢,Trehub 1997);<b>母亲唱摇篮曲时母婴皮肤电导同步下降=安抚的直接生理证据</b>;游戏歌注意更长,摇篮曲/游戏歌功能分化(Cirelli 2020)</td><td>摇篮曲安抚+游戏歌逗趣,两样都唱;唱得开心比唱得准重要(婴儿注意由「快乐音质」驱动,Corbeil 2013)</td><td>摘要级;西方样本为主降档</td></tr><tr><td>一起律动/拍手踏脚</td><td>2.5 岁社交情境可同步(K&amp;T 2009 原文级)——<b>社交存在是低龄同步的关键变量</b></td><td>「一起」比「跟着」有效:拉着小手一起摇、面对面拍手;不对节拍器/APP 要求「打准」</td><td>原文级</td></tr><tr><td>听音乐/儿歌</td><td>被动听的音乐智力效应=莫扎特效应判定线(§1);AAP:互动式唱歌优先于被动播放</td><td>当背景可以,当「启蒙」不够——听时跟着哼、指着声音聊(「这个声音低低的」)比单纯放着强</td><td>转述级(AAP)</td></tr><tr><td>音乐 App/熏教机</td><td>商品级 RCT 查无(与实验盒同构);屏幕量底线见 screen.md</td><td>限时+陪听;「定时熏听」宣称无效果证据</td><td>未查到研究</td></tr><tr><td>学乐器(学前)</td><td>系统起始年龄证据未查到;学前器乐技能训练无官方位置(《指南》乐器 0 次);迁移证据归 thinking-training.md(≈0)</td><td>学前用「可敲击的物品」敲节拍(《指南》4-5 岁条目)就是官方口径的乐器替代;真学乐器等孩子的动作/注意/兴趣,不赶窗口</td><td>未查到研究+官方口径</td></tr><tr><td>「音乐素养课」</td><td>流派名当背书,商品级检验缺位</td><td>按活动形态(唱跳敲玩)与师生互动质量评估,不按流派名</td><td>未查到研究</td></tr></tbody></table>
+<h3>2.4 「过早学琴」与考级焦虑</h3>
+<ul><li>「5 岁以下不宜学钢琴」(北京卫健委科普,转述级)方向与官方口径一致——不是「有害」论证而是「无制度位置+发展不匹配」;「影响手指发育」的直接证据未查到(与 yuwen.md「过早写字有害」同款:官方口径=正式技能训练属学龄,不写「必然损伤」)。</li><li><b>钢琴市场收缩(时点快照)</b>:2024 年 7000+ 琴行倒闭、珠江钢琴销量 2019 年 15.61 万台→2024 年 3.77 万台、考级人数连续断崖(钛媒体/新京报,转述级);对冲口径:中国乐器协会称学琴人数未大幅减少(新华网 2024-02)——分歧并陈;结构性解读=考级加分取消后功利性学琴需求消退,留下的是真兴趣需求(对家长反而是利好信号)。</li></ul>
+<h2>3. 官方口径(中国原文级+国际对照)</h2>
+<h3>3.1 《指南》艺术领域:感受与表达,零乐器</h3>
+<p><b>(原文级,教育部原始 doc 全文直读)</b>。两子领域四目标:感受与欣赏(①喜欢自然界与生活中美的事物②喜欢欣赏多种多样的艺术形式和作品)+表现与创造(①喜欢进行艺术活动并大胆表现②具有初步的艺术表现与创造能力)。<b>导语关键句(逐字)</b>:「每个幼儿心里都有一颗美的种子」「<b>不能用自己的审美标准去评判幼儿,更不能为追求结果的『完美』而对幼儿进行千篇一律的训练,以免扼杀其想象与创造的萌芽</b>」。音乐条目轨迹:3-4 岁「经常自哼自唱」「能模仿学唱短小歌曲」「能跟随熟悉的音乐做身体动作」→4-5 岁「能用自然的、音量适中的声音基本准确地唱歌」「即兴哼唱、编词表达心情」「能用拍手、踏脚等身体动作或可敲击的物品敲打节拍和基本节奏」→5-6 岁「<b>能用基本准确的节奏和音调唱歌</b>」「能用律动或简单的舞蹈动作表现自己的情绪」。教育建议:「欣赏和回应幼儿的哼哼唱唱、模仿表演等自发的艺术活动,赞赏他独特的表现方式」「<b>成人不做过多要求</b>」「不简单用『像不像』『好不好』等成人标准来评价」。<b>程序化计数:「乐器」全文 0 次</b>;「音乐」7 次(艺术领域 5)、「节奏」3、「唱歌/歌唱」5、「律动」2、「哼唱」2、「敲击」1、「音调」1——零乐器零技能达标目标,官方用「可敲击的物品」替代乐器。</p>
+<h3>3.2 课程链与监管</h3>
+<ul><li><b>课标 2022 艺术(转述级,扫描版多源交叉)</b>:教材〔2022〕2 号;<b>1-2 年级=艺术综合(幼儿园综合活动到小学分科的过渡),音乐自立分科主线从 3 年级起</b>;艺术五科(音乐/美术/舞蹈/戏剧含戏曲/影视);核心素养四维=审美感知/艺术表现/创意实践/文化理解——「学乐器式」技能训练在 9 岁前的官方课程链条上无制度位置。</li><li><b>监管:音乐=非学科类(文化艺术类)</b>,双减后合法在售,文旅部门主管+预收费监管(与思维训练/语文品类监管环境反向,如实区分);说明部分全局禁令照旧(「严禁拔苗助长」「单纯追求知识技能=短视而有害」)。</li><li>0-3 岁:托育大纲「音乐/艺术/唱歌/律动/节奏」全部 0 次(儿歌 4 次全附属语言章节)——零要求零禁令,儿歌附属语言。</li></ul>
+<h3>3.3 国际对照</h3>
+<ul><li><b>EYFS EAD(2026-09 施行版法定 PDF,原文级全文)</b>:两 ELG——Creating with Materials/Being Imaginative and Expressive,后者含「<b>Sing a range of well-known nursery rhymes and songs</b>」「<b>try to move in time with music</b>(试着合拍律动)」;程序化计数 music 仅 1 次、instrument 0 次——<b>与《指南》罕见一致:唱歌谣+随乐律动,不含乐器</b>。</li><li><b>NAfME 2018 立场(机构级逐字)</b>:「Aural music learning begins at approximately 5 months gestation」「each has the right to a musical childhood」——play-based、结构化与非结构化并重、出生前至 8 岁;无敏感期时间窗叙事。</li><li>Gordon Music Learning Theory(机构级):audiation=头脑中听见并理解音乐,先歌唱律动建立听觉表象再引入乐谱(「先听后谱」)。</li><li>WHO 5 岁以下指南不涉音乐(唱歌仅作照护者互动示例);AAP(转述级):照护者互动式唱歌优先于被动录音/音乐媒体。</li><li>中外一致图景:<b>学前音乐官方口径全部落在「唱歌+律动+听」,无一含乐器与技能达标</b>;分歧只在包装名称。</li></ul>
+<h2>3.5 品类图谱与话术拆解(时点快照 2026-10-19)</h2>
+<div class="note">时点快照:价格/在架/年龄宣称随时间漂移,购买前自行核对;深度选购留 R4。</div>
+<p><b>五类图谱与「买它实际在做什么」对照</b>:</p>
+<table><thead><tr><th>品类</th><th>代表</th><th>买它实际在做什么</th><th>判定框架一句话</th></tr></thead><tbody><tr><td>音乐启蒙 App</td><td>宝宝巴士音乐启蒙、贝乐虎儿歌(4.68 分)、音乐壳(4.67 分)、小小音乐家(3.77 分)</td><td>游戏化乐器认知/弹奏+儿歌内容</td><td>商品级 RCT 查无;音乐壳「AI 识别+<b>音基考级包过</b>」=最激进承诺型话术(考级不进学龄前议程);屏幕量见 screen.md</td></tr><tr><td>奥尔夫/音乐律动班</td><td>美育(1983 台湾起家,0-8 岁分阶)、金宝贝音乐课(6 个月起)、Kindermusik(0-7 岁)</td><td>亲子律动班课</td><td>流派名=背书非效果证据;宣称「融合奥尔夫/柯达伊/达克罗兹」是营销叠加;按活动形态与互动质量评估</td></tr><tr><td>陪练 App</td><td>VIP 陪练(2022 暴雷)、快陪练(2021 破产);现存虫虫钢琴/音壳/DeepPiano 类</td><td>真人 1v1 已退出市场,现存为 AI 纠错/识谱工具</td><td>学龄产品;暴雷史=预付费风险样本(买课先看退费条款)</td></tr><tr><td>儿歌硬件</td><td>牛听听(熏教机:定时熏听+艾宾浩斯宣称)、火火兔(3000 万家庭宣称)</td><td>分龄内容推送+播放器</td><td>「熏听」宣称无效果证据(被动听判定线);硬件本质=内容播放器,价值取决于一起听还是单独放</td></tr><tr><td>胎教产品</td><td>胎教音乐盒(6 元/月起)、胎教盒子、BabyPlus 类</td><td>音乐播放+孕期工具</td><td>智力宣称无证据(§1);孕妇自己听着愉悦放松=真实价值;「已验证的莫扎特」=效应余毒</td></tr></tbody></table>
+<p><b>话术逐字(判定归各节)</b>:</p>
+<table><thead><tr><th>话术(逐字)</th><th>出处</th><th>判定</th></tr></thead><tbody><tr><td>「0~8 歲是大腦發展最快的階段,音樂與律動能同時刺激聽覺、動覺、語言、情緒」「是少數能『全腦發展』的活動」「孩子坐穩了,就可以來上了——越早開始越重要」</td><td>美育官网(2026-10 抓取,原文级)</td><td>「全脑发展」无构念(右脑开发同款判定线);「越早越好」无窗口依据;注:该官网<b>未见「敏感期/黄金期」字样</b>(如实记录),且其台湾站另发胎教辟谣文——同机构既营销又辟谣</td></tr><tr><td>「【考级神器】独具特色的『包过』音基考级教学精准一对一线上辅导,考级?只是小意思~」「8 分钟的互动体验,让孩子爱上一门乐器」</td><td>音乐壳 App Store 描述(原文级)</td><td>「包过」=最激进承诺型;「8 分钟爱上一门乐器」无依据</td></tr><tr><td>「激发音乐潜能」「建立基础的音乐素养」</td><td>金宝贝官网(原文级)</td><td>「潜能」话术;未见敏感期字样(如实)</td></tr><tr><td>「抓住语言发育敏感期 会科学5阶段教宝宝说英语」</td><td>火火兔官网(转述级摘要)</td><td>「敏感期」话术典型样本(虽在英语线)</td></tr><tr><td>「胎教音乐的选择是关键,尽量选择已经被验证过的如莫扎特、贝多芬」</td><td>胎教音乐盒 App Store 描述(原文级)</td><td>「已被验证」=莫扎特效应余毒,验证结论恰是无效</td></tr><tr><td>「通过这些好玩的音乐游戏,可以帮助孩子们培养创造力、乐感、手眼协调以及专注力」</td><td>小小音乐家 App Store 描述(原文级)</td><td>多能力打包承诺无依据</td></tr></tbody></table>
+<h2>4. 红旗与求助线(T2)</h2>
+<p>本品类无 T1 红线。两条 T2:</p>
+<ol><li><b>对声音无反应/听觉疑虑</b>:对响声不惊跳、不对人声/音乐有反应、语言里程碑落后——走 milestones.md 红旗与听力筛查口径(听觉是语言与音乐的地基,评估优先)。</li><li><b>机构「音乐天赋测评/绝对音感窗口」话术</b>:以「错过音感窗口」「测评显示音乐天赋高/低」促单——无官方口径无研究支持(AP 群体差异不推断个体),不作为评估依据。</li></ol>
+<h2>5. 来源与时效</h2>
+<ul><li>R1 调研(2026-10-19,自动化轮四路):全部来源 URL+溯源分级见</li></ul>
+<p>docs/yinyue-enlightenment-research-2026-10-19.md(§4 论证/§7 来源清单/§8 待补研)。</p>
+<ul><li>复审优先级:①课标 2022 艺术逐字(扫描版,升级=北师大纸质版);②Pietschnig 2010 精确 d 值;③钢琴市场口径分歧的权威数据;④§3.5 时点快照价格与在架(R4 深度选购轮一并做)。</li><li>效应量与数字忠于实际读到的层级:《指南》/EYFS 法定 PDF/K&amp;T 2009/Deutsch 2006/Jenkins 2001=原文级;Winkler/Phillips-Silver/Baharloo/Deutsch 2013/Peretz &amp; Vuvan/Cirelli/Trehub 系=摘要级;Welch 分期/Pietschnig d 值/课标结构/钢琴市场=转述级——分级升级即数字复核(台账遗留)。</li></ul>
+<p><b>来源清单(2026-10-19 访问;「—」=底稿未记录直链;链接死活随下次复审重查)</b>:</p>
+<table><thead><tr><th>来源</th><th>分级</th><th>链接</th></tr></thead><tbody><tr><td>《3-6 岁儿童学习与发展指南》教育部原始 doc(艺术领域)</td><td>原文级</td><td><a href="http://www.moe.gov.cn/srcsite/A06/s3327/201210/t20121009_143254.html">moe.gov.cn</a></td></tr><tr><td>EYFS statutory framework(2026-09 版 PDF)</td><td>原文级</td><td><a href="https://www.gov.uk/government/publications/early-years-foundation-stage-framework--2">gov.uk</a></td></tr><tr><td>Kirschner &amp; Tomasello 2009 节拍同步</td><td>原文级</td><td><a href="https://www.eva.mpg.de/documents/Elsevier/Kirschner_Joint_JExpChildPsych_2009_1552981.pdf">eva.mpg.de PDF</a></td></tr><tr><td>Deutsch et al. 2006 绝对音感(JASA 119:719)</td><td>原文级</td><td><a href="https://deutsch.ucsd.edu/pdf/JASA-2006_119_719-722.pdf">deutsch.ucsd.edu PDF</a></td></tr><tr><td>Jenkins 2001 莫扎特效应综述</td><td>原文级</td><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1281386/">PMC1281386</a></td></tr><tr><td>NAfME Early Childhood Music Education 立场</td><td>机构级</td><td><a href="https://nafme.org/resource/early-childhood-music-education">nafme.org</a></td></tr><tr><td>美育官网</td><td>原文级</td><td><a href="https://www.kidsmusic.com.tw">kidsmusic.com.tw</a></td></tr><tr><td>金宝贝官网</td><td>原文级</td><td><a href="https://www.gymboglobal.com.cn">gymboglobal.com.cn</a></td></tr><tr><td>App Store API(音乐壳/贝乐虎/胎教音乐盒等)</td><td>原文级</td><td>—(iTunes CN API)</td></tr><tr><td>Winkler 2009/Phillips-Silver 2024/Baharloo 1998/Deutsch 2013/Peretz &amp; Vuvan 2017/Cirelli 2020 等</td><td>摘要级</td><td>见底稿 §7(Europe PMC)</td></tr><tr><td>托育大纲(沈阳卫健委转载全文)</td><td>机构级</td><td><a href="https://wjw.shenyang.gov.cn/zwgk/fdzdgknr/rkjcyjtfz/202208/t20220803_3800122.html">wjw.shenyang.gov.cn</a></td></tr><tr><td>义务教育艺术课标 2022(扫描版)</td><td>转述级</td><td><a href="http://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582364678888.pdf">moe.gov.cn</a></td></tr><tr><td>其余转述级/标题级来源</td><td>随行标注</td><td>见底稿 §7 来源清单</td></tr></tbody></table>
+</article>
+<div class="foot">
+  <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>
+  <p>开源项目,数据本地:<a href="https://github.com/parent-guide-lab/parent-guide">GitHub 获取源码</a> ·
+  把它装进你的 AI,还能记录与回访你家孩子的计划。</p>
+</div>
+</div>
+</body>
+</html>
