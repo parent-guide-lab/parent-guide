@@ -200,6 +200,14 @@
     "group": "发育与玩耍"
   },
   {
+    "file": "meishu.md",
+    "slug": "meishu",
+    "title": "美术启蒙",
+    "hook": "涂鸦发展分期、范画之争与画材安全底线",
+    "src": "原创综述,基于教育部《3-6 指南》与绘画发展研究整理",
+    "group": "发育与玩耍"
+  },
+  {
     "file": "books.md",
     "slug": "books",
     "title": "育儿书地图",
