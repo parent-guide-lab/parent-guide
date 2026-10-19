@@ -168,6 +168,14 @@
     "group": "发育与玩耍"
   },
   {
+    "file": "thinking-training.md",
+    "slug": "thinking-training",
+    "title": "思维训练",
+    "hook": "话术背后的构念、训练迁移证据与政策红线",
+    "src": "自写综述,基于认知训练 meta 群与教育部政策原文整理",
+    "group": "发育与玩耍"
+  },
+  {
     "file": "books.md",
     "slug": "books",
     "title": "育儿书地图",
