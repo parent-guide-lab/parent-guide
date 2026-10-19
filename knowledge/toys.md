@@ -4,6 +4,7 @@
 > 来源口径:Dauch 2017、Sosa 2016、Schmidt 2008(背景屏)、CPSC/Reese's Law、
 > AACAP 常规建议。
 > **入库:2026-10-09(BACKLOG 清账,缺口调研+蒸馏);核对=每条由调研 subagent
+> **下次复审:2027-Q3**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 > 带来源与分级回传;用户拍板合入,独立审计轮 21 处修正已并入(调研+审计底稿 docs/distill-2026-10-09/)**
 
 ## 1. 少而开放 > 多而堆放

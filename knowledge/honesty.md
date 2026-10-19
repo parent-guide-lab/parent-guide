@@ -6,6 +6,7 @@
 > 内心假设」的通用框架,本篇管诚实这个域的常模与应对;与 emotion.md 的
 > 分工:管教谱系与崩溃现场归 emotion.md,本篇只处理「真相与谎言」。
 > **入库:2026-10-15;核对=Talwar & Lee 2008 与 Talwar 2015 与 Hays &
+> **下次复审:2027-Q3**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 > Carver 2014 与 Talwar 2007 与 Fu 2007 与 Ma 2010 与 Curtis & Hart 2020
 > (原文级 PMC/PDF)/Evans & Lee 2013 与 Talwar & Lee 2011 与 Lee 2014 与
 > 徐芬等 2005 心理学报(摘要级);全部来源 URL 与分级见

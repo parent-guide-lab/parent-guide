@@ -6,6 +6,7 @@
 > 两侧);milestones.md 管社交红旗(对视/共同注意,本篇只衔接);气质画像
 > 的「慢热」是本篇 §A4 的输入;anticipatory.md 的二胎时间线引本篇 §B1。
 > **入库:2026-10-15;核对=Volling 2012(Psych Bull,原文级)/Zhang 2023
+> **下次复审:2027-Q3**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 > (Front Public Health 中国样本,原文级)/Kanngiesser 2015(Child Dev,
 > 原文级)/Brownell 2013 与 Fox 2023 与 Siddiqui & Ross 2004 与 Loeser 2016
 > 与 Perner 1994/Ruffman 1998/McAlister 2007 与 Falbo & Polit 1986(摘要级);

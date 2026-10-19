@@ -7,6 +7,7 @@
 > 场景。**§3 资源对比为 2026-10 时点快照,价格与在架状态变动快,使用前
 > 自行核对。**
 > **入库:2026-10-17;核对=ASHA 双语服务页(原文级)/双减意见(新华网全文
+> **下次复审:2027-Q4**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 > 原文级)/WHO 2019 屏幕指南(原文级)/Roseberry 2014·Dick 2019·Perry
 > 2026(原文级 PMC)/DeLoache 2010(Sage 摘要级)/Nakanishi 2015 meta(ERIC 摘要级)/
 > Hartshorne 2018·Kuhl 2003(机构通稿,转述级)/Oxford·Learning A-Z·

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科学启蒙 · parent-guide</title>
+<meta name="description" content="探究兴趣优先、实验盒品类与敏感期话术判定">
+<meta property="og:title" content="科学启蒙 · parent-guide">
+<meta property="og:description" content="探究兴趣优先、实验盒品类与敏感期话术判定">
+<style>
+  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
+    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
+    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background-color:var(--bg); color:var(--ink); line-height:1.75;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:22px 22px;
+    font-variant-numeric:tabular-nums; }
+  a { color:var(--accent); }
+  .num-serif { font-family:Georgia,serif; }
+  header.site { position:sticky; top:0; z-index:10; background:rgba(253,253,251,.95);
+    border-bottom:1px solid var(--line); backdrop-filter:blur(6px); }
+  .nav { max-width:860px; margin:0 auto; padding:10px 16px; display:flex;
+    gap:4px; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .brand { font-weight:700; color:var(--ink); text-decoration:none;
+    white-space:nowrap; margin-right:8px; }
+  .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
+  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+    padding:4px 10px; border-radius:6px; white-space:nowrap; }
+  .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
+  .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
+  .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
+  .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
+  .badge { display:inline-block; background:#fff; color:var(--accent);
+    border:1px solid var(--grid-line); border-radius:6px;
+    padding:3px 14px; font-size:13px; margin:16px 0 6px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px; margin:20px 0; }
+  .toc-group { font-size:14.5px; color:var(--accent); margin:24px 0 -8px; }
+  .card { background-color:var(--card);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:14px 14px;
+    border:1px solid var(--grid-line); border-radius:10px;
+    padding:20px; text-decoration:none;
+    color:var(--ink); display:block; }
+  .card:hover { border-color:var(--accent); }
+  .card h3 { font-size:16px; margin-bottom:6px; }
+  .card p { font-size:13.5px; color:#4a6076; }
+  .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
+  .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
+    padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
+  .ghost { display:inline-block; margin-left:12px; color:var(--accent);
+    text-decoration:none; font-size:15px; }
+  article { background-color:var(--card);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:14px 14px;
+    border:1px solid var(--grid-line); border-radius:10px;
+    padding:26px 26px 18px; }
+  article h1 { font-size:24px; margin-bottom:6px; color:var(--ink); }
+  .pagehead .src { color:var(--sub); font-size:13px; margin-bottom:18px; }
+  article h2 { font-size:19px; margin:26px 0 10px; color:var(--ink); }
+  article h3 { font-size:16px; margin:20px 0 8px; }
+  article p { margin:10px 0; font-size:15.5px; }
+  article ul, article ol { margin:10px 0 10px 22px; font-size:15.5px; }
+  article li { margin:4px 0; }
+  article table { width:100%; border-collapse:collapse; margin:14px 0;
+    font-size:14px; display:block; overflow-x:auto; }
+  article th, article td { border:1px solid var(--line); padding:7px 10px;
+    text-align:left; vertical-align:top; }
+  article th { background:var(--accent-soft); font-weight:600; }
+  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+    padding:12px 14px; font-size:14px; margin:12px 0; }
+  article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
+    overflow-x:auto; font-size:13.5px; }
+  article code { background:var(--accent-soft); border-radius:5px;
+    padding:1px 6px; font-size:.92em; font-family:ui-monospace,Menlo,monospace; }
+  article pre code { background:none; padding:0; }
+  article hr { border:none; border-top:1px dashed var(--grid-line); margin:22px 0; }
+  .foot { margin-top:28px; padding-top:18px; border-top:1px solid var(--line);
+    color:var(--sub); font-size:12.5px; }
+  .foot p { margin:6px 0; }
+</style>
+</head>
+<body>
+<header class="site"><nav class="nav"><a class="brand" href="index.html">🧸 parent-guide<small>知识库</small></a><a class="t" href="quick-ref.html">速查</a><a class="t" href="growth.html">生长监测</a><a class="t" href="eczema.html">湿疹护理</a><a class="t" href="newborn.html">新生儿两题</a><a class="t" href="anticipatory.html">前瞻节点</a><a class="t" href="sleep.html">睡眠</a><a class="t" href="nutrition.html">营养与喂养</a><a class="t" href="toilet.html">如厕训练</a><a class="t" href="weaning.html">戒安抚物</a><a class="t" href="screen.html">屏幕执行层</a><a class="t" href="honesty.html">诚实与说谎</a><a class="t" href="emotion.html">情绪与管教</a><a class="t" href="tantrum.html">发脾气现场</a><a class="t" href="child-mind.html">孩子的逻辑</a><a class="t" href="fears.html">恐惧与脱敏</a><a class="t" href="praise.html">表扬与思维</a><a class="t" href="milestones.html">发育里程碑</a><a class="t" href="activities.html">活动与绘本</a><a class="t" href="toys.html">玩具与环境</a><a class="t" href="social.html">同伴与同胞</a><a class="t" href="english.html">英语启蒙</a><a class="t" href="math.html">数学启蒙</a><a class="t" href="thinking-training.html">思维训练</a><a class="t" href="yuwen.html">语文启蒙</a><a class="t on" href="kexue.html">科学启蒙</a><a class="t" href="books.html">育儿书地图</a></nav></header>
+<div class="wrap">
+<div class="pagehead" style="margin-bottom:14px">
+  <span class="badge">循证参考</span>
+</div>
+<article>
+<h1>科学启蒙</h1>
+<div class="src">原创综述,基于教育部《3-6 指南》与儿童科学思维研究整理 · 原创综述,不搬运机构原文 · 下次复审 2027-Q3</div>
+<h2>0. 一句话结论与四条纪律</h2>
+<p><b>结论:科学启蒙的官方定位是「激发探究兴趣,体验探究过程,发展初步的 探究能力」——《指南》科学探究子领域「探究」出现 24 次、「实验」仅 3 次 且全在方法列举与教育建议里、三个目标名称(亲近自然喜欢探究/具有初步的 探究能力/在探究中认识周围事物和现象)中零「科学」二字;0-3 岁托育大纲 全部生活化认知,不打科学标签。发展科学侧:学前儿童因果推理出现极早 (15-20 月排除推理、24-30 月抽象规则迁移),但元认知与跨领域迁移弱—— 「幼儿科学家」是「有能力但有边界」的启发性隐喻,原作者 Gopnik 本人 只主张儿童以与科学发现「平行的方式」无意识加工信息。家庭干预里最强 的形态是「探究发生前的因果对话」与「博物馆参观的前铺垫后复盘」(以 相关证据为主);市售实验盒零同行评审检验。「科学敏感期」「STEM 从 0 岁」无任何官方依据;「拆家=科学天赋」等式不成立。</b></p>
+<p>纪律(先于一切建议):</p>
+<ol><li><b>预期写在兴趣与过程上</b>:学前的科学目标是好奇心、观察、提问、</li></ol>
+<p>猜测与验证的初步能力(官方三目标),不写「掌握 N 个科学知识」, 更不写「科学家身份」。</p>
+<ol><li><b>话术判定线</b>:「3-8 岁科学敏感期」「STEM 必须从 0 岁」「黄金期</li></ol>
+<p>窗口」=无官方口径无研究口径的营销话语,见到即可降信任度。</p>
+<ol><li><b>「幼儿科学家」按隐喻处理</b>:底层发现(婴儿统计学习、因果敏感)</li></ol>
+<p>真实且可复制,但儿童不是自觉的实验者——学前探究的价值在过程体验, 不在「像科学家一样思考」的方法论承诺(米吴式话术)。</p>
+<ol><li><b>形态-证据匹配</b>:实验盒/科学 App 零同行评审检验——买它们买到的是</li></ol>
+<p>「可拆可玩的安全材料+亲子一起探究的机会」,不是经过验证的科学能力 训练包;相关证据最强的成分是对话与互动,盒子只是材料载体(科学 App 未做同等检索,按屏幕内容口径处理见 screen.md;math.md §3.5「教具没有买了就有效」同构)。</p>
+<h2>1. 迷思拆解(先校准期望,再动手)</h2>
+<table><thead><tr><th>说法</th><th>判定</th><th>依据</th></tr></thead><tbody><tr><td>「3-8 岁是科学敏感期,错过窗口就晚了」</td><td><b>无官方口径、无研究口径</b>。《指南》与托育大纲两份原始文件程序化检索「敏感期/关键期/STEM」全部 0 匹配;蒙台梭利原始敏感期清单(秩序/细小事物/动作/语言)不含「科学敏感期」;「3-8 岁」「4.5-5.5 岁」类年龄表为商业早教加工。机构话术高频使用(大科学「抓住3-8岁孩子科学敏感期!」已下架;米吴「科学启蒙黄金期,兴趣培养最佳窗口」团购软文)</td><td>官方程序化检索(§3)+蒙氏清单;机构年龄锚定是话术模式而非证据</td></tr><tr><td>「STEM 必须从 0 岁开始,关乎未来竞争力」</td><td><b>无任何官方依据</b>。0-3 岁官方口径=生活化认知(感官探索/观察/分类/猜想),不打科学标签;STEM 是真实术语(NSF 约 2001/STEAM 2008,转述级)但不是幼儿科学教育的学科框架,且本身存在学术批评(Mejias 2021《The trouble with STEAM》,标题级)——作品类标签可以,当学科依据不行。中国官方 STEM 政策面向基础教育段</td><td>托育大纲(§3.3)+Mejias 2021;「未来竞争力/21 世纪技能」=乐高教育式身份许诺话术</td></tr><tr><td>「孩子天生就是科学家」</td><td><b>字面化误读,按「有能力但有边界」处理</b>。支持面(婴儿统计学习/因果干预/受限证据自发探索)是主流可复制发现;但 Gopnik 本人明言儿童不是以成年科学家的自觉方式做实验,主张的是无意识的信息加工平行;批评侧(隐喻把孩子刻画为社会隔离的认知者等)实质存在。学前儿童控制变量的「能做出」与「能说清」互不相关(元认知未联结),跨领域迁移弱</td><td>Gopnik 2010(原文级)限定+批评侧(§2.3);Cook 2011/Moeller 2022</td></tr><tr><td>「买科学实验盒=做科学启蒙」</td><td><b>实验盒类产品零同行评审检验</b>(重要负面发现)。市售实验盒(斑马/蝙蝠兔/科学罐头等)均无商品级直接检验;「智商税 vs 真材实料」的测评文普遍带带货链接不可作品质结论。实验盒的真实价值=安全材料+结构化的亲子探究机会——相关证据最强的成分是「一起做+对话」(与 §2.4 探究前因果对话证据同源),不在盒子本身</td><td>B 路检索确认(底稿 §4.2-4)+D 路测评文带货嫌疑标注</td></tr><tr><td>「孩子爱拆家=科学天赋,不懂引导就毁了」</td><td><b>等式不成立</b>。无任何研究测量「拆东西行为→科学能力」关联;拆解行为<b>可能</b>是好奇心驱动探索的表现形式之一(间接理论支持),但把不可分构念(天赋)加在未验证的行为分类上是营销话术(「孩子爱拆家,不是捣乱是天才!」)。官方态度方向相反——《指南》教育建议原文「<b>容忍幼儿因探究而弄脏、弄乱、甚至破坏物品的行为</b>」,鼓励拆装或自制玩具;「不引导就毁了」的恐吓结构=制造产品需求缺口</td><td>B 路(§2.5)+《指南》原文+机构话术对照</td></tr><tr><td>「看科普纪录片/动画=科学启蒙」</td><td><b>被动观看当主菜,方向反了</b>。低龄视频缺陷效应(screen.md/activities.md 同源)——成人中介才是关键变量;纪录片年龄宣称(蓝色星球 5-6 岁/螺丝钉 3-6 岁/工作细胞 6-8 岁)全部是家长与媒体口径,无官方分级。家长做实验的常见动机是「替代屏幕时间」(知乎 79 万浏览问题原话「为了不让五岁小孩看电视」)——用屏幕替代屏幕,南辕北辙;纪录片可作亲子共看的引子,看完聊「为什么」才算进探究</td><td>视频缺陷(交叉 screen)+D 路热度信号(原文级)</td></tr><tr><td>「博物馆去一次就值了/3 岁前没必要去」</td><td><b>两头都不对</b>。证据两面:北京学前样本单次儿童博物馆参观对认知发展有 RCT 正效应(Tan et al.,转述级);但学龄科学馆研究显示单次参观的内容知识数周内大幅衰减,除非参观前后有课堂强化。口径=<b>前铺垫问题、后复盘,反复去</b>;3 岁「只问为啥这些动物不动」也是正常的观察起点,不是白去</td><td>博物馆 RCT 双证并陈(§2.4)</td></tr><tr><td>「提前学物理化学知识=科学启蒙」</td><td><b>领域错位</b>。《指南》明确「不应为追求知识和技能的掌握,对幼儿进行灌输和强化训练」;课标 1-2 年级(小学!)的科学目标仍以提问、猜想、观察描述、比较分类类表述起步(转述概括,非逐字原文)——学前灌输物化知识比「提前学」更超前两层;知乎主流共识「启蒙≠提前学知识」方向正确</td><td>《指南》原文+课标(§3.3)</td></tr></tbody></table>
+<h2>2. 证据层:话术背后是什么,证据到哪一步</h2>
+<h3>2.1 构念地图与术语清理</h3>
+<table><thead><tr><th>用语</th><th>学术/官方对应</th><th>判定</th></tr></thead><tbody><tr><td>科学探究</td><td>NRC《Inquiry and the NSE Standards》五要素:科学取向问题/证据优先/基于证据形成解释/联结科学知识/交流论证(原文级)</td><td>真实且为官方框架;「观察/提问/预测/验证/解释」是教学话语概括</td></tr><tr><td>早期科学教育</td><td>early childhood science education(0-8 岁,ECSE)+emergent science 谱系</td><td>真实但年轻的研究领域</td></tr><tr><td>科学思维/科学推理</td><td>假设检验/实验设计/证据评估三条主线(Zimmerman 2007 综述传统)</td><td>真实;与执行功能相关但可分(控制 EF 与词汇后因果推理对科学素养仍有独特贡献(摘要/标题级))</td></tr><tr><td>「科学素养」</td><td>scientific literacy=PISA 15 岁评估话语</td><td>0-6 岁慎用;严谨对应是 emergent science</td></tr><tr><td>STEM/STEAM</td><td>真实术语(NSF/STEAM 2008)但非幼儿科学框架,有学术批评</td><td>品类标签可用,学科依据不行</td></tr><tr><td>「科学敏感期」</td><td>无对应</td><td><b>营销词(§1)</b></td></tr></tbody></table>
+<h3>2.2 发展轨迹(西方实验室样本为主,外推降档)</h3>
+<table><thead><tr><th>线</th><th>时间表</th><th>证据</th></tr></thead><tbody><tr><td>因果推断</td><td>15-20 月:blicket 类排除推理(15 月失败/17 月脆弱/20 月稳定);24-30 月:抽象关系因果规则习得与迁移;4 岁反事实超机遇、5 岁天花板、3 岁不行</td><td>Feiman 2022/Goddu 2025/Nyhout 2019(摘要级)</td></tr><tr><td>自发「做实验」</td><td>学前自由游戏有控制变量<b>行为</b>萌芽;但「能做出」与「能说清(CVS 元认知)」互不相关;Kuhn 悲观传统被再评价(儿童策略是适应性的;「失败」部分是任务框架错配,Lapidow 2024);CVS 可教(Schwichow 2016 元分析,转述级)</td><td>Cook 2011(转述级)/Moeller 2022(摘要级)/Bramley 2022(<b>原文级</b>)/Lapidow 2024/Schwichow 2016</td></tr><tr><td>提问</td><td><b>30-42 月:what/where 向 why/how 解释性提问的转折</b>;3 岁起向母亲发起因果性提问,且期待解释而非标签</td><td>Degotardi 2025/Frazier 2009(转述级)</td></tr><tr><td>好奇心</td><td>婴儿期违反预期(VOE)引导对涉事物体的探索;婴儿期对「魔术事件」的注视强度纵向预测 3 岁解释性好奇心(不预测一般提问量或语言);测量无金标准(行为范式+报告法并存,Jirout &amp; Klahr 2012)</td><td>Perez &amp; Feigenson 2021·2022/Jirout &amp; Klahr 2012(转述级)</td></tr></tbody></table>
+<p>预测力(全部相关设计,样本 53-203 中小队列,德国样本降档):心理 理论预测科学推理(控制 EF 与语言);4 岁选反驳证据→5.5 岁对比测试→ 7.5 岁实验技能;幼儿园科学推理预测三年级数学(控制 IQ);好奇心预测 一年级科学推理——<b>「预测/关联」可用,「导致」不可写</b>。</p>
+<h3>2.3 「幼儿科学家」两面评估(引用纪律)</h3>
+<ul><li><b>支持面</b>:学前儿童以类似科学家的方式做因果归纳与假设搜索——统计</li></ul>
+<p>学习、样本-总体推断、blicket 因果干预、受限证据下的自发探索(齿轮 实验)为主流可复制发现;儿童期是「探索-利用」权衡中的探索阶段,假设 搜索广度高于成人(Gopnik 2017 PNAS 标题级);跨人群相对稳健(秘鲁与低收入美国样本的因果学习/反事实/假装表现相似,Wente 2022 标题级)。</p>
+<ul><li><b>限制面</b>:①元认知缺口(能做不能说清);②知识与任务依赖(换领域内容[生物类别任务]表现显著变差,Weisberg 2020 摘要级;任务措辞稍难 3 岁即掉到机遇以下,Nyhout 2019 摘要级);③儿童默认不</li></ul>
+<p>使用教科书式控制变量策略;④2-5 岁行为异质性大(理性/联想/不确定性回避三策略并存,van Schijndel 2018 摘要级)。</p>
+<ul><li><b>表述纪律</b>:写「幼儿有真实的因果学习能力与探索倾向」,不写</li></ul>
+<p>「幼儿天生就是科学家」的全称判断;产品话术「像科学家一样思考的 方法论」按营销处理。</p>
+<h3>2.4 家庭干预证据分级表(六项)</h3>
+<table><thead><tr><th>干预</th><th>证据与状态</th><th>家长操作形态</th><th>分级与外推</th></tr></thead><tbody><tr><td><b>亲子科学对话(最强相关证据)</b></td><td>观察相关(博物馆实地录音),多家实验室一致:父母因果话语若出现在儿童探索<b>之前</b>,预测其系统性探索(Callanan 2020);<b>性别差异:父母对男孩的科学解释是对女孩的 3 倍(Crowley 2001)</b></td><td>日常现象解释多用因果语言(「因为…所以…」);<b>在动手探索前给解释而非后</b>;对女儿儿子一视同仁</td><td>转述级;无 RCT,相关不写因果</td></tr><tr><td>博物馆参观</td><td><b>RCT 双证</b>:Crystal Bridges 抽签 RCT(学龄+艺术馆,效应 10-12 周保持)+北京学前单次儿童博物馆 RCT 正效应(Tan et al.);反面:初中科学馆单次效应数周衰减除非课堂强化</td><td><b>前铺垫问题+后复盘</b>=保持效应的形态;反复去;单次≠一劳永逸</td><td>转述级;Crystal Bridges 外推降档(学龄+艺术)</td></tr><tr><td>自然观察/户外</td><td>设计导向综述(非因果实验):0-3 岁高质量自然游戏环境(多样地形/野生动物园圃)支持好奇心/创造力/生态理解(Craig 2024 <b>原文级</b>)</td><td>提供高质量自然元素,优于塑胶平地;与近视/运动类结论分开(activities.md)</td><td>原文级(设计导向综述,非因果实验);专门 RCT 未查到</td></tr><tr><td>科学绘本共读</td><td>无「科学绘本→科学思维」专门实验;间接=共读传递多维信息</td><td>作为科学对话(a)的载体;效果来自共读+对话组合</td><td>转述级</td></tr><tr><td>家庭小实验/实验盒</td><td><b>未查到任何同行评审检验(核心负面发现)</b></td><td>当「一起探究的机会」用,不当「科学能力训练包」买</td><td>无研究;推荐只能基于探索行为有价值的一般发展证据</td></tr><tr><td>解释的作用</td><td>3 岁起 why 提问期待解释而非标签;父母解释质量频率与儿童因果立场相关</td><td>回应提问给<b>因果机制</b>而非仅给名称;不知道答案就一起查(《指南》教育建议:和幼儿一起寻找答案——意译)</td><td>转述级</td></tr></tbody></table>
+<h3>2.5 「破坏王」判定</h3>
+<p>无直接同行评审支持「拆东西→科学天赋」;破坏性 vs 探索性行为的实证 区分标准未查到。可用的口径:《指南》教育建议原文「容忍幼儿因探究而 弄脏、弄乱、甚至破坏物品的行为」+「鼓励幼儿拆装或动手自制玩具」——官方 把拆解当探究的代价来接纳,不当天赋来许诺;家庭引导(提供可拆物+安全 边界)只有实践共识,无因果检验。</p>
+<h2>3. 官方口径(中国原文级+国际对照)</h2>
+<h3>3.1 《指南》科学探究子领域:兴趣与过程,不是知识</h3>
+<p><b>(原文级,教育部原始 doc 全文直读)</b>。三目标与各年龄段典型表现:</p>
+<ul><li><b>目标 1「亲近自然,喜欢探究」</b>:3-4 岁「经常问各种问题,或好奇地</li></ul>
+<p>摆弄物品」;4-5 岁「常常动手动脑探索物体和材料,并乐在其中」;5-6 岁 「对自己感兴趣的问题总是刨根问底」「探索中有所发现时感到兴奋和满足」。</p>
+<ul><li><b>目标 2「具有初步的探究能力」</b>:3-4 岁「对感兴趣的事物能仔细观察,</li></ul>
+<p>发现其明显特征」;4-5 岁「能根据观察结果提出问题,并大胆猜测答案」 「能用图画或其他符号进行记录」;5-6 岁「能用一定的方法验证自己的 猜测」「在成人帮助下能制定简单的调查计划并执行」。</p>
+<ul><li><b>目标 3「在探究中认识周围事物和现象」</b>:认识动植物/材料特性/</li></ul>
+<p>天气季节/影子沉浮等现象——<b>全部是身边经验,无知识点清单</b>。</p>
+<p><b>领域导语原文(三段核心)</b>:「幼儿科学学习的核心是<b>激发探究兴趣, 体验探究过程,发展初步的探究能力</b>」「成人要善于发现和保护幼儿的 好奇心…引导幼儿通过观察、比较、操作、实验等方法,学习发现问题、 分析问题和解决问题」「幼儿的思维特点是以具体形象思维为主…<b>不应为 追求知识和技能的掌握,对幼儿进行灌输和强化训练</b>」。</p>
+<p><b>程序化关键词计数(原文级)</b>:「探究」子领域内 24 次(绝对主词); 「实验」仅 3 次(1 次方法列举+2 次教育建议例子——实验只是方法之一, 不是幼儿科学的活动形态主词);「科学」5 次中除标题与子领域名外全在 导语——<b>三个目标名称与所有典型表现中零「科学」二字</b>。教育建议 另两条金句:「容忍幼儿因探究而弄脏、弄乱、甚至破坏物品的行为」 「通过拍照和画图等方式保留和积累有趣的探索与发现」。</p>
+<p>说明部分通用禁令(与领域禁令并陈):「严禁『拔苗助长』式的超前教育 和强化训练」「要充分尊重和保护幼儿的好奇心和学习兴趣…<b>忽视幼儿 学习品质培养,单纯追求知识技能学习的做法是短视而有害的</b>」。</p>
+<h3>3.2 监管与政策:与思维训练/语文反向的开口子环境</h3>
+<ul><li><b>归类</b>:科学实验类培训一般归非学科类「科技类」(分类鉴别指南,</li></ul>
+<p>教监管厅函〔2021〕16 号,文号原文级细则转述级);但涉物理/化学/ 生物学科知识传授且以应试为导向可被鉴别为学科类——「科学实验」 外衣不改变内容实质判定。</p>
+<ul><li><b>政策开口子线(与思维训练/语文品类监管环境不同向,如实区分)</b>:</li></ul>
+<p>2023-05 十八部门「科学教育加法」意见→2025-11 七部门《关于加强中小学 科技教育的意见》(2030/2035 目标,均标题级)——科学教育获政策持续加持。</p>
+<ul><li><b>机构现状=口径证据</b>:C 端线上科学课收缩(大科学互动科学课推广页</li></ul>
+<p>已下架;斑马科学从独立品牌淡化为斑马 AI 学内品类,官网主推思维机 硬件)——纯线上科学课商业模型在双减后未跑通,机构转向 To B 进校/ AI 化/硬件化;家庭自用产品(实验盒/App)不在培训审批框架内, 「能买到」≠「有监管背书」。</p>
+<h3>3.3 课标与 0-3 岁</h3>
+<ul><li><b>课标 2022 科学(转述级,官方 PDF 扫描版无文字层)</b>:课程性质</li></ul>
+<p>「体现科学本质的综合性基础课程,具有实践性」;<b>核心素养四维度= 科学观念/科学思维/探究实践/态度责任</b>;13 学科核心概念+4 跨学科 概念;1-2 年级(小学第一学段!)目标仍以提问、猜想、观察描述、比较分类 类表述起步(转述概括,逐字原文待补研)——<b>学前段的「灌输物化知识」比小学提前了 整整两个学段的形态</b>。</p>
+<ul><li><b>托育大纲认知领域(原文级,政府网站全文转载)</b>:0-3 岁目标全为</li></ul>
+<p>生活化认知——「充分运用各种感官探索周围环境,有好奇心和探索欲/ 逐步发展注意、观察、记忆、思维等认知能力/学会想办法解决问题」; 25-36 月「鼓励幼儿主动思考、积极提问并大胆猜想」;指导建议「保护 婴幼儿对周围事物的好奇心和求知欲,耐心回应婴幼儿的问题,鼓励自己 寻找答案」。<b>程序化核验:「科学」6 处全部是修饰用法(科学规范的 照护/科学食谱等),无一处作为 0-3 岁学习领域;「敏感期」「关键期」 「STEM」均 0 匹配</b>——与《指南》探究取向同构衔接但不打科学标签。</p>
+<h3>3.4 国际对照</h3>
+<ul><li><b>英国 EYFS</b>:该领域命名「Understanding the World(理解世界)」而</li></ul>
+<p>非「科学」——三 ELG:Past and Present/People, Culture and Communities/ <b>The Natural World</b>(探索自然世界、观察画动植物、理解季节与蝌蚪 变青蛙等过程;条文经地方政府转载,转述级)。</p>
+<ul><li><b>美国 NGSS(原文级)</b>:八项科学与工程实践(提问定义问题/建模/</li></ul>
+<p>规划实施调查/分析数据/数学思维/建构解释/基于证据论证/获取评估交流 信息)——官方指导原则原文「<b>All eight practices are accessible at some level to young children; abilities to use the practices grow over time</b>」(八项实践对幼儿在某种水平均可及,能力随时间增长)。</p>
+<ul><li><b>NSTA/NAEYC 2014 联合声明</b>《Early Childhood Science Education》:</li></ul>
+<p>「The world of a young child is full of "wow"」——聚焦 3 岁起, 通过主动参与和游戏建构科学概念(存在性确认,机构级)。</p>
+<ul><li>中外一致的图景:<b>没有官方体系在学前段设置科学知识清单</b>;分歧</li></ul>
+<p>只在语言包装(EYFS 干脆不叫科学),方向全是好奇心+探究+游戏。</p>
+<h2>3.5 品类图谱与话术拆解(时点快照 2026-10-19)</h2>
+<div class="note">时点快照:价格/在架/年龄宣称随时间漂移,购买前自行核对;深度选购层 留 R4。价格均为机构级/转述级 2026-10 时点。</div>
+<p><b>五类图谱与「买它实际在做什么」对照</b>:</p>
+<table><thead><tr><th>品类</th><th>代表</th><th>买它实际在做什么</th><th>判定框架一句话</th></tr></thead><tbody><tr><td>科学实验盒</td><td>斑马科学(3-8 岁,29 元体验课起步;现官网淡化)、蝙蝠兔(6 岁+ 17 实验)、科学罐头、熊猫实验盒子</td><td>安全材料+结构化亲子探究机会</td><td><b>零同行评审检验</b>;活性成分在「一起做+对话」(§2.4);测评文多带货,「智商税 vs 真材实料」二元叙事都别信,按「材料费+陪伴时间」评估</td></tr><tr><td>科学启蒙 App</td><td>洪恩十万问(月 ¥28/年 ¥228/永久 ¥298,App Store 机构级;「轻松搞定孩子的『十万个为什么』」)</td><td>百科动画+交互问答的屏幕内容</td><td>「搞定十万个为什么」的话术把「答问」外包给屏幕——B 路证据里答问的价值恰在亲子因果对话;屏幕量底线见 screen.md;当引子可以,当主菜方向反了</td></tr><tr><td>科普纪录片/动画</td><td>螺丝钉(3-6)/像乌鸦一样思考/蓝色星球行星地球(5-6)/工作细胞(6-8)/昆虫总动员(3+,无旁白)</td><td>高质量视听输入</td><td>年龄宣称全是家长/媒体口径;视频缺陷=成人中介是关键(交叉 screen);共看+看完聊「为什么」才进探究;「为了不看视频而看科普」是动机错位</td></tr><tr><td>STEAM 班/机构</td><td>乐博乐博(机器人编程)、童程童美、编程猫、乐高教育(「培养 21 世纪核心技能」)</td><td>机器人/编程/搭建课程</td><td>科技类非学科=合法在售(与思维训练班禁令区不同);但「STEAM」标签不构成效果证据;转型方向 To B/AI/硬件本身是 C 端模型未跑通的口径证据</td></tr><tr><td>博物馆/科技馆</td><td>(公共场馆)</td><td>真实物体+共同注意的探究场</td><td><b>唯一有 RCT 正效应的品类</b>(北京学前单次 RCT+Crystal Bridges);前铺垫后复盘+反复去是保持效应的形态;免费/低价高频次&gt;昂贵单次研学营</td></tr></tbody></table>
+<p><b>机构话术对照表(逐字,判定归各节)</b>:</p>
+<table><thead><tr><th>话术(逐字)</th><th>出处</th><th>判定</th></tr></thead><tbody><tr><td>「抓住3-8岁孩子科学敏感期!」「学习纯正美国科学」</td><td>大科学·互动科学课推广页(2021,现<b>已下架</b>)</td><td>「敏感期」官方 0 匹配(§1);产品已下架=市场自证</td></tr><tr><td>「5-12岁小学生——科学启蒙黄金期,兴趣培养最佳窗口」「衔接课标,助力理科学习」「像科学家一样思考的方法论」「累计销量突破1200万册」</td><td>米吴科学杂志团购文(软广嫌疑标注,不可用作事实结论)</td><td>四件套话术样板:年龄锚定+窗口紧迫+升学挂钩+身份许诺;年龄口径前后不一(5-12 vs 团购栏 6-12)</td></tr><tr><td>「致力于培养善于观察与思考的小小科学家!」「影视级百科知识动画,轻松搞定孩子的『十万个为什么』!」</td><td>洪恩十万问 App Store 页(机构级)</td><td>注:该页<b>未用「敏感期/黄金期」字样</b>(如实记录,与思维训练篇火花 FAQ 同款观察)——大产品话术走「解决家长困扰」路线;但「搞定十万个为什么」把答问价值外包给屏幕,与亲子对话证据反向</td></tr><tr><td>「3-8 岁科学敏感期孩子去 VR 科技乐园是『性价比最高的早教投资』」</td><td>VR 乐园测评(转述级,软广嫌疑)</td><td>「不投资=吃亏」的暗示结构;VR 与学前探究无证据关联</td></tr><tr><td>「孩子爱拆家,不是捣乱是天才!」</td><td>机构帖(转述级)</td><td>等式不成立(§2.5);官方口径是「容忍」不是「天赋」</td></tr><tr><td>「调皮捣蛋、好奇心重的孩子长大后往往更有出息」</td><td>亿童学前教育内容(转述级)</td><td>「出息论」无研究支持;把行为问题重构为天赋信号+引导责任,制造产品需求缺口</td></tr></tbody></table>
+<h2>4. 红旗与求助线(T2)</h2>
+<p>本品类无 T1 红线。两条 T2:</p>
+<ol><li><b>认知/探究发展疑虑</b>:对周围事物持续缺乏兴趣与探索、语言或认知</li></ol>
+<p>里程碑明显落后于同龄——走 milestones.md 红旗口径评估(T2), 不是买实验盒或报科学班的事;「不爱玩科学实验」单独不构成信号 (兴趣个体差异大)。</p>
+<ol><li><b>机构「天赋/敏感期」诊断式话术</b>:以「科学天赋测评」「错过敏感期</li></ol>
+<p>影响理科」类话术促单——无官方口径无研究支持(§1),不作为评估 依据;真有发展疑虑走正规评估(同上 T2)。</p>
+<h2>5. 来源与时效</h2>
+<ul><li>R1 调研(2026-10-19,自动化轮四路):全部来源 URL+溯源分级见</li></ul>
+<p>docs/kexue-enlightenment-research-2026-10-19.md(§4 论证/§7 来源 清单/§8 待补研)。</p>
+<ul><li>复审优先级:①课标 2022 四维度与 1-2 年级学段目标(现转述级,升级</li></ul>
+<p>路径=北师大纸质版/人教社电子书人工核);②监管口径(科学教育政策 在持续加码期,2023/2025 文件后续动态);③§3.5 时点快照在架与价格 (斑马科学状态/洪恩十万问档位,R4 深度选购轮一并做)。</p>
+<ul><li>效应量与数字忠于实际读到的层级:《指南》/托育大纲/NGSS Appendix F/</li></ul>
+<p>Bramley 2022/Craig 2024=原文级;Feiman/Goddu/Nyhout/Weisberg/Moeller/ Richland 等=摘要级;Cook/Callanan/Crowley/博物馆 RCT 群/课标四维度= 转述级——分级升级即数字复核(台账遗留)。</p>
+<p><b>来源清单(2026-10-19 访问;「—」=底稿未记录直链,升级路径挂台账;链接死活随下次复审重查)</b>:</p>
+<table><thead><tr><th>来源</th><th>分级</th><th>链接</th></tr></thead><tbody><tr><td>《3-6 岁儿童学习与发展指南》教育部原始 doc</td><td>原文级</td><td><a href="http://www.moe.gov.cn/srcsite/A06/s3327/201210/t20121009_143254.html">moe.gov.cn</a></td></tr><tr><td>托育机构保育指导大纲(认知领域)</td><td>原文级</td><td>—(rugao.gov.cn 政府网站全文转载)</td></tr><tr><td>NGSS Appendix F(科学与工程实践)</td><td>原文级</td><td><a href="https://static.nsta.org/ngss/resources/MatrixForK-12ProgressionOfScienceAndEngineeringPracticesInNGSS.8.14.14.pdf">NSTA 官网</a>(原 nextgenscience 链接抽查 404,以 NSTA 现行页为准)</td></tr><tr><td>Bramley et al. 2022 控制变量再评价</td><td>原文级</td><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9722808/">PMC9722808</a></td></tr><tr><td>Craig 2024 0-3 岁自然游戏环境综述</td><td>原文级</td><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11432191/">PMC11432191</a></td></tr><tr><td>Gopnik 2010 How Babies Think</td><td>原文级</td><td><a href="https://alisongopnik.com/Papers_Alison/sciam-Gopnik.pdf">alisongopnik.com PDF</a></td></tr><tr><td>EECERJ 2025 早期科学教育领域界定</td><td>原文级</td><td><a href="https://www.tandfonline.com/doi/full/10.1080/1350293X.2025.2501314">tandfonline.com</a></td></tr><tr><td>义务教育科学课标 2022(官方 PDF 扫描版)</td><td>机构级(引语转述级)</td><td><a href="http://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582355009892.pdf">moe.gov.cn</a></td></tr><tr><td>EYFS Understanding the World</td><td>机构级(条文转述级)</td><td><a href="https://www.gov.uk/government/publications/early-years-foundation-stage-framework--2">gov.uk</a></td></tr><tr><td>分类鉴别指南(教监管厅函〔2021〕16 号)</td><td>文号原文级;细则转述级</td><td><a href="http://www.moe.gov.cn/srcsite/A29/202111/t20211112_579358.html">moe.gov.cn</a></td></tr><tr><td>洪恩十万问 App Store 页(价格)</td><td>机构级</td><td><a href="https://apps.apple.com/cn/app/id1581729244">apps.apple.com</a></td></tr><tr><td>大科学互动科学课推广页(已下架)</td><td>机构级</td><td><a href="https://m.xrkmm.com/c/1000000085210052">xrkmm.com</a></td></tr><tr><td>知乎「家里做科学实验」79 万浏览问题</td><td>原文级</td><td><a href="https://www.zhihu.com/question/273406174">zhihu.com</a></td></tr><tr><td>米吴科学团购文(话术样本)</td><td>转述级(软广标注,页面直读)</td><td><a href="https://www.163.com/dy/article/L7LLKP5B0518T45J.html">163.com</a></td></tr><tr><td>其余摘要级/转述级/标题级来源</td><td>随行标注</td><td>见底稿 §7 来源清单</td></tr></tbody></table>
+</article>
+<div class="foot">
+  <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>
+  <p>开源项目,数据本地:<a href="https://github.com/parent-guide-lab/parent-guide">GitHub 获取源码</a> ·
+  把它装进你的 AI,还能记录与回访你家孩子的计划。</p>
+</div>
+</div>
+</body>
+</html>

@@ -9,6 +9,7 @@
 > 训练品类(《指南》「语言是交流和思维的工具」——语言支撑思维但语言≠
 > 思维训练);本篇管汉语儿童的语言与前读写发展+语文品类场景。
 > **入库:2026-10-19;核对=《3-6 指南》教育部官网原始 doc 全文直读
+> **下次复审:2027-Q3(政策口径敏感+§3.5 时点快照)**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 > (语言领域两子域六目标+程序化关键词计数)+2018 去小学化通知+2021 幼小
 > 衔接意见+《学前教育法》56/59 条+学科类鉴别通知(教监管厅函〔2021〕
 > 3 号)(均原文级)/托育大纲语言条目(政府网站全文转载,原文级)/
@@ -391,3 +392,54 @@ doc 全文直读,原文级)**。语言领域两子域六目标:
   Romeo 2018·2021/Babayiğit 2021=摘要级;Bus 1995/Noble 2019/
   Ke 2025/Applebee 分期/Piasta ES≈.21=转述级——分级升级即数字复核
   (台账遗留)。
+
+**来源清单(2026-10-19 访问;「—」=底稿未记录直链,升级路径挂台账;链接死活随下次复审重查)**:
+
+| 来源 | 分级 | 链接 |
+|---|---|---|
+| 《3-6 岁儿童学习与发展指南》教育部原始 doc | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A06/s3327/201210/t20121009_143254.html) |
+| 2018 幼儿园小学化专项治理通知 | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A06/s3327/201807/t20180713_342997.html) |
+| 2021 幼小衔接指导意见 | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A06/s3327/202104/t20210408_525137.html) |
+| 《学前教育法》全文 | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/jyb_sjzl/sjzl_zcfg/zcfg_jyfl/202411/t20241108_1161363.html) |
+| 双减《意见》gov.cn 原文页 | 原文级 | [gov.cn](https://www.gov.cn/zhengce/2021-07/24/content_5627132.htm) |
+| 学科类鉴别通知(教监管厅函〔2021〕3 号) | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202107/t20210730_547807.html) |
+| 分类鉴别指南(教监管厅函〔2021〕16 号) | 原文级 | —(moe 官网直读,底稿未记直链) |
+| 2024 秋季教材发布会通稿 | 原文级 | —(moe 官网新华社稿,底稿未记直链) |
+| 托育机构保育指导大纲 | 原文级 | —(政府网站全文转载 rugao.gov.cn) |
+| 义务教育语文课标 2022 | 原文级(转载互证) | [chinabianjiao.com](https://www.chinabianjiao.com/info-100190.html) |
+| Li et al. 2021 部件意识 | 原文级 | [doi.org](https://doi.org/10.3389/fcomm.2021.685573) |
+| Zhao et al. 2014 环境识字 | 原文级 | [doi.org](https://doi.org/10.1371/journal.pone.0085745) |
+| Liu, McBride-Chang et al. 2013 语素题例 | 原文级 | —(hub.hku.hk 全文,无直链记录) |
+| Puranak et al. 2011 名字书写 | 原文级 | [PMC3172137](https://pmc.ncbi.nlm.nih.gov/articles/PMC3172137/) |
+| 中新网 2016 一年级教材改动报道 | 原文级 | [chinanews.com.cn](https://www.chinanews.com.cn/m/gn/2016/09-01/7990445.shtml) |
+| EYFS literacy ELG | 原文级 | —(gov.uk 帮助站,条文多源交叉) |
+| 洪恩识字 App Store 内购页 | 原文级 | [apps.apple.com](https://apps.apple.com/cn/app/id1139733348) |
+| 悟空识字 App Store 页 | 机构级 | [apps.apple.com](https://apps.apple.com/cn/app/id505900002) |
+| 小小常爱识字 App Store | 机构级 | [apps.apple.com](https://apps.apple.com/cn/app/id1549380155) |
+| 洪恩识字官网 | 机构级 | [ihuman.com](https://www.ihuman.com/shizi) |
+| 婷婷唱古文官网 | 机构级 | [ttsing.com](https://www.ttsing.com) |
+| 凯叔讲故事 | 机构级 | [kaishustory.com](https://www.kaishustory.com) |
+| Project STAR(IES 项目) | 机构级 | —(项目号 R305G050005) |
+| Zhou 2012 复合构词训练 | 机构级 | [ERIC EJ970419](https://eric.ed.gov/?id=EJ970419) |
+| Wu 2009 | 机构级 | [ERIC EJ830116](https://eric.ed.gov/?id=EJ830116) |
+| AAP 2024 政策声明 | 机构级 | —(Pediatrics 154(6):e2024069090) |
+| ROR(Reach Out and Read) | 机构级 | [reachoutandread.org](https://reachoutandread.org) |
+| OT 握笔发展系列 | 机构级 | —(growinghandsonkids/childreninmotion/clinikids) |
+| Hao、舒华等 2008 PCDI 词汇 | 摘要级 | [PMID 18697668](https://pubmed.ncbi.nlm.nih.gov/18697668/) |
+| Cheng, Wang & Wu 2018 语素意识 | 摘要级 | —(心理学报 journal.psych.ac.cn,无篇目直链) |
+| Chow 2008 家长实施 RCT | 摘要级 | [PMID 18194022](https://pubmed.ncbi.nlm.nih.gov/18194022/) |
+| Feng/Cao 2025 语素 vs 语音干预 | 摘要级 | [PMC12145735](https://pmc.ncbi.nlm.nih.gov/articles/PMC12145735/) |
+| Cao 2026 脑激活 | 摘要级 | [PMID 41865459](https://pubmed.ncbi.nlm.nih.gov/41865459/) |
+| Ming 2026 成分特异 RCT | 摘要级 | [doi.org](https://doi.org/10.1007/s11881-025-00352-z) |
+| Justice 2010 / Piasta & Justice 2012 指读 | 摘要级 | [PMID 20421609](https://pubmed.ncbi.nlm.nih.gov/20421609/) / [PMID 22506889](https://pubmed.ncbi.nlm.nih.gov/22506888/) |
+| Yang 2022 | 摘要级 | [PMC9615547](https://pmc.ncbi.nlm.nih.gov/articles/PMC9615547/) |
+| Sperry 2019 | 摘要级 | [doi.org](https://doi.org/10.1111/cdev.13072) |
+| Bryant 1989 韵律纵向 | 摘要级 | [PMID 2760133](https://pubmed.ncbi.nlm.nih.gov/2760133/) |
+| Reese 2010 / Romeo 2018·2021 / Babayiğit 2021 / Griffin 2004 / Fischer 1991 / Justice & Ezell 2004 / Cleave 2015 | 摘要级 | —(无编号记录,底稿 §15) |
+| Bus 1995 / Noble 2019 / Dowdall 2020 效应量 | 转述级 | —(经综述转述,数字待核) |
+| Ke 2025 语素×阅读 meta | 标题级 | [nature.com](https://www.nature.com/articles/s41599-025-04531-6) |
+| Li 2020 亲子互惠 | 标题级 | [PMC7751876](https://pmc.ncbi.nlm.nih.gov/articles/PMC7751876/) |
+| 转述级媒体群(新华网 2017 入学识字量/中国网 2016 统编教材/新民晚报拼音/知乎/中华网小羊上山等) | 转述级 | —(逐条出处+日期见底稿 §7) |
+
+注:链接由底稿记录的编号(PMID/PMC/DOI/ERIC/App Store ID/官网路径)按
+标准格式展开;无编号记录的标「—」,升级即补直链(挂台账遗留)。

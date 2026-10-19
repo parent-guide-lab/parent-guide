@@ -6,6 +6,7 @@
 > 日常累积的反馈语言;与 child-mind.md 的分工:child-mind.md 管「行为→内心
 > 假设」的推断框架,本篇管家长输出侧的语言选择。
 > **入库:2026-10-15;核对=Mueller & Dweck 1998(摘要级,关键数字经 Dweck
+> **下次复审:2027-Q4**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 > 1999 作者综述原文级佐证)/Gunderson 2013(原文级 PMC3655123)/Sisk 2018 与
 > Yeager 2019 与 Yeager & Dweck 2020 与 Dweck & Yeager 2019(原文级)/
 > Brummelman 2017(原文级)/Deci 1999 与 Henderlong & Lepper 2002(摘要级);

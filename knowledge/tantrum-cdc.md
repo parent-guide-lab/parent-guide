@@ -4,6 +4,7 @@
 > 「Essentials for Parenting Toddlers and Preschoolers」相关章节
 > (cdc.gov,美国联邦政府作品,公有领域);可信级默认 T3,不冒充机构口径。
 > **入库:2026-09-29;核对=公有领域源材料整理转述+CDC Essentials for Parenting 公开内容多方交叉;蒸馏测试产物,与 emotion.md 关系已逐条核对。
+> **下次复审:2027-Q2(CDC 页迁移敏感)**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 > 2026-10-09 引用审计:§2 年龄口径改挂 AAP(「1-2 岁最有效」与话术模板非 CDC
 > 内容);§4 求助阈值改挂 AACAP(CDC 归属不成立——Wayback 全史+restoredcdc
 > 镜像三重核查无此内容;数字与年龄锚按 AACAP #136 原文级修正,见该节注)。**

@@ -10,6 +10,7 @@
 > 构念);screen.md 管屏幕量底线;toys.md 管玩具环境;本篇管「思维训练」
 > 品类场景。
 > **入库:2026-10-19;核对=《3-6 指南》全文 28 分页通检+《托育机构保育指导
+> **下次复审:2027-Q3(政策口径敏感+§3.5 时点快照)**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 > 大纲》+双减学龄前专项条款(文末段)+《义务教育阶段校外培训项目分类鉴别指南》(教育部/
 > 政府网站,原文级)/EYFS Self-Regulation ELG 官方页+CDC milestones hub
 > (原文级)/Scionti 2020(Frontiers 全文复核)·Birtwistle & Chernikova

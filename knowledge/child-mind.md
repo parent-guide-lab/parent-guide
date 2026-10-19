@@ -8,6 +8,7 @@
 > 输不起/怕难)的长期干预出口——家长反馈语言调整——在 praise.md;本篇管
 > 现场与推断,反馈语言怎么给不在此重复。
 > **入库:2026-10-07;核对=发展心理学共识与公开文献综述对照(原创综述,调研底稿
+> **下次复审:2027-Q4**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 > 与全部来源 URL 见 docs/child-perspective-research-2026-10-07.md;关键锚点
 > Zeegers 2017 meta/Meins 2001-2012/Nix 1999/Bugental 2002/Wellman 2001/
 > Carlson & Wang 2007/Kopp 1989/Grosse 2021/Bruck & Ceci 1999/Ollendick 2015/
