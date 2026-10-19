@@ -176,6 +176,14 @@
     "group": "发育与玩耍"
   },
   {
+    "file": "yuwen.md",
+    "slug": "yuwen",
+    "title": "语文启蒙",
+    "hook": "识字迷思、听说打底与前书写的官方口径",
+    "src": "自写综述,基于教育部《3-6 指南》与汉语读写研究整理",
+    "group": "发育与玩耍"
+  },
+  {
     "file": "books.md",
     "slug": "books",
     "title": "育儿书地图",
