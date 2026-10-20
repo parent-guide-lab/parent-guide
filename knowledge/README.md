@@ -5,7 +5,7 @@
 | 文件 | 性质 | 状态 |
 |------|------|------|
 | `milestones.md` | CDC「Learn the Signs. Act Early.」检查表中文化(公有领域,署名 CDC) | ✅ 11 个检查点逐条经 CDC 官网核对;15 月检查点官方页当前不可达,以 12/18 月联查说明代替,**M6.1 补齐** |
-| `sleep.md` | 原创综述(WS/T 579-2017/AAP/AASM 口径) | ✅ v1;中国标准关键条目经指南原文复核;2026-10-19 增补 §3 晨醒(早醒+睡眠惯性,Cleveland Clinic/NIOSH 原文级,底稿 docs/sleep-early-waking-draft-2026-10-19.md;遗留=遮光仅转述级/Trotti 摘要级未重核) |
+| `sleep.md` | 原创综述(WS/T 579-2017/AAP/AASM 口径) | ✅ v1;中国标准关键条目经指南原文复核;2026-10-19 增补 §3 晨醒(早醒+睡眠惯性,Cleveland Clinic/NIOSH 原文级,底稿 docs/sleep-early-waking-draft-2026-10-19.md);2026-10-20 轮转深审(WS/T 579 官方 PDF 重核无改版;出处改标/拆级/补标 6 处+AAP 起床锚坐实;文末来源清单合入,底稿 /tmp/knowledge-audit/sleep-rotation-2026-10-20.md) |
 | `nutrition.md` | 原创综述(膳食指南/AAP/WHO/sDOR 口径) | ✅ v1;2026-10-15 增补 §2.6 加工肉危害链(烤肠咨询 dogfooding,逐断言全审 4✅+2⚠️已修);2026-10-19 增补 §2.7 高致敏食物引入与食物过敏(NIAID 2017 PMC 原文级三档+LEAP 数字+「3 天法则」判定+红旗 T1;中国辅食指南转述级;底稿 docs/food-allergy-eczema-infection-draft-2026-10-19.md) |
 | `emotion.md` | 情绪与管教专题(含崩溃干预证据链) | ✅ M6.1 交付(2026-09-29);2026-10-04 增补证据链 |
 | `activities.md` | 活动与绘本专题 | ✅ M6.1 交付(2026-09-29) |
@@ -15,7 +15,7 @@
 | `toilet.md` | 如厕训练专题(准备信号/方法谱系/憋便循环) | ✅ 2026-10-04(yuer 专题蒸馏,疑点引用未采用) |
 | `growth.md` | 生长监测专题(WS/T 423-2022 区间带+趋势口径) | ✅ 2026-10-05(转录数据经程序化单调性校验,51 月龄坏行剔除) |
 | `child-mind.md` | 孩子的逻辑(行为→内心假设/发展常模/验证纪律) | ✅ 2026-10-07(调研底稿 docs/child-perspective-research-2026-10-07.md) |
-| `eczema.md` | 婴幼儿湿疹专题(洗浴/保湿/就医线;BACKLOG 盲区首清) | ✅ 2026-10-08(快调研三源一致,摘要级为主);感染征象 2026-10-19 补研升级(AAD 儿童感染页+NHS 原文级,四档动作分级,底稿 docs/food-allergy-eczema-infection-draft-2026-10-19.md) |
+| `eczema.md` | 婴幼儿湿疹专题(洗浴/保湿/就医线;BACKLOG 盲区首清) | ✅ 2026-10-08(快调研三源一致,摘要级为主);感染征象 2026-10-19 补研升级(AAD 儿童感染页+NHS 原文级,四档动作分级,底稿 docs/food-allergy-eczema-infection-draft-2026-10-19.md);2026-10-20 轮转深审(中国指南 2020 PDF 全文解析升原文级;漂白剂浴分层口径归属修正 JTF 2023;2025/2026 新版本登记;文末来源清单合入,底稿 /tmp/knowledge-audit/eczema-rotation-2026-10-20.md) |
 | `newborn.md` | 新生儿黄疸+肠绞痛(观察/就医线/时间线/安抚证据分层;盲区清账) | ✅ 2026-10-09(distill 批量,独立审计轮修正并入) |
 | `screen.md` | 屏幕时间执行层(共看/睡前屏/背景屏/教育 App;底线不重复) | ✅ 2026-10-09(distill 批量,独立审计轮:Staples 去因果化/Cheung 出处修正) |
 | `toys.md` | 玩具与游戏环境(少而开放/电子玩具/磁体电池 T1/轮换标 T3) | ✅ 2026-10-09(distill 批量;AAP 2020 玩具报告未核不引用) |
