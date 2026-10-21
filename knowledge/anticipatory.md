@@ -37,7 +37,7 @@
 
 ## 主观节点(入园计划驱动)
 
-用 skill 的家庭由档案 childcarePlan 字段驱动;取值:托班/幼儿园+月龄、未定、不送、空(未问)。
+用 skill 的家庭由档案 childcarePlan 字段驱动;取值:托班/幼儿园+月龄、未定、不送、空(未问)。注意 set-profile 对 profile 字段一律落纯字符串——实存形态常是「{type: 幼儿园, age: 42, note: …}」dict 字面量,页面 lib(anticipatory-ref.js)对「N 月」文本与 age 键两种形态都解析。
 
 | 计划状态 | 触发 | 提醒内容 |
 |---|---|---|

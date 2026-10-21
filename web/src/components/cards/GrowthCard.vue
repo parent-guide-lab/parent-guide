@@ -9,6 +9,10 @@ import { GROWTH_REF, refAt } from '../../lib/growth-ref.js'
 
 const props = defineProps({ block: Object, kid: Object })
 
+// 详细记录默认收起:曲线+最新值+趋势是读卡主信息,逐条数据按需展开
+// (MilestoneCard 同款 .tgl 语言);打印/长图同样保持收起,主信息不丢。
+const listOpen = ref(false)
+
 const records = computed(() => {
   const recs = (props.kid?.growth?.records || []).slice()
   // months come from add-growth; compute defensively for hand-added rows
@@ -256,7 +260,8 @@ const list = computed(() => records.value.slice(-6).reverse())
     </div>
     <div v-if="!genderKey" class="src">档案未填性别,暂无参考区间对照——回对话补一下性别即可。</div>
 
-    <div class="rlist">
+    <button class="tgl" @click="listOpen = !listOpen">{{ listOpen ? '收起 ▴' : `详细记录 ${records.length} 条 ▸` }}</button>
+    <div v-if="listOpen" class="rlist">
       <div class="rrow rhead"><span class="rd">日期</span><span class="rm">月龄</span><span class="rv">身高</span><span class="rv">体重</span></div>
       <div v-for="r in list" :key="r.date" class="rrow">
         <span class="rd">{{ r.date }}</span>
@@ -305,6 +310,9 @@ svg { width: 100%; height: auto; display: block; }
 .tick { font-size: 6px; fill: var(--sub); }
 .dlabel { font-size: 6px; font-weight: 600; fill: var(--ink-blue); }
 .rlist { margin-top: 4px; }
+.tgl { border: 0; background: none; color: var(--ink-blue); font-size: 12.5px;
+  cursor: pointer; padding: 2px 0; display: block; }
+.tgl:hover { text-decoration: underline; }
 .rrow { display: grid; grid-template-columns: 1fr 3.4em 4.4em 4.8em; gap: 0 14px;
   align-items: baseline; font-size: 12.5px; padding: 4px 8px;
   font-variant-numeric: tabular-nums; border-radius: 6px; }

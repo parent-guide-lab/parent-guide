@@ -52,7 +52,10 @@ function childcareRows(kid, birth, ageM) {
     if (Number.isFinite(a)) { target = a; label = plan.type || label }
   } else if (typeof plan === 'string') {
     if (plan.includes('不送')) return []
-    const m = plan.match(/(\d+)\s*月/)
+    // set-profile 把 profile 字段一律当字符串写入,childcarePlan 落盘形态
+    // 常是「{type: 幼儿园, age: 42, note: …}」dict 字面量——「N 月」文本
+    // 匹配不到时再从 age 键机械提取月龄(2026-10-21 实测入园节点因它全缺)
+    const m = plan.match(/(\d+)\s*月/) || plan.match(/age["':\s]+(\d+)/i)
     if (m) { target = +m[1]; label = plan.includes('托') ? '托班' : label }
   }
   if (target !== null) {

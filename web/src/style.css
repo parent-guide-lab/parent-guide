@@ -61,6 +61,19 @@ body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2
 .cband .cbsub { display: flex; gap: 8px; align-items: center; margin-top: 3px; }
 .cband .cbsub .head-stats, .cband .cbsub .care-n { margin-left: 0; }
 .cbody { flex: 1; min-height: 0; overflow-y: auto; padding: 10px 20px 14px; }
+
+/* 自适应高度卡(autoH,2026-10-21):卡框恒贴整行网格(与固定卡同间距),测量走卡内
+   .cfit 包裹层(height:auto 自由表达内容高,resizeToContent 的测量目标)。取整
+   余量落在卡框内底部(与固定卡拉高后的留白同视觉)。触 20 行上限时 .capped:
+   .cfit 被钳回卡框高,.cbody 恢复内滚;内容回落 .cfit 随之缩、capped 自动解除。 */
+.grid-stack .card .cfit { display: flex; flex-direction: column; height: auto; }
+.grid-stack .card.auto-h.capped .cfit { max-height: 100%; }
+.grid-stack .card.auto-h .text-body { max-height: none; overflow-y: visible; }
+.grid-stack .card.auto-h .pv { -webkit-line-clamp: unset; overflow: visible; }
+body.editing .cband h3 { padding-right: 96px; }   /* 编辑态卡头右让位给高度切换钮 */
+/* 文件模式本就随内容拉伸,autoH 只补一个最低高度兜底 */
+.grid .card.auto-h { min-height: calc(var(--minh, 0) * 72px); }
+.grid .card .cfit { display: flex; flex-direction: column; }
 .card h3 .tag { font-size: 11.5px; color: var(--sub); font-weight: 400; letter-spacing: 0;
   border: 1px solid var(--line); border-radius: 5px; padding: 1px 8px; }
 .card .src { font-size: 11.5px; color: var(--sub); margin-top: 10px; }

@@ -14,6 +14,8 @@ const bodyHtml = (seg) => {
 }
 const list = computed(() =>
   (props.kid?.notes || []).slice(-(props.block?.props?.limit || 5)).reverse())
+// autoH 卡(高度自适应)下渐进披露让位:无标题速记正文直接全文,不 clamp 不截段
+const noClamp = computed(() => !!props.block?.autoH)
 const dispDate = (n) => (n.precision && n.precision !== 'day' ? '≈' : '') + fullDate(n.date)
 const dispLabel = (n) => dispDate(n) + (n.time ? ' ' + n.time : '')
 // 时间轴渐进披露(NN Group/EHR collapsed-note 模式):标题行扫读+原文展开
@@ -39,12 +41,12 @@ function toggle(i) {
               <span v-for="t in n.tags" :key="t" class="chip">{{ t }}</span>
             </div>
             <div v-if="!n.title || isOpen(i)" class="ev-body"
-                 :class="{ clamp: !n.title && !isOpen(i) }">
-              <p v-for="(seg, j) in bodyParas(n.text).slice(0, !n.title && !isOpen(i) ? 1 : 99)"
+                 :class="{ clamp: !n.title && !isOpen(i) && !noClamp }">
+              <p v-for="(seg, j) in bodyParas(n.text).slice(0, !n.title && !isOpen(i) && !noClamp ? 1 : 99)"
                  :key="j" v-html="bodyHtml(seg)">
               </p>
             </div>
-            <button v-if="n.title || (n.text || '').length > 42" class="ev-toggle"
+            <button v-if="n.title || (!noClamp && (n.text || '').length > 42)" class="ev-toggle"
                     @click="toggle(i)">{{ isOpen(i) ? '收起' : '详情' }}</button>
           </div>
         </div>

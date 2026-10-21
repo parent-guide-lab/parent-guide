@@ -215,6 +215,12 @@ def make_server(port, data_dir, web_dir):
                         raise ValueError(f"blocks 存在重复/缺失 id: {dup or '(有 block 无 id)'}")
                     if len(ids) != len(payload["blocks"]):
                         raise ValueError("blocks 里混入了非对象条目")
+                    # autoH/minH: type-check when present (fail fast; defaults live in the renderer)
+                    for b in payload["blocks"]:
+                        if "autoH" in b and not isinstance(b["autoH"], bool):
+                            raise ValueError(f"block {b['id']}: autoH 必须是布尔值")
+                        if "minH" in b and (not isinstance(b["minH"], int) or not 1 <= b["minH"] <= 20):
+                            raise ValueError(f"block {b['id']}: minH 必须是 1..20 的整数")
                 if kind == "data" and not [k for k in payload if not k.startswith("_")]:
                     raise ValueError("child.json 必须包含至少一个孩子数据键")
                 payload.pop("bootstrapped", None)  # internal flag never persists

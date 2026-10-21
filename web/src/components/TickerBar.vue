@@ -52,7 +52,8 @@ function open() {
 </template>
 
 <style scoped>
-.tk-bar { max-width: 1200px; margin: 14px auto 0; padding: 5px 10px 5px 16px;
+.tk-bar { width: calc(100% - 40px); max-width: 1160px; margin: 14px auto 0;
+  padding: 5px 10px 5px 16px;
   display: flex; align-items: center; gap: 10px;
   background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
 .tk-main { flex: 1; min-width: 0; border: 0; background: none; padding: 3px 0;
@@ -69,7 +70,7 @@ function open() {
 .tk-fade-enter-active, .tk-fade-leave-active { transition: opacity .35s; }
 .tk-fade-enter-from, .tk-fade-leave-to { opacity: 0; }
 @media (max-width: 720px) {
-  .tk-bar { margin: 10px 12px 0; }
+  .tk-bar { margin-top: 10px; }
   .tk-src { display: none; }   /* 窄屏只留断言本体,来源进知识库面板看 */
 }
 </style>
