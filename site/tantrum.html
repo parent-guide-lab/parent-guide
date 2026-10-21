@@ -8,11 +8,9 @@
 <meta property="og:title" content="发脾气现场 · parent-guide">
 <meta property="og:description" content="CDC 家长课程的现场应对策略与边界">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }
@@ -97,32 +95,32 @@
 <article>
 <h1>发脾气现场</h1>
 <div class="src">整理自 CDC「Essentials for Parenting」(公有领域)中文化 · 原创综述,不搬运机构原文 · 下次复审 2027-Q2</div>
-<h2>1. 计划性忽视:对寻求关注的无害行为撤走注意力(与官方库关系:互补,官方库无此策略)</h2>
-<ul><li>触发:行为无害且明显以获取关注为目的(如你打电话时他故意怪叫、扔东西给你看)。</li><li>怎么做(T3):行为持续期间撤回全部注意力——不对视、不对话、不解释</li></ul>
-<p>(每次解释和瞪眼都是关注);他一安静立即给关注,教的是「安静比哭闹更能换注意」。</p>
-<ul><li>边界:仅限无害行为;打人/咬人/砸人不忽视,当场制止(→emotion.md §3);</li></ul>
-<p>撤回的是对「行为」的反应,不是不响应情绪,与官方库「响应情绪≠满足要求」不冲突。</p>
-<h2>2. 替代转移:一句禁止+立刻给合法出口(与官方库关系:互补,§4 有有限选择但无此条)</h2>
-<ul><li>触发:12-24 月龄段尤其好使(AAP HealthyChildren《What's the Best Way to</li></ul>
-<p>Discipline My Child?》:此年龄「用安全的替代物转移/换掉危险或禁止的物品」 是好策略——2026-10-09 审计改挂 AAP,原「1-2 岁最有效」与话术模板非 CDC 内容);冲动本身合理但对象不对(想扔,但扔的是勺子)。</p>
-<ul><li>怎么做(T3):「不能扔勺子,你可以扔球」(话术为自拟示例,对应 AAP 的</li></ul>
-<p>distract-and-replace 策略)——禁止和给出口同一口气说完, 用新事物接管注意力,不与幼儿辩论。</p>
-<ul><li>边界:若行为实为求关注,禁止那句要平静简短、不制造热闹(配合 §1);3 岁以上补一句规则。</li></ul>
-<h2>3. Time-out 的具体参数(与官方库关系:基本一致,措辞有张力)</h2>
-<ul><li>触发:较严重行为(打人/咬人/扔东西砸人),孩子 2 岁以上。</li><li>怎么做(T3):带离情境到无趣但安全处,时长「几岁就几分钟」(2 岁 2 分钟);</li></ul>
-<p>结束后不翻旧账,直接示范正确的表达方式。</p>
-<ul><li>张力说明:CDC 措辞接近经典 timeout(带离+无趣处);官方库 §4 强调目的是「陪他降级」</li></ul>
-<p>而非隔离冷落。执行以官方库口径为准:目的是双方冷静,恢复即出,不是罚站计时。</p>
-<h2>4. 升级信号:何时求助(与官方库关系:互补,与 §3 升级条件叠加使用)</h2>
-<ul><li>口径(T2,AACAP Facts for Families #136 原文级,2026-10-09 审计改挂——</li></ul>
-<p>原「CDC 补充四条」经 Wayback 全史+镜像三重核查<b>确认非 CDC 内容</b>): 发脾气<b>平均持续超过 25 分钟</b>、涉及<b>攻击行为或故意自伤</b>、<b>无法平静下来</b>, 或频率「非常高且持续得比同龄预期久」——任一出现,交由合格的心理健康专业 人士评估(AACAP 原文:"Tantrums that involve aggression, harming oneself on purpose, not being able to calm down or that last longer than 25 minutes may be a sign of an underlying psychiatric disorder and should be assessed by a qualified mental health professional")。</p>
-<ul><li>年龄锚:AACAP 基线是「3 岁后日常发脾气已少见」(原文)——3 岁后仍天天</li></ul>
-<p>高频,按上一条评估;原「4 岁后」年龄锚非 AACAP 口径,已修正。</p>
-<ul><li>频率<b>不写死月次数</b>:转述版本 10-20 次/月与 &gt;20 次/月并存,以「比自己</li></ul>
+<h2>1. 计划性忽视：对寻求关注的无害行为撤走注意力（与官方库关系：互补，官方库无此策略）</h2>
+<ul><li>触发：行为无害且明显以获取关注为目的（如你打电话时他故意怪叫、扔东西给你看）。</li><li>怎么做（T3)：行为持续期间撤回全部注意力——不对视、不对话、不解释</li></ul>
+<p>（每次解释和瞪眼都是关注）；他一安静立即给关注，教的是「安静比哭闹更能换注意」。</p>
+<ul><li>边界：仅限无害行为；打人/咬人/砸人不忽视，当场制止（→emotion.md §3);</li></ul>
+<p>撤回的是对「行为」的反应，不是不响应情绪，与官方库「响应情绪≠满足要求」不冲突。</p>
+<h2>2. 替代转移：一句禁止+立刻给合法出口（与官方库关系：互补，§4 有有限选择但无此条）</h2>
+<ul><li>触发：12-24 月龄段尤其好使（AAP HealthyChildren《What's the Best Way to</li></ul>
+<p>Discipline My Child？》：此年龄「用安全的替代物转移/换掉危险或禁止的物品」 是好策略——2026-10-09 审计改挂 AAP，原「1-2 岁最有效」与话术模板非 CDC 内容）；冲动本身合理但对象不对（想扔，但扔的是勺子）。</p>
+<ul><li>怎么做（T3)：「不能扔勺子，你可以扔球」（话术为自拟示例，对应 AAP 的</li></ul>
+<p>distract-and-replace 策略）——禁止和给出口同一口气说完， 用新事物接管注意力，不与幼儿辩论。</p>
+<ul><li>边界：若行为实为求关注，禁止那句要平静简短、不制造热闹（配合 §1);3 岁以上补一句规则。</li></ul>
+<h2>3. Time-out 的具体参数（与官方库关系：基本一致，措辞有张力）</h2>
+<ul><li>触发：较严重行为（打人/咬人/扔东西砸人），孩子 2 岁以上。</li><li>怎么做（T3)：带离情境到无趣但安全处，时长「几岁就几分钟」（2 岁 2 分钟）;</li></ul>
+<p>结束后不翻旧账，直接示范正确的表达方式。</p>
+<ul><li>张力说明：CDC 措辞接近经典 timeout（带离+无趣处）；官方库 §4 强调目的是「陪他降级」</li></ul>
+<p>而非隔离冷落。执行以官方库口径为准：目的是双方冷静，恢复即出，不是罚站计时。</p>
+<h2>4. 升级信号：何时求助（与官方库关系：互补，与 §3 升级条件叠加使用）</h2>
+<ul><li>口径（T2,AACAP Facts for Families #136 原文级，2026-10-09 审计改挂——</li></ul>
+<p>原「CDC 补充四条」经 Wayback 全史+镜像三重核查<b>确认非 CDC 内容</b>): 发脾气<b>平均持续超过 25 分钟</b>、涉及<b>攻击行为或故意自伤</b>、<b>无法平静下来</b>, 或频率「非常高且持续得比同龄预期久」——任一出现，交由合格的心理健康专业 人士评估（AACAP 原文："Tantrums that involve aggression, harming oneself on purpose, not being able to calm down or that last longer than 25 minutes may be a sign of an underlying psychiatric disorder and should be assessed by a qualified mental health professional"）。</p>
+<ul><li>年龄锚：AACAP 基线是「3 岁后日常发脾气已少见」（原文）——3 岁后仍天天</li></ul>
+<p>高频，按上一条评估；原「4 岁后」年龄锚非 AACAP 口径，已修正。</p>
+<ul><li>频率<b>不写死月次数</b>：转述版本 10-20 次/月与 &gt;20 次/月并存，以「比自己</li></ul>
 <p>同龄段的典型频率明显更高」为准。</p>
-<ul><li>伴<b>发育里程碑明显落后</b>(语言/社交)另走本库 milestones 口径的 T2 评估线</li></ul>
-<p>(原列于此的「语言/社交落后」条非 AACAP #136 内容,改挂本库发育筛查口径)。</p>
-<div class="note">未收录(官方库已有等价或更细版本,防重复):发脾气属正常发育(emotion.md §1)、 家长先保持冷静(§5)、规则一致不因哭闹让步(§2/§4)。</div>
+<ul><li>伴<b>发育里程碑明显落后</b>（语言/社交）另走本库 milestones 口径的 T2 评估线</li></ul>
+<p>（原列于此的「语言/社交落后」条非 AACAP #136 内容，改挂本库发育筛查口径）。</p>
+<div class="note">未收录（官方库已有等价或更细版本，防重复）：发脾气属正常发育（emotion.md §1）、 家长先保持冷静（§5）、规则一致不因哭闹让步（§2/§4）。</div>
 </article>
 <div class="foot">
   <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>

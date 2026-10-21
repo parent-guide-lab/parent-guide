@@ -7,6 +7,7 @@ import ShareModal from './components/ShareModal.vue'
 import CardManager from './components/CardManager.vue'
 import IssueDetail from './components/IssueDetail.vue'
 import KnowledgePage from './components/KnowledgePage.vue'
+import TickerBar from './components/TickerBar.vue'
 import { CARD_META } from './components/cards/index.js'
 
 onMounted(async () => {
@@ -25,6 +26,7 @@ const exporting = ref(false)     // 板面长图生成中
 const shareState = ref(null)     // null | { level: 'card' | 'issue', block, issue }
 const issueOpen = ref(null)      // 打开详情覆盖层的 issue id;#issue-P1 hash 可直链
 const kbOpen = ref(false)        // 应用内知识库面板(官方库+我的自建)
+const kbFile = ref('')           // 打开面板时定位到的文档(顶部知识条跳转用)
 // 背景滚动锁(单一来源:任一弹窗开即锁;组件各管会互相覆盖)
 watch([() => !!shareState.value, () => !!issueOpen.value, () => kbOpen.value], ([a, b, c]) => {
   document.body.style.overflow = (a || b || c) ? 'hidden' : ''
@@ -166,6 +168,8 @@ function exportReport() {
 
     <div v-if="exportOpen" class="menu-mask" @click="exportOpen = false"></div>
 
+    <TickerBar @open-doc="f => { kbFile = f; kbOpen = true }" />
+
     <GridBoard :key="state.version" :page="state.page" :kid="currentChild()"
                :editing="state.editing" :server-mode="state.serverMode"
                @geometry="applyGeometry" @share-card="b => shareState = { level: 'card', block: b }"
@@ -183,6 +187,6 @@ function exportReport() {
                  @close="issueOpen = null"
                  @share-issue="i => shareState = { level: 'issue', block: null, issue: i }" />
 
-    <KnowledgePage v-if="kbOpen" @close="kbOpen = false" />
+    <KnowledgePage v-if="kbOpen" :file="kbFile" @close="kbOpen = false; kbFile = ''" />
   </template>
 </template>

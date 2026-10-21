@@ -94,7 +94,7 @@ export function dueKey(d) {
 }
 
 // 中文语境标点归一(读侧机械转换,档案原文不动——中文文案排版指北口径):
-// 中文句子用全角 ；，（）;嵌入的数字语境保持半角(14:30 / 1,000 / https://)。
+// 中文句子用全角 ；，（();嵌入的数字语境保持半角(14:30 / 1,000 / https://)。
 export function zhPunct(s) {
   return String(s || '')
     .replace(/;/g, '；')
@@ -105,6 +105,23 @@ export function zhPunct(s) {
       return /\d/.test(str[off - 1] || '') && /\d/.test(str[off + 1] || '') ? ':' : '：'
     })
     .replace(/\(/g, '（').replace(/\)/g, '）')
+}
+
+// 排版规范 8b(2026-10-21 拍板):CJK 邻接的半角标点转全角,其余保持半角——
+// 比 zhPunct 精确:英文语境 "(AAP, 2019)" / "d=0.39" / "10-17" 原样,中文句读
+// 全角。CJK 判定含汉字+中文标点+全角区,行内代码(`…`)整段跳过。
+// 与 knowledge_render.cnpunct 同规则双实现(server 侧 md 渲染用 Python 版)。
+const _CN = '[\\u4e00-\\u9fff\\u3000-\\u303f\\uff00-\\uffef]'
+const _PUNCT_FULL = { ',': '，', ':': '：', ';': '；', '!': '！', '?': '？', '(': '（', ')': '）' }
+// 语法保护段:行内代码与 md 链接整体跳过(链接 ) 后跟中文若转全角会打断解析)
+const _SYNTAX_SPAN = /(`[^`]*`|\[[^\]]*\]\([^)]*\))/g
+export function cnpunct(s) {
+  return String(s ?? '').split(_SYNTAX_SPAN).map((seg, i) => {
+    if (i % 2 === 1) return seg
+    return seg
+      .replace(new RegExp('(' + _CN + ')([,;:!?()])', 'g'), (m, c, p) => c + _PUNCT_FULL[p])
+      .replace(new RegExp('([,;:!?()])(' + _CN + ')', 'g'), (m, p, c) => _PUNCT_FULL[p] + c)
+  }).join('')
 }
 
 // 详情正文分段:标点归一后按中文分号切段(NN Group 分段/列点证据);

@@ -273,11 +273,11 @@ const list = computed(() => records.value.slice(-6).reverse())
 
 <style scoped>
 .latest { background: var(--accent-soft); border-radius: 10px; padding: 8px 12px;
-  font-size: 13px; margin-bottom: 10px; }
-.latest .lm { color: var(--sub); font-size: 12px; margin-bottom: 3px; }
+  font-size: 12.5px; margin-bottom: 10px; }
+.latest .lm { color: var(--sub); font-size: 12.5px; margin-bottom: 3px; }
 .latest .lv { display: flex; align-items: baseline; gap: 6px; }
-.latest .lk { flex: none; width: 2.6em; color: var(--sub); font-size: 12px; }
-.latest .lu { flex: none; width: 1.8em; color: var(--sub); font-size: 12px; }
+.latest .lk { flex: none; width: 2.6em; color: var(--sub); font-size: 12.5px; }
+.latest .lu { flex: none; width: 1.8em; color: var(--sub); font-size: 12.5px; }
 .latest .lv b { font-size: 16px; }
 .pos { font-size: 11.5px; border-radius: 6px; padding: 1px 8px; }
 .pos.in { background: var(--ok-bg); color: var(--ok); }
@@ -292,8 +292,8 @@ const list = computed(() => records.value.slice(-6).reverse())
 .trend .tw { font-weight: 600; }
 .trend .tt { color: var(--sub); margin-left: 6px; }
 .chart { margin-bottom: 6px; }
-.ct { font-size: 12px; color: var(--sub); margin-bottom: 2px; }
-.ct .cb { float: right; font-size: 11px; }
+.ct { font-size: 12.5px; color: var(--sub); margin-bottom: 2px; }
+.ct .cb { float: right; font-size: 11.5px; }
 svg { width: 100%; height: auto; display: block; }
 .band { fill: rgba(90,130,180,.10); stroke: none; }
 .p50 { fill: none; stroke: var(--sub); stroke-width: 1; stroke-dasharray: 4 3; }
@@ -309,7 +309,7 @@ svg { width: 100%; height: auto; display: block; }
   align-items: baseline; font-size: 12.5px; padding: 4px 8px;
   font-variant-numeric: tabular-nums; border-radius: 6px; }
 .rrow:not(.rhead):hover { background: var(--accent-soft); }
-.rhead { color: var(--sub); font-size: 11px; padding-bottom: 3px;
+.rhead { color: var(--sub); font-size: 11.5px; padding-bottom: 3px;
   border-bottom: 1px solid var(--line); }
 .rd { color: var(--sub); }
 .rm, .rv { text-align: right; }
@@ -317,10 +317,10 @@ svg { width: 100%; height: auto; display: block; }
 .hguid { stroke: var(--accent); stroke-width: .75; stroke-dasharray: 2 2; opacity: .7; }
 .tip { position: absolute; top: 4px; transform: translateX(-50%); background: #fff;
   border: 1px solid var(--line); border-radius: 8px; padding: 4px 9px;
-  font-size: 11px; line-height: 1.55; pointer-events: none; white-space: nowrap;
+  font-size: 11.5px; line-height: 1.55; pointer-events: none; white-space: nowrap;
   box-shadow: 0 2px 8px rgba(90,130,180,.18); z-index: 2;
   display: flex; flex-direction: column; }
 .tip.flip { transform: translateX(-100%); }
-.tip b { font-size: 12px; color: var(--ink-blue); }
+.tip b { font-size: 12.5px; color: var(--ink-blue); }
 .tip span { color: var(--sub); }
 </style>

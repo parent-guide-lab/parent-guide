@@ -8,11 +8,9 @@
 <meta property="og:title" content="表扬与思维 · parent-guide">
 <meta property="og:description" content="夸聪明还是夸努力:证据边界与中国情境">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }
@@ -98,60 +96,60 @@
 <h1>表扬与思维</h1>
 <div class="src">原创综述,基于 Dweck 思维模式研究与复现争议整理 · 原创综述,不搬运机构原文 · 下次复审 2027-Q4</div>
 <h2>0. 一句话结论与三条纪律</h2>
-<p><b>结论:证据最稳的一条不是「夸努力」,而是「描述具体行为、少贴固定标签」; 「成长型思维」被大众读物放大了——干预效应小且在中国情境证据最弱,可承诺的 是动机与归因方式,不是成绩。</b></p>
-<p>纪律(先于一切建议):</p>
-<ol><li><b>不说「绝不能夸聪明」</b>。负面证据集中在「挫折后的即时反应」(实验室</li></ol>
-<p>单次操纵),自然观察中特质表扬的负向纵向预测为零(Gunderson 2013: r=-.05)——方向是<b>调整比例</b>(增加过程语言),不是清零评价语言。</p>
+<p><b>结论：证据最稳的一条不是「夸努力」，而是「描述具体行为、少贴固定标签」； 「成长型思维」被大众读物放大了——干预效应小且在中国情境证据最弱，可承诺的 是动机与归因方式，不是成绩。</b></p>
+<p>纪律（先于一切建议）:</p>
+<ol><li><b>不说「绝不能夸聪明」</b>。负面证据集中在「挫折后的即时反应」（实验室</li></ol>
+<p>单次操纵），自然观察中特质表扬的负向纵向预测为零（Gunderson 2013: r=-.05)——方向是<b>调整比例</b>（增加过程语言），不是清零评价语言。</p>
 <ol><li><b>「只夸努力」本身是已被 Dweck 本人点名的误用</b>(false growth mindset,</li></ol>
-<p>假成长型思维):努力无效时仍表扬努力,孩子接到的信息是「你没进步,但 他们要我对此感觉良好」。努力要连着<b>换策略+求助</b>。</p>
-<ol><li><b>真诚是前提</b>:孩子对不真诚表扬的动机代价比没有表扬更大</li></ol>
-<p>(Henderlong &amp; Lepper 2002 条件清单)。</p>
-<h2>1. 两种表扬语言:特质标签 vs 过程描述</h2>
-<table><thead><tr><th>维度</th><th>特质标签(person praise)</th><th>过程描述(process praise)</th></tr></thead><tbody><tr><td>说的是</td><td>「你真聪明」「你真是个好孩子」——无动词的标签或「你是…的」</td><td>「你自己试了三种办法把拼图拼上了」</td></tr><tr><td>编码来源</td><td>Gunderson 2013:标签/系动词+谓语</td><td>Gunderson 2013 三类:努力(effort)/策略(strategies)/行动(actions)</td></tr><tr><td>机制</td><td>把一次表现升级为稳定特质;挫折=特质被证伪的威胁</td><td>把成功归因于可控原因;挫折=换个办法的问题</td></tr></tbody></table>
-<p>经典实验证据(方向,单次实验室场景):Mueller &amp; Dweck 1998 六项实验 (五年级,&gt;400 人,夸聪明组 vs 夸努力组):成功后两组反应相同;<b>挫折后</b> 夸聪明组坚持性更低、乐趣更低、更多「我不行」归因、后续表现更差,&gt;40% 在 报告成绩时谎报抬分;夸努力组在部分研究中高达 90% 选择挑战性任务(Dweck 1999 作者综述,原文级)。学前直接证据:Cimpian 2007——泛化表扬「你是个画画小能手」相比行为表扬「你画得很认真」,挫折后 的坚持性与自我评价更差(摘要级,方向经 Gunderson 2013 原文转引核实)。</p>
-<p><b>外推边界</b>:这是「挫折后的即时反应」证据,不是「长期发展结局」证据; 向日常育儿转述时用「与…相关」,不用「会导致」。</p>
-<h2>2. 0-5 岁唯一直接证据链:比例,不是单次</h2>
-<p>Gunderson 2013(原文级,53 个芝加哥家庭,14-38 月家中自然互动录像,7-8 岁 随访):</p>
+<p>假成长型思维）：努力无效时仍表扬努力，孩子接到的信息是「你没进步，但 他们要我对此感觉良好」。努力要连着<b>换策略+求助</b>。</p>
+<ol><li><b>真诚是前提</b>：孩子对不真诚表扬的动机代价比没有表扬更大</li></ol>
+<p>(Henderlong &amp; Lepper 2002 条件清单）。</p>
+<h2>1. 两种表扬语言：特质标签 vs 过程描述</h2>
+<table><thead><tr><th>维度</th><th>特质标签（person praise)</th><th>过程描述（process praise)</th></tr></thead><tbody><tr><td>说的是</td><td>「你真聪明」「你真是个好孩子」——无动词的标签或「你是…的」</td><td>「你自己试了三种办法把拼图拼上了」</td></tr><tr><td>编码来源</td><td>Gunderson 2013：标签/系动词+谓语</td><td>Gunderson 2013 三类：努力（effort)/策略（strategies)/行动（actions)</td></tr><tr><td>机制</td><td>把一次表现升级为稳定特质；挫折=特质被证伪的威胁</td><td>把成功归因于可控原因；挫折=换个办法的问题</td></tr></tbody></table>
+<p>经典实验证据（方向，单次实验室场景）:Mueller &amp; Dweck 1998 六项实验 （五年级，&gt;400 人，夸聪明组 vs 夸努力组）：成功后两组反应相同；<b>挫折后</b> 夸聪明组坚持性更低、乐趣更低、更多「我不行」归因、后续表现更差，&gt;40% 在 报告成绩时谎报抬分；夸努力组在部分研究中高达 90% 选择挑战性任务（Dweck 1999 作者综述，原文级）。学前直接证据：Cimpian 2007——泛化表扬「你是个画画小能手」相比行为表扬「你画得很认真」，挫折后 的坚持性与自我评价更差（摘要级，方向经 Gunderson 2013 原文转引核实）。</p>
+<p><b>外推边界</b>：这是「挫折后的即时反应」证据，不是「长期发展结局」证据； 向日常育儿转述时用「与…相关」，不用「会导致」。</p>
+<h2>2. 0-5 岁唯一直接证据链：比例，不是单次</h2>
+<p>Gunderson 2013（原文级，53 个芝加哥家庭，14-38 月家中自然互动录像，7-8 岁 随访）:</p>
 <ul><li><b>14-38 月家长过程表扬占表扬总量的比例</b>预测 7-8 岁增量思维框架</li></ul>
-<p>(β=.34,控制家庭 SES/父母自身思维/父母总言语量/儿童性别后仍显著); 2018 年追踪:同一批孩子,过程表扬比例<b>经由孩子增量思维中介,预测四年级 数学与阅读成绩</b>(摘要级,首次证据)。</p>
+<p>(β=.34，控制家庭 SES/父母自身思维/父母总言语量/儿童性别后仍显著）; 2018 年追踪：同一批孩子，过程表扬比例<b>经由孩子增量思维中介，预测四年级 数学与阅读成绩</b>（摘要级，首次证据）。</p>
 <ul><li><b>真实家庭里过程表扬的绝大多数是浅层的</b>「good job」「跑得真好」——</li></ul>
-<p>实验里那种「你一定很努力」作者不记得编码到过一例,而浅层过程表扬仍 有预测力。<b>推论:「真棒」不用戒,方向是在后面加一句具体内容</b> (「真棒,你刚才自己把积木垒到第五层」),从评价转描述。</p>
+<p>实验里那种「你一定很努力」作者不记得编码到过一例，而浅层过程表扬仍 有预测力。<b>推论：「真棒」不用戒，方向是在后面加一句具体内容</b> （「真棒，你刚才自己把积木垒到第五层」），从评价转描述。</p>
 <ul><li><b>person praise 的负向预测在该样本中为零</b>(r=-.05)——「夸聪明毁孩子」</li></ul>
-<p>在自然观察里没有纵向支持(见 §0 纪律 1)。</p>
-<ul><li>性别提示(单研究,作提示不作结论):男孩显著收到更多过程表扬;对女儿</li></ul>
+<p>在自然观察里没有纵向支持（见 §0 纪律 1）。</p>
+<ul><li>性别提示（单研究，作提示不作结论）：男孩显著收到更多过程表扬；对女儿</li></ul>
 <p>值得主动补过程语言。</p>
-<ul><li>反直觉:父母自己相信「能力可变」与其表扬方式、与孩子思维框架均无关</li></ul>
-<p>——<b>相信什么不自动转化为说什么</b>,要改的是嘴上的话。</p>
-<h2>3. 成长型思维:能承诺什么,不能承诺什么</h2>
-<p>这是大众科普夸大最重的区域,证据边界要如实给出:</p>
-<ul><li><b>平均效应小</b>:Sisk 2018 双元 meta(273 项研究 N=365,915):思维模式与</li></ul>
-<p>学业成绩相关 r=.10,273 个效应量中 58% 与零无显著差异;干预对成绩的 整体效应 d=0.08(原文级)。</p>
-<ul><li><b>有效人群集中且依赖情境</b>:Yeager 2019 Nature 全国实验(N=12,490,</li></ul>
-<p>预注册双盲):不到一小时的在线干预使<b>低成就学生</b>GPA +0.10 绩点,且效应 主要出现在「同伴规范支持挑战」的学校——信念要转化为成绩,需要环境 允许它落地(原文级)。</p>
-<ul><li><b>中国情境证据最弱</b>:Li &amp; Bates 中国 10-12 岁样本(n=624)未复现思维</li></ul>
-<p>模式效应(预印本原文级;发表版 N=433 亦无显著相关);PISA 74 国数据中 中国大陆的思维-成绩关联接近零甚至为负(Yeager &amp; Dweck 2020 原文级转引)。 正面证据仅数学小效应(Huang 2022 中国现场实验,转述级)。</p>
-<ul><li><b>对家长的承诺边界</b>:过程语言可承诺到「动机、归因、挑战意愿」层面;</li></ul>
-<p><b>不承诺成绩</b>;在中国情境下连学业层面的迁移证据都薄,表述时加限定。</p>
-<h2>4. 反面与边界:夸张表扬、表扬与内在动机</h2>
-<ul><li><b>夸张表扬(inflated praise)</b>:评价前加程度副词——「画得<b>太完美了</b>」。</li></ul>
-<p>成人对低自我价值感儿童给的夸张表扬约为其他孩子的两倍;实验中夸张表扬 使<b>低自尊</b>儿童更回避挑战(Brummelman 2014,摘要级);荷兰 120 对亲子 纵向:家长夸张表扬预测儿童更低自尊,对原本高自尊者预测更高自恋 (Brummelman 2017,原文级;样本 7-11 岁,向 0-5 岁外推属机制推定)。</p>
+<ul><li>反直觉：父母自己相信「能力可变」与其表扬方式、与孩子思维框架均无关</li></ul>
+<p>——<b>相信什么不自动转化为说什么</b>，要改的是嘴上的话。</p>
+<h2>3. 成长型思维：能承诺什么，不能承诺什么</h2>
+<p>这是大众科普夸大最重的区域，证据边界要如实给出：</p>
+<ul><li><b>平均效应小</b>:Sisk 2018 双元 meta(273 项研究 N=365,915)：思维模式与</li></ul>
+<p>学业成绩相关 r=.10,273 个效应量中 58% 与零无显著差异；干预对成绩的 整体效应 d=0.08（原文级）。</p>
+<ul><li><b>有效人群集中且依赖情境</b>:Yeager 2019 Nature 全国实验（N=12,490,</li></ul>
+<p>预注册双盲）：不到一小时的在线干预使<b>低成就学生</b>GPA +0.10 绩点，且效应 主要出现在「同伴规范支持挑战」的学校——信念要转化为成绩，需要环境 允许它落地（原文级）。</p>
+<ul><li><b>中国情境证据最弱</b>:Li &amp; Bates 中国 10-12 岁样本（n=624）未复现思维</li></ul>
+<p>模式效应（预印本原文级；发表版 N=433 亦无显著相关）;PISA 74 国数据中 中国大陆的思维-成绩关联接近零甚至为负（Yeager &amp; Dweck 2020 原文级转引）。 正面证据仅数学小效应（Huang 2022 中国现场实验，转述级）。</p>
+<ul><li><b>对家长的承诺边界</b>：过程语言可承诺到「动机、归因、挑战意愿」层面；</li></ul>
+<p><b>不承诺成绩</b>；在中国情境下连学业层面的迁移证据都薄，表述时加限定。</p>
+<h2>4. 反面与边界：夸张表扬、表扬与内在动机</h2>
+<ul><li><b>夸张表扬（inflated praise)</b>：评价前加程度副词——「画得<b>太完美了</b>」。</li></ul>
+<p>成人对低自我价值感儿童给的夸张表扬约为其他孩子的两倍；实验中夸张表扬 使<b>低自尊</b>儿童更回避挑战（Brummelman 2014，摘要级）；荷兰 120 对亲子 纵向：家长夸张表扬预测儿童更低自尊，对原本高自尊者预测更高自恋 (Brummelman 2017，原文级；样本 7-11 岁，向 0-5 岁外推属机制推定）。</p>
 <ul><li><b>表扬不侵蚀内在动机——控制性的呈现方式才侵蚀</b>:Deci 1999 meta</li></ul>
-<p>(128 实验):实物奖励削弱自由选择动机(参与 contingent d=-0.40),而言语 表扬<b>增强</b>(d=+0.33)。「乖就夸」的交易式用法与控制性用法同构,该降的 是交易味,不是表扬本身。</p>
-<ul><li>Henderlong &amp; Lepper 2002 条件清单(摘要级):表扬起正作用需——被感知</li></ul>
-<p>真诚;归因可控;促进自主而非依赖外部认可;胜任感不靠社会比较;标准可达成。</p>
+<p>(128 实验）：实物奖励削弱自由选择动机（参与 contingent d=-0.40)，而言语 表扬<b>增强</b>(d=+0.33）。「乖就夸」的交易式用法与控制性用法同构，该降的 是交易味，不是表扬本身。</p>
+<ul><li>Henderlong &amp; Lepper 2002 条件清单（摘要级）：表扬起正作用需——被感知</li></ul>
+<p>真诚；归因可控；促进自主而非依赖外部认可；胜任感不靠社会比较；标准可达成。</p>
 <h2>5. 家长侧操作口径</h2>
-<p>三句话版(输出时的出口):</p>
-<ol><li><b>描述你看到的具体行为,少贴固定标签</b>:「你真聪明」→「你自己试了</li></ol>
-<p>三种办法拼上了」。最跨年龄最稳的一条(Cimpian 2007+Gunderson 2013)。</p>
-<ol><li><b>夸努力要连着策略</b>:卡住时不只说「再努力就好」,说「这个办法没成功,</li></ol>
-<p>我们换个办法/找人问问」——努力+策略+求助才是完整内容(Dweck &amp; Yeager 2019 原文级)。</p>
-<ol><li><b>真诚、不夸张</b>:「太完美了/绝了」对自我价值感低的孩子适得其反;</li></ol>
+<p>三句话版（输出时的出口）:</p>
+<ol><li><b>描述你看到的具体行为，少贴固定标签</b>：「你真聪明」→「你自己试了</li></ol>
+<p>三种办法拼上了」。最跨年龄最稳的一条（Cimpian 2007+Gunderson 2013）。</p>
+<ol><li><b>夸努力要连着策略</b>：卡住时不只说「再努力就好」，说「这个办法没成功，</li></ol>
+<p>我们换个办法/找人问问」——努力+策略+求助才是完整内容（Dweck &amp; Yeager 2019 原文级）。</p>
+<ol><li><b>真诚、不夸张</b>：「太完美了/绝了」对自我价值感低的孩子适得其反；</li></ol>
 <p>平静、具体、真实的一句比热烈的空表扬更养动机。</p>
-<p>补充口径:「not yet(还没学会)」话术理念与非泛化归因一致,可作建议但 出自 Dweck 的 TED 叙事,无对照实验,不标「被证明」。</p>
+<p>补充口径：「not yet（还没学会）」话术理念与非泛化归因一致，可作建议但 出自 Dweck 的 TED 叙事，无对照实验，不标「被证明」。</p>
 <h2>6. 流行说法核查</h2>
-<table><thead><tr><th>流行说法</th><th>判定</th><th>依据</th></tr></thead><tbody><tr><td>「夸具体不夸空泛」</td><td>方向支持,维度表述不准——证据支持的是「过程/行为 vs 特质标签」「非泛化 vs 泛化」,不是「具体 vs 空泛」本身</td><td>Cimpian 2007;Gunderson 2013</td></tr><tr><td>「只能夸努力不能夸聪明」</td><td>过度简化:负效应集中在挫折后场景;自然观察负向预测为零(r=-.05);「只夸努力」本身是 Dweck 点名的误用</td><td>Mueller &amp; Dweck 1998;Gunderson 2013;Dweck &amp; Yeager 2019</td></tr><tr><td>「成长型思维能提成绩」</td><td>整体效应小(d=0.08),集中于低成就者,依赖情境;中国情境关联近零——不承诺成绩</td><td>Sisk 2018;Yeager 2019;Li &amp; Bates</td></tr><tr><td>「挫折教育:故意让孩子失败练抗挫」</td><td>误传:无任何同行评审研究支持人为设置失败提高韧性;研究测的都是挫折后的反馈方式</td><td>Yeager 2019 机制</td></tr><tr><td>「表扬会让孩子骄傲退步」</td><td>有严格条件的部分支持:夸张表扬×低自尊→回避挑战;真诚的信息性表扬不侵蚀动机(d=+0.33)。整句作为普遍规律是误传</td><td>Brummelman 2014/2017;Deci 1999</td></tr></tbody></table>
+<table><thead><tr><th>流行说法</th><th>判定</th><th>依据</th></tr></thead><tbody><tr><td>「夸具体不夸空泛」</td><td>方向支持，维度表述不准——证据支持的是「过程/行为 vs 特质标签」「非泛化 vs 泛化」，不是「具体 vs 空泛」本身</td><td>Cimpian 2007;Gunderson 2013</td></tr><tr><td>「只能夸努力不能夸聪明」</td><td>过度简化：负效应集中在挫折后场景；自然观察负向预测为零（r=-.05)；「只夸努力」本身是 Dweck 点名的误用</td><td>Mueller &amp; Dweck 1998;Gunderson 2013;Dweck &amp; Yeager 2019</td></tr><tr><td>「成长型思维能提成绩」</td><td>整体效应小（d=0.08)，集中于低成就者，依赖情境；中国情境关联近零——不承诺成绩</td><td>Sisk 2018;Yeager 2019;Li &amp; Bates</td></tr><tr><td>「挫折教育：故意让孩子失败练抗挫」</td><td>误传：无任何同行评审研究支持人为设置失败提高韧性；研究测的都是挫折后的反馈方式</td><td>Yeager 2019 机制</td></tr><tr><td>「表扬会让孩子骄傲退步」</td><td>有严格条件的部分支持：夸张表扬×低自尊→回避挑战；真诚的信息性表扬不侵蚀动机（d=+0.33）。整句作为普遍规律是误传</td><td>Brummelman 2014/2017;Deci 1999</td></tr></tbody></table>
 <h2>7. 依据强度分级</h2>
-<table><thead><tr><th>主张</th><th>强度</th></tr></thead><tbody><tr><td>泛化身份表扬与挫折后坚持性下降相关(学前+学龄实验一致);家长过程表扬比例→后期增量思维(纵向);夸张表扬×低自尊→回避挑战;思维干预效应小且集中于低成就者(两个大数据源互证)</td><td>强(实验/meta/原文级)</td></tr><tr><td>过程表扬→四年级成绩(中介);言语表扬增强内在动机;真诚/归因可控/自主支持的条件清单</td><td>中-强(纵向相关/meta/综述)</td></tr><tr><td>2-5 岁段三种表扬均不损害动机(undermining 弱);女孩收到更少过程表扬故需主动补;「真棒+具体内容」的改造法</td><td>中/弱-中(单研究/机制推论)</td></tr><tr><td>「not yet」话术;「在中国情境迁移有效」(除数学小效应外)</td><td>弱/未确立(TED 叙事/零结果区,不作承诺)</td></tr></tbody></table>
+<table><thead><tr><th>主张</th><th>强度</th></tr></thead><tbody><tr><td>泛化身份表扬与挫折后坚持性下降相关（学前+学龄实验一致）；家长过程表扬比例→后期增量思维（纵向）；夸张表扬×低自尊→回避挑战；思维干预效应小且集中于低成就者（两个大数据源互证）</td><td>强（实验/meta/原文级）</td></tr><tr><td>过程表扬→四年级成绩（中介）；言语表扬增强内在动机；真诚/归因可控/自主支持的条件清单</td><td>中-强（纵向相关/meta/综述）</td></tr><tr><td>2-5 岁段三种表扬均不损害动机（undermining 弱）；女孩收到更少过程表扬故需主动补；「真棒+具体内容」的改造法</td><td>中/弱-中（单研究/机制推论）</td></tr><tr><td>「not yet」话术；「在中国情境迁移有效」（除数学小效应外）</td><td>弱/未确立（TED 叙事/零结果区，不作承诺）</td></tr></tbody></table>
 </article>
 <div class="foot">
   <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>

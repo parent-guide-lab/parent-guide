@@ -88,17 +88,17 @@ function nextOf(i) {
 .mn.dim small { letter-spacing: .04em; }
 .mn.tog { cursor: pointer; user-select: none; }
 .mn.tog:hover small { color: var(--ink-blue); }
-.mn .arr { display: inline-block; margin-left: 2px; font-size: 9px;
+.mn .arr { display: inline-block; margin-left: 2px; font-size: 10.5px;
   color: var(--sub); transition: transform .15s; }
 .mn .arr.up { transform: rotate(180deg); }
-.care-n { font-size: 11px; color: var(--todo); border: 1px solid var(--todo);
+.care-n { font-size: 11.5px; color: var(--todo); border: 1px solid var(--todo);
   border-radius: 4px; padding: 0 6px; letter-spacing: .04em; font-weight: 600; }
 .irow { display: flex; gap: 8px; align-items: baseline; padding: 7px 0;
-  border-bottom: 1px dashed var(--line); font-size: 13.5px; cursor: pointer; }
+  border-bottom: 1px dashed var(--line); font-size: 14px; cursor: pointer; }
 .irow:last-child { border-bottom: none; }
 .irow.wrap { flex-wrap: wrap; }
 .irow .nm { font-weight: 600; }
-.irow .dy { color: var(--sub); font-size: 12px; font-family: Georgia, serif; }
+.irow .dy { color: var(--sub); font-size: 12.5px; font-family: Georgia, serif; }
 .irow .nx { color: var(--sub); font-size: 12.5px; margin-left: auto; text-align: right;
   min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 45%; }
 .irow .nx.full { flex-basis: 100%; max-width: none; white-space: normal;

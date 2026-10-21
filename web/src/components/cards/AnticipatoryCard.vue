@@ -91,21 +91,21 @@ const pastText = computed(() => past.value.length
   padding-top: 8px; border-top: 1px dashed var(--grid-line); }
 .glabel.first { margin-top: 0; padding-top: 0; border-top: none; }
 .rrow { display: flex; gap: 10px; align-items: baseline; padding: 5px 0;
-  border-bottom: 1px dashed var(--grid-line); font-size: 13.5px; }
+  border-bottom: 1px dashed var(--grid-line); font-size: 14px; }
 .rrow:last-of-type { border-bottom: none; }
 .rtopic { min-width: 0; flex: 1; }
 .anode { border: 1px solid var(--ink-blue); border-radius: 6px; padding: 7px 10px;
   margin: 10px 0 8px; }
 .aline { display: flex; gap: 8px; align-items: baseline; }
 .st.k { color: var(--sub); }
-.aname { font-size: 13.5px; font-weight: 600; }
-.adue { margin-left: auto; flex: none; font-size: 11px; color: var(--sub);
+.aname { font-size: 14px; font-weight: 600; }
+.adue { margin-left: auto; flex: none; font-size: 11.5px; color: var(--sub);
   font-family: Georgia, serif; font-variant-numeric: tabular-nums; }
-.anote { font-size: 12px; color: var(--sub); margin-top: 3px; line-height: 1.5; }
-.grow { display: flex; gap: 10px; font-size: 13px; padding: 5px 0;
+.anote { font-size: 12.5px; color: var(--sub); margin-top: 3px; line-height: 1.5; }
+.grow { display: flex; gap: 10px; font-size: 12.5px; padding: 5px 0;
   border-bottom: 1px dashed var(--grid-line); align-items: baseline; }
 .grow b { flex: none; font-family: Georgia, serif; font-variant-numeric: tabular-nums;
   color: var(--ink-blue); font-weight: 600; font-size: 12.5px; }
 .grow span { min-width: 0; line-height: 1.55; }
-.psrc { font-size: 11px; color: var(--sub); margin-top: 10px; }
+.psrc { font-size: 11.5px; color: var(--sub); margin-top: 10px; }
 </style>

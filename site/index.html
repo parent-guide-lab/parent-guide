@@ -8,11 +8,9 @@
 <meta property="og:title" content="循证育儿知识库 · parent-guide">
 <meta property="og:description" content="睡眠、营养、情绪、发育里程碑、如厕、戒安抚物——家长可直接查的循证参考">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }

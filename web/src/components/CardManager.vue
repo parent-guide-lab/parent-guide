@@ -84,8 +84,8 @@ const absentTypes = computed(() =>
 header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px;
   padding-bottom: 10px; border-bottom: 1px solid var(--grid-line); }
 header b { font-size: 16px; color: var(--ink-blue); letter-spacing: .04em; }
-header .sub { font-size: 12px; color: var(--sub); }
-.grp { font-size: 12px; color: var(--sub); letter-spacing: .06em; margin: 14px 0 8px; }
+header .sub { font-size: 12.5px; color: var(--sub); }
+.grp { font-size: 12.5px; color: var(--sub); letter-spacing: .06em; margin: 14px 0 8px; }
 .tilegrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(172px, 1fr)); gap: 10px; }
 .tile { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px 8px;
   cursor: pointer; background: #fff; display: flex; flex-direction: column; gap: 5px;
@@ -93,14 +93,14 @@ header .sub { font-size: 12px; color: var(--sub); }
 .tile:hover { border-color: var(--ink-blue); }
 .tile.off { background: #faf8f4; border-style: dashed; }
 .tile.off:hover { border-color: var(--sub); }
-.t-name { font-size: 13.5px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+.t-name { font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.4; }
 .t-desc { font-size: 11.5px; color: var(--sub); flex: 1; line-height: 1.45; }
-.t-foot { display: flex; align-items: center; gap: 8px; font-size: 11px;
+.t-foot { display: flex; align-items: center; gap: 8px; font-size: 11.5px;
   border-top: 1px dashed var(--grid-line); padding-top: 6px; }
 .t-state { color: var(--ink-blue); }
 .tile.off .t-state { color: var(--sub); }
 .t-del { margin-left: auto; border: 1px solid transparent; background: none;
-  color: var(--sub); font-size: 11px; cursor: pointer; padding: 1px 7px; border-radius: 5px; }
+  color: var(--sub); font-size: 11.5px; cursor: pointer; padding: 1px 7px; border-radius: 5px; }
 .t-del:hover { color: var(--todo); border-color: var(--todo); }
 .t-note { margin-left: auto; color: var(--sub); }
 .pick { border: 1px dashed var(--ink-blue); border-radius: 10px;
@@ -110,6 +110,6 @@ header .sub { font-size: 12px; color: var(--sub); }
 .pick:hover { background: var(--accent-soft); }
 .t-add { color: var(--ink-blue); font-weight: 600; }
 .hint-box { background: var(--accent-soft); border-radius: 10px; padding: 10px 12px;
-  font-size: 12.5px; color: #9c5535; margin-top: 14px; line-height: 1.6; }
+  font-size: 12.5px; color: var(--hint); margin-top: 14px; line-height: 1.6; }
 @media (max-width: 640px) { .tilegrid { grid-template-columns: 1fr 1fr; } }
 </style>

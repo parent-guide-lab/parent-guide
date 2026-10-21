@@ -152,12 +152,12 @@ const hist = computed(() => (props.kid?.profileHistory || []).slice().reverse())
 .psec { margin-top: 12px; }
 .plabel { display: flex; align-items: baseline; gap: 8px; font-size: 11.5px;
   color: var(--sub); margin-bottom: 5px; letter-spacing: .08em; }
-.plabel .asof { margin-left: auto; letter-spacing: 0; font-size: 11px;
+.plabel .asof { margin-left: auto; letter-spacing: 0; font-size: 11.5px;
   font-variant-numeric: tabular-nums; }
 .plabel .asof.stale { color: var(--watch); }
 .phist { padding: 6px 0; border-bottom: 1px dashed var(--grid-line); }
 .phist:last-child { border-bottom: none; }
-.phd { font-size: 11px; color: var(--sub); margin-bottom: 3px;
+.phd { font-size: 11.5px; color: var(--sub); margin-bottom: 3px;
   font-variant-numeric: tabular-nums; }
 .pvals { display: flex; gap: 6px; align-items: flex-start; font-size: 12.5px;
   line-height: 1.5; }
@@ -167,12 +167,12 @@ const hist = computed(() => (props.kid?.profileHistory || []).slice().reverse())
 .parr { flex: none; color: var(--ink-blue); }
 .chip.lnk { border-style: solid; border-color: var(--ink-blue); cursor: pointer; }
 .chip.lnk:hover { background: var(--accent-soft); }
-.chip .p { font-size: 10px; font-weight: 700; margin-left: 4px;
+.chip .p { font-size: 10.5px; font-weight: 700; margin-left: 4px;
   font-family: Georgia, serif; }
-.kv { display: flex; gap: 10px; font-size: 13px; padding: 6px 0;
+.kv { display: flex; gap: 10px; font-size: 12.5px; padding: 6px 0;
   border-bottom: 1px dashed var(--grid-line); align-items: baseline; }
 .kv:last-child { border-bottom: none; }
-.kv b { flex: none; width: 4em; color: var(--sub); font-weight: 500; font-size: 12px; }
+.kv b { flex: none; width: 4em; color: var(--sub); font-weight: 500; font-size: 12.5px; }
 .kv span { flex: 1; min-width: 0; line-height: 1.55; }
 .kv .muted { color: var(--sub); }
 </style>

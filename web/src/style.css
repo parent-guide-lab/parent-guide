@@ -1,16 +1,20 @@
 /* parent-guide 成长视图 —— 设计系统 A·生长图纸(儿保手册坐标纸,见 demo/ui-2026-10/a-graph.html) */
+/* 排版规范(2026-10-21 拍板,全文 docs/typography-spec-2026-10-21.md):字阶 9 档/字重 400-700/颜色配对/等宽数字/标点渲染层转换 */
 :root {
-  --bg: #fdfdfb; --card: #ffffff; --ink: #1e3a52; --ink-blue: #2f5470; --sub: #7d92a3;
-  --accent: #2f5470; --accent-soft: #eef3f7; --line: #dde6ec;
+  --bg: #fdfdfb; --card: #ffffff; --ink: #1e3a52; --ink-blue: #2f5470; --sub: #5f7386;
+  --accent: #2f5470; --accent-soft: #eef3f7; --line: #dde6ec; --hint: #8a5a2a;
   --grid: rgba(90,130,180,.07); --grid-line: rgba(90,130,180,.18);
-  --ok: #4a8a6a; --ok-bg: #eef5f0; --watch: #c98a2d; --watch-bg: #faf3e4;
-  --todo: #c25a4e; --todo-bg: #f9eeec; --err: #b04a4a; --err-bg: #f9e9e9;
+  --ok: #3a7555; --ok-bg: #eef5f0; --watch: #96630f; --watch-bg: #faf3e4;
+  --todo: #ad4b40; --todo-bg: #f9eeec; --err: #b04a4a; --err-bg: #f9e9e9;
 }
 * { box-sizing: border-box; margin: 0; }
-body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+body { font-family: system-ui, -apple-system, "PingFang SC", "HarmonyOS Sans SC",
+  "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   background: var(--bg); color: var(--ink); line-height: 1.6;
   font-variant-numeric: tabular-nums; }
 .num-serif { font-family: Georgia, "Times New Roman", serif; }
+/* 列对齐日期/数字列的等宽栈(规范 7b):Georgia 无 tnum 特性,等宽靠 mono 保证 */
+.num-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 
 /* 工具条 */
 .toolbar { position: sticky; top: 0; z-index: 10; background: var(--card);
@@ -19,12 +23,12 @@ body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
 .toolbar .brand { font-weight: 700; margin-right: auto; }
 .toolbar .brand small { color: var(--sub); font-weight: 400; margin-left: 8px; }
 .btn { border: 1px solid var(--line); background: #fff; color: var(--ink);
-  border-radius: 8px; padding: 6px 14px; font-size: 13px; cursor: pointer; }
+  border-radius: 8px; padding: 6px 14px; font-size: 12.5px; cursor: pointer; }
 .btn:hover { border-color: var(--accent); color: var(--accent); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 .btn:disabled { opacity: .45; cursor: not-allowed; }
-.mode-badge { font-size: 12px; color: var(--sub); border: 1px solid var(--line);
+.mode-badge { font-size: 12.5px; color: var(--sub); border: 1px solid var(--line);
   border-radius: 99px; padding: 2px 10px; margin-right: 10px; white-space: nowrap; }
 .mode-badge.on { color: var(--ok); border-color: #bcdcc9; background: var(--ok-bg); }
 
@@ -57,14 +61,14 @@ body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2
 .cband .cbsub { display: flex; gap: 8px; align-items: center; margin-top: 3px; }
 .cband .cbsub .head-stats, .cband .cbsub .care-n { margin-left: 0; }
 .cbody { flex: 1; min-height: 0; overflow-y: auto; padding: 10px 20px 14px; }
-.card h3 .tag { font-size: 11px; color: var(--sub); font-weight: 400; letter-spacing: 0;
+.card h3 .tag { font-size: 11.5px; color: var(--sub); font-weight: 400; letter-spacing: 0;
   border: 1px solid var(--line); border-radius: 5px; padding: 1px 8px; }
-.card .src { font-size: 11px; color: var(--sub); margin-top: 10px; }
+.card .src { font-size: 11.5px; color: var(--sub); margin-top: 10px; }
 
 /* A·生长图纸:数字排版系统(数字是本产品的第一语言,大而精) */
 .num-hero { font-family: Georgia, serif; font-size: 54px; font-weight: 700; line-height: 1;
   letter-spacing: -.02em; color: var(--ink-blue); }
-.num-unit { font-size: 13px; font-weight: 500; color: var(--sub); margin-left: 3px; }
+.num-unit { font-size: 12.5px; font-weight: 500; color: var(--sub); margin-left: 3px; }
 .num-mid { font-family: Georgia, serif; font-size: 24px; font-weight: 700; line-height: 1; }
 
 /* 卡片内统一小件 */
@@ -72,22 +76,23 @@ body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2
 .tl { position: relative; padding-left: 16px; }
 .tl::before { content: ''; position: absolute; left: 3px; top: 8px; bottom: 8px;
   width: 2px; background: var(--line); border-radius: 2px; }
-.tl-item { position: relative; padding: 4px 0 8px; font-size: 13.5px; }
+.tl-item { position: relative; padding: 4px 0 8px; font-size: 14px; }
 .tl-item::before { content: ''; position: absolute; left: -16px; top: 9px;
   width: 8px; height: 8px; border-radius: 99px; background: var(--accent);
   box-shadow: 0 0 0 2px var(--accent-soft); }
 .tl-item .d { color: var(--sub); margin-right: 8px; font-variant-numeric: tabular-nums;
-  font-size: 12px; }
-/* due 徽章紧迫度(Followup/Reminder 共用)·A 图纸风:细底方角+serif 数字 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12.5px; }
+/* due 徽章紧迫度(Followup/Reminder 共用)·A 图纸风:细底方角;日期走等宽栈(规范 7b,serif 无 tnum) */
 .due-b { flex: none; display: inline-flex; align-items: center; border-radius: 5px;
   padding: 2px 8px; font-size: 12.5px; font-variant-numeric: tabular-nums;
-  font-family: Georgia, serif; font-weight: 700; }
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 700; }
 .due-b.overdue { background: var(--todo-bg); color: var(--todo); }
 .due-b.today { background: var(--watch-bg); color: var(--watch); }
 .due-b.soon { background: var(--accent-soft); color: var(--ink-blue); }
 .due-b.later, .due-b.plain { background: rgba(255,255,255,.7); color: var(--ink-blue); }
 /* 卡头右侧汇总统计(里程碑/睡眠) */
-.head-stats { margin-left: auto; display: flex; gap: 6px; font-size: 11px;
+.head-stats { margin-left: auto; display: flex; gap: 6px; font-size: 11.5px;
   color: var(--sub); font-weight: 400; }
 .head-stats b { font-weight: 600; }
 .head-stats .ok { color: var(--ok); }
@@ -99,8 +104,8 @@ body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2
 .kv b { flex: none; color: var(--sub); font-weight: 500; min-width: 5em; }
 .chip { display: inline-block; background: rgba(255,255,255,.75); color: var(--ink-blue);
   border: 1px solid var(--grid-line); border-radius: 6px;
-  padding: 2px 10px; font-size: 12px; margin: 2px 4px 2px 0; }
-.mrow { display: flex; gap: 8px; font-size: 13.5px; padding: 5px 0;
+  padding: 2px 10px; font-size: 12.5px; margin: 2px 4px 2px 0; }
+.mrow { display: flex; gap: 8px; font-size: 14px; padding: 5px 0;
   border-bottom: 1px dashed var(--line); align-items: baseline; }
 .mrow:last-child { border-bottom: none; }
 .st { flex: none; font-size: 10.5px; border: 1px solid; border-radius: 4px; padding: 0 6px;
@@ -113,25 +118,19 @@ body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2
 .bar-track { background: #f1ece4; border-radius: 99px; height: 14px; overflow: hidden; }
 .bar-fill { display: block; height: 100%; border-radius: 99px;
   background: var(--ink-blue); opacity: .82; }
-.strate { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; }
-.strate:last-child { margin-bottom: 0; }
-.strate .name { font-weight: 600; font-size: 14px; }
-.strate .badge { float: right; font-size: 12px; border-radius: 99px; padding: 1px 10px; }
-.strate .badge.effective { background: var(--ok-bg); color: var(--ok); }
-.strate .badge.partial { background: var(--watch-bg); color: var(--watch); }
-.strate p { font-size: 13px; color: #5b564d; margin-top: 4px; }
-.strate .fu { font-size: 13px; color: var(--ok); margin-top: 4px; }
-.frow { display: flex; gap: 10px; font-size: 13.5px; padding: 6px 0;
+/* .strate 系列样式已删(2026-10-21):strategy-effect 卡 2026-10-10 退役,模板零引用 */
+.frow { display: flex; gap: 10px; font-size: 14px; padding: 6px 0;
   border-bottom: 1px dashed var(--line); }
 .frow:last-child { border-bottom: none; }
 .frow .due { flex: none; color: var(--accent); font-weight: 600; }
-.note-item { font-size: 13.5px; padding: 4px 0; }
-.note-item .d { color: var(--sub); margin-right: 8px; font-variant-numeric: tabular-nums; }
+.note-item { font-size: 14px; padding: 4px 0; }
+.note-item .d { color: var(--sub); margin-right: 8px; font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 
 /* fail-soft 错误占位卡 */
 .card.err { border-style: dashed; border-color: #e4b6b6; background: var(--err-bg); }
 .card.err h3 { color: var(--err); }
-.card.err code { font-size: 12px; background: #fff; border-radius: 6px;
+.card.err code { font-size: 12.5px; background: #fff; border-radius: 6px;
   padding: 2px 8px; display: inline-block; margin-top: 6px; }
 
 /* 抽屉基座(卡片管理弹层) */
@@ -145,7 +144,7 @@ body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2
 .drawer header b { margin-right: auto; }
 .drawer footer { padding: 12px 18px; border-top: 1px solid var(--line);
   display: flex; gap: 10px; justify-content: flex-end; align-items: center; }
-.drawer .hint { font-size: 12px; color: var(--err); margin-right: auto; }
+.drawer .hint { font-size: 12.5px; color: var(--err); margin-right: auto; }
 
 /* 导出下拉:图纸语言(白底+细描边,无投影无渐变);mask 接管页外点击关闭 */
 .export-wrap { position: relative; }
@@ -153,7 +152,7 @@ body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2
   background: #fff; border: 1px solid var(--grid-line); border-radius: 10px;
   min-width: 190px; padding: 6px; display: flex; flex-direction: column; }
 .export-menu button { border: 0; background: none; text-align: left; padding: 8px 12px;
-  font-size: 13px; color: var(--ink); cursor: pointer; border-radius: 6px; }
+  font-size: 12.5px; color: var(--ink); cursor: pointer; border-radius: 6px; }
 .export-menu button:hover { background: var(--accent-soft); }
 .export-menu button:disabled { opacity: .5; cursor: default; }
 .menu-mask { position: fixed; inset: 0; z-index: 5; }
@@ -173,17 +172,22 @@ body.report .toolbar { display: none; }   /* 单文件报告=纯视图,无编辑
 
 /* 知识库面板·自建文档正文(server md_to_html 渲染,v-html 同样吃不到 scoped) */
 .kb-doc { font-size: 14px; line-height: 1.75; color: var(--ink); }
-.kb-doc h2 { font-size: 16.5px; color: var(--ink-blue); margin: 18px 0 8px; }
-.kb-doc h3 { font-size: 14.5px; color: var(--ink-blue); margin: 14px 0 6px; }
+.kb-doc h2 { font-size: 16px; color: var(--ink-blue); margin: 18px 0 8px; }
+.kb-doc h3 { font-size: 15px; color: var(--ink-blue); margin: 14px 0 6px; }
 .kb-doc p { margin: 8px 0; }
 .kb-doc ul, .kb-doc ol { padding-left: 1.4em; margin: 8px 0; }
 .kb-doc li { margin: 3px 0; }
 .kb-doc .note { border-left: 3px solid var(--grid-line); background: var(--accent-soft);
-  border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 10px 0; font-size: 13.5px; }
-.kb-doc table { border-collapse: collapse; margin: 10px 0; font-size: 13px; width: 100%; }
+  border-radius: 0 8px 8px 0; padding: 8px 12px; margin: 10px 0; font-size: 14px; }
+.kb-doc table { border-collapse: collapse; margin: 10px 0; font-size: 12.5px; width: 100%; }
 .kb-doc th, .kb-doc td { border: 1px solid var(--line); padding: 5px 9px; text-align: left; }
 .kb-doc th { background: var(--accent-soft); color: var(--ink-blue); font-weight: 600; }
 .kb-doc pre { background: #f4f7f9; border: 1px solid var(--line); border-radius: 8px;
   padding: 10px 12px; overflow: auto; font-size: 12.5px; margin: 10px 0; }
 .kb-doc code { background: var(--accent-soft); border-radius: 4px; padding: 1px 5px; }
 .kb-doc hr { border: 0; border-top: 1px dashed var(--line); margin: 14px 0; }
+
+/* 顶部知识轮播条(TickerBar):分享产物不带它——长图导出(capturing)、
+   单文件报告(report)、打印三个场景统一隐藏 */
+body.capturing .tk-bar, body.report .tk-bar { display: none; }
+@media print { .tk-bar { display: none; } }

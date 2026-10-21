@@ -8,11 +8,9 @@
 <meta property="og:title" content="玩具与环境 · parent-guide">
 <meta property="og:description" content="少而开放、电子玩具与安全边界">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }
@@ -98,20 +96,20 @@
 <h1>玩具与环境</h1>
 <div class="src">整理自同行评审研究与 CPSC 公开口径 · 原创综述,不搬运机构原文 · 下次复审 2027-Q3</div>
 <h2>1. 少而开放 &gt; 多而堆放</h2>
-<p>单一实验(18-30 月,4 件 vs 16 件):玩具少时单件游玩时长约翻倍、玩法更多、 更专注(Dauch 2017,摘要级;研究团队官方新闻稿含「留一部分、定期换出」建议, 原文级)。<b>玩具轮换=该研究的合理外推,T3 不称共识</b>(无直接实验)。 开放式材料(积木/磁力片/纸箱/沙水)比单功能玩具耐玩,见 activities.md §4。</p>
+<p>单一实验（18-30 月，4 件 vs 16 件）：玩具少时单件游玩时长约翻倍、玩法更多、 更专注（Dauch 2017，摘要级；研究团队官方新闻稿含「留一部分、定期换出」建议， 原文级）。<b>玩具轮换=该研究的合理外推，T3 不称共识</b>（无直接实验）。 开放式材料（积木/磁力片/纸箱/沙水）比单功能玩具耐玩，见 activities.md §4。</p>
 <h2>2. 电子玩具让互动变少</h2>
-<p>10-16 月实验(小样本 n=26):电子玩具条件下家长词汇量、对话轮次、对婴儿 回应均少于传统玩具(Sosa 2016,JAMA Pediatr,摘要级;小样本已降档)。 买「会说话的玩具」替代不了人说话。</p>
-<h2>3. 安全边界(T1 常客,与知识核 §1 联动)</h2>
-<ul><li><b>磁力珠/高强磁体</b>:误吞可隔着肠壁相吸穿孔——CPSC 2022 联邦磁体标准</li></ul>
-<p>(16 CFR 1262)后仍是急诊常客,任何年龄不作为家中常备(转述级);</p>
-<ul><li><b>纽扣电池</b>:Reese's Law 要求电池仓防护;误吞烧伤可在数小时内发生,</li></ul>
-<p>立即急诊(转述级;2010-2019 美国电池急诊约 7 万例且上升);</p>
-<ul><li>小零件筛查(纸卷筒法)与食物形态高危(整粒葡萄/坚果/果冻)见</li></ul>
+<p>10-16 月实验（小样本 n=26)：电子玩具条件下家长词汇量、对话轮次、对婴儿 回应均少于传统玩具（Sosa 2016,JAMA Pediatr，摘要级；小样本已降档）。 买「会说话的玩具」替代不了人说话。</p>
+<h2>3. 安全边界（T1 常客，与知识核 §1 联动）</h2>
+<ul><li><b>磁力珠/高强磁体</b>：误吞可隔着肠壁相吸穿孔——CPSC 2022 联邦磁体标准</li></ul>
+<p>(16 CFR 1262）后仍是急诊常客，任何年龄不作为家中常备（转述级）;</p>
+<ul><li><b>纽扣电池</b>:Reese's Law 要求电池仓防护；误吞烧伤可在数小时内发生，</li></ul>
+<p>立即急诊（转述级；2010-2019 美国电池急诊约 7 万例且上升）;</p>
+<ul><li>小零件筛查（纸卷筒法）与食物形态高危（整粒葡萄/坚果/果冻）见</li></ul>
 <p>nutrition.md §4 与 activities.md §5。</p>
 <h2>4. 收玩具是活动的一部分</h2>
-<p>幼儿段直接证据确认为缺口;可引用的只有学龄儿童家务-执行功能关联(外推 降档)与临床常规建议(T3 惯例,转述级)。按「结构感+游戏化收尾」执行 (activities.md §4 已有),不宣称证据。</p>
+<p>幼儿段直接证据确认为缺口；可引用的只有学龄儿童家务-执行功能关联（外推 降档）与临床常规建议（T3 惯例，转述级）。按「结构感+游戏化收尾」执行 (activities.md §4 已有），不宣称证据。</p>
 <h2>核对说明</h2>
-<p>Dauch 2017=摘要级+团队新闻稿原文级;Sosa 2016=摘要级(PubMed 墙); 磁体/电池法规=转述级。未核:AAP 2020 玩具临床报告原文(调研员 PMID 回溯 错误,两次抓取失败——<b>不作为依据引用</b>,列为待补研第一位)。</p>
+<p>Dauch 2017=摘要级+团队新闻稿原文级；Sosa 2016=摘要级（PubMed 墙）; 磁体/电池法规=转述级。未核：AAP 2020 玩具临床报告原文（调研员 PMID 回溯 错误，两次抓取失败——<b>不作为依据引用</b>，列为待补研第一位）。</p>
 </article>
 <div class="foot">
   <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>

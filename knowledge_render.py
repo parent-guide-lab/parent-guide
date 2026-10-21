@@ -22,6 +22,27 @@ _LINK = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
 _UL_ITEM = re.compile(r"^\s*[-*] ")
 _OL_ITEM = re.compile(r"^\s*\d+\. ")
 
+# 排版规范 8b(2026-10-21 拍板):显示层把 CJK 邻接的半角标点转全角,
+# 英文语境 "(AAP, 2019)"/"d=0.39"/"10-17" 原样;源 md 的半角体系不变。
+# CJK 判定含汉字+中文标点+全角区;行内代码(`…`)整段跳过。
+# 与 web/src/lib/util.js 的 cnpunct 同规则双实现。
+_CJK = r"[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]"
+_PUNCT_FULL = {",": "，", ":": "：", ";": "；", "!": "！", "?": "？", "(": "（", ")": "）"}
+_RE_AFTER_CJK = re.compile("(" + _CJK + ")([,;:!?()])")
+_RE_BEFORE_CJK = re.compile("([,;:!?()])(" + _CJK + ")")
+# 语法保护段:行内代码与 md 链接整体跳过(链接的 ) 后跟中文若被转全角会打断解析)
+_SYNTAX_SPAN = re.compile(r"(`[^`]*`|\[[^\]]*\]\([^)]*\))")
+
+
+def cnpunct(s: str) -> str:
+    parts = _SYNTAX_SPAN.split(s)
+    for i, seg in enumerate(parts):
+        if i % 2 == 1:   # split 带捕获组:奇数位=被保护的语法段
+            continue
+        seg = _RE_AFTER_CJK.sub(lambda m: m.group(1) + _PUNCT_FULL[m.group(2)], seg)
+        parts[i] = _RE_BEFORE_CJK.sub(lambda m: _PUNCT_FULL[m.group(1)] + m.group(2), seg)
+    return "".join(parts)
+
 # provenance header fields: official files use 入库:, self-built use 自建:
 _PROV_DATE = re.compile(r"(?:自建|入库)[:：]\s*(\d{4}-\d{2}-\d{2})")
 _PROV_TYPE = re.compile(r"类型[=＝]\s*([^;；\n]*)")
@@ -31,6 +52,7 @@ _PROV_CHECK = re.compile(r"核对[=＝]\s*([^;；\n]*)")
 
 def inline(s: str) -> str:
     s = html.escape(s, quote=False)
+    s = cnpunct(s)
     s = _LINK.sub(r'<a href="\2">\1</a>', s)
     s = _BOLD.sub(r"<b>\1</b>", s)
     s = _CODE.sub(r"<code>\1</code>", s)

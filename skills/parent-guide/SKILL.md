@@ -60,6 +60,7 @@ description: >
 | L2 计划 | 习惯养成/行为改善/戒断 | Run hot-context + 读 child.json 追踪区 + See knowledge-index 相关条目;**行为/情绪类先 See knowledge/child-mind.md**;挫折/放弃/输不起类的干预手段侧再 See knowledge/praise.md(反馈语言=how 配套动作,非独立策略);热区提示规律层时**先读 data/patterns.md**(失效清单=禁用项,模式=首选通道) | L2 计划(行为改善/戒断类含孩子的逻辑节);写入追踪用 Run update-child.py(证据=脚本输出) |
 | L3 发育 | 发展观察/里程碑担忧 | Run hot-context + See knowledge-index §2 | L3 观察报告;判定 Run update-child.py set-milestone 落档(空=基线盘点,非空=对照变化) |
 | guide 日常 | 活动安排/月龄玩法 | Run hot-context | guide 建议 |
+| daily 贴士 | 「今日贴士」「tip」(或用户环境每日 Cron) | **只 Run** `scripts/daily-tips.sh data`(候选信号+近 7 天去重记录;编排规则 See references/daily.md) | 今日贴士卡(templates.md;≤3 条主推 1;生成后 Run daily-tips.sh record 落当日记录) |
 
 Run=执行脚本(确定性操作交给代码);See=按需阅读,不提前加载。
 每次对话跑完热区后做一次**前瞻检查**:月龄+日期 vs knowledge/anticipatory.md,
@@ -119,3 +120,5 @@ Run=执行脚本(确定性操作交给代码);See=按需阅读,不提前加载�
 - 2026-10-08|断言无锚点、或【推断】不带区分信号=失败(判例:戒奶嘴判读中「戒断占着情绪调节带宽」机制措辞——ego depletion 已大规模复现失败,被当已确立机制输出;调研底稿 docs/weaning-mood-research-2026-10-08.md。用户拍板「依据随行」四档制:严谨不只医疗相关)。
 - 2026-10-08|缺口调研四失败态=无预算意识(检索失控)/单源即答/矛盾证据悄悄选边/转述级冒充原文级——七步内核必走(SKILL 核心原则 2 压缩版),深调研先出大纲再开调(判例来源:用户质疑「调研流程改了吗,感觉改动不大」——纪律只写进按需层 references=没改流程;关键纪律必须进常载层,行为才变)。
 - 2026-10-08|库内文件不是权威终点:综述署了原始出处的一律行内透传(AAP/Schum 2002),§节只作卡尾追溯锚点(判例:实测会话把「(T2,【综述】toilet.md §1)」当引用终点,用户判定不够权威;对标 geekan/HowToLiveLonger=行内永远挂原文/机构直链)。
+- 2026-10-20|每日贴士不产生新断言:全部从档案×知识库路由,活动/观察点组合必标【推断】;同 key 7 天不复现、总量 ≤3 主推 1;认领动作走 update-child.py 对应子命令——贴士只落 daily-tips.json,不写 child.json(编排规则 references/daily.md)。
+- 2026-10-20|话术示例不得编造情境细节(判例:贴士写「今晚聊今天在外婆家玩了什么」——「外婆」来自 caregivers 字段,今天在哪档案并无记录,用户纠正一直在自己家):示例用占位问句(「今天玩了什么」)或档案 note 锚定的真实事件;组合档案字段推出的场景=推断,写成既成事实=失败——「复述档案只用原义」判例的生成侧延伸,适用于一切输出不只贴士。

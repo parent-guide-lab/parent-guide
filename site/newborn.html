@@ -8,11 +8,9 @@
 <meta property="og:title" content="新生儿两题 · parent-guide">
 <meta property="og:description" content="黄疸的就医信号与肠绞痛的时间线">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }
@@ -98,23 +96,23 @@
 <h1>新生儿两题</h1>
 <div class="src">整理自中华医学会 / Rome IV / AAP 公开口径 · 原创综述,不搬运机构原文 · 下次复审 2027-Q2</div>
 <h2>1. 新生儿黄疸</h2>
-<p><b>家长不背数值,数值判读交给医生</b>:专业口径已转向小时胆红素列线图动态评估、 &gt;95 百分位才干预(2014 中华医学会共识,原文级;「不再沿用二分法」的明示 表述见人卫/丁香园权威转述,转述级)。家长侧的职责是<b>观察与及时送医</b>, 不是自行判断胆红素。</p>
-<p><b>T1 就医信号(任一出现→就医,儿研所口径原文级)</b>:</p>
-<ul><li>黄疸 <b>24 小时内</b>出现;</li><li>足月儿 <b>2 周</b>/早产儿 <b>4 周</b>不退,或退而复现;</li><li>黄染蔓延到<b>手心脚心</b>(黄疸从头往脚蔓延,手足心是最后哨位);</li><li><b>少吃、少哭、少动</b>,哭声尖直;</li><li>大便颜色变浅发白(警惕胆道闭锁,时间窗关键);</li><li>不要用药草浴/偏方「退黄」(有延误致胆红素脑病的案例)。</li></ul>
-<p><b>家庭观察与随访(分级随条)</b>:出院前测胆红素(2014 共识,原文级);随访 是<b>条件化</b>的——48-72h 出院且胆红素 &lt;40 百分位→出院后 2-3 天复诊, 40-75 百分位→1-2 天(2014 共识,原文级;Mayo 摘要级简版「2 天内复诊」 并陈);胆红素峰值在生后 3-7 天(Mayo,摘要级);自然光下指压皮肤看黄染。 <b>喂足</b>(24 小时 10-12 次,摘要级)多吃多排,是家庭侧的主要干预手段。</p>
-<h2>2. 婴儿肠绞痛(肠胀气)</h2>
-<p><b>定义两口径并陈</b>:Wessel 3-3-3 规则(每天哭 &gt;3 小时、每周 &gt;3 天、持续 &gt;3 周——临床实用)与 Rome IV(出生~5 月内无法安抚的反复哭闹、无发热/ 生长迟缓——学术用,删掉了时间门槛)(PMC 综述原文级+摘要级)。</p>
-<p><b>时间线(「百日哭」说法有据)</b>:2-4 周起、6 周达峰、<b>约 60% 满 3 月、 90% 满 4 月消失</b>(教科书口径,摘要级;中文丁香同向),可拖到 6 月;早产儿 按矫正月龄后推(摘要级)。知道终点本身就是干预——可预期才扛得住。</p>
+<p><b>家长不背数值，数值判读交给医生</b>：专业口径已转向小时胆红素列线图动态评估、 &gt;95 百分位才干预（2014 中华医学会共识，原文级；「不再沿用二分法」的明示 表述见人卫/丁香园权威转述，转述级）。家长侧的职责是<b>观察与及时送医</b>, 不是自行判断胆红素。</p>
+<p><b>T1 就医信号（任一出现→就医，儿研所口径原文级）</b>:</p>
+<ul><li>黄疸 <b>24 小时内</b>出现；</li><li>足月儿 <b>2 周</b>/早产儿 <b>4 周</b>不退，或退而复现；</li><li>黄染蔓延到<b>手心脚心</b>（黄疸从头往脚蔓延，手足心是最后哨位）;</li><li><b>少吃、少哭、少动</b>，哭声尖直；</li><li>大便颜色变浅发白（警惕胆道闭锁，时间窗关键）;</li><li>不要用药草浴/偏方「退黄」（有延误致胆红素脑病的案例）。</li></ul>
+<p><b>家庭观察与随访（分级随条）</b>：出院前测胆红素（2014 共识，原文级）；随访 是<b>条件化</b>的——48-72h 出院且胆红素 &lt;40 百分位→出院后 2-3 天复诊， 40-75 百分位→1-2 天（2014 共识，原文级；Mayo 摘要级简版「2 天内复诊」 并陈）；胆红素峰值在生后 3-7 天（Mayo，摘要级）；自然光下指压皮肤看黄染。 <b>喂足</b>(24 小时 10-12 次，摘要级）多吃多排，是家庭侧的主要干预手段。</p>
+<h2>2. 婴儿肠绞痛（肠胀气）</h2>
+<p><b>定义两口径并陈</b>:Wessel 3-3-3 规则（每天哭 &gt;3 小时、每周 &gt;3 天、持续 &gt;3 周——临床实用）与 Rome IV（出生~5 月内无法安抚的反复哭闹、无发热/ 生长迟缓——学术用，删掉了时间门槛）(PMC 综述原文级+摘要级）。</p>
+<p><b>时间线（「百日哭」说法有据）</b>:2-4 周起、6 周达峰、<b>约 60% 满 3 月、 90% 满 4 月消失</b>（教科书口径，摘要级；中文丁香同向），可拖到 6 月；早产儿 按矫正月龄后推（摘要级）。知道终点本身就是干预——可预期才扛得住。</p>
 <p><b>安抚的证据分层</b>:</p>
-<ul><li><b>专家共识级(可用,别指望特效)</b>:让婴儿趴在成人膝上抚背(AAP 原文</li></ul>
-<p>表述;民间「飞机抱」同类)、白噪音、襁褓、安抚奶嘴、温水浴(NICE 「may help」+AAP 家长页;PMC 综述定性为 parentcraft advice, 非强证据);</p>
-<ul><li><b>无证据/不推荐</b>:西甲硅油(不优于安慰剂)、草药制剂;罗伊氏乳杆菌</li></ul>
-<p><b>矛盾并陈</b>——IPDMA 2018:母乳儿日哭时间约减 25 分钟/天、安全性好、 可试用;预防性使用的更高估计(约 44 分钟/天)来自 Cochrane 的<b>预防</b> 亚组,预防≠治疗,不可混用;效应温和且大样本试验缩水,配方奶儿无效甚至 可能加重(PMC 原文级不推荐配方奶儿用);菌种特异,不外推到其他益生菌;</p>
-<ul><li><b>真正有核心地位的是父母支持</b>:肠绞痛对父母是急性应激——轮流休息、</li></ul>
-<p>提前放下、<b>任何时候绝不摇晃婴儿</b>(AAP,原文级)。</p>
-<p><b>就医红线(任一出现→就医,PMC 原文级)</b>:发热(&lt;3 月发热 38℃=立即就医, 与库内 T1 线一致)、嗜睡、剧烈呕吐、腹胀发硬、吃奶差/体重不增——肠绞痛 不影响生长与一般状况,这些信号指向别的问题(嵌顿疝/肠套叠/感染)。</p>
+<ul><li><b>专家共识级（可用，别指望特效）</b>：让婴儿趴在成人膝上抚背（AAP 原文</li></ul>
+<p>表述；民间「飞机抱」同类）、白噪音、襁褓、安抚奶嘴、温水浴（NICE 「may help」+AAP 家长页；PMC 综述定性为 parentcraft advice, 非强证据）;</p>
+<ul><li><b>无证据/不推荐</b>：西甲硅油（不优于安慰剂）、草药制剂；罗伊氏乳杆菌</li></ul>
+<p><b>矛盾并陈</b>——IPDMA 2018：母乳儿日哭时间约减 25 分钟/天、安全性好、 可试用；预防性使用的更高估计（约 44 分钟/天）来自 Cochrane 的<b>预防</b> 亚组，预防≠治疗，不可混用；效应温和且大样本试验缩水，配方奶儿无效甚至 可能加重（PMC 原文级不推荐配方奶儿用）；菌种特异，不外推到其他益生菌；</p>
+<ul><li><b>真正有核心地位的是父母支持</b>：肠绞痛对父母是急性应激——轮流休息、</li></ul>
+<p>提前放下、<b>任何时候绝不摇晃婴儿</b>(AAP，原文级）。</p>
+<p><b>就医红线（任一出现→就医，PMC 原文级）</b>：发热（&lt;3 月发热 38℃=立即就医， 与库内 T1 线一致）、嗜睡、剧烈呕吐、腹胀发硬、吃奶差/体重不增——肠绞痛 不影响生长与一般状况，这些信号指向别的问题（嵌顿疝/肠套叠/感染）。</p>
 <h2>核对说明</h2>
-<p>黄疸:2014 共识弃用二分法+95 百分位=原文级;T1 信号集=儿研所科普原文级; 2025 新版指南正文/母乳性黄疸/光疗机制=未核(调研预算)。肠绞痛:定义/时间线/ 红线=Rome IV+PMC+AAP 原文级或摘要级;益生菌=IPDMA 2018+PLOS meta 与反方 并陈(摘要级)。中文官方口径(卫健委)未单独核到。</p>
+<p>黄疸：2014 共识弃用二分法+95 百分位=原文级；T1 信号集=儿研所科普原文级； 2025 新版指南正文/母乳性黄疸/光疗机制=未核（调研预算）。肠绞痛：定义/时间线/ 红线=Rome IV+PMC+AAP 原文级或摘要级；益生菌=IPDMA 2018+PLOS meta 与反方 并陈（摘要级）。中文官方口径（卫健委）未单独核到。</p>
 </article>
 <div class="foot">
   <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>

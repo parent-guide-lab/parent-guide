@@ -8,11 +8,9 @@
 <meta property="og:title" content="活动与绘本 · parent-guide">
 <meta property="og:description" content="分龄活动设计原则与低成本活动菜单">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }
@@ -98,29 +96,29 @@
 <h1>活动与绘本</h1>
 <div class="src">原创综述,基于 CDC 里程碑能力项与公开指南口径 · 原创综述,不搬运机构原文 · 下次复审 2027-Q4</div>
 <h2>1. 分龄活动设计原则</h2>
-<p>活动不是为了「教知识」,是在合适的难度上练发展中的能力(CDC 里程碑是能力地图):</p>
-<table><thead><tr><th>年龄段</th><th>发展主线</th><th>活动关键词</th></tr></thead><tbody><tr><td>6-12 月</td><td>感官+因果</td><td>抓握/口欲探索/容器进出/peek-a-boo/爬行路线</td></tr><tr><td>1-2 岁</td><td>精细动作+自主意识</td><td>叠高/涂鸦/日常生活参与(开关、舀倒)/推拉玩具</td></tr><tr><td>2-3 岁</td><td>假装游戏+语言爆发</td><td>过家家/以物代物/儿歌手指谣/两步指令游戏</td></tr><tr><td>3-5 岁</td><td>规则+同伴+前书写</td><td>轮流桌游/合作建构/剪贴画/角色剧本</td></tr></tbody></table>
-<p>设计公式:<b>孩子当前能力 + 半步挑战</b>。太难换简、太熟加变体(倒着数/换角色/加一步),新鲜感来自变体而不是新玩具。</p>
-<h2>2. 低成本活动菜单(按材料分)</h2>
-<ul><li><b>水</b>:盆+杯子漏斗筛(1 岁+);洗菜帮厨(1.5 岁+);冰块寻宝(2 岁+);注意:任何水游戏全程看护,浅水也不例外(T1 级:溺水无声且迅速)。</li><li><b>日常生活即活动</b>:开钱包拉链、拧瓶盖、剥豆子、配袜子、擦桌子——「帮大人」本身是幼儿期高动机活动,顺带练精细动作与秩序感。</li><li><b>建构类</b>:积木/磁力片/纸箱——少而开放的材料比电动玩具耐玩;收玩具是活动的收尾环节,可设计成游戏(见情绪篇的惯例原则)。</li><li><b>大运动</b>:楼下追跑/踢球/跳台阶/公园器械;每天户外总量是近视预防的正向变量(2024 RCT 荟萃:户外时间增加与近视进展减缓相关;AAO 口径每周 +1h→风险下降)。</li><li><b>假装游戏脚本</b>:娃娃生病/开车去外婆家/小超市——大人先示范一步,留白让孩子接;观察其中是否出现「有顺序的剧本」(认知里程碑观察点)。</li></ul>
-<h2>3. 屏幕替代的设计(与零屏幕计划配套)</h2>
-<p>替代活动要<b>占住屏幕原本占的时间结构</b>,不是临时找事:</p>
-<ul><li>提前预告+固定时段(与就餐/睡前流程同逻辑);</li><li>「替代篮」预置:把他当前最爱的 2-3 个活动材料放在原来开电视的时间段触手可及;</li><li>大人同守:孩子无屏时成人刷手机,替代效果减半(AAP 口径:家长的屏幕使用是代际影响变量)。</li></ul>
-<h2>4. 绘本共读:PEER 对话式 + CROWD 提问工具箱</h2>
-<p>0-3 岁共读的有效成分是<b>对话</b>,不是念完一本书。PEER 四步(Whitehurst 对话式阅读,公开方法论):</p>
-<ul><li><b>Prompt</b> 提问:「小熊在干什么呀?」</li><li><b>Evaluate</b> 回应:「对,他在洗澡!」</li><li><b>Expand</b> 扩一句:「他洗得好多的泡泡。」</li><li><b>Repeat</b> 请孩子再来:翻页后重复这个循环。</li></ul>
-<p>CROWD 五类提问(Morgan &amp; Meier 2010,原文级),与 PEER 搭配用:</p>
-<ul><li><b>C</b>ompletion 补全:选重复句式/押韵书,读到关键处停住让孩子接;</li><li><b>R</b>ecall 回忆:「小熊怎么了?谁在哭?」(0-4 岁避免开放式「为什么」,指认式优先);</li><li><b>O</b>pen-ended 开放:「这一页画了什么?」;</li><li><b>W</b>h- 提问:「哪个是红色的?小鸭子在哪里?」;</li><li><b>D</b>istancing 联系生活:「我们上次去公园也见过这个,还记得吗?」</li></ul>
-<p>证据注记:CROWD 组件无单独拆解证据,证据在对话式阅读整包(Whitehurst 1988 RCT 起家;Pillinger 2022 系统综述:&lt;5 岁表达性词汇效应优于接受性,转述级)。</p>
-<p>要点:重复读同一本不是退步,是这个年龄的学习方式(可预测性;Horst 2011 原文级:同书连读 3 遍组新词保持比换书组好约 150%,换书组几乎没记住—— 「再读一遍」的请求响应它;重复利学习、变化利泛化,Horst 2013 摘要级); 每页可以只聊不念字;书的选择跟随兴趣而非「书单焦虑」;把共读放进睡前 流程末尾,兼任入睡锚点。</p>
-<p>纸质优先(幼儿段):24-36 月实测,纸质书时家长对话式提问显著多于增强型 电子书(11.9 vs 6.2 次),幼儿发声与合作度更低但<b>愉悦度无差异</b>—— 互动被设备吸走,不是孩子不爱(Munzer 2019,原文级;利益披露:第一作者 有 PBS 写稿与玩具公司顾问关系,原文已披露);学龄前以上纸质与数字差距 缩小,设计好的数字书不是禁区(Furenes 2021 meta,摘要级)。</p>
-<p>选书粗线索:0-1 岁硬纸板/认知图册;1-2 岁生活场景+拟声;2-3 岁简单情节+重复句式;3 岁后可引入有情绪与冲突的短故事。图书馆与借阅可覆盖大部分需求;「读 1000 本」类动员项目里重复读每次计数、图书馆书都算——「1000」是动员目标不是科学阈值(转述级)。</p>
-<h2>5. 安全红线(活动场景的 T1 常客)</h2>
-<ul><li>小零件(能穿过卫生纸卷筒的都算)不进 3 岁以下活动区——纸卷筒(约 4.3cm)</li></ul>
-<p>比 CPSC 官方小零件测试筒(3.17cm)更宽,属保守筛查;<b>穿不过≠绝对安全</b>, 圆/硬/黏的高危形态(整粒葡萄、坚果、果冻)单独按口径把关;</p>
-<ul><li>剪刀用圆头儿童款、大人同侧;胶水颜料选可水洗儿童级;</li><li>水盆/浴缸/充气池:看护不间断、接水后即倒空;</li><li>秋千/攀爬架:下方缓冲面+视线不离;头盔配滑板车/平衡车;</li><li>误吞呛咳处置口径见 skill 知识核 §1(与营养篇 §4 同一红线)。</li></ul>
+<p>活动不是为了「教知识」，是在合适的难度上练发展中的能力（CDC 里程碑是能力地图）:</p>
+<table><thead><tr><th>年龄段</th><th>发展主线</th><th>活动关键词</th></tr></thead><tbody><tr><td>6-12 月</td><td>感官+因果</td><td>抓握/口欲探索/容器进出/peek-a-boo/爬行路线</td></tr><tr><td>1-2 岁</td><td>精细动作+自主意识</td><td>叠高/涂鸦/日常生活参与（开关、舀倒）/推拉玩具</td></tr><tr><td>2-3 岁</td><td>假装游戏+语言爆发</td><td>过家家/以物代物/儿歌手指谣/两步指令游戏</td></tr><tr><td>3-5 岁</td><td>规则+同伴+前书写</td><td>轮流桌游/合作建构/剪贴画/角色剧本</td></tr></tbody></table>
+<p>设计公式：<b>孩子当前能力 + 半步挑战</b>。太难换简、太熟加变体（倒着数/换角色/加一步），新鲜感来自变体而不是新玩具。</p>
+<h2>2. 低成本活动菜单（按材料分）</h2>
+<ul><li><b>水</b>：盆+杯子漏斗筛（1 岁+)；洗菜帮厨（1.5 岁+)；冰块寻宝（2 岁+)；注意：任何水游戏全程看护，浅水也不例外（T1 级：溺水无声且迅速）。</li><li><b>日常生活即活动</b>：开钱包拉链、拧瓶盖、剥豆子、配袜子、擦桌子——「帮大人」本身是幼儿期高动机活动，顺带练精细动作与秩序感。</li><li><b>建构类</b>：积木/磁力片/纸箱——少而开放的材料比电动玩具耐玩；收玩具是活动的收尾环节，可设计成游戏（见情绪篇的惯例原则）。</li><li><b>大运动</b>：楼下追跑/踢球/跳台阶/公园器械；每天户外总量是近视预防的正向变量（2024 RCT 荟萃：户外时间增加与近视进展减缓相关；AAO 口径每周 +1h→风险下降）。</li><li><b>假装游戏脚本</b>：娃娃生病/开车去外婆家/小超市——大人先示范一步，留白让孩子接；观察其中是否出现「有顺序的剧本」（认知里程碑观察点）。</li></ul>
+<h2>3. 屏幕替代的设计（与零屏幕计划配套）</h2>
+<p>替代活动要<b>占住屏幕原本占的时间结构</b>，不是临时找事：</p>
+<ul><li>提前预告+固定时段（与就餐/睡前流程同逻辑）;</li><li>「替代篮」预置：把他当前最爱的 2-3 个活动材料放在原来开电视的时间段触手可及；</li><li>大人同守：孩子无屏时成人刷手机，替代效果减半（AAP 口径：家长的屏幕使用是代际影响变量）。</li></ul>
+<h2>4. 绘本共读：PEER 对话式 + CROWD 提问工具箱</h2>
+<p>0-3 岁共读的有效成分是<b>对话</b>，不是念完一本书。PEER 四步（Whitehurst 对话式阅读，公开方法论）:</p>
+<ul><li><b>Prompt</b> 提问：「小熊在干什么呀？」</li><li><b>Evaluate</b> 回应：「对，他在洗澡！」</li><li><b>Expand</b> 扩一句：「他洗得好多的泡泡。」</li><li><b>Repeat</b> 请孩子再来：翻页后重复这个循环。</li></ul>
+<p>CROWD 五类提问（Morgan &amp; Meier 2010，原文级），与 PEER 搭配用：</p>
+<ul><li><b>C</b>ompletion 补全：选重复句式/押韵书，读到关键处停住让孩子接；</li><li><b>R</b>ecall 回忆：「小熊怎么了？谁在哭？」（0-4 岁避免开放式「为什么」，指认式优先）;</li><li><b>O</b>pen-ended 开放：「这一页画了什么？」；</li><li><b>W</b>h- 提问：「哪个是红色的？小鸭子在哪里？」；</li><li><b>D</b>istancing 联系生活：「我们上次去公园也见过这个，还记得吗？」</li></ul>
+<p>证据注记：CROWD 组件无单独拆解证据，证据在对话式阅读整包（Whitehurst 1988 RCT 起家；Pillinger 2022 系统综述：&lt;5 岁表达性词汇效应优于接受性，转述级）。</p>
+<p>要点：重复读同一本不是退步，是这个年龄的学习方式（可预测性；Horst 2011 原文级：同书连读 3 遍组新词保持比换书组好约 150%，换书组几乎没记住—— 「再读一遍」的请求响应它；重复利学习、变化利泛化，Horst 2013 摘要级）; 每页可以只聊不念字；书的选择跟随兴趣而非「书单焦虑」；把共读放进睡前 流程末尾，兼任入睡锚点。</p>
+<p>纸质优先（幼儿段）:24-36 月实测，纸质书时家长对话式提问显著多于增强型 电子书（11.9 vs 6.2 次），幼儿发声与合作度更低但<b>愉悦度无差异</b>—— 互动被设备吸走，不是孩子不爱（Munzer 2019，原文级；利益披露：第一作者 有 PBS 写稿与玩具公司顾问关系，原文已披露）；学龄前以上纸质与数字差距 缩小，设计好的数字书不是禁区（Furenes 2021 meta，摘要级）。</p>
+<p>选书粗线索：0-1 岁硬纸板/认知图册；1-2 岁生活场景+拟声；2-3 岁简单情节+重复句式；3 岁后可引入有情绪与冲突的短故事。图书馆与借阅可覆盖大部分需求；「读 1000 本」类动员项目里重复读每次计数、图书馆书都算——「1000」是动员目标不是科学阈值（转述级）。</p>
+<h2>5. 安全红线（活动场景的 T1 常客）</h2>
+<ul><li>小零件（能穿过卫生纸卷筒的都算）不进 3 岁以下活动区——纸卷筒（约 4.3cm)</li></ul>
+<p>比 CPSC 官方小零件测试筒（3.17cm）更宽，属保守筛查；<b>穿不过≠绝对安全</b>, 圆/硬/黏的高危形态（整粒葡萄、坚果、果冻）单独按口径把关；</p>
+<ul><li>剪刀用圆头儿童款、大人同侧；胶水颜料选可水洗儿童级；</li><li>水盆/浴缸/充气池：看护不间断、接水后即倒空；</li><li>秋千/攀爬架：下方缓冲面+视线不离；头盔配滑板车/平衡车；</li><li>误吞呛咳处置口径见 skill 知识核 §1（与营养篇 §4 同一红线）。</li></ul>
 <h2>6. 记录与观察</h2>
-<p>活动的另一半价值是<b>发育观察窗口</b>:在自然游戏里看里程碑(轮流/假装游戏/单脚跳)比正式「考试」更真实。值得记进 child.json 的:新出现的游戏方式、专注时长的变化、对某类活动的持续偏爱——这些是下次设计活动与判断发展的输入。</p>
+<p>活动的另一半价值是<b>发育观察窗口</b>：在自然游戏里看里程碑（轮流/假装游戏/单脚跳）比正式「考试」更真实。值得记进 child.json 的：新出现的游戏方式、专注时长的变化、对某类活动的持续偏爱——这些是下次设计活动与判断发展的输入。</p>
 </article>
 <div class="foot">
   <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>

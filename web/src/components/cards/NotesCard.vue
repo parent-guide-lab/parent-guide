@@ -56,9 +56,9 @@ function toggle(i) {
 
 <style scoped>
 .tl-item .d.dline { display: block; margin-right: 0; margin-bottom: 1px;
-  font-size: 12px; }
+  font-size: 12.5px; }
 .ev { min-width: 0; }
-.ev-title { font-size: 13.5px; font-weight: 600; cursor: pointer; line-height: 1.5; }
+.ev-title { font-size: 14px; font-weight: 600; cursor: pointer; line-height: 1.5; }
 .ev-chips { margin: 1px 0 2px; }
 .chip { display: inline-block; background: rgba(255,255,255,.75); color: var(--ink-blue);
   border: 1px dashed var(--grid-line); border-radius: 6px; padding: 0 8px;
@@ -71,5 +71,5 @@ function toggle(i) {
 .ev-body p { margin: 0 0 4px; padding-left: 13px; position: relative; }
 .ev-body p:last-child { margin-bottom: 0; }
 .ev-body p::before { content: '•'; position: absolute; left: 1px;
-  color: var(--ink-blue); font-size: 11px; line-height: 1.9; }
+  color: var(--ink-blue); font-size: 11.5px; line-height: 1.9; }
 </style>

@@ -7,6 +7,9 @@ import { linkifyHtml } from '../lib/util.js'
 
 const emit = defineEmits(['close'])
 
+// 可选初始文档(顶部知识轮播条跳转用):在官方清单里则直接定位打开
+const props = defineProps({ file: { type: String, default: '' } })
+
 const tab = ref('official') // 'official' | 'user'
 const official = ref([])
 const user = ref([])
@@ -26,7 +29,11 @@ async function loadList() {
     const d = await r.json()
     official.value = d.official || []
     user.value = d.user || []
-    if (official.value.length) await pick(official.value[0].file)
+    if (official.value.length) {
+      const target = props.file && official.value.some(o => o.file === props.file)
+        ? props.file : official.value[0].file
+      await pick(target)
+    }
   } catch (e) {
     listError.value = `知识库加载失败(${e.message})——确认本地服务已在运行`
   } finally {
@@ -170,10 +177,10 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
 .kbp-back { border: 1px solid var(--line); background: #fff; color: var(--ink-blue);
   border-radius: 8px; padding: 5px 12px; font-size: 12.5px; cursor: pointer; }
 .kbp-back:hover { border-color: var(--accent); }
-.kbp-title { font-size: 17px; font-weight: 700; color: var(--ink-blue); margin-right: auto; }
+.kbp-title { font-size: 16px; font-weight: 700; color: var(--ink-blue); margin-right: auto; }
 .kbp-tabs { display: flex; border: 1px solid var(--line); border-radius: 8px;
   overflow: hidden; background: #fff; }
-.kbp-tabs button { border: 0; background: none; padding: 6px 18px; font-size: 13px;
+.kbp-tabs button { border: 0; background: none; padding: 6px 18px; font-size: 12.5px;
   color: var(--sub); cursor: pointer; }
 .kbp-tabs button + button { border-left: 1px solid var(--line); }
 .kbp-tabs button.on { background: var(--accent-soft); color: var(--ink-blue); font-weight: 600; }
@@ -191,22 +198,22 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
   border-left-color: var(--ink-blue); }
 .kbp-item .sub { display: block; font-size: 10.5px; color: var(--sub); font-weight: 400; margin-top: 1px; }
 .kbp-item.pin { color: var(--ink-blue); font-weight: 600; }
-.kbp-group { font-size: 13px; font-weight: 700; letter-spacing: .08em; color: var(--ink-blue);
+.kbp-group { font-size: 12.5px; font-weight: 700; letter-spacing: .08em; color: var(--ink-blue);
   padding: 14px 16px 5px; user-select: none; }
 .kbp-group:first-child { padding-top: 4px; }
 .kbp-main { flex: 1; overflow: auto; padding: 26px 34px 48px; }
 .kbp-main > div { max-width: 800px; margin: 0 auto; }
-.kbp-hint { padding: 32px 0; text-align: center; color: var(--sub); font-size: 13.5px; }
-.kbp-hint.err { color: #8a5a2a; }
+.kbp-hint { padding: 32px 0; text-align: center; color: var(--sub); font-size: 14px; }
+.kbp-hint.err { color: var(--hint); }
 .kbp-dochead { border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 8px; }
 .kbp-dochead h1 { font-size: 22px; color: var(--ink-blue); }
 .kbp-docmeta { display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
-  font-size: 12px; color: var(--sub); margin-top: 6px; }
+  font-size: 12.5px; color: var(--sub); margin-top: 6px; }
 .kbp-badge { border: 1px solid var(--line); border-radius: 5px; padding: 1px 8px;
-  font-size: 11px; background: var(--accent-soft); color: var(--sub); }
-.kbp-badge.local { color: #8a5a2a; border-color: #e3d5c0; background: #faf5ec; }
+  font-size: 11.5px; background: var(--accent-soft); color: var(--ink-blue); }
+.kbp-badge.local { color: var(--hint); border-color: #e3d5c0; background: #faf5ec; }
 .kbp-empty { border: 1px dashed var(--grid-line); border-radius: 10px; background: var(--card);
-  padding: 18px 20px; font-size: 13.5px; color: var(--sub); line-height: 1.7; margin-top: 24px; }
+  padding: 18px 20px; font-size: 14px; color: var(--sub); line-height: 1.7; margin-top: 24px; }
 
 /* 窄屏:目录折叠为顶部横向滚动行 */
 @media (max-width: 760px) {

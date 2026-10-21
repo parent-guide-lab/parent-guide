@@ -8,11 +8,9 @@
 <meta property="og:title" content="育儿书地图 · parent-guide">
 <meta property="og:description" content="流派谱系与证据成色,只做地图不摘内容">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }
@@ -97,20 +95,20 @@
 <article>
 <h1>育儿书地图</h1>
 <div class="src">基于公开书评与综述的原创谱系 · 原创综述,不搬运机构原文 · 下次复审 2027-Q4</div>
-<h2>1. 实证成色排序(先看这个再看流派)</h2>
-<table><thead><tr><th>流派</th><th>代表作</th><th>核心一句话</th><th>证据成色</th><th>理念层</th></tr></thead><tbody><tr><td>行为实证系(正向养育/父母行为训练)</td><td>《The Incredible Years》;Sanders Triple P 系</td><td>教父母具体互动技能,效果量可测</td><td><b>最强</b>(Cochrane,SMD −0.44~−0.53,原文级)</td><td>方法论层(强)</td></tr><tr><td>蒙台梭利</td><td>《蒙台梭利法》;《爱和自由》(孙瑞雪,中文系)</td><td>预备环境+跟随孩子节奏</td><td>强(2025 全美抽签 RCT:24 校 588 童,PNAS 原文级;效果滞后显现、成本更低)</td><td>方法论层</td></tr><tr><td>依恋理论</td><td>《看见孩子》(Good Inside);西尔斯《亲密育儿》</td><td>响应与修复塑造关系</td><td>核心(安全依恋)证据强;<b>西尔斯 AP 的 7B 具体主张无证据,起作用的是响应性+修复</b>(Greater Good,原文级)——两本书要分开看</td><td>科学事实层(核心)+方法论层</td></tr><tr><td>正面管教(阿德勒系)</td><td>《正面管教》;《孩子:挑战》</td><td>和善而坚定,错误目的解读</td><td>初步证据(T3 谱系)</td><td>方法论层</td></tr><tr><td>PET 父母效能</td><td>《父母效能训练》;《如何说孩子才会听》(衍生)</td><td>积极倾听+我信息</td><td>初步证据;证据多来自创始人自营体系(利益相关,已降档),另有 CEBC 独立摘要级线索并陈(T3)</td><td>方法论层</td></tr><tr><td>游戏系</td><td>《游戏力》(Lawrence Cohen)</td><td>用游戏进入孩子的世界</td><td>谱系(与 play therapy 有亲缘,直接 RCT 少)</td><td>方法论层</td></tr><tr><td>反行为主义系</td><td>《无条件养育》(Alfie Kohn)</td><td>反奖惩,动机内在化</td><td>观点鲜明;证据成色未深查(T3)</td><td>方法论层(争议)</td></tr><tr><td>华德福</td><td>《简单父母经》(华德福背景)</td><td>节律+简化+少媒体</td><td><b>最弱</b>(SES 混杂、无 RCT、人智学基础有争议;「简化」主张本身家用可行,T3)</td><td>家庭偏好层为主</td></tr></tbody></table>
-<h2>2. 选书法(给家长的三句话)</h2>
-<ol><li><b>先看问题属于哪层</b>:科学事实层(睡眠总量/安全/发育)看本库知识库,</li></ol>
-<p>别指望任何一本书;方法论层按流派挑一本对脾气的;家庭偏好层无对错;</p>
-<ol><li><b>同流派读一本代表作就够</b>——流派内部高度自我重复;</li><li><b>证据成色≠有用性</b>:成色弱的书也有可用的生活智慧,但别把它的科学</li></ol>
-<p>断言当事实引用(与本库「方法论=谱系,标流派照用(T3)」同口径)。</p>
+<h2>1. 实证成色排序（先看这个再看流派）</h2>
+<table><thead><tr><th>流派</th><th>代表作</th><th>核心一句话</th><th>证据成色</th><th>理念层</th></tr></thead><tbody><tr><td>行为实证系（正向养育/父母行为训练）</td><td>《The Incredible Years》；Sanders Triple P 系</td><td>教父母具体互动技能，效果量可测</td><td><b>最强</b>(Cochrane,SMD −0.44~−0.53，原文级）</td><td>方法论层（强）</td></tr><tr><td>蒙台梭利</td><td>《蒙台梭利法》；《爱和自由》（孙瑞雪，中文系）</td><td>预备环境+跟随孩子节奏</td><td>强（2025 全美抽签 RCT:24 校 588 童，PNAS 原文级；效果滞后显现、成本更低）</td><td>方法论层</td></tr><tr><td>依恋理论</td><td>《看见孩子》（Good Inside)；西尔斯《亲密育儿》</td><td>响应与修复塑造关系</td><td>核心（安全依恋）证据强；<b>西尔斯 AP 的 7B 具体主张无证据，起作用的是响应性+修复</b>(Greater Good，原文级）——两本书要分开看</td><td>科学事实层（核心）+方法论层</td></tr><tr><td>正面管教（阿德勒系）</td><td>《正面管教》；《孩子：挑战》</td><td>和善而坚定，错误目的解读</td><td>初步证据（T3 谱系）</td><td>方法论层</td></tr><tr><td>PET 父母效能</td><td>《父母效能训练》；《如何说孩子才会听》（衍生）</td><td>积极倾听+我信息</td><td>初步证据；证据多来自创始人自营体系（利益相关，已降档），另有 CEBC 独立摘要级线索并陈（T3)</td><td>方法论层</td></tr><tr><td>游戏系</td><td>《游戏力》（Lawrence Cohen)</td><td>用游戏进入孩子的世界</td><td>谱系（与 play therapy 有亲缘，直接 RCT 少）</td><td>方法论层</td></tr><tr><td>反行为主义系</td><td>《无条件养育》（Alfie Kohn)</td><td>反奖惩，动机内在化</td><td>观点鲜明；证据成色未深查（T3)</td><td>方法论层（争议）</td></tr><tr><td>华德福</td><td>《简单父母经》（华德福背景）</td><td>节律+简化+少媒体</td><td><b>最弱</b>(SES 混杂、无 RCT、人智学基础有争议；「简化」主张本身家用可行，T3)</td><td>家庭偏好层为主</td></tr></tbody></table>
+<h2>2. 选书法（给家长的三句话）</h2>
+<ol><li><b>先看问题属于哪层</b>：科学事实层（睡眠总量/安全/发育）看本库知识库，</li></ol>
+<p>别指望任何一本书；方法论层按流派挑一本对脾气的；家庭偏好层无对错；</p>
+<ol><li><b>同流派读一本代表作就够</b>——流派内部高度自我重复；</li><li><b>证据成色≠有用性</b>：成色弱的书也有可用的生活智慧，但别把它的科学</li></ol>
+<p>断言当事实引用（与本库「方法论=谱系，标流派照用（T3）」同口径）。</p>
 <h2>3. 易混辨认</h2>
-<ul><li><b>两个科恩不是一个人</b>:《游戏力》Lawrence Cohen(游戏系)与《无条件养育》</li></ul>
-<p>的盟友 Alfie Kohn(反行为主义系),中文译名里都叫「科恩/科恩系」;</p>
-<ul><li>《如何说》是 PET 的衍生品,不是独立流派;</li><li>尹建莉《好妈妈胜过好老师》《爱和自由》等中文原创:流派归属证据薄</li></ul>
-<p>(个人经验+杂糅,常识级未深查),按家庭偏好层看待。</p>
+<ul><li><b>两个科恩不是一个人</b>：《游戏力》Lawrence Cohen（游戏系）与《无条件养育》</li></ul>
+<p>的盟友 Alfie Kohn（反行为主义系），中文译名里都叫「科恩/科恩系」；</p>
+<ul><li>《如何说》是 PET 的衍生品，不是独立流派；</li><li>尹建莉《好妈妈胜过好老师》《爱和自由》等中文原创：流派归属证据薄</li></ul>
+<p>（个人经验+杂糅，常识级未深查），按家庭偏好层看待。</p>
 <h2>核对说明</h2>
-<p>Cochrane 行为系=原文级;PNAS 2025 蒙氏 RCT=<b>机构公告级</b>(UVA 官方公告 核到全部数字;PNAS 全文两轮获取失败);西尔斯区分=Greater Good 原文级;中文书归属=常识级/转述级混合(已随条标注);「证据成色」栏为 谱系性判断(基于各源综述),不是单篇效应量排名。版权红线:全篇零内容摘录。</p>
+<p>Cochrane 行为系=原文级；PNAS 2025 蒙氏 RCT=<b>机构公告级</b>(UVA 官方公告 核到全部数字；PNAS 全文两轮获取失败）；西尔斯区分=Greater Good 原文级；中文书归属=常识级/转述级混合（已随条标注）；「证据成色」栏为 谱系性判断（基于各源综述），不是单篇效应量排名。版权红线：全篇零内容摘录。</p>
 </article>
 <div class="foot">
   <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>

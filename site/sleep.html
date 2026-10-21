@@ -8,11 +8,9 @@
 <meta property="og:title" content="睡眠 · parent-guide">
 <meta property="og:description" content="各年龄睡眠总量、就寝底线与夜醒分级应对">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }
@@ -98,56 +96,56 @@
 <h1>睡眠</h1>
 <div class="src">整理自 WS/T 579-2017 / AAP / AASM 公开口径 · 原创综述,不搬运机构原文 · 下次复审 2027-Q4</div>
 <h2>1. 各年龄睡眠总量</h2>
-<p><b>中国官方口径(WS/T 579-2017《0岁~5岁儿童睡眠卫生指南》,原国家卫生计生委)</b>:</p>
-<table><thead><tr><th>年龄</th><th>每 24 小时总量</th><th>备注</th></tr></thead><tbody><tr><td>0-3 月</td><td>13-18 小时</td><td></td></tr><tr><td>4-11 月</td><td>12-16 小时</td><td></td></tr><tr><td>1-2 岁</td><td>11-14 小时</td><td></td></tr><tr><td>3-5 岁</td><td>10-13 小时(含午睡)</td><td></td></tr></tbody></table>
-<p><b>就寝时间</b>:不晚于 <b>21:00</b>,也不提倡过早上床;作息规律节假日同样保持。 <b>入睡困难</b>定义:夜间入睡潜伏期 &gt; 20 分钟(该指南 0-2 岁组的评估口径)。</p>
-<p>AAP/AASM 口径与之一致(如婴儿期同为 12-16 小时);两口径冲突时 以中国标准为主、注明差异。来源:WS/T 579-2017(2017,中国标准出版社)。 <b>入库溯源:2026-09-29;核对=官方原文 PDF 逐条(会话内下载解析)+官方渠道检索交叉; 触发=家长质疑 22 点入睡是否偏晚,现场核实后入库;2026-10-09 二次审计以官方 PDF(nhc.gov.cn 存档)重核全部数字。</b></p>
+<p><b>中国官方口径（WS/T 579-2017《0岁~5岁儿童睡眠卫生指南》，原国家卫生计生委）</b>:</p>
+<table><thead><tr><th>年龄</th><th>每 24 小时总量</th><th>备注</th></tr></thead><tbody><tr><td>0-3 月</td><td>13-18 小时</td><td></td></tr><tr><td>4-11 月</td><td>12-16 小时</td><td></td></tr><tr><td>1-2 岁</td><td>11-14 小时</td><td></td></tr><tr><td>3-5 岁</td><td>10-13 小时（含午睡）</td><td></td></tr></tbody></table>
+<p><b>就寝时间</b>：不晚于 <b>21:00</b>，也不提倡过早上床；作息规律节假日同样保持。 <b>入睡困难</b>定义：夜间入睡潜伏期 &gt; 20 分钟（该指南 0-2 岁组的评估口径）。</p>
+<p>AAP/AASM 口径与之一致（如婴儿期同为 12-16 小时）；两口径冲突时 以中国标准为主、注明差异。来源：WS/T 579-2017(2017，中国标准出版社）。 <b>入库溯源：2026-09-29；核对=官方原文 PDF 逐条（会话内下载解析）+官方渠道检索交叉； 触发=家长质疑 22 点入睡是否偏晚，现场核实后入库；2026-10-09 二次审计以官方 PDF(nhc.gov.cn 存档）重核全部数字。</b></p>
 <p><b>两个比「几点睡」更重要的原则</b>:</p>
-<ol><li><b>规律 &gt; 绝对时刻</b>:每天入睡时间尽量稳定,比追求「早睡」更有效。生物钟稳定依赖节律一致,周末大幅推迟起床会产生「社交时差」(儿童社交时差为连续变量,无官方阈值数字;经验上波动控制在半小时量级内更稳——转述级,2026-10-09 审计注)。</li><li><b>「睡着的时间」才是终点</b>:从上床到睡着要预留 20-30 分钟的过程,倒推上床时间。</li></ol>
-<p>入睡点倒推法:固定的起床时间 − 该年龄所需夜睡时长 − 30 分钟入睡过程 = 上床时间。</p>
-<h2>2. 夜醒:分级应对</h2>
-<p>夜醒是正常现象(成人每夜也有数次微觉醒),问题不在「醒」而在「能否自己再睡」。分级:</p>
-<p><b>一级:正常波动(T3,居家处理)</b></p>
-<ul><li>每晚 1-2 次、哼唧几分钟后自行睡回——不需要干预。</li><li>应对:观察记录一周(时间点、时长、当天的变量),看模式而不是纠结单夜。</li></ul>
-<p><b>二级:需要习惯重建(T3,计划处理)</b></p>
-<ul><li>依赖特定条件(抱睡/奶睡/含奶嘴)才能再睡,条件消失就彻底清醒。</li><li>应对走 L2 计划:单变量(一次只改一个入睡关联)、渐进替代(如奶嘴→小毯子)、预期头 2-3 天哭闹反弹(消退爆发,是计划起效的信号不是失败)。参见策略模式:逐步降级安抚强度,而不是「一夜硬戒」。</li></ul>
-<p><b>三级:就医排查(T2,升级条件)</b></p>
-<ul><li>打鼾、张口呼吸、呼吸暂停(可能睡眠呼吸障碍;AAP HealthyChildren 呼吸暂停</li></ul>
-<p>页:频繁打鼾/夜间呼吸问题/呼吸暂停表现「let your pediatrician know right away」,原文级,2026-10-20 审计补标);</p>
-<ul><li>夜醒伴疼痛表现(拉耳朵、蜷缩,排查中耳炎/胃食管反流;AAP HealthyChildren</li></ul>
-<p>耳部感染页:耳痛夜间常见加重、影响睡眠应尽快检查,原文级;注意拉耳朵 单独不构成指征——婴幼儿拉耳多为自我安抚或玩耍,需叠加耳痛/发热/引流 才指向感染,同页原文级);</p>
-<ul><li>严重影响白天状态且习惯重建 2-3 周无效。</li><li>&lt;1 岁俯卧睡、床上有软物(安全位问题,立即调整,见 §5)。</li></ul>
-<h2>3. 晨醒:早醒与起床气(2026-10-19 增补)</h2>
-<p><b>什么算早醒</b>:持续早于 6:00 醒、白天状态受影响,才需要处理;偶发早醒不算事 (Cleveland Clinic 儿科页原文级)。1-3 岁晨醒 6-7 点、醒后能直接起,属正常分布, 不进干预(Taking Cara Babies 机构家长页,摘要级;2026-10-20 审计改标:原标 CC 页,两轮复核该页无此句)——需要处理的是「醒来时间持续前移+续不了觉」。</p>
-<p><b>常见原因四条</b>(同页原文级):上床太早或太晚(两头都会——睡太多和过度疲劳 都能推早醒)、白天小睡过多或过晚、睡眠环境有干扰(天亮早的季节光线是强触发)、 习惯化早醒。</p>
-<p><b>处理五步</b>(T3,按优先级):</p>
-<ol><li><b>固定起床锚</b>:每天同一时间开窗帘/叫起,周末赖床不超过 1 小时——这是所有</li></ol>
-<p>调整里最重要的一步(Cleveland Clinic 原文级;AAP 同口径已坐实:HealthyChildren 「The same waking time (both on weekdays and weekends)」,2026-08-07 更新页 原文级,2026-10-20 审计核);</p>
-<ol><li><b>遮光</b>:锚点时间之前保持房间暗,天亮早的季节先上遮光帘(暗室建议=</li></ol>
-<p>Sleep Foundation 原文级「dark curtains to block out light」;「天亮致早醒」 因果链=通行口径转述,2026-10-20 审计拆级);</p>
-<ol><li><b>起床钟</b>:儿童专用起床钟(不是手机),约定灯亮才起床,白天先把规则讲清;</li><li><b>上床时间两头排查</b>:上床早于 19:30 且早醒的,每晚推后 10 分钟试一周;</li></ol>
-<p>反向的过度疲劳早醒见 §6 误区,别只往一个方向调;</p>
-<ol><li><b>小睡结构</b>:午睡压在 11:00/15:00 档,傍晚不给长觉。</li></ol>
-<p>预期:坚持约 3 周才见效(Cleveland Clinic 原文级)。早醒当时按 §2 一级夜醒处理: 不立即开灯抱起、少互动、先给续睡机会(通行做法 T3)。</p>
-<p><b>起床气=睡眠惯性</b>:醒后的迷糊、闹脾气、抗拒刺激(嫌亮/嫌吵)是生理过渡状态, 不是行为问题——定义为「醒后短暂的方向感迷失与表现/情绪下降」(NIOSH 培训页 原文级逐字)。常见几分钟到半小时内消退,典型不超过 1 小时,睡眠不足时更久 (Tassi &amp; Muzet 经 NIOSH 透传;个别研究观察到 2 小时)。<b>加重因素:睡眠不足、 从深睡眠中被唤醒</b>——天亮光线晒醒正属此列,和遮光/起床锚是同一组解法。 <b>处理=少刺激给缓冲</b>:不催起床、不在惯性窗口内讲道理;亮一点的光和洗脸有助 恢复(成人研究外推,儿童不适用咖啡因,NIOSH 原文级)。</p>
-<p><b>何时就医(T2)</b>:上述调整约 3 周无效,且伴打鼾/呼吸变化/白天状态差 (Cleveland Clinic 原文级,与 §2 三级同口径)。</p>
-<h2>4. 睡前程序(30-60 分钟)</h2>
-<p>结构比内容重要,顺序固定每天一致:洗漱 → 最后一次进食(婴儿)→ 读书/安静玩 → 关灯。三个要点:</p>
-<ul><li><b>睡前 30 分钟无屏幕</b>(蓝光+内容兴奋度都会推迟入睡;执行层证据详见</li></ul>
-<p>screen.md §2);这本身可作为独立干预追踪(见 sDOR 式单变量设计)。</p>
-<ul><li>把「最依恋的环节」放在最后(对很多孩子是共读),让它成为入睡的锚。</li><li>程序是「预告」:秩序敏感期孩子靠可预期性获得安全感,外出过夜也尽量保留其中两三步。</li></ul>
-<h2>5. 安全要点(1 岁以内,T1 级红线)</h2>
-<ul><li>仰卧入睡,直到 1 岁;床内无软物(枕头、毛绒玩具、防撞围栏、松散被子)。</li><li>与父母同房不同床(至少前 6 个月,AAP)。</li><li>过热是危险因素:摸颈背温热即可,不必盖多(2026-10-20 审计注:AAP 原文</li></ul>
-<p>为摸胸口,Lullaby Trust 口径为颈背,两处皆可,摘要级)。</p>
+<ol><li><b>规律 &gt; 绝对时刻</b>：每天入睡时间尽量稳定，比追求「早睡」更有效。生物钟稳定依赖节律一致，周末大幅推迟起床会产生「社交时差」（儿童社交时差为连续变量，无官方阈值数字；经验上波动控制在半小时量级内更稳——转述级，2026-10-09 审计注）。</li><li><b>「睡着的时间」才是终点</b>：从上床到睡着要预留 20-30 分钟的过程，倒推上床时间。</li></ol>
+<p>入睡点倒推法：固定的起床时间 − 该年龄所需夜睡时长 − 30 分钟入睡过程 = 上床时间。</p>
+<h2>2. 夜醒：分级应对</h2>
+<p>夜醒是正常现象（成人每夜也有数次微觉醒），问题不在「醒」而在「能否自己再睡」。分级：</p>
+<p><b>一级：正常波动（T3，居家处理）</b></p>
+<ul><li>每晚 1-2 次、哼唧几分钟后自行睡回——不需要干预。</li><li>应对：观察记录一周（时间点、时长、当天的变量），看模式而不是纠结单夜。</li></ul>
+<p><b>二级：需要习惯重建（T3，计划处理）</b></p>
+<ul><li>依赖特定条件（抱睡/奶睡/含奶嘴）才能再睡，条件消失就彻底清醒。</li><li>应对走 L2 计划：单变量（一次只改一个入睡关联）、渐进替代（如奶嘴→小毯子）、预期头 2-3 天哭闹反弹（消退爆发，是计划起效的信号不是失败）。参见策略模式：逐步降级安抚强度，而不是「一夜硬戒」。</li></ul>
+<p><b>三级：就医排查（T2，升级条件）</b></p>
+<ul><li>打鼾、张口呼吸、呼吸暂停（可能睡眠呼吸障碍；AAP HealthyChildren 呼吸暂停</li></ul>
+<p>页：频繁打鼾/夜间呼吸问题/呼吸暂停表现「let your pediatrician know right away」，原文级，2026-10-20 审计补标）;</p>
+<ul><li>夜醒伴疼痛表现（拉耳朵、蜷缩，排查中耳炎/胃食管反流；AAP HealthyChildren</li></ul>
+<p>耳部感染页：耳痛夜间常见加重、影响睡眠应尽快检查，原文级；注意拉耳朵 单独不构成指征——婴幼儿拉耳多为自我安抚或玩耍，需叠加耳痛/发热/引流 才指向感染，同页原文级）;</p>
+<ul><li>严重影响白天状态且习惯重建 2-3 周无效。</li><li>&lt;1 岁俯卧睡、床上有软物（安全位问题，立即调整，见 §5）。</li></ul>
+<h2>3. 晨醒：早醒与起床气（2026-10-19 增补）</h2>
+<p><b>什么算早醒</b>：持续早于 6:00 醒、白天状态受影响，才需要处理；偶发早醒不算事 (Cleveland Clinic 儿科页原文级）。1-3 岁晨醒 6-7 点、醒后能直接起，属正常分布， 不进干预（Taking Cara Babies 机构家长页，摘要级；2026-10-20 审计改标：原标 CC 页，两轮复核该页无此句）——需要处理的是「醒来时间持续前移+续不了觉」。</p>
+<p><b>常见原因四条</b>（同页原文级）：上床太早或太晚（两头都会——睡太多和过度疲劳 都能推早醒）、白天小睡过多或过晚、睡眠环境有干扰（天亮早的季节光线是强触发）、 习惯化早醒。</p>
+<p><b>处理五步</b>(T3，按优先级）:</p>
+<ol><li><b>固定起床锚</b>：每天同一时间开窗帘/叫起，周末赖床不超过 1 小时——这是所有</li></ol>
+<p>调整里最重要的一步（Cleveland Clinic 原文级；AAP 同口径已坐实：HealthyChildren 「The same waking time (both on weekdays and weekends）」，2026-08-07 更新页 原文级，2026-10-20 审计核）;</p>
+<ol><li><b>遮光</b>：锚点时间之前保持房间暗，天亮早的季节先上遮光帘（暗室建议=</li></ol>
+<p>Sleep Foundation 原文级「dark curtains to block out light」；「天亮致早醒」 因果链=通行口径转述，2026-10-20 审计拆级）;</p>
+<ol><li><b>起床钟</b>：儿童专用起床钟（不是手机），约定灯亮才起床，白天先把规则讲清；</li><li><b>上床时间两头排查</b>：上床早于 19:30 且早醒的，每晚推后 10 分钟试一周；</li></ol>
+<p>反向的过度疲劳早醒见 §6 误区，别只往一个方向调；</p>
+<ol><li><b>小睡结构</b>：午睡压在 11:00/15:00 档，傍晚不给长觉。</li></ol>
+<p>预期：坚持约 3 周才见效（Cleveland Clinic 原文级）。早醒当时按 §2 一级夜醒处理： 不立即开灯抱起、少互动、先给续睡机会（通行做法 T3）。</p>
+<p><b>起床气=睡眠惯性</b>：醒后的迷糊、闹脾气、抗拒刺激（嫌亮/嫌吵）是生理过渡状态， 不是行为问题——定义为「醒后短暂的方向感迷失与表现/情绪下降」（NIOSH 培训页 原文级逐字）。常见几分钟到半小时内消退，典型不超过 1 小时，睡眠不足时更久 (Tassi &amp; Muzet 经 NIOSH 透传；个别研究观察到 2 小时）。<b>加重因素：睡眠不足、 从深睡眠中被唤醒</b>——天亮光线晒醒正属此列，和遮光/起床锚是同一组解法。 <b>处理=少刺激给缓冲</b>：不催起床、不在惯性窗口内讲道理；亮一点的光和洗脸有助 恢复（成人研究外推，儿童不适用咖啡因，NIOSH 原文级）。</p>
+<p><b>何时就医（T2)</b>：上述调整约 3 周无效，且伴打鼾/呼吸变化/白天状态差 (Cleveland Clinic 原文级，与 §2 三级同口径）。</p>
+<h2>4. 睡前程序（30-60 分钟）</h2>
+<p>结构比内容重要，顺序固定每天一致：洗漱 → 最后一次进食（婴儿）→ 读书/安静玩 → 关灯。三个要点：</p>
+<ul><li><b>睡前 30 分钟无屏幕</b>（蓝光+内容兴奋度都会推迟入睡；执行层证据详见</li></ul>
+<p>screen.md §2)；这本身可作为独立干预追踪（见 sDOR 式单变量设计）。</p>
+<ul><li>把「最依恋的环节」放在最后（对很多孩子是共读），让它成为入睡的锚。</li><li>程序是「预告」：秩序敏感期孩子靠可预期性获得安全感，外出过夜也尽量保留其中两三步。</li></ul>
+<h2>5. 安全要点（1 岁以内，T1 级红线）</h2>
+<ul><li>仰卧入睡，直到 1 岁；床内无软物（枕头、毛绒玩具、防撞围栏、松散被子）。</li><li>与父母同房不同床（至少前 6 个月，AAP）。</li><li>过热是危险因素：摸颈背温热即可，不必盖多（2026-10-20 审计注：AAP 原文</li></ul>
+<p>为摸胸口，Lullaby Trust 口径为颈背，两处皆可，摘要级）。</p>
 <h2>6. 常见误区</h2>
-<ul><li><b>「白天不让他午睡,晚上睡得快」</b>:砍午睡制造过度疲劳,入睡更难、夜醒更多。正确做法是按月龄保住白天睡眠结构,晚上提前一点。</li><li><b>「晚点睡就能晚点醒」</b>:幼儿没有这种补偿机制;过度疲劳反而早醒(处理见 §3 晨醒)。</li><li><b>「夜醒=饿,加一顿夜奶」</b>:配方奶儿 6 月龄后夜醒多为习惯性关联而非营养需求,加奶是在强化关联;母乳儿建议 12 月龄起再考虑减少夜奶(此前断夜奶可能影响泌乳)——除非医生针对体重问题另有建议(raisingchildren 口径,2026-10-09 审计修正:原表述未区分奶别)。</li></ul>
+<ul><li><b>「白天不让他午睡，晚上睡得快」</b>：砍午睡制造过度疲劳，入睡更难、夜醒更多。正确做法是按月龄保住白天睡眠结构，晚上提前一点。</li><li><b>「晚点睡就能晚点醒」</b>：幼儿没有这种补偿机制；过度疲劳反而早醒（处理见 §3 晨醒）。</li><li><b>「夜醒=饿，加一顿夜奶」</b>：配方奶儿 6 月龄后夜醒多为习惯性关联而非营养需求，加奶是在强化关联；母乳儿建议 12 月龄起再考虑减少夜奶（此前断夜奶可能影响泌乳）——除非医生针对体重问题另有建议（raisingchildren 口径，2026-10-09 审计修正：原表述未区分奶别）。</li></ul>
 <h2>7. 与本系统的配合</h2>
-<ul><li>睡眠数据记在 child.json 的 sleep.days(就寝时间/夜醒次数/总量),页面 sleep-week 卡可视化;</li><li>「睡前 30 分钟无屏幕」类干预按单变量原则设计,回访日验证夜醒趋势(参考已验证策略的评价方式)。</li></ul>
+<ul><li>睡眠数据记在 child.json 的 sleep.days（就寝时间/夜醒次数/总量），页面 sleep-week 卡可视化；</li><li>「睡前 30 分钟无屏幕」类干预按单变量原则设计，回访日验证夜醒趋势（参考已验证策略的评价方式）。</li></ul>
 <h2>核对说明</h2>
-<p>§3 晨醒(2026-10-19 增补)核对分级:Cleveland Clinic 儿科页(2024-09,Maria Tang MD)=原文级(页面抓取);NIOSH 培训页 Module 7 睡眠惯性定义与时长=原文级 (页面抓取;Tassi &amp; Muzet 为其透传);AAP HealthyChildren 固定起床口径=机构级 (检索摘要);Sleep Foundation 遮光=转述级(未抓原文);Trotti 2017(Sleep Medicine Reviews,PubMed 27692973)=摘要级(2026-10-17 调研核对,本轮 PubMed 反爬未重核);睡眠惯性对策为成人证据儿童外推,咖啡因不采。增补路径=缺口调研协议 (conversation.md §3),底稿 docs/sleep-early-waking-draft-2026-10-19.md。</p>
-<p>2026-10-20 轮转深审(逐句,38 条,底稿 /tmp/knowledge-audit/sleep-rotation-2026-10-20.md): WS/T 579-2017 经 nhc.gov.cn 官方 PDF 重下载解析,四行区间/21:00/20 分钟全部 复核命中,无改版无勘误(watchlist 绿);AAP 四条安全红线 HealthyChildren 原文级直引通过(「摸颈背」归属见 §5 补标);NIOSH 睡眠惯性全链(定义逐字/ 时长/加重因素/对策)原文级通过;Cleveland Clinic 起床锚「most important steps」+周末 ≤1 小时+「about three weeks」原话直引复核;Trotti 2017 经 Europe PMC REST 核验存在(本行即「已核验」落账);raisingchildren 夜奶口径 站内多页摘要级一致。修正三处见头注与 §3/§5;AASM 婴儿期 12-16 小时经 Paruthi 2016(PMID 27250809)摘要级交叉成立。同日 C 类调研轮:AAP 固定 起床锚坐实为 HealthyChildren 原文级(§3 处理五步 #1);§2 三级打鼾/拉耳 朵两条补 AAP 原文级口径(含「拉耳朵单独不构成指征」nuance);调研轮因 aad.org/jaad.org 出口受限触发 fallback 阶梯、抓取尝试超预算,超限如实记录。</p>
-<p><b>来源清单(2026-10-20 访问;「未直访」=本轮经搜索摘要验证;链接死活随下次复审重查)</b>:</p>
-<table><thead><tr><th>来源</th><th>分级</th><th>链接</th></tr></thead><tbody><tr><td>WS/T 579-2017《0岁~5岁儿童睡眠卫生指南》官方 PDF</td><td>原文级</td><td><a href="https://www.nhc.gov.cn/ewebeditor/uploadfile/2017/10/20171026154305316.pdf">nhc.gov.cn</a>(curl 下载解析)</td></tr><tr><td>HealthyChildren(AAP)Safe Sleep 家长指南</td><td>原文级</td><td><a href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/a-parents-guide-to-safe-sleep.aspx">healthychildren.org</a></td></tr><tr><td>HealthyChildren(AAP)「Healthy Sleep Habits」(固定起床锚,2026-08-07 更新)</td><td>原文级</td><td><a href="https://www.healthychildren.org/English/healthy-living/sleep/Pages/healthy-sleep-habits-how-many-hours-does-your-child-need.aspx">healthychildren.org</a></td></tr><tr><td>HealthyChildren(AAP)「Sleep Apnea Detection」(打鼾→儿科评估)</td><td>原文级</td><td><a href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/Sleep-Apnea-Detection.aspx">healthychildren.org</a></td></tr><tr><td>HealthyChildren(AAP)「Ear Infection Information」(耳痛夜间加重/拉耳自我安抚 nuance)</td><td>原文级</td><td><a href="https://www.healthychildren.org/English/health-issues/conditions/ear-nose-throat/Pages/Ear-Infection-Information.aspx">healthychildren.org</a></td></tr><tr><td>AAP 2022 政策声明「Sleep-Related Infant Deaths: Updated 2022」</td><td>摘要级</td><td><a href="https://publications.aap.org/pediatrics/article/150/1/e2022057990/188304/Sleep-Related-Infant-Deaths-Updated-2022">publications.aap.org</a>(未直访)</td></tr><tr><td>AASM/Paruthi 2016 儿童睡眠量共识</td><td>摘要级</td><td><a href="https://pubmed.ncbi.nlm.nih.gov/27250809/">PMID 27250809</a></td></tr><tr><td>Cleveland Clinic「Toddler Waking Up Too Early?」(2024-09,Maria Tang MD)</td><td>原文级</td><td><a href="https://health.clevelandclinic.org/is-your-child-waking-up-too-early">health.clevelandclinic.org</a></td></tr><tr><td>NIOSH 培训 Module 7 睡眠惯性</td><td>原文级</td><td><a href="https://archive.cdc.gov/www_cdc_gov/niosh/work-hour-training-for-nurses/longhours/mod7/03.html">archive.cdc.gov</a></td></tr><tr><td>Tassi &amp; Muzet(惯性时长,经 NIOSH 透传)</td><td>转述级</td><td>—(无公开直链)</td></tr><tr><td>Trotti 2017,Sleep Medicine Reviews</td><td>摘要级</td><td><a href="https://europepmc.org/article/MED/27692973">Europe PMC 27692973</a></td></tr><tr><td>raisingchildren.net.au 夜间断奶与夜奶</td><td>摘要级</td><td><a href="https://raisingchildren.net.au/babies/sleep/settling-routines/night-weaning">raisingchildren.net.au</a>(未直访,站内多页一致)</td></tr><tr><td>Sleep Foundation「Children and Sleep」(暗室建议)</td><td>原文级(晨光因果=转述)</td><td><a href="https://www.sleepfoundation.org/children-and-sleep">sleepfoundation.org</a></td></tr><tr><td>Lullaby Trust(过热摸颈背口径)</td><td>摘要级</td><td><a href="https://www.lullabytrust.org">lullabytrust.org</a>(无稳定直链)</td></tr><tr><td>Taking Cara Babies(6:00 后属生理正常醒来)</td><td>摘要级(机构家长页)</td><td><a href="https://www.takingcarababies.com/blogs/toddlers/is-your-toddler-waking-up-too-early">takingcarababies.com</a>(未直访)</td></tr><tr><td>美国国立睡眠基金会(头部口径来源之一)</td><td>机构级</td><td><a href="https://www.sleepfoundation.org">sleepfoundation.org</a></td></tr></tbody></table>
+<p>§3 晨醒（2026-10-19 增补）核对分级：Cleveland Clinic 儿科页（2024-09,Maria Tang MD)=原文级（页面抓取）;NIOSH 培训页 Module 7 睡眠惯性定义与时长=原文级 （页面抓取；Tassi &amp; Muzet 为其透传）;AAP HealthyChildren 固定起床口径=机构级 （检索摘要）;Sleep Foundation 遮光=转述级（未抓原文）;Trotti 2017(Sleep Medicine Reviews,PubMed 27692973)=摘要级（2026-10-17 调研核对，本轮 PubMed 反爬未重核）；睡眠惯性对策为成人证据儿童外推，咖啡因不采。增补路径=缺口调研协议 (conversation.md §3)，底稿 docs/sleep-early-waking-draft-2026-10-19.md。</p>
+<p>2026-10-20 轮转深审（逐句，38 条，底稿 /tmp/knowledge-audit/sleep-rotation-2026-10-20.md): WS/T 579-2017 经 nhc.gov.cn 官方 PDF 重下载解析，四行区间/21:00/20 分钟全部 复核命中，无改版无勘误（watchlist 绿）;AAP 四条安全红线 HealthyChildren 原文级直引通过（「摸颈背」归属见 §5 补标）;NIOSH 睡眠惯性全链（定义逐字/ 时长/加重因素/对策）原文级通过；Cleveland Clinic 起床锚「most important steps」+周末 ≤1 小时+「about three weeks」原话直引复核；Trotti 2017 经 Europe PMC REST 核验存在（本行即「已核验」落账）;raisingchildren 夜奶口径 站内多页摘要级一致。修正三处见头注与 §3/§5;AASM 婴儿期 12-16 小时经 Paruthi 2016(PMID 27250809）摘要级交叉成立。同日 C 类调研轮：AAP 固定 起床锚坐实为 HealthyChildren 原文级（§3 处理五步 #1);§2 三级打鼾/拉耳 朵两条补 AAP 原文级口径（含「拉耳朵单独不构成指征」nuance)；调研轮因 aad.org/jaad.org 出口受限触发 fallback 阶梯、抓取尝试超预算，超限如实记录。</p>
+<p><b>来源清单（2026-10-20 访问；「未直访」=本轮经搜索摘要验证；链接死活随下次复审重查）</b>:</p>
+<table><thead><tr><th>来源</th><th>分级</th><th>链接</th></tr></thead><tbody><tr><td>WS/T 579-2017《0岁~5岁儿童睡眠卫生指南》官方 PDF</td><td>原文级</td><td><a href="https://www.nhc.gov.cn/ewebeditor/uploadfile/2017/10/20171026154305316.pdf">nhc.gov.cn</a>(curl 下载解析）</td></tr><tr><td>HealthyChildren(AAP)Safe Sleep 家长指南</td><td>原文级</td><td><a href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/a-parents-guide-to-safe-sleep.aspx">healthychildren.org</a></td></tr><tr><td>HealthyChildren(AAP）「Healthy Sleep Habits」（固定起床锚，2026-08-07 更新）</td><td>原文级</td><td><a href="https://www.healthychildren.org/English/healthy-living/sleep/Pages/healthy-sleep-habits-how-many-hours-does-your-child-need.aspx">healthychildren.org</a></td></tr><tr><td>HealthyChildren(AAP）「Sleep Apnea Detection」（打鼾→儿科评估）</td><td>原文级</td><td><a href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/Sleep-Apnea-Detection.aspx">healthychildren.org</a></td></tr><tr><td>HealthyChildren(AAP）「Ear Infection Information」（耳痛夜间加重/拉耳自我安抚 nuance)</td><td>原文级</td><td><a href="https://www.healthychildren.org/English/health-issues/conditions/ear-nose-throat/Pages/Ear-Infection-Information.aspx">healthychildren.org</a></td></tr><tr><td>AAP 2022 政策声明「Sleep-Related Infant Deaths: Updated 2022」</td><td>摘要级</td><td><a href="https://publications.aap.org/pediatrics/article/150/1/e2022057990/188304/Sleep-Related-Infant-Deaths-Updated-2022">publications.aap.org</a>（未直访）</td></tr><tr><td>AASM/Paruthi 2016 儿童睡眠量共识</td><td>摘要级</td><td><a href="https://pubmed.ncbi.nlm.nih.gov/27250809/">PMID 27250809</a></td></tr><tr><td>Cleveland Clinic「Toddler Waking Up Too Early？」（2024-09,Maria Tang MD)</td><td>原文级</td><td><a href="https://health.clevelandclinic.org/is-your-child-waking-up-too-early">health.clevelandclinic.org</a></td></tr><tr><td>NIOSH 培训 Module 7 睡眠惯性</td><td>原文级</td><td><a href="https://archive.cdc.gov/www_cdc_gov/niosh/work-hour-training-for-nurses/longhours/mod7/03.html">archive.cdc.gov</a></td></tr><tr><td>Tassi &amp; Muzet（惯性时长，经 NIOSH 透传）</td><td>转述级</td><td>—（无公开直链）</td></tr><tr><td>Trotti 2017,Sleep Medicine Reviews</td><td>摘要级</td><td><a href="https://europepmc.org/article/MED/27692973">Europe PMC 27692973</a></td></tr><tr><td>raisingchildren.net.au 夜间断奶与夜奶</td><td>摘要级</td><td><a href="https://raisingchildren.net.au/babies/sleep/settling-routines/night-weaning">raisingchildren.net.au</a>（未直访，站内多页一致）</td></tr><tr><td>Sleep Foundation「Children and Sleep」（暗室建议）</td><td>原文级（晨光因果=转述）</td><td><a href="https://www.sleepfoundation.org/children-and-sleep">sleepfoundation.org</a></td></tr><tr><td>Lullaby Trust（过热摸颈背口径）</td><td>摘要级</td><td><a href="https://www.lullabytrust.org">lullabytrust.org</a>（无稳定直链）</td></tr><tr><td>Taking Cara Babies(6:00 后属生理正常醒来）</td><td>摘要级（机构家长页）</td><td><a href="https://www.takingcarababies.com/blogs/toddlers/is-your-toddler-waking-up-too-early">takingcarababies.com</a>（未直访）</td></tr><tr><td>美国国立睡眠基金会（头部口径来源之一）</td><td>机构级</td><td><a href="https://www.sleepfoundation.org">sleepfoundation.org</a></td></tr></tbody></table>
 </article>
 <div class="foot">
   <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>

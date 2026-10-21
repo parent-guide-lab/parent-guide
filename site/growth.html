@@ -8,11 +8,9 @@
 <meta property="og:title" content="生长监测 · parent-guide">
 <meta property="og:description" content="身高体重对照 WS/T 423-2022 参考区间">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }
@@ -97,40 +95,40 @@
 <article>
 <h1>生长监测</h1>
 <div class="src">整理自 WS/T 423—2022《7岁以下儿童生长标准》公开口径 · 原创综述,不搬运机构原文 · 下次复审 2027-Q2</div>
-<h2>1. 怎么用参考区间(P3-P97)</h2>
-<ul><li>百分位含义:P3=100 个同性别同月龄孩子从矮到高排,排第 3 位;P50=中位;</li></ul>
-<p>P97=第 97 位。<b>P3-P97 之间都是正常范围</b>(约覆盖 94% 的孩子), 武汉市政府发布口径同此。</p>
-<ul><li><b>单点百分位不是结论,趋势才是</b>:孩子沿自己的百分位通道稳定生长即为正常;</li></ul>
-<p>单次测量受测量误差、近期疾病(掉体重)、测量时间(早晚身高存在日内差异——量级出处未核到机构原文,待核;2026-10-09 审计注)影响。</p>
-<ul><li><b>看曲线斜率不看绝对值</b>:P10 的孩子稳定沿 P10 长是正常的;P50 的孩子</li></ul>
-<p>连续两次测量跨过两条百分位线(P25→P3 类)才是需要关注的信号。</p>
-<ul><li>两岁前用身长(躺量),两岁后用身高(站量),口径切换会造成约 0.7cm 的</li></ul>
-<p>人为落差(WHO《儿童生长评估培训课程》转述级:站立身高比仰卧身长约短 0.7cm),跨 2 岁的曲线看趋势不纠结落差。</p>
-<h2>2. 什么情况建议就医(T2 筛查线,非诊断)</h2>
-<ul><li>身高或体重<b>低于 P3</b>;</li><li><b>生长偏离自身通道</b>:曲线连续跨越两条主要百分位线(向上=超速生长也查,</li></ul>
-<p>向下=生长减速);</p>
-<ul><li>体重对照身高明显超标(肥胖评估口径见 WS/T 423 年龄别 BMI 或就医评估);</li><li>4-6 个月龄段身长几乎无增长、或年生长速率明显不足——五档口径(《矮身材</li></ul>
-<p>儿童诊治指南》,中华儿科杂志 2008,三轮审计转述互证):<b>&lt;2 岁 &lt;7.0cm/年; 2~&lt;4 岁 &lt;5.5;4~&lt;6 岁 &lt;5.0;6 岁~青春期前 &lt;4;青春期 &lt;6</b>(原库 「2 岁后 &lt;5cm」为简化口径,2026-10-09 已修)。</p>
-<ul><li>就医科室:儿保科/内分泌科;带齐历次测量记录(生长曲线本身就是最有用的</li></ul>
-<p>材料)。筛查≠诊断:骨龄、激素等评估由医生决定。</p>
+<h2>1. 怎么用参考区间（P3-P97)</h2>
+<ul><li>百分位含义：P3=100 个同性别同月龄孩子从矮到高排，排第 3 位；P50=中位；</li></ul>
+<p>P97=第 97 位。<b>P3-P97 之间都是正常范围</b>（约覆盖 94% 的孩子）, 武汉市政府发布口径同此。</p>
+<ul><li><b>单点百分位不是结论，趋势才是</b>：孩子沿自己的百分位通道稳定生长即为正常；</li></ul>
+<p>单次测量受测量误差、近期疾病（掉体重）、测量时间（早晚身高存在日内差异——量级出处未核到机构原文，待核；2026-10-09 审计注）影响。</p>
+<ul><li><b>看曲线斜率不看绝对值</b>:P10 的孩子稳定沿 P10 长是正常的；P50 的孩子</li></ul>
+<p>连续两次测量跨过两条百分位线（P25→P3 类）才是需要关注的信号。</p>
+<ul><li>两岁前用身长（躺量），两岁后用身高（站量），口径切换会造成约 0.7cm 的</li></ul>
+<p>人为落差（WHO《儿童生长评估培训课程》转述级：站立身高比仰卧身长约短 0.7cm)，跨 2 岁的曲线看趋势不纠结落差。</p>
+<h2>2. 什么情况建议就医（T2 筛查线，非诊断）</h2>
+<ul><li>身高或体重<b>低于 P3</b>;</li><li><b>生长偏离自身通道</b>：曲线连续跨越两条主要百分位线（向上=超速生长也查，</li></ul>
+<p>向下=生长减速）;</p>
+<ul><li>体重对照身高明显超标（肥胖评估口径见 WS/T 423 年龄别 BMI 或就医评估）;</li><li>4-6 个月龄段身长几乎无增长、或年生长速率明显不足——五档口径（《矮身材</li></ul>
+<p>儿童诊治指南》，中华儿科杂志 2008，三轮审计转述互证）:<b>&lt;2 岁 &lt;7.0cm/年； 2~&lt;4 岁 &lt;5.5;4~&lt;6 岁 &lt;5.0;6 岁~青春期前 &lt;4；青春期 &lt;6</b>（原库 「2 岁后 &lt;5cm」为简化口径，2026-10-09 已修）。</p>
+<ul><li>就医科室：儿保科/内分泌科；带齐历次测量记录（生长曲线本身就是最有用的</li></ul>
+<p>材料）。筛查≠诊断：骨龄、激素等评估由医生决定。</p>
 <h2>3. 测量怎么做才可比</h2>
-<ul><li>固定工具(同一把尺/同一秤)、固定时间(晨起、排便后、脱鞋)、读数到</li></ul>
-<p>0.1cm/0.1kg;婴儿躺量由两人配合(头顶-足底抵板)。</p>
-<ul><li>记录格式:日期(YYYY-MM-DD)+身高(cm)+体重(kg);儿保体检记录可直接</li></ul>
-<p>抄录(生长曲线卡与本表对照)。</p>
-<ul><li>早产儿(&lt;37 周)用纠正月龄看到 2 岁,对照本表时按纠正月龄取列</li></ul>
-<p>(本卡暂未内置纠正逻辑,对照时自行换算,标注即可)。</p>
-<h2>4. 参考区间全表(P3-P50-P97,WS/T 423—2022)</h2>
-<p><b>身高/身长(cm)</b></p>
+<ul><li>固定工具（同一把尺/同一秤）、固定时间（晨起、排便后、脱鞋）、读数到</li></ul>
+<p>0.1cm/0.1kg；婴儿躺量由两人配合（头顶-足底抵板）。</p>
+<ul><li>记录格式：日期（YYYY-MM-DD)+身高（cm)+体重（kg)；儿保体检记录可直接</li></ul>
+<p>抄录（生长曲线卡与本表对照）。</p>
+<ul><li>早产儿（&lt;37 周）用纠正月龄看到 2 岁，对照本表时按纠正月龄取列</li></ul>
+<p>（本卡暂未内置纠正逻辑，对照时自行换算，标注即可）。</p>
+<h2>4. 参考区间全表（P3-P50-P97,WS/T 423—2022)</h2>
+<p><b>身高/身长（cm)</b></p>
 <table><thead><tr><th>月龄</th><th>男童</th><th>女童</th></tr></thead><tbody><tr><td>0</td><td>47.6-51.2-54.8</td><td>46.8-50.3-53.8</td></tr><tr><td>1</td><td>51.3-55.1-59.0</td><td>50.4-54.1-57.8</td></tr><tr><td>2</td><td>54.9-59.0-63.0</td><td>53.5-57.5-61.3</td></tr><tr><td>3</td><td>58.0-62.2-66.4</td><td>56.7-60.8-64.8</td></tr><tr><td>4</td><td>60.5-64.8-69.1</td><td>59.1-63.3-67.4</td></tr><tr><td>5</td><td>62.5-66.9-71.3</td><td>61.0-65.3-69.6</td></tr><tr><td>6</td><td>64.2-68.7-73.2</td><td>62.7-67.1-71.5</td></tr><tr><td>7</td><td>65.7-70.3-74.9</td><td>64.2-68.7-73.1</td></tr><tr><td>8</td><td>67.1-71.7-76.4</td><td>65.6-70.1-74.7</td></tr><tr><td>9</td><td>68.3-73.1-77.8</td><td>66.8-71.5-76.1</td></tr><tr><td>10</td><td>69.5-74.3-79.1</td><td>68.1-72.8-77.5</td></tr><tr><td>11</td><td>70.7-75.5-80.4</td><td>69.2-74.0-78.8</td></tr><tr><td>12</td><td>71.7-76.7-81.6</td><td>70.4-75.2-80.1</td></tr><tr><td>13</td><td>72.8-77.8-82.8</td><td>71.4-76.4-81.4</td></tr><tr><td>14</td><td>73.8-78.9-84.0</td><td>72.5-77.5-82.6</td></tr><tr><td>15</td><td>74.8-80.0-85.1</td><td>73.5-78.6-83.8</td></tr><tr><td>16</td><td>75.8-81.0-86.3</td><td>74.6-79.7-84.9</td></tr><tr><td>17</td><td>76.8-82.1-87.4</td><td>75.5-80.8-86.1</td></tr><tr><td>18</td><td>77.7-83.1-88.5</td><td>76.5-81.9-87.2</td></tr><tr><td>19</td><td>78.6-84.1-89.6</td><td>77.5-82.9-88.3</td></tr><tr><td>20</td><td>79.6-85.1-90.6</td><td>78.4-83.9-89.4</td></tr><tr><td>21</td><td>80.5-86.1-91.7</td><td>79.3-84.9-90.4</td></tr><tr><td>22</td><td>81.4-87.0-92.7</td><td>80.2-85.8-91.5</td></tr><tr><td>23</td><td>82.2-88.0-93.7</td><td>81.1-86.8-92.5</td></tr><tr><td>24</td><td>82.4-88.2-94.0</td><td>81.2-87.0-92.8</td></tr><tr><td>27</td><td>84.8-90.8-96.8</td><td>83.6-89.5-95.5</td></tr><tr><td>30</td><td>87.0-93.2-99.4</td><td>85.7-91.9-98.1</td></tr><tr><td>33</td><td>89.0-95.4-101.8</td><td>87.7-94.1-100.5</td></tr><tr><td>36</td><td>90.9-97.5-104.1</td><td>89.7-96.2-102.7</td></tr><tr><td>39</td><td>92.7-99.5-106.2</td><td>91.5-98.2-104.9</td></tr><tr><td>42</td><td>94.4-101.3-108.3</td><td>93.2-100.1-106.9</td></tr><tr><td>45</td><td>96.0-103.1-110.2</td><td>94.9-101.9-108.9</td></tr><tr><td>48</td><td>97.6-104.9-112.2</td><td>96.5-103.7-110.9</td></tr><tr><td>54</td><td>100.8-108.4-116.0</td><td>99.7-107.2-114.7</td></tr><tr><td>57</td><td>102.4-110.2-117.9</td><td>101.3-109.0-116.7</td></tr><tr><td>60</td><td>104.1-112.0-119.9</td><td>103.0-110.8-118.6</td></tr><tr><td>63</td><td>105.7-113.7-121.8</td><td>104.6-112.6-120.6</td></tr><tr><td>66</td><td>107.2-115.5-123.7</td><td>106.1-114.3-122.4</td></tr><tr><td>69</td><td>108.8-117.1-125.5</td><td>107.6-115.9-124.2</td></tr><tr><td>72</td><td>110.3-118.8-127.3</td><td>109.0-117.5-126.0</td></tr><tr><td>75</td><td>111.7-120.4-129.1</td><td>110.4-119.1-127.7</td></tr><tr><td>78</td><td>113.1-122.0-130.8</td><td>111.8-120.6-129.4</td></tr></tbody></table>
-<p><b>体重(kg)</b></p>
+<p><b>体重（kg)</b></p>
 <table><thead><tr><th>月龄</th><th>男童</th><th>女童</th></tr></thead><tbody><tr><td>0</td><td>2.8-3.5-4.2</td><td>2.7-3.3-4.1</td></tr><tr><td>1</td><td>3.7-4.6-5.6</td><td>3.5-4.3-5.3</td></tr><tr><td>2</td><td>4.7-5.8-7.1</td><td>4.4-5.4-6.6</td></tr><tr><td>3</td><td>5.5-6.8-8.3</td><td>5.1-6.2-7.6</td></tr><tr><td>4</td><td>6.1-7.5-9.2</td><td>5.6-6.9-8.4</td></tr><tr><td>5</td><td>6.6-8.0-9.8</td><td>6.0-7.4-9.1</td></tr><tr><td>6</td><td>6.9-8.4-10.3</td><td>6.4-7.8-9.6</td></tr><tr><td>7</td><td>7.2-8.8-10.8</td><td>6.7-8.1-10.0</td></tr><tr><td>8</td><td>7.5-9.1-11.1</td><td>6.9-8.4-10.4</td></tr><tr><td>9</td><td>7.7-9.4-11.5</td><td>7.2-8.7-10.8</td></tr><tr><td>10</td><td>7.9-9.6-11.8</td><td>7.4-9.0-11.1</td></tr><tr><td>11</td><td>8.1-9.8-12.0</td><td>7.6-9.2-11.4</td></tr><tr><td>12</td><td>8.3-10.1-12.3</td><td>7.7-9.4-11.6</td></tr><tr><td>13</td><td>8.4-10.3-12.5</td><td>7.9-9.6-11.9</td></tr><tr><td>14</td><td>8.6-10.5-12.8</td><td>8.1-9.8-12.2</td></tr><tr><td>15</td><td>8.8-10.7-13.0</td><td>8.3-10.0-12.4</td></tr><tr><td>16</td><td>9.0-10.9-13.3</td><td>8.4-10.3-12.7</td></tr><tr><td>17</td><td>9.1-11.1-13.5</td><td>8.6-10.5-12.9</td></tr><tr><td>18</td><td>9.3-11.3-13.8</td><td>8.8-10.7-13.2</td></tr><tr><td>19</td><td>9.5-11.5-14.0</td><td>9.0-10.9-13.5</td></tr><tr><td>20</td><td>9.7-11.7-14.3</td><td>9.1-11.1-13.8</td></tr><tr><td>21</td><td>9.8-11.9-14.6</td><td>9.3-11.3-14.0</td></tr><tr><td>22</td><td>10.0-12.2-14.8</td><td>9.5-11.5-14.3</td></tr><tr><td>23</td><td>10.2-12.4-15.1</td><td>9.7-11.7-14.6</td></tr><tr><td>24</td><td>10.4-12.6-15.4</td><td>9.8-11.9-14.8</td></tr><tr><td>27</td><td>10.8-13.1-16.1</td><td>10.3-12.5-15.5</td></tr><tr><td>30</td><td>11.2-13.7-16.7</td><td>10.7-13.0-16.2</td></tr><tr><td>33</td><td>11.6-14.2-17.4</td><td>11.1-13.6-16.9</td></tr><tr><td>36</td><td>12.0-14.6-18.0</td><td>11.5-14.1-17.7</td></tr><tr><td>39</td><td>12.4-15.2-18.7</td><td>12.0-14.7-18.4</td></tr><tr><td>42</td><td>12.8-15.7-19.4</td><td>12.4-15.2-19.1</td></tr><tr><td>45</td><td>13.2-16.2-20.1</td><td>12.8-15.7-19.8</td></tr><tr><td>48</td><td>13.6-16.7-20.8</td><td>13.1-16.2-20.5</td></tr><tr><td>54</td><td>14.5-17.9-22.4</td><td>13.9-17.2-21.9</td></tr><tr><td>57</td><td>14.9-18.4-23.3</td><td>14.3-17.8-22.6</td></tr><tr><td>60</td><td>15.3-19.1-24.2</td><td>14.7-18.4-23.4</td></tr><tr><td>63</td><td>15.8-19.7-25.1</td><td>15.1-19.0-24.3</td></tr><tr><td>66</td><td>16.2-20.3-26.0</td><td>15.5-19.6-25.1</td></tr><tr><td>69</td><td>16.6-21.0-27.0</td><td>15.9-20.2-26.0</td></tr><tr><td>72</td><td>17.1-21.6-27.9</td><td>16.3-20.7-26.8</td></tr><tr><td>75</td><td>17.5-22.2-28.9</td><td>16.7-21.3-27.6</td></tr><tr><td>78</td><td>17.8-22.8-29.8</td><td>17.0-21.8-28.5</td></tr></tbody></table>
-<div class="note">覆盖 0-78 月:0-24 月逐月、其后逐季,与标准编排一致(51 月龄行转录源 异常剔除,曲线端 48-54 月线性内插)。<b>核对分级</b>:关键节点(0/12/24/36/48/60 月,24 个数据点)= 2026-10-09 审计对标准官方 PDF 附录 A 原文级逐字核对 零偏差;其余月龄 = 转录级(第三方转录+全序列单调性校验+关键点交叉), 复查线索=入库日期,若标准改版重核。本表与生长曲线卡内置数据 (web/src/lib/growth-ref.js)逐值机械同步:tests/check-growth-ref.sh 门禁 锁定,任一侧单改即红。</div>
+<div class="note">覆盖 0-78 月：0-24 月逐月、其后逐季，与标准编排一致（51 月龄行转录源 异常剔除，曲线端 48-54 月线性内插）。<b>核对分级</b>：关键节点（0/12/24/36/48/60 月，24 个数据点）= 2026-10-09 审计对标准官方 PDF 附录 A 原文级逐字核对 零偏差；其余月龄 = 转录级（第三方转录+全序列单调性校验+关键点交叉）, 复查线索=入库日期，若标准改版重核。本表与生长曲线卡内置数据 (web/src/lib/growth-ref.js）逐值机械同步：tests/check-growth-ref.sh 门禁 锁定，任一侧单改即红。</div>
 <h2>5. 边界与覆盖</h2>
-<ul><li>标准适用 &lt;7 岁(&lt;84 月龄);本库数据覆盖 0-78 月(0-5 岁目标段全覆盖)。</li></ul>
-<p>早产儿/低出生体重儿参照 WS/T 424 与《早产儿保健工作规范》评估(WS/T 423 正文未含早产儿条款——2026-10-09 审计修正归因),就医评估为准。</p>
-<ul><li>本表是筛查参照,不构成诊断;百分位受遗传因素影响大(父母身高对儿童</li></ul>
-<p>身高的影响约 ±5cm 量级),P3 边缘的孩子就医前先看生长速率与家族身高。</p>
+<ul><li>标准适用 &lt;7 岁（&lt;84 月龄）；本库数据覆盖 0-78 月（0-5 岁目标段全覆盖）。</li></ul>
+<p>早产儿/低出生体重儿参照 WS/T 424 与《早产儿保健工作规范》评估（WS/T 423 正文未含早产儿条款——2026-10-09 审计修正归因），就医评估为准。</p>
+<ul><li>本表是筛查参照，不构成诊断；百分位受遗传因素影响大（父母身高对儿童</li></ul>
+<p>身高的影响约 ±5cm 量级）,P3 边缘的孩子就医前先看生长速率与家族身高。</p>
 </article>
 <div class="foot">
   <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>

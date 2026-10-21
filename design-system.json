@@ -3,33 +3,129 @@
     "id": "graph-paper",
     "name": "生长图纸 · parent-guide 成长视图",
     "createdAt": "2026-10-06",
-    "axis": { "colorMood": "calm/medical", "typeMood": "modern+serif-numbers", "density": "standard", "motionTone": "subtle", "material": "paper(graph)" },
-    "tags": ["育儿", "健康数据", "坐标纸", "墨蓝"],
+    "axis": {
+      "colorMood": "calm/medical",
+      "typeMood": "modern+serif-numbers",
+      "density": "standard",
+      "motionTone": "subtle",
+      "material": "paper(graph)"
+    },
+    "tags": [
+      "育儿",
+      "健康数据",
+      "坐标纸",
+      "墨蓝"
+    ],
     "useCase": "孩子成长数据看板:档案/里程碑/生长曲线/计划追踪。视觉母题=儿保手册生长曲线页的坐标纸。参考 demo/ui-2026-10/a-graph.html(定稿依据,用户三选一)"
   },
   "color": {
     "light": {
-      "bg": "#fdfdfb", "fg": "#1e3a52", "primary": "#2f5470", "accent": "#2f5470",
-      "border": "#dde6ec", "muted": "#7d92a3",
-      "grid": "rgba(90,130,180,.07)", "gridLine": "rgba(90,130,180,.18)"
+      "bg": "#fdfdfb",
+      "fg": "#1e3a52",
+      "primary": "#2f5470",
+      "accent": "#2f5470",
+      "border": "#dde6ec",
+      "muted": "#5f7386",
+      "grid": "rgba(90,130,180,.07)",
+      "gridLine": "rgba(90,130,180,.18)",
+      "hint": "#8a5a2a",
+      "card": "#ffffff",
+      "accentSoft": "#eef3f7"
     },
-    "semantic": { "ok": "#4a8a6e", "watch": "#c98a2d", "todo": "#c25a4e" }
+    "semantic": {
+      "ok": "#3a7555",
+      "watch": "#96630f",
+      "todo": "#ad4b40",
+      "err": "#b04a4a"
+    }
   },
   "typography": {
-    "display": "Georgia serif (数字:大月龄 54px / 计数 27px / 日期徽章)",
-    "body": "-apple-system PingFang SC",
-    "note": "数字是本产品的第一语言,serif 数字=填表笔迹感;卡头=小字距 eyebrow(sub 色 .22em),无 emoji"
+    "family": {
+      "body": "system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif",
+      "num": "Georgia, Times New Roman, serif (display 54/24/27 计数)",
+      "numMono": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace(列对齐日期/数字列)"
+    },
+    "scale": [
+      {
+        "token": "micro",
+        "px": 10.5,
+        "lh": 1.4,
+        "role": "SVG 刻度/状态徽章,存量-only"
+      },
+      {
+        "token": "cap",
+        "px": 11.5,
+        "lh": 1.45,
+        "role": "来源/hint/日期/eyebrow"
+      },
+      {
+        "token": "sub",
+        "px": 12.5,
+        "lh": 1.5,
+        "role": "meta 行/按钮/事件体"
+      },
+      {
+        "token": "body",
+        "px": 14,
+        "lh": 1.6,
+        "role": "正文主档(2026-10-21 用户拍板 1b,弃 13.5)"
+      },
+      {
+        "token": "body-l",
+        "px": 15,
+        "lh": 1.65,
+        "role": "分享长图正文"
+      },
+      {
+        "token": "title",
+        "px": 16,
+        "lh": 1.35,
+        "role": "卡头/区块标题"
+      },
+      {
+        "token": "title-l",
+        "px": 20,
+        "lh": 1.3,
+        "role": "覆盖层标题"
+      },
+      {
+        "token": "display-text",
+        "px": 22,
+        "lh": 1.25,
+        "role": "孩子名/文档 h1(拍板 3b 保留)"
+      },
+      {
+        "token": "display-num",
+        "px": "24/27/54",
+        "lh": 1,
+        "role": "Georgia 数字"
+      }
+    ],
+    "weight": "400/500/600/700;600 仅 Mac 真半粗,跨端产物(单文件报告在 Windows/安卓打开)注意漂移(拍板 4b 保留)",
+    "lineHeight": "标题 1.3 / 紧凑行 1.5 / 正文 1.6;hero 数字 1",
+    "letterSpacing": "标题 .06em / eyebrow 标签 .2em",
+    "colorPairing": "title→ink-blue;body→ink;sub/cap→sub;muted 对比 4.90:1(AA,拍板 6c);徽章→状态色描边",
+    "digits": "中文 sans + 数字 Georgia 双轨;列对齐场景(时间轴日期/due 徽章)用 num-mono 等宽(拍板 7b);Georgia 无 tnum 特性,tabular-nums 对其无效",
+    "punctuation": "源文件半角体系不变;显示层把 CJK 邻接半角标点转全角(渲染层转换,拍板 8b;knowledge_render.cnpunct 覆盖 app 面板+site,web 侧 util.cnpunct 覆盖轮播条;「」保留)",
+    "base": "body 不显式声明基准(拍板 5a);未设号元素=16px 预留(工具栏品牌名),新代码不得依赖",
+    "note": "数字是本产品的第一语言,serif 数字=填表笔迹感;卡头=小字距 eyebrow,无 emoji;规范全文 docs/typography-spec-2026-10-21.md"
   },
   "layout": {
-    "maxWidth": "1200px", "grid": "12 列",
+    "maxWidth": "1200px",
+    "grid": "12 列",
     "cardStyle": "白底+14px 浅蓝网格纸背景+细蓝边框 10px 圆角;虚线分隔"
   },
-  "motion": { "duration": "0", "note": "静态为主(图纸气质),不加 hover 动效" },
+  "motion": {
+    "duration": "0",
+    "note": "静态为主(图纸气质),不加 hover 动效"
+  },
   "signature": {
     "description": "儿保手册生长曲线页的坐标纸:每张卡是一页填好的图表,数字像钢笔填进表格,状态是描边小章",
     "implementation": "卡片 CSS 网格背景;ProfileCard eyebrow+大 serif 月龄+名字章框;里程碑三色大计数;due serif 徽章"
   },
   "history": {
-    "2026-10-06-rejected": "growth-journal(手账贴纸风:深色主卡+彩色tile+纸纹+大emoji)被用户否「更丑了」——装饰过度;教训:单调的解法是数字排版不是加色"
+    "2026-10-06-rejected": "growth-journal(手账贴纸风:深色主卡+彩色tile+纸纹+大emoji)被用户否「更丑了」——装饰过度;教训:单调的解法是数字排版不是加色",
+    "2026-10-21": "排版规范落地:22 种散字号归 9 档;--sub 7d92a3→5f7386(AA);--watch c98a2d→a06a15;--hint 新增;due 徽章 serif→等宽(7b);标点渲染层转全角(8b);门禁加字号/字重白名单。依据 demo 对比 AEH + typography-spec-demo 八分歧拍板(1b 2a 3b 4b 5a 6c 7b 8b)",
+    "2026-10-21-b": "状态色双场景 AA 达标(ok/watch/todo 白底与浅底均 ≥4.5);build-site.py 改读 design-system.json 生成 site 色板+正文字体(单一来源,app/site 不再分叉);tests/check-tokens.sh=色板同步+对比度机械门禁,挂入 publish 链"
   }
 }

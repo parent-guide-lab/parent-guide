@@ -8,11 +8,9 @@
 <meta property="og:title" content="高频速查 · parent-guide">
 <meta property="og:description" content="睡眠总量、屏幕、加盐、如厕、发脾气——家长最常查的底线口径">
 <style>
-  :root { --bg:#fdfdfb; --card:#fff; --ink:#1e3a52; --sub:#7d92a3;
-    --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec;
-    --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
   * { box-sizing:border-box; margin:0; }
-  body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
     background-color:var(--bg); color:var(--ink); line-height:1.75;
     background-image:
       linear-gradient(var(--grid) 1px, transparent 1px),
@@ -28,13 +26,13 @@
   .brand { font-weight:700; color:var(--ink); text-decoration:none;
     white-space:nowrap; margin-right:8px; }
   .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
-  .nav a.t { color:#4a6076; text-decoration:none; font-size:14px;
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
     padding:4px 10px; border-radius:6px; white-space:nowrap; }
   .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
   .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
   .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
   .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
-  .badge { display:inline-block; background:#fff; color:var(--accent);
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
     border:1px solid var(--grid-line); border-radius:6px;
     padding:3px 14px; font-size:13px; margin:16px 0 6px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -50,7 +48,7 @@
     color:var(--ink); display:block; }
   .card:hover { border-color:var(--accent); }
   .card h3 { font-size:16px; margin-bottom:6px; }
-  .card p { font-size:13.5px; color:#4a6076; }
+  .card p { font-size:13.5px; color:var(--sub); }
   .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
   .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
     padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
@@ -75,7 +73,7 @@
   article th, article td { border:1px solid var(--line); padding:7px 10px;
     text-align:left; vertical-align:top; }
   article th { background:var(--accent-soft); font-weight:600; }
-  article .note { background:#fff; border:1px solid var(--grid-line); border-radius:8px;
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
     padding:12px 14px; font-size:14px; margin:12px 0; }
   article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
     overflow-x:auto; font-size:13.5px; }
@@ -92,36 +90,36 @@
 <header class="site"><nav class="nav"><a class="brand" href="index.html">🧸 parent-guide<small>知识库</small></a><a class="t on" href="quick-ref.html">速查</a><a class="t" href="growth.html">生长监测</a><a class="t" href="eczema.html">湿疹护理</a><a class="t" href="newborn.html">新生儿两题</a><a class="t" href="anticipatory.html">前瞻节点</a><a class="t" href="sleep.html">睡眠</a><a class="t" href="nutrition.html">营养与喂养</a><a class="t" href="toilet.html">如厕训练</a><a class="t" href="weaning.html">戒安抚物</a><a class="t" href="screen.html">屏幕执行层</a><a class="t" href="honesty.html">诚实与说谎</a><a class="t" href="emotion.html">情绪与管教</a><a class="t" href="tantrum.html">发脾气现场</a><a class="t" href="child-mind.html">孩子的逻辑</a><a class="t" href="fears.html">恐惧与脱敏</a><a class="t" href="praise.html">表扬与思维</a><a class="t" href="milestones.html">发育里程碑</a><a class="t" href="activities.html">活动与绘本</a><a class="t" href="toys.html">玩具与环境</a><a class="t" href="social.html">同伴与同胞</a><a class="t" href="english.html">英语启蒙</a><a class="t" href="math.html">数学启蒙</a><a class="t" href="thinking-training.html">思维训练</a><a class="t" href="yuwen.html">语文启蒙</a><a class="t" href="kexue.html">科学启蒙</a><a class="t" href="yinyue.html">音乐启蒙</a><a class="t" href="meishu.html">美术启蒙</a><a class="t" href="yundong.html">运动与感统</a><a class="t" href="books.html">育儿书地图</a></nav></header>
 <div class="wrap">
 <article>
-<h2>睡眠:每天睡多久、几点睡</h2>
-<table><thead><tr><th>年龄</th><th>每 24 小时总量(含午睡)</th></tr></thead><tbody><tr><td>0-3 月</td><td>13-18 小时</td></tr><tr><td>4-11 月</td><td>12-16 小时</td></tr><tr><td>1-2 岁</td><td>11-14 小时</td></tr><tr><td>3-5 岁</td><td>10-13 小时</td></tr></tbody></table>
-<ul><li><b>就寝不晚于 21:00</b>(中国卫生行业标准 WS/T 579-2017)。</li><li>躺下后超过 20 分钟还没睡着 = 入睡困难,该调程序/作息而不是加大运动量。</li><li>详见<a href="sleep.html">睡眠专题</a>。</li></ul>
-<h2>屏幕:能不能看、看多久</h2>
-<ul><li><b>2 岁以下不建议接触屏幕</b>(视频通话除外);2-5 岁每天累计 <b>不超过 1 小时</b>(WHO 口径);<b>陪同观看</b>是 AAP 的要求,也是 2-5 岁的关键质量变量。执行层证据见<a href="screen.html">屏幕专题</a>。</li></ul>
-<h2>盐:加不加盐、加多少</h2>
-<ul><li><b>1 岁内辅食不加盐</b>;1-2 岁尽量少加(官方无数字口径);<b>2-3 岁每天 ≤2 克</b>、4-5 岁 ≤3 克(中国营养学会《学龄前儿童膳食指南 2022》)。</li><li>「不吃盐没力气」对婴幼儿不成立——天然食物里的钠已经够了;孩子乏力该排查疾病,不是加盐。</li></ul>
-<h2>喂养分工:谁管什么</h2>
-<ul><li>家长定<b>吃什么、何时吃、在哪吃</b>;孩子定<b>吃不吃、吃多少</b>。(Ellyn Satter 学派 sDOR 原则)</li><li>追喂、哄喂、用屏幕换饭量,长期看都在削弱孩子自己对饱饿的感知。详见<a href="nutrition.html">营养专题</a>。</li></ul>
-<h2>如厕训练:什么时候开始</h2>
-<ul><li>看准备信号,不看月龄:尿裤能保持干燥 2 小时以上、对马桶表现出兴趣、能表达要大小便。迹象多在 <b>18-24 月龄</b>间出现(AAP),完成时间个体差异大——AAP 口径是 <b>4 岁前完成白天训练</b>,群体均值约 3 岁上下。</li><li>「把屎把尿练得更早」没有证据支持,反而增加对抗。(AAP 口径)详见<a href="toilet.html">如厕专题</a>。</li></ul>
-<h2>湿疹:护理两件事</h2>
-<ul><li>洗澡<b>每日或隔日 1 次,温水 32-37℃,5-10 分钟</b>,温和低敏沐浴露——「湿疹不能碰水」是误传。(中华医学会 AD 指南 2020 / AAFP)</li><li><b>保湿是基础治疗</b>:浴后趁皮肤微湿立即厚涂无香精润肤剂,每日全身足量,不只涂患处。中重度、影响睡眠 → 医生评估;皮损<b>渗液/蜜色痂/脓疱 = 感染征象,当天-立即就医</b>。详见<a href="eczema.html">湿疹专题</a>。</li></ul>
-<h2>新生儿黄疸:不背数值,认信号</h2>
-<ul><li>家长不自行判断胆红素,数值判读交给医生;<b>24 小时内出现、足月 2 周不退、蔓延到手心脚心、少吃少哭少动、大便发白</b>——任一出现立即就医。</li><li>家庭侧最要紧的两件事:出院按医嘱按时复诊(峰值在生后 3-7 天)+<b>喂足多吃多排</b>;勿信药草浴偏方。详见<a href="newborn.html">新生儿专题</a>。</li></ul>
-<h2>肠绞痛:知道终点就扛得住</h2>
-<ul><li>「百日哭」有据:2-4 周起、6 周最凶,<b>约 60% 满 3 个月、90% 满 4 个月自行消失</b>;不影响生长与一般状况。</li><li>安抚(飞机抱/白噪音/襁褓)是共识级方法,别指望特效;<b>发热、嗜睡、剧烈呕吐、腹胀发硬、体重不增</b>→就医,这些不是肠绞痛。<b>任何情况下绝不摇晃婴儿</b>。详见<a href="newborn.html">新生儿专题</a>。</li></ul>
-<h2>发脾气:现场怎么办</h2>
-<ul><li>顺序是<b>先处理情绪,再处理行为,最后才谈道理</b>;情绪顶点上讲道理,孩子生理上接收不了。</li><li>哭闹时给予关注 ≠ 满足要求——人在场、语调平,可以不给 TA想要的东西。</li><li>打人/咬人当场制止,其余哭闹不以「哭得够大声」换取让步。详见<a href="emotion.html">情绪专题</a>与<a href="tantrum.html">发脾气现场</a>。</li></ul>
-<h2>行为解读:他当时可能在想什么</h2>
-<ul><li><b>行为是信号,不是选坏</b>:先用发展常模校准期望(「这个月龄本来就不会」),再看 2-3 个按可能性排序的假设与区分信号——<b>是假设,不是读心结论</b>。</li><li>只用需求语言:需要关注、需要自主、还没学会;「焦虑倾向」「操控」这类临床词,不给孩子的行为贴。详见<a href="child-mind.html">孩子的逻辑</a>。</li></ul>
-<h2>表扬:怎么夸</h2>
-<ul><li>证据最稳的一条:<b>描述你看到的具体行为,少贴固定标签</b>——「你真聪明」→「你自己试了三种办法拼上了」;「真棒」不用戒,后面加一句具体内容就行。</li><li><b>夸努力要连着策略</b>:卡住时不只说「再努力就好」,说「这个办法没成功,换个办法/找人问问」——「只夸努力」本身是被 Dweck 点名的误用。</li><li>夸张表扬(「太完美了」)对自我价值感低的孩子适得其反;「成长型思维能提成绩」被大众读物放大,在中国情境证据最弱——可期待的是动机与归因,不是分数。详见<a href="praise.html">表扬专题</a>。</li></ul>
-<h2>说谎:什么时候开始、怎么应对</h2>
-<ul><li><b>3 岁约半数、4 岁多数孩子会说掩盖性谎言,是认知发展里程碑,不是学坏</b>;嘴上说没看、脱口说出玩具名(圆谎跟不上)也正常。</li><li>想让他说实话:<b>说实话安全+说实话被肯定</b>——「你说实话我很高兴,咱们不罚」且说到做到;威胁与体罚让孩子谎说得更多、更圆。</li><li>看见了的不设陷拷问:不问「是不是你干的」,直接「我看到杯子倒了,我们一起收拾」;把注意力从招供移到修复。详见<a href="honesty.html">诚实专题</a>。</li></ul>
-<h2>同伴与二胎:什么算正常</h2>
-<ul><li>2-3 岁<b>各玩各的+抢玩具+不分享就是这个年龄的社交</b>(平行游戏是起点不是不合群);分享要到 2 岁后才慢慢长出来,大人做「翻译员」不做裁判。</li><li>二胎出生后头胎有起伏是<b>常态不是危机</b>(约八成未达临床阈值);退行(要奶瓶/尿裤倒退)只发生在刚学会几周-几个月的技能上,通常数周至数月自行回落。</li><li>公平≠一模一样:差别对待可以,但要解释「为什么不同」;「大让小」作为自愿值得肯定,作为强制规则会放大敌意。详见<a href="social.html">同伴与同胞</a>。</li></ul>
-<h2>发育:什么情况该看医生</h2>
-<p>以下任一情况,不要等下次体检,尽快就医或要求发育筛查:</p>
-<ul><li>该年龄段里程碑<b>多项未达到</b>(对照<a href="milestones.html">里程碑检查表</a>);</li><li><b>已会的技能出现倒退</b>(失去);</li><li>家长有任何担忧——即使体检时医生说「再看看」,你有权要求发育筛查。</li></ul>
+<h2>睡眠：每天睡多久、几点睡</h2>
+<table><thead><tr><th>年龄</th><th>每 24 小时总量（含午睡）</th></tr></thead><tbody><tr><td>0-3 月</td><td>13-18 小时</td></tr><tr><td>4-11 月</td><td>12-16 小时</td></tr><tr><td>1-2 岁</td><td>11-14 小时</td></tr><tr><td>3-5 岁</td><td>10-13 小时</td></tr></tbody></table>
+<ul><li><b>就寝不晚于 21:00</b>（中国卫生行业标准 WS/T 579-2017）。</li><li>躺下后超过 20 分钟还没睡着 = 入睡困难，该调程序/作息而不是加大运动量。</li><li>详见<a href="sleep.html">睡眠专题</a>。</li></ul>
+<h2>屏幕：能不能看、看多久</h2>
+<ul><li><b>2 岁以下不建议接触屏幕</b>（视频通话除外）;2-5 岁每天累计 <b>不超过 1 小时</b>(WHO 口径）;<b>陪同观看</b>是 AAP 的要求，也是 2-5 岁的关键质量变量。执行层证据见<a href="screen.html">屏幕专题</a>。</li></ul>
+<h2>盐：加不加盐、加多少</h2>
+<ul><li><b>1 岁内辅食不加盐</b>;1-2 岁尽量少加（官方无数字口径）;<b>2-3 岁每天 ≤2 克</b>、4-5 岁 ≤3 克（中国营养学会《学龄前儿童膳食指南 2022》）。</li><li>「不吃盐没力气」对婴幼儿不成立——天然食物里的钠已经够了；孩子乏力该排查疾病，不是加盐。</li></ul>
+<h2>喂养分工：谁管什么</h2>
+<ul><li>家长定<b>吃什么、何时吃、在哪吃</b>；孩子定<b>吃不吃、吃多少</b>。（Ellyn Satter 学派 sDOR 原则）</li><li>追喂、哄喂、用屏幕换饭量，长期看都在削弱孩子自己对饱饿的感知。详见<a href="nutrition.html">营养专题</a>。</li></ul>
+<h2>如厕训练：什么时候开始</h2>
+<ul><li>看准备信号，不看月龄：尿裤能保持干燥 2 小时以上、对马桶表现出兴趣、能表达要大小便。迹象多在 <b>18-24 月龄</b>间出现（AAP)，完成时间个体差异大——AAP 口径是 <b>4 岁前完成白天训练</b>，群体均值约 3 岁上下。</li><li>「把屎把尿练得更早」没有证据支持，反而增加对抗。（AAP 口径）详见<a href="toilet.html">如厕专题</a>。</li></ul>
+<h2>湿疹：护理两件事</h2>
+<ul><li>洗澡<b>每日或隔日 1 次，温水 32-37℃,5-10 分钟</b>，温和低敏沐浴露——「湿疹不能碰水」是误传。（中华医学会 AD 指南 2020 / AAFP)</li><li><b>保湿是基础治疗</b>：浴后趁皮肤微湿立即厚涂无香精润肤剂，每日全身足量，不只涂患处。中重度、影响睡眠 → 医生评估；皮损<b>渗液/蜜色痂/脓疱 = 感染征象，当天-立即就医</b>。详见<a href="eczema.html">湿疹专题</a>。</li></ul>
+<h2>新生儿黄疸：不背数值，认信号</h2>
+<ul><li>家长不自行判断胆红素，数值判读交给医生；<b>24 小时内出现、足月 2 周不退、蔓延到手心脚心、少吃少哭少动、大便发白</b>——任一出现立即就医。</li><li>家庭侧最要紧的两件事：出院按医嘱按时复诊（峰值在生后 3-7 天）+<b>喂足多吃多排</b>；勿信药草浴偏方。详见<a href="newborn.html">新生儿专题</a>。</li></ul>
+<h2>肠绞痛：知道终点就扛得住</h2>
+<ul><li>「百日哭」有据：2-4 周起、6 周最凶，<b>约 60% 满 3 个月、90% 满 4 个月自行消失</b>；不影响生长与一般状况。</li><li>安抚（飞机抱/白噪音/襁褓）是共识级方法，别指望特效；<b>发热、嗜睡、剧烈呕吐、腹胀发硬、体重不增</b>→就医，这些不是肠绞痛。<b>任何情况下绝不摇晃婴儿</b>。详见<a href="newborn.html">新生儿专题</a>。</li></ul>
+<h2>发脾气：现场怎么办</h2>
+<ul><li>顺序是<b>先处理情绪，再处理行为，最后才谈道理</b>；情绪顶点上讲道理，孩子生理上接收不了。</li><li>哭闹时给予关注 ≠ 满足要求——人在场、语调平，可以不给 TA想要的东西。</li><li>打人/咬人当场制止，其余哭闹不以「哭得够大声」换取让步。详见<a href="emotion.html">情绪专题</a>与<a href="tantrum.html">发脾气现场</a>。</li></ul>
+<h2>行为解读：他当时可能在想什么</h2>
+<ul><li><b>行为是信号，不是选坏</b>：先用发展常模校准期望（「这个月龄本来就不会」），再看 2-3 个按可能性排序的假设与区分信号——<b>是假设，不是读心结论</b>。</li><li>只用需求语言：需要关注、需要自主、还没学会；「焦虑倾向」「操控」这类临床词，不给孩子的行为贴。详见<a href="child-mind.html">孩子的逻辑</a>。</li></ul>
+<h2>表扬：怎么夸</h2>
+<ul><li>证据最稳的一条：<b>描述你看到的具体行为，少贴固定标签</b>——「你真聪明」→「你自己试了三种办法拼上了」；「真棒」不用戒，后面加一句具体内容就行。</li><li><b>夸努力要连着策略</b>：卡住时不只说「再努力就好」，说「这个办法没成功，换个办法/找人问问」——「只夸努力」本身是被 Dweck 点名的误用。</li><li>夸张表扬（「太完美了」）对自我价值感低的孩子适得其反；「成长型思维能提成绩」被大众读物放大，在中国情境证据最弱——可期待的是动机与归因，不是分数。详见<a href="praise.html">表扬专题</a>。</li></ul>
+<h2>说谎：什么时候开始、怎么应对</h2>
+<ul><li><b>3 岁约半数、4 岁多数孩子会说掩盖性谎言，是认知发展里程碑，不是学坏</b>；嘴上说没看、脱口说出玩具名（圆谎跟不上）也正常。</li><li>想让他说实话：<b>说实话安全+说实话被肯定</b>——「你说实话我很高兴，咱们不罚」且说到做到；威胁与体罚让孩子谎说得更多、更圆。</li><li>看见了的不设陷拷问：不问「是不是你干的」，直接「我看到杯子倒了，我们一起收拾」；把注意力从招供移到修复。详见<a href="honesty.html">诚实专题</a>。</li></ul>
+<h2>同伴与二胎：什么算正常</h2>
+<ul><li>2-3 岁<b>各玩各的+抢玩具+不分享就是这个年龄的社交</b>（平行游戏是起点不是不合群）；分享要到 2 岁后才慢慢长出来，大人做「翻译员」不做裁判。</li><li>二胎出生后头胎有起伏是<b>常态不是危机</b>（约八成未达临床阈值）；退行（要奶瓶/尿裤倒退）只发生在刚学会几周-几个月的技能上，通常数周至数月自行回落。</li><li>公平≠一模一样：差别对待可以，但要解释「为什么不同」；「大让小」作为自愿值得肯定，作为强制规则会放大敌意。详见<a href="social.html">同伴与同胞</a>。</li></ul>
+<h2>发育：什么情况该看医生</h2>
+<p>以下任一情况，不要等下次体检，尽快就医或要求发育筛查：</p>
+<ul><li>该年龄段里程碑<b>多项未达到</b>（对照<a href="milestones.html">里程碑检查表</a>);</li><li><b>已会的技能出现倒退</b>（失去）;</li><li>家长有任何担忧——即使体检时医生说「再看看」，你有权要求发育筛查。</li></ul>
 </article>
 <div class="foot">
   <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>

@@ -7,7 +7,7 @@
 // 本组件只服务卡级(卡片 ⤴)与问题级(详情层)两类家人卡。
 import { ref, computed, watch } from 'vue'
 import { domToPng } from 'modern-screenshot'
-import { monthsAge, nearestMilestone, dueKey, zhPunct, fullDate, issueDayNo } from '../lib/util.js'
+import { monthsAge, nearestMilestone, dueKey, cnpunct, fullDate, issueDayNo } from '../lib/util.js'
 import { anticipatoryNodes } from '../lib/anticipatory-ref.js'
 
 const props = defineProps({
@@ -273,16 +273,16 @@ async function save() {
               <template v-for="(row, i) in sec.rows" :key="i">
                 <div v-if="row.group" class="sc-sec-title">{{ row.group }}</div>
                 <div v-if="row.kind === 'issue-what'" class="sc-row issue-what">
-                  <span class="main">{{ zhPunct(row.text) }}</span>
+                  <span class="main">{{ cnpunct(row.text) }}</span>
                 </div>
                 <div v-else-if="row.kind === 'issue-why'" class="sc-row issue-why">
-                  <span class="main">{{ zhPunct(row.text) }}</span>
+                  <span class="main">{{ cnpunct(row.text) }}</span>
                 </div>
                 <div v-else-if="row.kind === 'issue-how'" class="sc-row issue-how">
-                  <span class="main">{{ zhPunct(row.text) }}</span>
+                  <span class="main">{{ cnpunct(row.text) }}</span>
                 </div>
                 <div v-else-if="row.kind === 'issue-red'" class="sc-red">
-                  <b>出现这些当天就医：</b>{{ zhPunct(row.text) }}
+                  <b>出现这些当天就医：</b>{{ cnpunct(row.text) }}
                 </div>
                 <div v-else-if="row.kind === 'issue-row'" class="sc-row issuerow">
                   <div class="r1">
@@ -291,31 +291,31 @@ async function save() {
                       : row.stRaw === 'resolved' ? 'ok' : 'plain'">{{ row.st }}</span>
                     <span class="since" style="margin:0 0 0 auto">{{ row.dayNoTxt }}</span>
                   </div>
-                  <div v-if="row.care" class="careline">就医待办：{{ zhPunct(row.care) }}</div>
-                  <div v-if="row.summary" class="main">{{ zhPunct(row.summary) }}</div>
+                  <div v-if="row.care" class="careline">就医待办：{{ cnpunct(row.care) }}</div>
+                  <div v-if="row.summary" class="main">{{ cnpunct(row.summary) }}</div>
                 </div>
                 <div v-else-if="row.kind === 'growth'" class="sc-row growthrow">
                   <span class="date">{{ fullDate(row.date) }}</span>
                   <span class="main">身高 {{ row.height ?? '—' }} cm · 体重 {{ row.weight ?? '—' }} kg</span>
                 </div>
                 <div v-else-if="row.kind === 'issue-src'" class="sc-row issue-src">
-                  <span class="main">{{ zhPunct(row.text) }}</span>
+                  <span class="main">{{ cnpunct(row.text) }}</span>
                 </div>
                 <div v-else-if="row.kind === 'milestone'" class="sc-row milestone">
                   <span class="pill" :class="row.stRaw">{{ row.st }}</span>
                   <span class="domain">{{ row.domain }}</span>
-                  <span class="main">{{ row.text }}</span>
+                  <span class="main">{{ cnpunct(row.text) }}</span>
                 </div>
                 <div v-else-if="row.kind === 'care'" class="sc-red">
-                  <b>就医待办：</b>{{ zhPunct(row.text) }}
+                  <b>就医待办：</b>{{ cnpunct(row.text) }}
                 </div>
                 <div v-else-if="row.kind === 'followup'" class="sc-row followup">
-                  <span class="due">{{ fullDate(row.due) }}</span><span class="main">{{ row.topic }}</span>
+                  <span class="due">{{ fullDate(row.due) }}</span><span class="main">{{ cnpunct(row.topic) }}</span>
                 </div>
                 <div v-else-if="row.kind === 'note'" class="sc-row note">
                   <span class="date">{{ row.approx ? '≈' : '' }}{{ fullDate(row.date) }}</span>
                   <span v-for="t in row.tags" :key="t" class="ntag">{{ t }}</span>
-                  <span class="main">{{ row.text }}</span>
+                  <span class="main">{{ cnpunct(row.text) }}</span>
                 </div>
                 <div v-else-if="row.kind === 'profile'" class="sc-row profile">
                   <div class="kv"><b>孩子</b><span>{{ dispName }}{{ age ? `(${age})` : '' }}</span></div>
@@ -323,19 +323,19 @@ async function save() {
                     <span class="focus">{{ kid.currentFocus.join('、') }}</span></div>
                 </div>
                 <div v-else-if="row.kind === 'focus'" class="sc-row focusrow">
-                  <span class="ftag">{{ row.text }}</span>
+                  <span class="ftag">{{ cnpunct(row.text) }}</span>
                 </div>
                 <div v-else-if="row.kind === 'textline'" class="sc-row textline">
-                  <span class="main" style="white-space:pre-wrap">{{ row.text }}</span>
+                  <span class="main" style="white-space:pre-wrap">{{ cnpunct(row.text) }}</span>
                 </div>
                 <div v-else-if="row.kind === 'listitem'" class="sc-row listrow" :class="{ done: row.done }">
                   <span class="box">{{ row.done ? '☑' : '☐' }}</span>
-                  <span class="main">{{ row.text }}</span>
+                  <span class="main">{{ cnpunct(row.text) }}</span>
                 </div>
               </template>
 
               <div v-if="!sec.rows.length" class="sc-empty">暂无内容</div>
-              <div v-if="sec.extra?.source" class="sc-src">来源:{{ sec.extra.source }}</div>
+              <div v-if="sec.extra?.source" class="sc-src">来源：{{ sec.extra.source }}</div>
               <div v-if="sec.extra?.note" class="sc-src">{{ sec.extra.note }}</div>
             </div>
 
@@ -358,7 +358,7 @@ async function save() {
 .share-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px;
   background: #fff; border-bottom: 1px solid var(--grid-line); }
 .share-head b { font-size: 15px; color: var(--ink); }
-.share-head .hint { font-size: 12px; color: var(--sub); }
+.share-head .hint { font-size: 12.5px; color: var(--sub); }
 .share-head .x { margin-left: auto; border: 0; background: none; font-size: 15px;
   cursor: pointer; color: var(--sub); padding: 4px 8px; }
 .share-body { display: grid; grid-template-columns: 264px minmax(0, 1fr);
@@ -374,16 +374,16 @@ async function save() {
 .opt-chip input { position: absolute; opacity: 0; pointer-events: none; }
 .opt-chip.on { border-color: var(--ink-blue); background: var(--accent-soft);
   color: var(--ink-blue); }
-.opt-chip.on::before { content: '✓'; font-size: 12px; margin-right: 5px; }
+.opt-chip.on::before { content: '✓'; font-size: 12.5px; margin-right: 5px; }
 .share-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .share-chips .chip { background: #fff; color: var(--ink-blue); border: 1px solid var(--grid-line);
   border-radius: 6px;
-  padding: 2px 10px; font-size: 12px; cursor: pointer; user-select: none; max-width: 100%;
+  padding: 2px 10px; font-size: 12.5px; cursor: pointer; user-select: none; max-width: 100%;
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.share-chips .chip.off { background: #f0f3f6; color: #9aacba; border-color: transparent; text-decoration: line-through; }
+.share-chips .chip.off { background: #f0f3f6; color: var(--sub); border-color: transparent; text-decoration: line-through; }
 .side-foot { margin-top: auto; padding-top: 10px; }
 .side-foot .btn { width: 100%; border: 0; background: var(--ink-blue); color: #fff;
-  border-radius: 8px; padding: 9px 16px; font-size: 13px; cursor: pointer; }
+  border-radius: 8px; padding: 9px 16px; font-size: 12.5px; cursor: pointer; }
 .side-foot .btn:disabled { opacity: .5; }
 .share-scroll { overflow: auto; padding: 16px;
   display: flex; justify-content: center;
@@ -396,10 +396,10 @@ async function save() {
     linear-gradient(90deg, rgba(90,130,180,.06) 1px, transparent 1px);
   background-size: 14px 14px;
   border: 1px solid var(--grid-line); border-radius: 10px;
-  padding: 20px 22px 14px; color: var(--ink); font-size: 15.5px; line-height: 1.65;
+  padding: 20px 22px 14px; color: var(--ink); font-size: 15px; line-height: 1.65;
   font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
 .sc-head { border-bottom: 1px solid var(--grid-line); padding-bottom: 10px; margin-bottom: 10px; }
-.sc-title { font-size: 19px; font-weight: 700; color: var(--ink-blue); }
+.sc-title { font-size: 20px; font-weight: 700; color: var(--ink-blue); }
 .sc-sub { font-size: 12.5px; color: var(--sub); margin-top: 2px; font-variant-numeric: tabular-nums; }
 .sc-sec { padding: 4px 0; }
 .sc-sec-title { font-size: 12.5px; font-weight: 600; color: var(--sub);
@@ -407,43 +407,43 @@ async function save() {
 .sc-row { padding: 9px 0; border-bottom: 1px dashed var(--grid-line); }
 .sc-row:last-child { border-bottom: none; }
 .sc-row .r1 { display: flex; align-items: center; gap: 8px; }
-.sc-row .r1 b { font-size: 16.5px; }
-.pill { flex: none; font-size: 12px; border-radius: 5px; padding: 1px 8px; }
+.sc-row .r1 b { font-size: 16px; }
+.pill { flex: none; font-size: 12.5px; border-radius: 5px; padding: 1px 8px; }
 .pill.ok { background: var(--ok-bg); color: var(--ok); }
 .pill.watch { background: var(--watch-bg); color: var(--watch); }
 .pill.plain { background: #f0f3f6; color: var(--sub); }
-.issuerow .careline { font-size: 13px; color: var(--todo); margin: 2px 0 3px; }
+.issuerow .careline { font-size: 12.5px; color: var(--todo); margin: 2px 0 3px; }
 .growthrow { display: flex; gap: 10px; align-items: baseline; }
 .growthrow .date { flex: none; color: var(--sub); font-family: Georgia, serif;
   font-variant-numeric: tabular-nums; }
 .pill.todo { background: var(--todo-bg); color: var(--todo); }
 .since { font-size: 12.5px; color: var(--sub); margin: 1px 0 3px; font-variant-numeric: tabular-nums; }
 .main { display: block; }
-.fu { font-size: 13px; color: var(--sub); margin-top: 3px; }
+.fu { font-size: 12.5px; color: var(--sub); margin-top: 3px; }
 .milestone { display: flex; gap: 8px; align-items: baseline; font-size: 15px; }
 .milestone .pill { min-width: 3.4em; text-align: center; }
-.milestone .domain { flex: none; width: 5em; color: var(--sub); font-size: 13.5px; }
+.milestone .domain { flex: none; width: 5em; color: var(--sub); font-size: 14px; }
 .followup { display: flex; gap: 10px; align-items: baseline; }
 .followup .due { flex: none; background: var(--accent-soft); color: var(--ink-blue);
-  border-radius: 5px; padding: 1px 8px; font-size: 13px;
+  border-radius: 5px; padding: 1px 8px; font-size: 12.5px;
   font-family: Georgia, serif; font-weight: 700; }
-.note .date { flex: none; color: var(--sub); margin-right: 6px; font-size: 13.5px;
+.note .date { flex: none; color: var(--sub); margin-right: 6px; font-size: 14px;
   font-family: Georgia, serif; }
 .note .ntag { display: inline-block; background: #fff; color: var(--ink-blue);
   border: 1px solid var(--grid-line); border-radius: 5px; padding: 0 6px; font-size: 11.5px; margin-right: 4px; }
 .profile .kv { display: flex; gap: 10px; padding: 3px 0; font-size: 15px; }
 .profile .kv b { flex: none; color: var(--sub); font-weight: 500; min-width: 4.5em; }
 .focusrow .ftag { display: inline-block; background: #fff; color: var(--ink-blue);
-  border: 1px solid var(--grid-line); border-radius: 6px; padding: 3px 12px; font-size: 14.5px; margin: 0 6px 6px 0; }
+  border: 1px solid var(--grid-line); border-radius: 6px; padding: 3px 12px; font-size: 15px; margin: 0 6px 6px 0; }
 .sc-red { background: var(--todo-bg); border: 1px solid var(--todo); border-radius: 8px;
   padding: 10px 12px; margin: 10px 0; font-size: 14px; }
 .sc-red b { color: var(--todo); }
 .textline .main { font-size: 15px; }
 .listrow { display: flex; gap: 8px; align-items: baseline; }
 .listrow .box { flex: none; color: var(--ink-blue); }
-.listrow.done .main { color: #9aacba; text-decoration: line-through; }
-.sc-empty { color: var(--sub); font-size: 13.5px; padding: 8px 0; }
+.listrow.done .main { color: var(--sub); text-decoration: line-through; }
+.sc-empty { color: var(--sub); font-size: 14px; padding: 8px 0; }
 .sc-src { font-size: 11.5px; color: var(--sub); margin-top: 6px; }
 .issue-src .main { font-size: 12.5px; color: var(--sub); }
-.sc-foot { text-align: center; color: #9aacba; font-size: 11.5px; margin-top: 14px; }
+.sc-foot { text-align: center; color: var(--sub); font-size: 11.5px; margin-top: 14px; }
 </style>

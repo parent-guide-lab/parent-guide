@@ -114,27 +114,28 @@ const openRow = (row) => { const i = issueOf(row); if (i) emit('open-issue', i.i
 <style scoped>
 .act { display: flex; gap: 10px; align-items: baseline; padding: 8px 12px;
   border: 1px solid var(--line); border-radius: 6px; margin-bottom: 8px;
-  font-size: 13.5px; line-height: 1.55; }
+  font-size: 14px; line-height: 1.55; }
 .act.lnk { cursor: pointer; }
 .act.lnk:hover { border-color: var(--ink-blue); background: var(--accent-soft); }
 .act.care { border-color: var(--todo); }
 .act.next { border-color: var(--ink-blue); }
-.act .alab { flex: none; font-size: 11px; border: 1px solid; border-radius: 4px;
+.act .alab { flex: none; font-size: 11.5px; border: 1px solid; border-radius: 4px;
   padding: 0 6px; font-weight: 600; letter-spacing: .04em; }
 .act.care .alab { color: var(--todo); border-color: var(--todo); }
 .act.next .alab { color: var(--ink-blue); border-color: var(--ink-blue); }
 .act .atxt { min-width: 0; }
-.act .adr { margin-left: auto; flex: none; font-size: 11px; color: var(--sub);
+.act .adr { margin-left: auto; flex: none; font-size: 11.5px; color: var(--sub);
   font-family: Georgia, serif; font-variant-numeric: tabular-nums; }
-.calm { font-size: 13px; color: var(--ok); padding: 6px 2px; }
+.calm { font-size: 12.5px; color: var(--ok); padding: 6px 2px; }
 .glabel { font-size: 11.5px; color: var(--sub); letter-spacing: .08em; margin: 10px 0 4px;
   padding-top: 8px; border-top: 1px dashed var(--grid-line); }
 .frow { display: flex; gap: 10px; align-items: flex-start; padding: 6px 2px;
-  border-bottom: 1px dashed var(--grid-line); font-size: 13.5px; }
+  border-bottom: 1px dashed var(--grid-line); font-size: 14px; }
 .frow:last-child { border-bottom: none; }
 .frow.lnk { cursor: pointer; }
 .frow.lnk:hover { background: var(--accent-soft); }
 .frow .dorig { flex: none; font-size: 11.5px; color: var(--sub);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-variant-numeric: tabular-nums; margin-top: 2px; }
 .frow .topic { flex: 1; min-width: 0; }
 .frow .topic b { font-weight: 600; }
@@ -142,6 +143,6 @@ const openRow = (row) => { const i = issueOf(row); if (i) emit('open-issue', i.i
 .ev-body p { margin: 0 0 4px; padding-left: 13px; position: relative; }
 .ev-body p:last-child { margin-bottom: 0; }
 .ev-body p::before { content: '•'; position: absolute; left: 1px;
-  color: var(--ink-blue); font-size: 11px; line-height: 1.9; }
-.src { font-size: 11px; color: var(--sub); margin-top: 10px; }
+  color: var(--ink-blue); font-size: 11.5px; line-height: 1.9; }
+.src { font-size: 11.5px; color: var(--sub); margin-top: 10px; }
 </style>
