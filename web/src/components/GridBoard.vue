@@ -169,6 +169,9 @@ onMounted(async () => {
 })
 
 onBeforeUnmount(() => {
+  // 窄屏↔桌面切换会让 App 以新 key 重挂本组件:卸载前冲刷未落盘的几何
+  // (拖拽后 300ms 内切窗口,防抖还没跑就拆了 GridStack,结果会丢)
+  if (saveTimer) flushSync()
   if (ro) { ro.disconnect(); ro = null }
   if (gs) { gs.destroy(); gs = null }
 })
@@ -177,28 +180,31 @@ watch(() => props.editing, v => { if (gs) gs.setStatic(!v) })
 
 function scheduleSync() {
   clearTimeout(saveTimer)
-  saveTimer = setTimeout(() => {
-    if (!gs) return
-    // save() callback backfills w/h: GridStack omits them from save output
-    // when w===minW / h===minH (treated as min-clamped redundancy) and when
-    // w===1/h===1 -- writing those back as undefined would DROP the fields
-    // from page.json (observed: today card lost h entirely, fell to clamp
-    // default 4 on reload and the geometry drifted from the engine's truth)
-    // grid.save signature is (saveContent, saveGridOpt, saveCB) -- the cb is
-    // the THIRD arg and also runs before grid.save strips el/content
-    const geo = new Map((gs.save(false, false, (node, item) => {
-      if (item.h == null) item.h = node.h
-      if (item.w == null) item.w = node.w
-    }) || []).map(i => [i.id, i]))
-    // mutate snapshot fields in place: DOM stays GridStack's, files get updated
-    for (const b of items.value) {
-      const g = geo.get(b.id)
-      if (g) { b.x = g.x; b.y = g.y; b.w = g.w; b.h = g.h }
-    }
-    // emit geometry for VISIBLE blocks, then append the hidden ones untouched:
-    // App replaces page.blocks wholesale, dropping them here would delete them
-    emit('geometry', [...items.value.map(b => ({ ...b })), ...hiddenSnapshot])
-  }, 300)  // debounce: no high-frequency writes mid-drag
+  saveTimer = setTimeout(flushSync, 300)  // debounce: no high-frequency writes mid-drag
+}
+
+function flushSync() {
+  clearTimeout(saveTimer); saveTimer = null
+  if (!gs) return
+  // save() callback backfills w/h: GridStack omits them from save output
+  // when w===minW / h===minH (treated as min-clamped redundancy) and when
+  // w===1/h===1 -- writing those back as undefined would DROP the fields
+  // from page.json (observed: today card lost h entirely, fell to clamp
+  // default 4 on reload and the geometry drifted from the engine's truth)
+  // grid.save signature is (saveContent, saveGridOpt, saveCB) -- the cb is
+  // the THIRD arg and also runs before grid.save strips el/content
+  const geo = new Map((gs.save(false, false, (node, item) => {
+    if (item.h == null) item.h = node.h
+    if (item.w == null) item.w = node.w
+  }) || []).map(i => [i.id, i]))
+  // mutate snapshot fields in place: DOM stays GridStack's, files get updated
+  for (const b of items.value) {
+    const g = geo.get(b.id)
+    if (g) { b.x = g.x; b.y = g.y; b.w = g.w; b.h = g.h }
+  }
+  // emit geometry for VISIBLE blocks, then append the hidden ones untouched:
+  // App replaces page.blocks wholesale, dropping them here would delete them
+  emit('geometry', [...items.value.map(b => ({ ...b })), ...hiddenSnapshot])
 }
 </script>
 
@@ -208,7 +214,7 @@ function scheduleSync() {
     <div v-for="b in items" :key="b.id" class="grid-stack-item"
          :gs-x="b.x" :gs-y="b.y" :gs-w="b.w" :gs-h="b.h" :gs-id="b.id">
       <div class="grid-stack-item-content">
-        <div class="card" :class="{ 'auto-h': b.autoH }" :ref="el => setCardEl(b.id, el)">
+        <div class="card" :class="{ 'auto-h': b.autoH }" :data-bid="b.id" :ref="el => setCardEl(b.id, el)">
           <div class="cfit">
             <component :is="cardFor(b.type)" :block="b" :kid="kid" @update="p => onPropsUpdate(b, p)" @open-issue="id => emit('open-issue', id)" />
           </div>
@@ -223,7 +229,7 @@ function scheduleSync() {
   <!-- 文件模式:CSS grid 流式只读 -->
   <main v-else class="grid">
     <section v-for="b in items" :key="b.id" class="card"
-             :class="{ 'auto-h': b.autoH }"
+             :class="{ 'auto-h': b.autoH }" :data-bid="b.id"
              :style="{ '--w': clampInt(b.w, 1, 12, 6), '--minh': b.autoH ? (b.minH || 3) : 0 }">
       <div class="cfit">
         <component :is="cardFor(b.type)" :block="b" :kid="kid" @update="p => onPropsUpdate(b, p)" @open-issue="id => emit('open-issue', id)" />
@@ -250,4 +256,9 @@ function scheduleSync() {
    会被 Vue scoped 编译成 `body.editing{display:none}`(整页隐藏,编辑模式白屏的根因) */
 :global(body.editing .share-fab) { display: none; }
 :global(body.capturing .share-fab) { display: none; }   /* WYSIWYG 长图不带走交互钮 */
+/* 窄屏触控目标放大(规范:命中区 ≥44px;卡片标题行右让位同步加宽) */
+@media (max-width: 720px) {
+  .share-fab { width: 40px; height: 40px; top: 12px; right: 12px; }
+  :global(.cband h3) { padding-right: 50px; }
+}
 </style>

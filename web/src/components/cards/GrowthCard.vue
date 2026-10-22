@@ -3,15 +3,18 @@
 // Data: knowledge/growth.md (human) == lib/growth-ref.js (machine) -- keep in sync.
 // Honest-display rules: no gender -> no band (points only); screening not
 // diagnosis (T2 wording on out-of-band, guide to 儿保, never "abnormal").
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { monthsAge } from '../../lib/util.js'
 import { GROWTH_REF, refAt } from '../../lib/growth-ref.js'
 
 const props = defineProps({ block: Object, kid: Object })
 
 // 详细记录默认收起:曲线+最新值+趋势是读卡主信息,逐条数据按需展开
-// (MilestoneCard 同款 .tgl 语言);打印/长图同样保持收起,主信息不丢。
+// (MilestoneCard 同款 .tgl 语言);页级长图生成期间强制展开(App 注入
+// captureExpand,2026-10-21「内容都包含」拍板),平时不受影响。
 const listOpen = ref(false)
+const capExpand = inject('captureExpand', { value: false })
+const capForce = computed(() => !!capExpand.value)
 
 const records = computed(() => {
   const recs = (props.kid?.growth?.records || []).slice()
@@ -261,7 +264,7 @@ const list = computed(() => records.value.slice(-6).reverse())
     <div v-if="!genderKey" class="src">档案未填性别,暂无参考区间对照——回对话补一下性别即可。</div>
 
     <button class="tgl" @click="listOpen = !listOpen">{{ listOpen ? '收起 ▴' : `详细记录 ${records.length} 条 ▸` }}</button>
-    <div v-if="listOpen" class="rlist">
+    <div v-if="listOpen || capForce" class="rlist">
       <div class="rrow rhead"><span class="rd">日期</span><span class="rm">月龄</span><span class="rv">身高</span><span class="rv">体重</span></div>
       <div v-for="r in list" :key="r.date" class="rrow">
         <span class="rd">{{ r.date }}</span>
@@ -313,6 +316,8 @@ svg { width: 100%; height: auto; display: block; }
 .tgl { border: 0; background: none; color: var(--ink-blue); font-size: 12.5px;
   cursor: pointer; padding: 2px 0; display: block; }
 .tgl:hover { text-decoration: underline; }
+/* 窄屏触控目标(规范:命中区 ≥44px) */
+@media (max-width: 720px) { .tgl { padding: 10px 0; } }
 .rrow { display: grid; grid-template-columns: 1fr 3.4em 4.4em 4.8em; gap: 0 14px;
   align-items: baseline; font-size: 12.5px; padding: 4px 8px;
   font-variant-numeric: tabular-nums; border-radius: 6px; }

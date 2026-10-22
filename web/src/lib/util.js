@@ -1,4 +1,7 @@
 // Shared pure helpers (ported from demo render.html)
+// (导出公共件是浏览器侧 DOM 操作,非纯函数——文件同时服务两种模式,保持单点)
+
+import { domToPng } from 'modern-screenshot'
 
 export function monthsAge(birthdate, on) {
   const b = new Date(birthdate), n = on ? new Date(on) : new Date()
@@ -161,4 +164,25 @@ export function linkifyHtml(html) {
 // 渲染层统一转链:后续数据文本里新增的知识引用(含 §节号)零改动自动生效。
 export function linkKnowledge(text) {
   return linkifyHtml(escHtml(text))
+}
+
+// -- 长图导出公共件(App 页级双版 / ShareModal 卡级双版共用) ----------------
+// 截至日期角标:时点快照必带(2026-10-01 分享调研 §3 判例)。挂到截取节点
+// 内(目标需 position:relative),截完由调用方 remove。
+export function stampEl(text) {
+  const el = document.createElement('div')
+  el.className = 'cap-stamp'
+  el.textContent = text
+  return el
+}
+// 生成 PNG 并保存为文件。导出=保存图片(2026-10-22 用户拍板):不唤起
+// navigator.share 系统分享面板——要转发由用户从保存的文件自行发起
+export async function exportPng(node, fname, bg = '#fdfdfb') {
+  const url = await domToPng(node, { scale: 2, backgroundColor: bg })
+  const blob = await (await fetch(url)).blob()
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(blob)
+  a.download = fname
+  a.click()
+  URL.revokeObjectURL(a.href)
 }

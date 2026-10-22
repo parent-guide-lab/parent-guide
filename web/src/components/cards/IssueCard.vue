@@ -3,11 +3,15 @@
 // 骨架字段直读;next/倒计时从该问题 pending followups 机械派生
 // (spec issue-tracking-v1 §2.4,不存冗余字段)。已解决默认只计数,
 // 点「已解决」在卡内展开历史分组(留档可查),行同样可开病历层。
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { dueKey, dueLabel, fullDate, issueDayNo } from '../../lib/util.js'
 
 const props = defineProps({ block: Object, kid: Object })
 const emit = defineEmits(['open-issue'])
+
+// 页级长图生成期间强制展开已解决分组(App 注入),平时不受影响
+const capExpand = inject('captureExpand', { value: false })
+const capForce = computed(() => !!capExpand.value)
 
 const ST_LABEL = { active: '进行中', watching: '观察中', resolved: '已解决' }
 const ST_CLASS = { active: 'watch', watching: 'plain', resolved: 'ok' }
@@ -64,14 +68,14 @@ function nextOf(i) {
         <span v-else-if="nextOf(i)" class="nx">{{ nextOf(i).due }} · {{ dueLabel(nextOf(i).due).label }}</span>
         <span v-else class="nx">{{ (i.summary || '').slice(0, 14) }}</span>
       </div>
-      <div v-for="i in doneList" v-show="showDone && doneOpen" :key="i.id" class="irow done"
+      <div v-for="i in doneList" v-show="showDone && (doneOpen || capForce)" :key="i.id" class="irow done"
            @click="emit('open-issue', i.id)">
         <span class="st ok">已解决</span>
         <span class="nm">{{ i.name }}</span>
         <span class="dy">{{ issueDayNo(i) }}</span>
         <span class="nx">结案 {{ fullDate(i.closed) }}</span>
       </div>
-      <div v-if="!list.length && !(showDone && doneOpen)" class="src">当前过滤下没有问题。</div>
+      <div v-if="!list.length && !(showDone && (doneOpen || capForce))" class="src">当前过滤下没有问题。</div>
     </template>
     <template v-else>
       <div class="src">还没有在管问题——聊到持续议题(便秘/发脾气/戒断类)时开题,记录会自动归集到这里。</div>
@@ -88,6 +92,8 @@ function nextOf(i) {
 .mn.dim small { letter-spacing: .04em; }
 .mn.tog { cursor: pointer; user-select: none; }
 .mn.tog:hover small { color: var(--ink-blue); }
+/* 窄屏触控目标(规范:命中区 ≥44px;「已解决」计数点击区加垫) */
+@media (max-width: 720px) { .mn.tog { padding: 6px 10px; } }
 .mn .arr { display: inline-block; margin-left: 2px; font-size: 10.5px;
   color: var(--sub); transition: transform .15s; }
 .mn .arr.up { transform: rotate(180deg); }

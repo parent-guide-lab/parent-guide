@@ -1,8 +1,11 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { monthsAge, nearestMilestone } from '../../lib/util.js'
 
 const props = defineProps({ block: Object, kid: Object })
+// 页级长图生成期间强制展开(App 注入;平时为 false,用户折叠状态不受影响)
+const capExpand = inject('captureExpand', { value: false })
+const capForce = computed(() => !!capExpand.value)
 const stLabel = { ok: '已会', watch: '观察', todo: '尚未' }
 
 const pack = computed(() => {
@@ -47,7 +50,7 @@ const nextStep = computed(() => {
         <span class="mn"><i style="color:var(--watch)">{{ counts.watch }}</i><small>观察</small></span>
         <span class="mn"><i style="color:var(--todo)">{{ counts.todo }}</i><small>尚未</small></span>
       </div>
-      <div v-if="allDone && folded" class="alldone">
+      <div v-if="allDone && folded && !capForce" class="alldone">
         全部达标 ✓ {{ assessed ? `基线 ${assessed}` : '' }}
         <button class="tgl" @click="folded = false">展开 {{ counts.ok }} 项 ▸</button>
       </div>
@@ -74,4 +77,6 @@ const nextStep = computed(() => {
 .tgl { border: 0; background: none; color: var(--ink-blue); font-size: 12.5px;
   cursor: pointer; padding: 2px 0; font: inherit; display: block; }
 .tgl:hover { text-decoration: underline; }
+/* 窄屏触控目标(规范:命中区 ≥44px) */
+@media (max-width: 720px) { .tgl { padding: 10px 0; } }
 </style>

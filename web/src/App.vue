@@ -1,9 +1,9 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue'
-import { domToPng } from 'modern-screenshot'
+import { computed, onMounted, provide, ref, watch } from 'vue'
 import { state, init, currentChild, applyGeometry, applyJsonPage, persistPage } from './lib/store.js'
 import GridBoard from './components/GridBoard.vue'
 import ShareModal from './components/ShareModal.vue'
+import ExportModal from './components/ExportModal.vue'
 import CardManager from './components/CardManager.vue'
 import IssueDetail from './components/IssueDetail.vue'
 import KnowledgePage from './components/KnowledgePage.vue'
@@ -21,52 +21,36 @@ onMounted(async () => {
   }
 })
 
-const exportOpen = ref(false)    // 导出下拉菜单
-const exporting = ref(false)     // 板面长图生成中
+const exportOpen = ref(false)    // 导出弹窗(先预览再导,版本在弹窗中切换)
 const shareState = ref(null)     // null | { level: 'card' | 'issue', block, issue }
 const issueOpen = ref(null)      // 打开详情覆盖层的 issue id;#issue-P1 hash 可直链
 const kbOpen = ref(false)        // 应用内知识库面板(官方库+我的自建)
 const kbFile = ref('')           // 打开面板时定位到的文档(顶部知识条跳转用)
 // 背景滚动锁(单一来源:任一弹窗开即锁;组件各管会互相覆盖)
-watch([() => !!shareState.value, () => !!issueOpen.value, () => kbOpen.value], ([a, b, c]) => {
-  document.body.style.overflow = (a || b || c) ? 'hidden' : ''
-}, { immediate: true })
+watch([() => !!shareState.value, () => !!issueOpen.value, () => kbOpen.value, () => exportOpen.value],
+  ([a, b, c, d]) => { document.body.style.overflow = (a || b || c || d) ? 'hidden' : '' },
+  { immediate: true })
 const print = () => { exportOpen.value = false; window.print() }
 
-// 页面级长图 = 所见即所得(用户拍板 2026-10-10:家人版卡片排版显示不好,
-// 页面怎么显示就怎么导出):直接截板面,不走 ShareModal 重排;卡级/问题级
-// 家人卡(一条口径给长辈)仍是重排版,入口在卡片 ⤴ 与问题详情层。
-async function shareBoard() {
-  const board = document.querySelector('#grid') || document.querySelector('main.grid')
-  if (!board || exporting.value) return
-  exporting.value = true
-  document.body.classList.add('capturing')   // 长图不带走卡上的分享交互钮
-  try {
-    const url = await domToPng(board, { scale: 2, backgroundColor: '#fdfdfb' })
-    const blob = await (await fetch(url)).blob()
-    const d = new Date()
-    const ts = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
-    const name = `成长视图-${currentChild().name || '页面'}-${ts}.png`
-    const file = new File([blob], name, { type: 'image/png' })
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      try { await navigator.share({ files: [file], title: name }); return }
-      catch (e) { if (e?.name === 'AbortError') return }
-    }
-    const a = document.createElement('a')
-    a.href = URL.createObjectURL(blob)
-    a.download = name
-    a.click()
-    URL.revokeObjectURL(a.href)
-  } finally {
-    document.body.classList.remove('capturing')
-    exporting.value = false; exportOpen.value = false
+// -- 窄屏(≤720px):板面切文件模式渲染 -----------------------------------
+// 单列流式与文件模式/手机版长图同一排版模型(blocks-spec「窄屏与移动端」);
+// 布局编辑=桌面专属,窄屏进入时强制退出编辑态。
+const mqNarrow = window.matchMedia('(max-width: 720px)')
+const isNarrow = ref(mqNarrow.matches)
+mqNarrow.addEventListener?.('change', e => {
+  isNarrow.value = e.matches
+  if (e.matches && state.editing) {
+    state.editing = false
+    document.body.classList.remove('editing')
   }
-}
-function pickExport(fn) {
-  exportOpen.value = false
-  if (fn === 'image') shareBoard()
-  else if (fn === 'report') exportReport()
-}
+})
+const boardServerMode = computed(() => state.serverMode && !isNarrow.value)
+
+// -- 导出内容规则(2026-10-21 拍板「页面卡片内容都包含」) ------------------
+// 长图预览/生成期间强制展开卡内默认折叠区(provide 注入卡组件与分享/导出
+// 弹窗读取);结束回落,用户本地折叠状态不受影响。
+const captureExpand = ref(false)
+provide('captureExpand', captureExpand)
 
 function toggleEdit() {
   if (!state.serverMode) {
@@ -124,6 +108,7 @@ function onPropsUpdate({ id, props }) {
 // embedded-JSON tags with current page/data, drop the live app DOM (the inline
 // bundle re-mounts on open and falls back to the embedded values in file mode).
 function exportReport() {
+  exportOpen.value = false
   const safe = o => JSON.stringify(o, null, 2).replace(/<\//g, '<\\/')
   const doc = document.documentElement.cloneNode(true)
   const pg = doc.querySelector('#pg-embedded-page')
@@ -153,25 +138,17 @@ function exportReport() {
         {{ state.serverMode ? '🔌 本地服务 · 编辑即保存' : '📄 文件模式 · 只读' }}
       </span>
       <button v-if="state.serverMode" class="btn" title="官方循证知识 + 我的自建(knowledge/user/,仅本机)" @click="kbOpen = true">📖 知识库</button>
-      <button class="btn" :class="{ active: state.editing }" :disabled="!state.serverMode"
-              :title="state.editing ? '收起面板并退出拖拽' : '拖拽调布局;底部面板管卡片显隐与添加'"
+      <button class="btn" :class="{ active: state.editing }" :disabled="!state.serverMode || isNarrow"
+              :title="isNarrow ? '窄屏为只读浏览,布局编辑请在桌面进行'
+                : state.editing ? '收起面板并退出拖拽' : '拖拽调布局;底部面板管卡片显隐与添加'"
               @click="toggleEdit">{{ state.editing ? '完成编辑' : '编辑布局' }}</button>
-      <div class="export-wrap">
-        <button class="btn primary" @click="exportOpen = !exportOpen">导出</button>
-        <div v-if="exportOpen" class="export-menu">
-          <button :disabled="exporting" @click="pickExport('image')">{{ exporting ? '生成中…' : '长图(微信分享)' }}</button>
-          <button @click="print()">PDF(打印/存档)</button>
-          <button @click="pickExport('report')">单文件网页(转发/存档)</button>
-        </div>
-      </div>
+      <button class="btn primary" title="长图(手机版/桌面版)·PDF·单文件网页" @click="exportOpen = true">导出</button>
     </div>
-
-    <div v-if="exportOpen" class="menu-mask" @click="exportOpen = false"></div>
 
     <TickerBar @open-doc="f => { kbFile = f; kbOpen = true }" />
 
-    <GridBoard :key="state.version" :page="state.page" :kid="currentChild()"
-               :editing="state.editing" :server-mode="state.serverMode"
+    <GridBoard :key="state.version + (boardServerMode ? '-srv' : '-file')" :page="state.page" :kid="currentChild()"
+               :editing="state.editing" :server-mode="boardServerMode"
                @geometry="applyGeometry" @share-card="b => shareState = { level: 'card', block: b }"
                @props-update="onPropsUpdate" @open-issue="id => issueOpen = id" />
 
@@ -182,6 +159,9 @@ function exportReport() {
                 :block="shareState?.block" :kid="currentChild()"
                 :issue="shareState?.issue"
                 @close="shareState = null" />
+
+    <ExportModal :open="exportOpen" :page="state.page" :kid="currentChild()"
+                 @close="exportOpen = false" @print="print" @report="exportReport" />
 
     <IssueDetail :open="!!issueOpen" :kid="currentChild()" :issue-id="issueOpen"
                  @close="issueOpen = null"
