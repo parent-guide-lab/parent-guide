@@ -22,6 +22,16 @@ const props = defineProps({
 })
 const emit = defineEmits(['geometry', 'share-card', 'props-update', 'open-issue'])
 
+// B 功能卡身份色(2026-10-23 拍板,两轮演进:demo ui-color → 补拍档案/今日 →
+// C1 实色表头 ui-cardhead-tint):type→tone 类,style.css 里 tone 类注入
+// --id(卡身签名件用)+实色卡头白字。全部内置卡有实色头(档案=墨蓝本尊色);
+// 仅自定义卡(text/list)无映射=白底墨蓝,「无色头」是家长自建卡的信号。
+// 纪律:状态徽章与三色大计数不跟身份走。
+const TONE = { growth: 'tone-green', issue: 'tone-red', milestone: 'tone-gold',
+  anticipatory: 'tone-violet', strategy: 'tone-violet', note: 'tone-teal',
+  tracker: 'tone-tea', profile: 'tone-blue', focus: 'tone-violet' }
+const cardClass = (b) => ({ 'auto-h': b.autoH, [TONE[b.type]]: !!TONE[b.type] })
+
 // Custom-card content updates (e.g. list checkboxes): patch the snapshot
 // element in place (keeps geometry write-back in sync with latest props),
 // then bubble up so App persists page.json. No rebuild needed.
@@ -214,7 +224,7 @@ function flushSync() {
     <div v-for="b in items" :key="b.id" class="grid-stack-item"
          :gs-x="b.x" :gs-y="b.y" :gs-w="b.w" :gs-h="b.h" :gs-id="b.id">
       <div class="grid-stack-item-content">
-        <div class="card" :class="{ 'auto-h': b.autoH }" :data-bid="b.id" :ref="el => setCardEl(b.id, el)">
+        <div class="card" :class="cardClass(b)" :data-bid="b.id" :ref="el => setCardEl(b.id, el)">
           <div class="cfit">
             <component :is="cardFor(b.type)" :block="b" :kid="kid" @update="p => onPropsUpdate(b, p)" @open-issue="id => emit('open-issue', id)" />
           </div>
@@ -229,7 +239,7 @@ function flushSync() {
   <!-- 文件模式:CSS grid 流式只读 -->
   <main v-else class="grid">
     <section v-for="b in items" :key="b.id" class="card"
-             :class="{ 'auto-h': b.autoH }" :data-bid="b.id"
+             :class="cardClass(b)" :data-bid="b.id"
              :style="{ '--w': clampInt(b.w, 1, 12, 6), '--minh': b.autoH ? (b.minH || 3) : 0 }">
       <div class="cfit">
         <component :is="cardFor(b.type)" :block="b" :kid="kid" @update="p => onPropsUpdate(b, p)" @open-issue="id => emit('open-issue', id)" />

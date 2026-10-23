@@ -6,6 +6,13 @@
   --grid: rgba(90,130,180,.07); --grid-line: rgba(90,130,180,.18);
   --ok: #3a7555; --ok-bg: #eef5f0; --watch: #96630f; --watch-bg: #faf3e4;
   --todo: #ad4b40; --todo-bg: #f9eeec; --err: #b04a4a; --err-bg: #f9e9e9;
+  /* D 分享层奶油纸(2026-10-23 拍板:传阅品彩色,工作台保持素) */
+  --cream: #fbf7ee; --cream-line: #e8dfcf; --cream-grid: rgba(138,90,42,.05);
+  --cream-band: rgba(138,90,42,.08);
+  /* B 主线身份色(黛紫=前瞻/在跑计划,黛青=成长速记;生长/里程碑/问题/台账复用语义族) */
+  --id-violet: #6b5a8e; --id-teal: #2e6e6a;
+  /* 身份浅底(卡头带/圆点圈;紫青=5% 混白计算值,茶棕=hint 族浅底) */
+  --id-violet-bg: #f8f7f9; --id-teal-bg: #f5f8f8; --hint-bg: #f7f2ec;
 }
 * { box-sizing: border-box; margin: 0; }
 body { font-family: system-ui, -apple-system, "PingFang SC", "HarmonyOS Sans SC",
@@ -47,19 +54,52 @@ body { font-family: system-ui, -apple-system, "PingFang SC", "HarmonyOS Sans SC"
   display: flex; flex-direction: column; overflow: hidden; }
 @media (max-width: 720px) { .card { grid-column: 1 / -1 !important; } }
 
+/* ===== B 功能卡身份色(2026-10-23 拍板,同日两轮演进:顶条+浅底→C1 实色表头) =====
+   tone 类由 GridBoard 按 block.type 注入 --id/--idbg:--id 服务卡身签名件
+   (速记头条日期/前瞻倒计时/生长主线等,白底上身份色);卡头走 C1 实色表头
+   (demo ui-cardhead-tint-2026-10-23 拍板):身份色实底+白字,顶条退役。
+   --idbg(浓度谱系浅底)保留在册未被消费,为浓度档切换预留。纪律:状态徽章/
+   三色大计数不跟身份走;自定义卡无 tone 类=白底墨蓝现状。 */
+.card.tone-green  { --id: var(--ok);     --idbg: var(--ok-bg); }
+.card.tone-gold   { --id: var(--watch);  --idbg: var(--watch-bg); }
+.card.tone-red    { --id: var(--todo);   --idbg: var(--todo-bg); }
+.card.tone-violet { --id: var(--id-violet); --idbg: var(--id-violet-bg); }
+.card.tone-teal   { --id: var(--id-teal);   --idbg: var(--id-teal-bg); }
+.card.tone-tea    { --id: var(--hint);   --idbg: var(--hint-bg); }
+/* 档案=墨蓝本尊色(2026-10-23 补拍):默认色也是身份色,与无色签的自定义卡分界 */
+.card.tone-blue   { --id: var(--ink-blue); --idbg: var(--accent-soft); }
+/* C1 实色表头:白字白字重于身份色字(与 --id 解耦,--id 在卡头=与底同色不可用);
+   白于身份色底对比 5.14-8.01 全 AA(对称于门禁「身份于白底」配对) */
+.card[class*="tone-"] .cband { background: var(--id); border-bottom: none; }
+.card[class*="tone-"] .cband h3 { color: #fff; }
+/* 卡头副行纯白(82% 白于金/红/绿底仅 4.1-4.46,11.5px 不达 AA;纯白 5.14 全过) */
+.card[class*="tone-"] .cband .cbsub { color: #fff; }
+.card[class*="tone-"] .cband b { color: #fff; }
+/* 卡头警示徽章(就医待办)于实色底转反白:红字红描边在问题卡红底上会隐形 */
+.card[class*="tone-"] .cband .care-n { color: #fff; border-color: rgba(255,255,255,.85); }
+/* 卡头计数(head-stats 自带 var(--sub) 灰,直接指定压过 cbsub 继承)与语义色
+   (.ok/.watch/.todo,现消费者仅无 tone 的清单卡=白底合法,此处防御性收口)于实色头统一白 */
+.card[class*="tone-"] .cband .head-stats { color: #fff; }
+.card[class*="tone-"] .cband .head-stats .ok,
+.card[class*="tone-"] .cband .head-stats .watch,
+.card[class*="tone-"] .cband .head-stats .todo { color: #fff; }
+
 /* 服务模式:GridStack 网格 */
 #grid.grid-stack { padding: 20px; max-width: 1200px; margin: 0 auto; }
 .grid-stack-item-content { border-radius: 14px; overflow: hidden; }
 .grid-stack .card { height: 100%; }   /* 内部 .cbody 滚动,标题带常驻 */
 body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2px; }
 
-/* 卡头标题带(2026-10-10 E 案):纯白底+下边线,标题行只放标题(meta 入带内副行),
-   分享钮常驻带右;内容超高时 .cbody 内部滚动,标题带不动 */
+/* 卡头标题带(2026-10-10 E 案;2026-10-23 单行化拍板:副行内容跟标题后同排,
+   字号统一 12.5,与标题同基线):白底+下边线(身份卡=C1 实色),分享钮常驻带右;
+   带级 padding-right 让位悬浮分享钮(原 h3 padding-right 上移);窄屏/超长折行兜底 */
 .cband { flex: none; background: #fff; border-bottom: 1px solid var(--grid-line);
-  padding: 12px 20px 10px; border-radius: 10px 10px 0 0; }
+  padding: 12px 46px 10px 20px; border-radius: 10px 10px 0 0;
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .cband h3 { font-size: 16px; color: var(--ink-blue); font-weight: 700;
-  letter-spacing: .06em; line-height: 1.35; margin: 0; padding-right: 34px; }
-.cband .cbsub { display: flex; gap: 8px; align-items: center; margin-top: 3px; }
+  letter-spacing: .06em; line-height: 1.35; margin: 0; }
+.cband .cbsub { display: flex; gap: 8px; align-items: baseline; margin: 0;
+  font-size: 12.5px; min-width: 0; }
 .cband .cbsub .head-stats, .cband .cbsub .care-n { margin-left: 0; }
 .cbody { flex: 1; min-height: 0; overflow-y: auto; padding: 10px 20px 14px; }
 /* 窄屏/移动端(blocks-spec「窄屏与移动端」):断点 ≤720px 单列=文件模式排版
@@ -79,7 +119,7 @@ body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2
 .grid-stack .card.auto-h.capped .cfit { max-height: 100%; }
 .grid-stack .card.auto-h .text-body { max-height: none; overflow-y: visible; }
 .grid-stack .card.auto-h .pv { -webkit-line-clamp: unset; overflow: visible; }
-body.editing .cband h3 { padding-right: 96px; }   /* 编辑态卡头右让位给高度切换钮 */
+body.editing .cband { padding-right: 110px; }   /* 编辑态卡头右让位给高度切换钮 */
 /* 文件模式本就随内容拉伸,autoH 只补一个最低高度兜底 */
 .grid .card.auto-h { min-height: calc(var(--minh, 0) * 72px); }
 .grid .card .cfit { display: flex; flex-direction: column; }
@@ -114,9 +154,9 @@ body.editing .cband h3 { padding-right: 96px; }   /* 编辑态卡头右让位给
 .due-b.soon { background: var(--accent-soft); color: var(--ink-blue); }
 .due-b.later, .due-b.plain { background: rgba(255,255,255,.7); color: var(--ink-blue); }
 /* 卡头右侧汇总统计(里程碑/睡眠) */
-.head-stats { margin-left: auto; display: flex; gap: 6px; font-size: 11.5px;
+.head-stats { margin-left: auto; display: flex; gap: 6px; font-size: 12.5px;
   color: var(--sub); font-weight: 400; }
-.head-stats b { font-weight: 600; }
+.head-stats b { font-weight: 600; }   /* 卡头内计数色由 C1 白字规则统一管 */
 .head-stats .ok { color: var(--ok); }
 .head-stats .watch { color: var(--watch); }
 .head-stats .todo { color: var(--todo); }

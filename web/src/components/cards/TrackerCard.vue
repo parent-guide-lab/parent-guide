@@ -74,7 +74,7 @@ const toneOf = (it) =>
 .mn small { font-size: 10.5px; color: var(--sub); letter-spacing: .06em; }
 .tgrp { margin-top: 10px; }
 .tgrp-t { font-family: Georgia, "Times New Roman", serif; font-variant-numeric: tabular-nums;
-  color: var(--ink-blue); font-size: 12.5px; font-weight: 600; margin-bottom: 2px;
+  color: var(--id, var(--ink-blue)); font-size: 12.5px; font-weight: 600; margin-bottom: 2px;
   }
 .trow { display: flex; gap: 8px; align-items: baseline; padding: 6px 0;
   border-bottom: 1px dashed var(--line); font-size: 14px; }

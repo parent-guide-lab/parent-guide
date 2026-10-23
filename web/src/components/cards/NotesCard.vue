@@ -91,13 +91,13 @@ function toggle(i) {
 <style scoped>
 /* 卡头右侧计数(中改拍板:「本月 N 条」给积累感) */
 .cband { display: flex; align-items: baseline; }
-.cband .lead-n { margin: 0 34px 0 auto; font-size: 11.5px; color: var(--sub); }
-.cband .lead-n b { color: var(--ink-blue); font-weight: 600; }
+/* 卡头单行化(2026-10-23 拍板):跟标题后同排,字号/颜色交全局 .cbsub 体系 */
+.cband .lead-n b { font-weight: 600; }
 /* 头条签名件(中改拍板):大日期 27 Georgia 与月龄 hero 同族,实线分界 */
 .lead { padding-bottom: 12px; margin-bottom: 10px; border-bottom: 1px solid var(--line); }
 .lead-date { display: flex; align-items: baseline; gap: 8px; }
 .lead-date .ld-d { font-family: Georgia, "Times New Roman", serif; font-size: 27px;
-  font-weight: 700; line-height: 1; color: var(--ink-blue); letter-spacing: -.01em; }
+  font-weight: 700; line-height: 1; color: var(--id, var(--ink-blue)); letter-spacing: -.01em; }
 .lead-date .ld-u { font-size: 11.5px; color: var(--sub); }
 .lead-date .ld-t { margin-left: auto; font-size: 11.5px; color: var(--sub);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
@@ -108,7 +108,7 @@ function toggle(i) {
 .lead-body p:last-child { margin-bottom: 0; }
 .lead-hint { font-size: 11.5px; color: var(--sub); margin-top: 6px; }
 .lead-hint::before { content: ''; display: inline-block; width: 18px; height: 1px;
-  background: var(--ink-blue); vertical-align: 4px; margin-right: 6px; }
+  background: var(--id, var(--ink-blue)); vertical-align: 4px; margin-right: 6px; }
 /* 日期=Georgia 衬线(2026-10-22 A1 拍板混合语法:时间轴节点日期走图纸衬线
    数字语言,与前瞻卡月分组标题同族;多行日期列仍走 mono) */
 .tl-item .d.dline { display: block; margin-right: 0; margin-bottom: 1px;

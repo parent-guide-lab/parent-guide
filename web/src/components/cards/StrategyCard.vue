@@ -98,7 +98,7 @@ const startedLabel = (s) => {
   overflow: hidden; }
 .smeta { font-size: 11.5px; color: var(--sub); margin-top: 3px; }
 .smeta .lead { margin-left: 8px; }
-.plink { color: var(--ink-blue); cursor: pointer; font-weight: 600;
+.plink { color: var(--id, var(--ink-blue)); cursor: pointer; font-weight: 600;
   font-family: Georgia, serif; margin: 0 2px; }
 .plink:hover { text-decoration: underline; }
 .tgl { border: 0; background: none; color: var(--ink-blue); font-size: 12.5px;

@@ -40,7 +40,7 @@ const nextStep = computed(() => {
   <div class="cband">
     <h3>里程碑 · {{ pack.m }} 月</h3>
     <div v-if="nextStep" class="cbsub">
-      <span style="font-size:11.5px;color:var(--sub)">下一档 <b style="color:var(--ink-blue)">{{ nextStep.months }} 月</b> · {{ nextStep.ym }} 前后</span>
+      <span>下一档 <b>{{ nextStep.months }} 月</b> · {{ nextStep.ym }} 前后</span>
     </div>
   </div>
   <div class="cbody">

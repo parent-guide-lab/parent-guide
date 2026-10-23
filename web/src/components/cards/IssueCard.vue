@@ -97,7 +97,7 @@ function nextOf(i) {
 .mn .arr { display: inline-block; margin-left: 2px; font-size: 10.5px;
   color: var(--sub); transition: transform .15s; }
 .mn .arr.up { transform: rotate(180deg); }
-.care-n { font-size: 11.5px; color: var(--todo); border: 1px solid var(--todo);
+.care-n { font-size: 12.5px; color: var(--todo); border: 1px solid var(--todo);
   border-radius: 4px; padding: 0 6px; letter-spacing: .04em; font-weight: 600; }
 .irow { display: flex; gap: 8px; align-items: baseline; padding: 7px 0;
   border-bottom: 1px dashed var(--line); font-size: 14px; cursor: pointer; }

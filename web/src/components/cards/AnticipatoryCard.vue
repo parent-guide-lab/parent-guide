@@ -122,7 +122,7 @@ const pastText = computed(() => {
 .ns-label { font-size: 11.5px; color: var(--sub); letter-spacing: .08em; }
 .ns-big { display: flex; align-items: baseline; gap: 6px; margin-top: 4px; }
 .ns-big .n { font-family: Georgia, "Times New Roman", serif; font-size: 27px;
-  font-weight: 700; line-height: 1; color: var(--ink-blue); }
+  font-weight: 700; line-height: 1; color: var(--id, var(--ink-blue)); }
 .ns-big .u { font-size: 11.5px; color: var(--sub); }
 .ns-big .due { margin-left: auto; font-size: 11.5px; color: var(--sub);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -134,15 +134,15 @@ const pastText = computed(() => {
   width: 1px; background: var(--grid-line); }
 .tl-now { position: relative; margin: 4px 0 8px; }
 .tl-now::before { content: ""; position: absolute; left: -14px; top: 5px; width: 8px; height: 8px;
-  border-radius: 50%; background: var(--ink-blue); }
-.nowline { display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--ink-blue); }
+  border-radius: 50%; background: var(--id, var(--ink-blue)); }
+.nowline { display: flex; align-items: center; gap: 8px; font-size: 11.5px; color: var(--id, var(--ink-blue)); }
 .nowline::after { content: ""; flex: 1; border-top: 1px dashed var(--grid-line); }
 .tl-g > :last-child { border-bottom: none; }
 .tl-m { position: relative; margin: 10px 0 2px; }
 .tl-m::before { content: ""; position: absolute; left: -14px; top: 5.5px; width: 8px; height: 8px;
-  border-radius: 50%; background: #fff; border: 1.5px solid var(--ink-blue); }
+  border-radius: 50%; background: #fff; border: 1.5px solid var(--id, var(--ink-blue)); }
 .tl-m b { font-family: Georgia, serif; font-variant-numeric: tabular-nums;
-  color: var(--ink-blue); font-size: 12.5px; font-weight: 600; }
+  color: var(--id, var(--ink-blue)); font-size: 12.5px; font-weight: 600; }
 .tl-row { display: flex; gap: 8px; align-items: baseline; padding: 3px 0;
   font-size: 12.5px; border-bottom: 1px dashed var(--grid-line); }
 .tl-row .t { min-width: 0; flex: 1; line-height: 1.5; }

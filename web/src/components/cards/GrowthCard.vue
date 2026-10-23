@@ -305,8 +305,8 @@ const list = computed(() => records.value.slice(-6).reverse())
 svg { width: 100%; height: auto; display: block; }
 .band { fill: rgba(90,130,180,.10); stroke: none; }
 .p50 { fill: none; stroke: var(--sub); stroke-width: 1; stroke-dasharray: 4 3; }
-.cline { fill: none; stroke: var(--ink-blue); stroke-width: 2; }
-.cdot { fill: #fff; stroke: var(--ink-blue); stroke-width: 1.5; }
+.cline { fill: none; stroke: var(--id, var(--ink-blue)); stroke-width: 2; }
+.cdot { fill: #fff; stroke: var(--id, var(--ink-blue)); stroke-width: 1.5; }
 .cdot.out { fill: var(--todo); stroke: var(--todo); }
 .gridline { stroke: var(--line); stroke-width: .5; opacity: .7; }
 .axis { stroke: var(--line); stroke-width: 1; }
@@ -334,6 +334,6 @@ svg { width: 100%; height: auto; display: block; }
   box-shadow: 0 2px 8px rgba(90,130,180,.18); z-index: 2;
   display: flex; flex-direction: column; }
 .tip.flip { transform: translateX(-100%); }
-.tip b { font-size: 12.5px; color: var(--ink-blue); }
+.tip b { font-size: 12.5px; color: var(--id, var(--ink-blue)); }
 .tip span { color: var(--sub); }
 </style>

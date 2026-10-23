@@ -6,6 +6,10 @@
 // 问题级(详情层)=375px 家人卡重排保留(问题没有「页面卡」,口径卡是
 // 为家人设计的最终形态;调研 docs/sharing-research-2026-10-01.md §3):
 // 大字号/去内部黑话/条目勾选/familyNotes 永不出现在此。
+// 2026-10-23 D 分享层先行(拍板「D 先行试点+B 主线」,demo ui-color-2026-10-23):
+// 传阅品彩色、工作台保持素——问题级家人卡=奶油纸传阅品底(cream 族)+
+// 「带给家人」eyebrow+茶棕印章(孩子名首字,隐名→「宝」)+「截至」日期
+// todo 红;卡级导出衬底换 cream。按收件人配色因分享数据无收件人字段暂缓。
 import { ref, computed, watch, inject, nextTick } from 'vue'
 import { monthsAge, cnpunct, issueDayNo, stampEl, exportPng } from '../lib/util.js'
 
@@ -88,17 +92,20 @@ const age = computed(() => {
   return m > 0 ? `${m} 个月` : ''
 })
 const dispName = computed(() => anonymized.value ? '宝宝' : (props.kid?.name || '宝宝'))
+// 印章=孩子名首字(档案卡 .seal 同惯例;隐名时随 dispName 落「宝」)
+const sealChar = computed(() => dispName.value.trim().charAt(0) || '宝')
 const headTitle = computed(() => {
   // 标题冒号直接写全角(cnpunct 规则同款:CJK 邻接半角转全角;8b)
   if (props.level === 'issue') return `${dispName.value}的${issuePack.value?.name || ''}：全家这样做`
   return titleFor(props.block) || '成长卡片'
 })
-const headSub = computed(() => {
+// 截至(D 版红日期)从副行拆出单独着色,前段保持 sub
+const headSubPre = computed(() => {
   if (props.level === 'issue') {
-    return [age.value, issuePack.value?.st, issuePack.value?.dayNoTxt, `截至 ${todayStr()}`]
+    return [age.value, issuePack.value?.st, issuePack.value?.dayNoTxt]
       .filter(Boolean).join(' · ')
   }
-  return [dispName.value, age.value, `截至 ${todayStr()}`].filter(Boolean).join(' · ')
+  return [dispName.value, age.value].filter(Boolean).join(' · ')
 })
 
 watch(() => [props.open, props.level, props.block?.id], () => {
@@ -138,14 +145,17 @@ const fileTitle = () => {
   return titleFor(props.block) || '卡片'
 }
 // 单导出钮:导的是当前预览(导出=保存图片,不弹系统分享)
+// 衬底读 --cream token(D 版,卡级/问题级同;读 computed style 免 JS 字面量与色板分叉)
+function creamBg() {
+  return getComputedStyle(document.documentElement).getPropertyValue('--cream').trim() || '#fbf7ee'
+}
 async function doExport() {
   const target = props.level === 'card' ? cardEl.value : nodeEl.value
   if (!target || exporting.value) return
   exporting.value = true
   try {
     const tag = props.level === 'card' ? `${ver.value === 'desktop' ? '桌面版' : '手机版'}-` : ''
-    await exportPng(target, `成长分享-${dispName.value}-${fileTitle()}-${tag}${todayStr()}.png`,
-      props.level === 'card' ? '#fdfdfb' : '#ffffff')
+    await exportPng(target, `成长分享-${dispName.value}-${fileTitle()}-${tag}${todayStr()}.png`, creamBg())
   } finally { exporting.value = false }
 }
 </script>
@@ -190,11 +200,15 @@ async function doExport() {
           <div class="share-scroll">
           <!-- 卡级:页面原卡克隆(手机版 375px / 桌面版原宽) -->
           <div v-if="level === 'card'" class="cap-preview" ref="cardEl"></div>
-          <!-- 问题级:375px 家人卡重排(口径卡是家人版最终形态) -->
+          <!-- 问题级:375px 家人卡重排(口径卡是家人版最终形态;D 版=奶油纸传阅品) -->
           <div v-else class="share-card" ref="nodeEl">
             <div class="sc-head">
-              <div class="sc-title">{{ headTitle }}</div>
-              <div class="sc-sub">{{ headSub }}</div>
+              <div class="sc-head-main">
+                <div class="sc-eyebrow">带给家人</div>
+                <div class="sc-title">{{ headTitle }}</div>
+                <div class="sc-sub">{{ headSubPre }} · 截至 <span class="sc-until">{{ todayStr() }}</span></div>
+              </div>
+              <span class="sc-seal" aria-hidden="true">{{ sealChar }}</span>
             </div>
 
             <div v-for="sec in sections" :key="sec.id" class="sc-sec">
@@ -234,22 +248,32 @@ async function doExport() {
    foot-hint/share-scroll)已上收 style.css 全局——ExportModal 共用同一基座;
    这里只留问题级家人卡专属渲染 */
 /* A·生长图纸(与页面同系统):坐标纸底+墨蓝+serif 数字+描边小章 */
-/* 问题级家人卡:自包含、375px 手机宽、大字号(家人版);坐标纸底 */
-.share-card { width: 375px; background-color: #fff;
+/* D 版家人卡(2026-10-23 拍板):奶油纸传阅品底——工作台保持素,颜色只出现在
+   离开手机的分享物上;颜色全部走 token(cream 族/语义色),check-tokens 管理 */
+.share-card { width: 375px; background-color: var(--cream);
   background-image:
-    linear-gradient(rgba(90,130,180,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(90,130,180,.06) 1px, transparent 1px);
+    linear-gradient(var(--cream-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cream-grid) 1px, transparent 1px);
   background-size: 14px 14px;
-  border: 1px solid var(--grid-line); border-radius: 10px;
-  padding: 20px 22px 14px; color: var(--ink); font-size: 15px; line-height: 1.65;
+  border: 1px solid var(--cream-line); border-radius: 10px;
+  padding: 0; color: var(--ink); font-size: 15px; line-height: 1.65;
   font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
-.sc-head { border-bottom: 1px solid var(--grid-line); padding-bottom: 10px; margin-bottom: 10px; }
+.sc-head { background: var(--cream-band); border-bottom: 1px solid var(--cream-line);
+  padding: 16px 22px 12px; margin-bottom: 10px;
+  display: flex; align-items: flex-start; gap: 12px; }
+.sc-head-main { min-width: 0; }
+.sc-eyebrow { font-size: 11.5px; color: var(--sub); letter-spacing: .2em; margin-bottom: 3px; }
 .sc-title { font-size: 20px; font-weight: 700; color: var(--ink-blue); }
 .sc-sub { font-size: 12.5px; color: var(--sub); margin-top: 2px; font-variant-numeric: tabular-nums; }
-.sc-sec { padding: 4px 0; }
+.sc-until { color: var(--todo); }   /* 截至=todo 红(D 版红日期,奶油纸上 5.09) */
+.sc-seal { flex: none; width: 38px; height: 38px; border-radius: 8px;
+  border: 1.5px solid var(--hint); color: var(--hint); background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 700; font-family: Georgia, "Times New Roman", serif; }
+.sc-sec { padding: 4px 22px; }
 .sc-sec-title { font-size: 12.5px; font-weight: 600; color: var(--sub);
   letter-spacing: .2em; margin: 10px 0 2px; }
-.sc-row { padding: 9px 0; border-bottom: 1px dashed var(--grid-line); }
+.sc-row { padding: 9px 0; border-bottom: 1px dashed var(--cream-line); }
 .sc-row:last-child { border-bottom: none; }
 .sc-row .main { display: block; }
 .sc-red { background: var(--todo-bg); border: 1px solid var(--todo); border-radius: 8px;
@@ -257,7 +281,8 @@ async function doExport() {
 .sc-red b { color: var(--todo); }
 .sc-empty { color: var(--sub); font-size: 14px; padding: 8px 0; }
 .issue-src .main { font-size: 12.5px; color: var(--sub); }
-.sc-foot { text-align: center; color: var(--sub); font-size: 11.5px; margin-top: 14px; }
+.sc-foot { text-align: center; color: var(--sub); font-size: 11.5px;
+  margin-top: 14px; padding-bottom: 14px; }
 
 /* 卡级预览容器:页面原卡克隆钉宽放入,截至角标随克隆常驻(预览即所发) */
 .cap-preview { position: relative; }
