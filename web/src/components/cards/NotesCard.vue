@@ -14,6 +14,26 @@ const bodyHtml = (seg) => {
 }
 const list = computed(() =>
   (props.kid?.notes || []).slice(-(props.block?.props?.limit || 5)).reverse())
+// 中改拍板(2026-10-22,demo/ui-card-mid):最新一条升为「头条」签名件——
+// 大日期(27 Georgia,与档案卡月龄 hero 同族)+实线分界,历史条目原样走时间线;
+// 单条时不做头条(没有历史区,签名件无对照)。卡头「本月 N 条」=MM 机械匹配。
+const mm = String(new Date().getMonth() + 1).padStart(2, '0')
+const monthCount = computed(() =>
+  (props.kid?.notes || []).filter(n => String(n.date || '').slice(0, 2) === mm).length)
+const lead = computed(() => list.value.length > 1 ? list.value[0] : null)
+const rest = computed(() => lead.value ? list.value.slice(1) : list.value)
+// 相对日仅在机械可定时显示(今天/昨天,MM-DD 同年内比对);跨年旧条目留空不猜
+const relDay = (n) => {
+  const d = n?.date || ''
+  const now = new Date()
+  const yd = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1)
+  const md = (dt) => String(dt.getMonth() + 1).padStart(2, '0') + '-' + String(dt.getDate()).padStart(2, '0')
+  if (d === md(now)) return '今天'
+  if (d === md(yd)) return '昨天'
+  return ''
+}
+// 头条日期「MM·DD」
+const leadMD = (n) => String(n?.date || '').replace('-', '·')
 // autoH 卡(高度自适应)下渐进披露让位:无标题速记正文直接全文,不 clamp 不截段
 const noClamp = computed(() => !!props.block?.autoH)
 const dispDate = (n) => (n.precision && n.precision !== 'day' ? '≈' : '') + fullDate(n.date)
@@ -29,11 +49,23 @@ function toggle(i) {
 </script>
 
 <template>
-  <div class="cband"><h3>成长速记</h3></div>
+  <div class="cband"><h3>成长速记</h3><div v-if="list.length" class="cbsub lead-n"><span>本月 <b>{{ monthCount }}</b> 条</span></div></div>
   <div class="cbody">
     <template v-if="list.length">
+      <div v-if="lead" class="lead">
+        <div class="lead-date">
+          <span class="ld-d">{{ leadMD(lead) }}</span><span v-if="relDay(lead)" class="ld-u">{{ relDay(lead) }}</span>
+          <span v-if="lead.time" class="ld-t">{{ lead.time }}</span>
+        </div>
+        <div v-if="(lead.tags || []).length" class="ev-chips lead-chips">
+          <span v-for="t in lead.tags" :key="t" class="chip">{{ t }}</span>
+        </div>
+        <div v-if="lead.title" class="lead-title">{{ zhPunct(lead.title) }}</div>
+        <div class="lead-body"><p v-for="(seg, j) in bodyParas(lead.text)" :key="j" v-html="bodyHtml(seg)"></p></div>
+        <div class="lead-hint">更早的记录在下方时间线</div>
+      </div>
       <div class="tl">
-        <div v-for="(n, i) in list" :key="i" class="tl-item">
+        <div v-for="(n, i) in rest" :key="i" class="tl-item">
           <span class="d dline">{{ dispLabel(n) }}</span>
           <div class="ev">
             <div v-if="n.title" class="ev-title" @click="toggle(i)">{{ zhPunct(n.title) }}</div>
@@ -57,8 +89,30 @@ function toggle(i) {
 </template>
 
 <style scoped>
+/* 卡头右侧计数(中改拍板:「本月 N 条」给积累感) */
+.cband { display: flex; align-items: baseline; }
+.cband .lead-n { margin: 0 34px 0 auto; font-size: 11.5px; color: var(--sub); }
+.cband .lead-n b { color: var(--ink-blue); font-weight: 600; }
+/* 头条签名件(中改拍板):大日期 27 Georgia 与月龄 hero 同族,实线分界 */
+.lead { padding-bottom: 12px; margin-bottom: 10px; border-bottom: 1px solid var(--line); }
+.lead-date { display: flex; align-items: baseline; gap: 8px; }
+.lead-date .ld-d { font-family: Georgia, "Times New Roman", serif; font-size: 27px;
+  font-weight: 700; line-height: 1; color: var(--ink-blue); letter-spacing: -.01em; }
+.lead-date .ld-u { font-size: 11.5px; color: var(--sub); }
+.lead-date .ld-t { margin-left: auto; font-size: 11.5px; color: var(--sub);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.lead-chips { margin: 4px 0 0; }
+.lead-title { font-size: 15px; font-weight: 700; line-height: 1.5; margin-top: 4px; }
+.lead-body { font-size: 14px; line-height: 1.6; margin-top: 3px; }
+.lead-body p { margin: 0 0 4px; }
+.lead-body p:last-child { margin-bottom: 0; }
+.lead-hint { font-size: 11.5px; color: var(--sub); margin-top: 6px; }
+.lead-hint::before { content: ''; display: inline-block; width: 18px; height: 1px;
+  background: var(--ink-blue); vertical-align: 4px; margin-right: 6px; }
+/* 日期=Georgia 衬线(2026-10-22 A1 拍板混合语法:时间轴节点日期走图纸衬线
+   数字语言,与前瞻卡月分组标题同族;多行日期列仍走 mono) */
 .tl-item .d.dline { display: block; margin-right: 0; margin-bottom: 1px;
-  font-size: 12.5px; }
+  font-size: 12.5px; font-family: Georgia, "Times New Roman", serif; }
 .ev { min-width: 0; }
 .ev-title { font-size: 14px; font-weight: 600; cursor: pointer; line-height: 1.5; }
 .ev-chips { margin: 1px 0 2px; }

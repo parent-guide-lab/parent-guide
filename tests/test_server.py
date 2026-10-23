@@ -77,6 +77,28 @@ class ServerTest(unittest.TestCase):
         finally:
             conn.close()
 
+    def test_03b_cache_control_no_store(self):
+        # 2026-10-23:全响应禁缓存(判例:用户本地看旧版多为缓存,曾误判为 bug)
+        conn = http.client.HTTPConnection(HOST, PORT, timeout=5)
+        try:
+            conn.request("GET", "/")
+            resp = conn.getresponse()
+            resp.read()
+            self.assertEqual(resp.getheader("Cache-Control"), "no-store")
+        finally:
+            conn.close()
+        st, _ = call("GET", "/api/page")
+        self.assertEqual(st, 200)
+        # API 侧同样带头(经 call 的原始连接验证)
+        conn = http.client.HTTPConnection(HOST, PORT, timeout=5)
+        try:
+            conn.request("GET", "/api/page")
+            resp = conn.getresponse()
+            resp.read()
+            self.assertEqual(resp.getheader("Cache-Control"), "no-store")
+        finally:
+            conn.close()
+
     def test_04_post_bad_json_rejected(self):
         conn = http.client.HTTPConnection(HOST, PORT, timeout=5)
         try:
@@ -129,6 +151,46 @@ class ServerTest(unittest.TestCase):
         page = {"version": 2, "blocks": [
             {"type": "profile", "x": 0, "y": 0, "w": 4, "h": 5}]}
         code, resp = call("POST", "/api/page", page)
+        self.assertEqual(code, 400)
+
+    # tracker 自定义卡 props 校验(2026-10-22 M1:验收集背书,docs/custom-card-acceptance-2026-10-22.md)
+    def _tracker(self, **over):
+        props = {"title": "绘本管理",
+                 "head": [{"count": "items", "label": "共"},
+                          {"count": "group", "eq": "读完", "label": "读完", "tone": "ok"}],
+                 "items": [{"text": "晚安,月亮", "group": "读完", "badge": "读完",
+                            "tone": "ok", "meta": "09-30"}]}
+        props.update(over)
+        return {"version": 2, "blocks": [
+            {"id": "b1", "type": "tracker", "x": 0, "y": 0, "w": 6, "h": 5, "props": props}]}
+
+    def test_15_post_valid_tracker_accepted(self):
+        code, _ = call("POST", "/api/page", self._tracker())
+        self.assertEqual(code, 200)
+
+    def test_16_post_tracker_missing_items_rejected(self):
+        code, resp = call("POST", "/api/page", self._tracker(items=None))
+        self.assertEqual(code, 400)
+        self.assertIn("items", resp["error"])
+
+    def test_17_post_tracker_item_without_text_rejected(self):
+        code, _ = call("POST", "/api/page",
+                       self._tracker(items=[{"text": "  "}, {"group": 3}]))
+        self.assertEqual(code, 400)
+
+    def test_18_post_tracker_bad_tone_rejected(self):
+        code, _ = call("POST", "/api/page",
+                       self._tracker(items=[{"text": "x", "tone": "blue"}]))
+        self.assertEqual(code, 400)
+
+    def test_19_post_tracker_head_group_without_eq_rejected(self):
+        code, _ = call("POST", "/api/page",
+                       self._tracker(head=[{"count": "group", "label": "在读"}]))
+        self.assertEqual(code, 400)
+
+    def test_20_post_tracker_head_bad_count_rejected(self):
+        code, _ = call("POST", "/api/page",
+                       self._tracker(head=[{"count": "sum", "label": "共"}]))
         self.assertEqual(code, 400)
 
     def test_11_site_knowledge_pages_served(self):

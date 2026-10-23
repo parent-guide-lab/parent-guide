@@ -51,6 +51,15 @@ const boardServerMode = computed(() => state.serverMode && !isNarrow.value)
 // 弹窗读取);结束回落,用户本地折叠状态不受影响。
 const captureExpand = ref(false)
 provide('captureExpand', captureExpand)
+// 打印对齐导出口径(2026-10-23 拍板「5 对齐」):折叠区打印时强制展开——
+// beforeprint 置位(事件返回后微任务先于打印渲染 flush,Vue 重渲染来得及),
+// afterprint 还原用户原状态;与导出长图共用同一 provide。
+let capPrev = false
+window.addEventListener('beforeprint', () => {
+  capPrev = captureExpand.value
+  captureExpand.value = true
+})
+window.addEventListener('afterprint', () => { captureExpand.value = capPrev })
 
 function toggleEdit() {
   if (!state.serverMode) {

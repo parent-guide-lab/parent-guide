@@ -26,7 +26,7 @@ const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0'
 
 // 合流条目:pending 提醒(留意)+未过节点(进行中/接下来),统一形状后
 // 按日期排序。无 due 的节点(如「该想想托班安排了」)排序时置顶。
-const merged = computed(() => {
+const mergedAll = computed(() => {
   const items = []
   for (const r of (props.kid?.reminders || [])
     .filter(r => (r?.status || 'pending') === 'pending')) {
@@ -42,6 +42,22 @@ const merged = computed(() => {
   }
   return items.sort((a, b) => a.due.localeCompare(b.due))
 })
+// 「下一站」签名件(中改拍板 2026-10-22,demo/ui-card-mid):第一个有 due 且
+// 未过的条目升为倒计时头条,并从时间线中移除(不重复);纯机械可算。
+// 已过期的(odue)不进头条——它是「过期」状态,时间线里红色日期已表达。
+const nextStop = computed(() =>
+  mergedAll.value.find(it => it.due && it.due >= today) || null)
+const merged = computed(() =>
+  nextStop.value ? mergedAll.value.filter(it => it !== nextStop.value) : mergedAll.value)
+// 窗口期计数(卡头副行):节点表中 status=active 的机械数量
+const activeCount = computed(() =>
+  anticipatoryNodes(props.kid).filter(r => r.status === 'active').length)
+const daysUntil = (due) => {
+  const d = new Date(due + 'T00:00:00')
+  const t = new Date(today + 'T00:00:00')
+  if (isNaN(d)) return null
+  return Math.max(0, Math.round((d - t) / 86400000))
+}
 
 // 机械预算:前 5 个月组(当月算第 1 个;demo 拍板形态),更多月份滚动可见
 const groups = computed(() => {
@@ -66,9 +82,18 @@ const pastText = computed(() => {
 </script>
 
 <template>
-  <div class="cband"><h3>前瞻</h3></div>
+  <div class="cband"><h3>前瞻</h3><div v-if="activeCount" class="cbsub"><span>在窗口期 {{ activeCount }} 项</span></div></div>
   <div class="cbody">
-    <template v-if="groups.length">
+    <template v-if="groups.length || nextStop">
+      <div v-if="nextStop" class="next-sign">
+        <div class="ns-label">下一站 · {{ nextStop.badge }}</div>
+        <div class="ns-big">
+          <span class="n">{{ daysUntil(nextStop.due) }}</span><span class="u">{{ daysUntil(nextStop.due) === 0 ? '今天到期' : '天后' }}</span>
+          <span class="due">{{ nextStop.due.slice(5) }}</span>
+        </div>
+        <div class="ns-what">{{ nextStop.name }}</div>
+        <div v-if="nextStop.note" class="ns-note">{{ cnpunct(nextStop.note) }}</div>
+      </div>
       <div class="tl">
         <div class="tl-now"><span class="nowline">今天 · {{ today }}</span></div>
         <div v-for="[ym, rs] in groups" :key="ym" class="tl-g">
@@ -92,6 +117,18 @@ const pastText = computed(() => {
 </template>
 
 <style scoped>
+/* 「下一站」倒计时签名件(中改拍板):27 Georgia 天数+截止日 mono,实线分界 */
+.next-sign { padding-bottom: 12px; margin-bottom: 10px; border-bottom: 1px solid var(--line); }
+.ns-label { font-size: 11.5px; color: var(--sub); letter-spacing: .08em; }
+.ns-big { display: flex; align-items: baseline; gap: 6px; margin-top: 4px; }
+.ns-big .n { font-family: Georgia, "Times New Roman", serif; font-size: 27px;
+  font-weight: 700; line-height: 1; color: var(--ink-blue); }
+.ns-big .u { font-size: 11.5px; color: var(--sub); }
+.ns-big .due { margin-left: auto; font-size: 11.5px; color: var(--sub);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums; }
+.ns-what { font-size: 14px; font-weight: 600; line-height: 1.5; margin-top: 4px; }
+.ns-note { font-size: 12.5px; color: var(--sub); line-height: 1.55; margin-top: 2px; }
 .tl { position: relative; padding-left: 14px; }
 .tl::before { content: ""; position: absolute; left: 3.5px; top: 6px; bottom: 6px;
   width: 1px; background: var(--grid-line); }

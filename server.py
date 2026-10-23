@@ -121,6 +121,12 @@ def make_server(port, data_dir, web_dir):
         # SimpleHTTPRequestHandler(directory=...) confines static serving to
         # web_dir and normalizes away any ../ traversal internally.
 
+        def end_headers(self):
+            # 本地服务同样禁缓存:改版后用户刷新看到的一定是新版
+            # (判例:用户本地看旧版多为缓存,曾误判为 bug)
+            self.send_header("Cache-Control", "no-store")
+            super().end_headers()
+
         def __init__(self, *args, **kwargs):
             super().__init__(*args, directory=str(web_dir), **kwargs)
 
@@ -221,6 +227,39 @@ def make_server(port, data_dir, web_dir):
                             raise ValueError(f"block {b['id']}: autoH 必须是布尔值")
                         if "minH" in b and (not isinstance(b["minH"], int) or not 1 <= b["minH"] <= 20):
                             raise ValueError(f"block {b['id']}: minH 必须是 1..20 的整数")
+                    # tracker 自定义卡 props 白名单(2026-10-22 M1,验收集背书):
+                    # 计数口径是机械的(head 只声明 count,渲染器从 items 现算),结构坏=拒写
+                    TONES = {"ok", "watch", "todo", "sub"}
+                    for b in payload["blocks"]:
+                        if b.get("type") != "tracker":
+                            continue
+                        bid, p = b.get("id"), b.get("props") or {}
+                        if not str(p.get("title") or "").strip():
+                            raise ValueError(f"block {bid}: tracker 缺 title")
+                        items = p.get("items")
+                        if not isinstance(items, list) or not 1 <= len(items) <= 100:
+                            raise ValueError(f"block {bid}: tracker items 必须是 1..100 条的数组")
+                        for i, it in enumerate(items):
+                            if not isinstance(it, dict) or not str(it.get("text") or "").strip():
+                                raise ValueError(f"block {bid}: tracker items[{i}] 缺 text")
+                            for k in ("group", "badge", "meta"):
+                                if k in it and not isinstance(it[k], str):
+                                    raise ValueError(f"block {bid}: tracker items[{i}].{k} 必须是字符串")
+                            if "tone" in it and it["tone"] not in TONES:
+                                raise ValueError(f"block {bid}: tracker items[{i}].tone 必须是 ok/watch/todo/sub")
+                        head = p.get("head", [])
+                        if not isinstance(head, list) or len(head) > 4:
+                            raise ValueError(f"block {bid}: tracker head 必须是 ≤4 项的数组")
+                        for h in head:
+                            if not isinstance(h, dict) or not str(h.get("label") or "").strip():
+                                raise ValueError(f"block {bid}: tracker head 项缺 label")
+                            if h.get("count") == "group":
+                                if not str(h.get("eq") or "").strip():
+                                    raise ValueError(f"block {bid}: tracker head count=group 必须带 eq")
+                            elif h.get("count") != "items":
+                                raise ValueError(f"block {bid}: tracker head.count 必须是 items 或 group")
+                            if "tone" in h and h["tone"] not in TONES:
+                                raise ValueError(f"block {bid}: tracker head.tone 必须是 ok/watch/todo/sub")
                 if kind == "data" and not [k for k in payload if not k.startswith("_")]:
                     raise ValueError("child.json 必须包含至少一个孩子数据键")
                 payload.pop("bootstrapped", None)  # internal flag never persists

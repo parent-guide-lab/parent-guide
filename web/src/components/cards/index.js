@@ -11,8 +11,10 @@ import NotesCard from './NotesCard.vue'
 import FocusCard from './FocusCard.vue'
 import IssueCard from './IssueCard.vue'
 import AnticipatoryCard from './AnticipatoryCard.vue'
+import StrategyCard from './StrategyCard.vue'
 import TextCard from './TextCard.vue'
 import ListCard from './ListCard.vue'
+import TrackerCard from './TrackerCard.vue'
 import ErrorCard from '../ErrorCard.vue'
 
 export const REGISTRY = {
@@ -23,8 +25,10 @@ export const REGISTRY = {
   'focus': FocusCard,
   'issue': IssueCard,
   'anticipatory': AnticipatoryCard,
+  'strategy': StrategyCard,
   'text': TextCard,
   'list': ListCard,
+  'tracker': TrackerCard,
 }
 
 // Single source of truth for the add-panel, spec docs and validation.
@@ -41,9 +45,11 @@ export const CARD_META = {
   'milestone':      { group: 'builtin', name: '里程碑',     desc: '发育盘点结果(按月龄档)', w: 6, h: 6 },
   'growth':         { group: 'builtin', name: '生长曲线',   desc: '身高体重记录对照参考区间', w: 6, h: 6 },
   'anticipatory':   { group: 'builtin', name: '前瞻',       desc: '记下的提醒+疫苗/体检/筛查/入园月龄时间线', w: 6, h: 5 },
+  'strategy':       { group: 'builtin', name: '在跑计划',   desc: '习惯养成/启蒙路线状态追踪(试行中/已成日常/效果不佳)', w: 6, h: 6 },
   'note':           { group: 'builtin', name: '成长速记',   desc: '最近的事件笔记', w: 6, h: 5 },
   'text':           { group: 'custom', name: '文本卡',     desc: '标题+自由文本(奶奶须知/黑名单)', w: 4, h: 4 },
   'list':           { group: 'custom', name: '清单卡',     desc: '可勾选清单(出门清单/待办)', w: 4, h: 5 },
+  'tracker':        { group: 'custom', name: '记录卡',     desc: '分组台账:状态+计数(绘本管理/用药记录/奖励表)', w: 6, h: 5 },
 }
 
 export function cardFor(type) {

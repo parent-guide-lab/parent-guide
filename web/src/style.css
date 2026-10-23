@@ -227,7 +227,7 @@ body.editing .cband h3 { padding-right: 96px; }   /* 编辑态卡头右让位给
 
 body.report .toolbar { display: none; }   /* 单文件报告=纯视图,无编辑工具 */
 @media print {
-  .toolbar, .menu-mask, .manage-panel, .share-fab { display: none; }
+  .toolbar, .menu-mask, .manage-panel, .share-fab, .tgl, .ev-toggle { display: none; }
   body { background: #fff; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }  /* 坐标纸底色照打 */
   .grid-stack-item, .card { break-inside: avoid; }

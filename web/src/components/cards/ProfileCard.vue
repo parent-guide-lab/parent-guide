@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { monthsAge, fullDate } from '../../lib/util.js'
 const props = defineProps({ block: Object, kid: Object })
 const emit = defineEmits(['open-issue'])
@@ -79,8 +79,17 @@ const staleHint = computed(() => {
   return `${staleFields.value.map(s => s.label).join('/')}超 ${worst} 个月未核对`
 })
 
-// 画像变迁(2026-10-14):set-profile 改值自动留档 profileHistory,最新在上
+// 画像变迁(2026-10-14):set-profile 改值自动留档 profileHistory,最新在上。
+// 默认只展最近 3 条(B2 拍板 2026-10-22:历史累积会压过画像正文);页级长图
+// 生成期间强制全展开(capExpand,与里程碑/问题卡同口径,折叠区必须全包含)
+const capExpand = inject('captureExpand', { value: false })
+const capForce = computed(() => !!capExpand.value)
+const HIST_SHOW = 3
 const hist = computed(() => (props.kid?.profileHistory || []).slice().reverse())
+const histOpen = ref(false)
+const histShown = computed(() =>
+  (capForce.value || histOpen.value) ? hist.value : hist.value.slice(0, HIST_SHOW))
+const histMore = computed(() => hist.value.length - HIST_SHOW)
 </script>
 
 <template>
@@ -113,9 +122,9 @@ const hist = computed(() => (props.kid?.profileHistory || []).slice().reverse())
       <div v-if="temperament" class="kv"><b>气质</b><span>{{ temperament }}</span></div>
       <div v-if="language" class="kv"><b>语言</b><span>{{ language }}</span></div>
       <div v-if="hasPref" class="kv"><b>偏好</b><span>
-        <span v-if="comfort" class="chip">🧸 {{ comfort }}</span>
-        <span v-if="activities" class="chip">🏃 {{ activities }}</span>
-        <span v-if="books" class="chip">📖 {{ books }}</span>
+        <span v-if="comfort" class="ptag"><i>安抚物</i>{{ comfort }}</span>
+        <span v-if="activities" class="ptag"><i>活动</i>{{ activities }}</span>
+        <span v-if="books" class="ptag"><i>绘本</i>{{ books }}</span>
       </span></div>
       <div v-if="allergies" class="kv"><b>过敏</b><span>{{ allergies }}</span></div>
       <div v-if="healthNotes" class="kv"><b>健康</b><span>{{ healthNotes }}</span></div>
@@ -124,10 +133,14 @@ const hist = computed(() => (props.kid?.profileHistory || []).slice().reverse())
 
     <div v-if="hist.length" class="psec">
       <div class="plabel">画像变迁</div>
-      <div v-for="(h, i) in hist" :key="i" class="phist">
+      <div v-for="(h, i) in histShown" :key="i" class="phist">
         <div class="phd">{{ h.date }} · {{ FIELD_LABELS[h.field] || h.field }}</div>
         <div class="pvals"><span class="pv old">{{ h.from || '(未填)' }}</span><span class="parr">→</span><span class="pv">{{ h.to }}</span></div>
       </div>
+      <button v-if="histMore > 0 && !histOpen && !capForce" class="tgl"
+              @click="histOpen = true">更多 {{ histMore }} 条 ▸</button>
+      <button v-else-if="histMore > 0 && histOpen && !capForce" class="tgl"
+              @click="histOpen = false">收起 ▴</button>
     </div>
 
     <div v-if="!hasPref && !temperament && !language && !allergies" class="src">
@@ -158,6 +171,7 @@ const hist = computed(() => (props.kid?.profileHistory || []).slice().reverse())
 .phist { padding: 6px 0; border-bottom: 1px dashed var(--grid-line); }
 .phist:last-child { border-bottom: none; }
 .phd { font-size: 11.5px; color: var(--sub); margin-bottom: 3px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-variant-numeric: tabular-nums; }
 .pvals { display: flex; gap: 6px; align-items: flex-start; font-size: 12.5px;
   line-height: 1.5; }
@@ -169,6 +183,15 @@ const hist = computed(() => (props.kid?.profileHistory || []).slice().reverse())
 .chip.lnk:hover { background: var(--accent-soft); }
 .chip .p { font-size: 10.5px; font-weight: 700; margin-left: 4px;
   font-family: Georgia, serif; }
+/* 偏好前缀 tag(2026-10-22 B1 拍板:emoji 与图纸语言冲突,换灰色小前缀) */
+.ptag { display: inline-block; border: 1px solid var(--grid-line); border-radius: 6px;
+  padding: 1px 8px; font-size: 11.5px; margin: 2px 4px 2px 0;
+  background: rgba(255,255,255,.75); }
+.ptag i { font-style: normal; color: var(--sub); margin-right: 4px; }
+/* 画像变迁展开/收起(.tgl=导出期全局隐藏类,见 style.css body.capturing) */
+.tgl { border: 0; background: none; color: var(--ink-blue); font-size: 12.5px;
+  cursor: pointer; padding: 4px 0 0; display: block; font: inherit; }
+.tgl:hover { text-decoration: underline; }
 .kv { display: flex; gap: 10px; font-size: 12.5px; padding: 6px 0;
   border-bottom: 1px dashed var(--grid-line); align-items: baseline; }
 .kv:last-child { border-bottom: none; }

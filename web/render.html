@@ -18,7 +18,25 @@
     { "id": "anticipatory", "type": "anticipatory", "x": 6, "y": 8, "w": 6, "h": 5 },
     { "id": "notes", "type": "note", "x": 0, "y": 19, "w": 12, "h": 4, "props": { "limit": 5 } },
     { "id": "b1", "type": "text", "x": 6, "y": 13, "w": 6, "h": 4, "autoH": true, "minH": 3,
-      "props": { "title": "奶奶须知", "text": "吃饭时不看动画片,全家口径一致\n想吃自己吃,弄脏没关系,不追喂\n睡前 30 分钟无屏幕,改讲两本绘本\n白天小睡最晚到 15:30,再晚影响夜觉\n哭闹时先陪深呼吸,平静了再讲道理\n零食只在上午 10 点和下午 3 点两次\n夸就夸具体行为:「你自己穿上鞋了」\n周末午睡照常,不因为外出取消\n新食物上桌先摆一小份,不吃不劝" } }
+      "props": { "title": "奶奶须知", "text": "吃饭时不看动画片,全家口径一致\n想吃自己吃,弄脏没关系,不追喂\n睡前 30 分钟无屏幕,改讲两本绘本\n白天小睡最晚到 15:30,再晚影响夜觉\n哭闹时先陪深呼吸,平静了再讲道理\n零食只在上午 10 点和下午 3 点两次\n夸就夸具体行为:「你自己穿上鞋了」\n周末午睡照常,不因为外出取消\n新食物上桌先摆一小份,不吃不劝" } },
+    { "id": "b2", "type": "tracker", "x": 0, "y": 24, "w": 12, "h": 6, "autoH": true, "minH": 4,
+      "props": { "title": "绘本管理",
+        "head": [ { "count": "items", "label": "共" },
+                  { "count": "group", "eq": "在读", "label": "在读", "tone": "watch" },
+                  { "count": "group", "eq": "读完", "label": "读完", "tone": "ok" } ],
+        "items": [
+          { "text": "波西和皮普:圣诞老人", "group": "在读", "badge": "在读", "tone": "watch", "meta": "10-12 起" },
+          { "text": "大卫,不可以", "group": "在读", "badge": "在读", "tone": "watch", "meta": "10-18 起" },
+          { "text": "小金鱼逃走了", "group": "在读", "badge": "在读", "tone": "watch", "meta": "每天点名要看" },
+          { "text": "月亮的味道", "group": "想读", "badge": "想读", "tone": "sub", "meta": "图书馆有" },
+          { "text": "晚安,月亮", "group": "读完", "badge": "读完", "tone": "ok", "meta": "喜欢重读" },
+          { "text": "猜猜我有多爱你", "group": "读完", "badge": "读完", "tone": "ok", "meta": "09-30" },
+          { "text": "好饿的毛毛虫", "group": "读完", "badge": "读完", "tone": "ok", "meta": "09-21" },
+          { "text": "蹦!", "group": "读完", "badge": "读完", "tone": "ok", "meta": "会跟着蹦" },
+          { "text": "抱抱", "group": "读完", "badge": "读完", "tone": "ok", "meta": "09-05" },
+          { "text": "棕色的熊,你在看什么", "group": "读完", "badge": "读完", "tone": "ok", "meta": "认识动物了" }
+        ] } },
+    { "id": "b3", "type": "strategy", "x": 0, "y": 31, "w": 12, "h": 6, "autoH": true, "minH": 4 }
   ]
 }
 </script>
@@ -28,6 +46,21 @@
   "demo-child": {
     "name": "桃子(示例)", "birthdate": "2024-04-10",
     "currentFocus": ["自主进食", "如厕训练", "夜醒回落"],
+    "profile": {
+      "temperament": "慢热,先观察后加入", "language": "会说约 50 个词,「不要」很溜",
+      "comfortObject": "小兔子手帕", "allergies": "无", "healthNotes": "湿疹体质,洗澡后必涂保湿",
+      "preferences": { "books": "波西和皮普", "activities": "滑梯、捡石头" },
+      "_asOf": { "temperament": "2026-10-12", "language": "2026-10-12", "comfortObject": "2026-08-14",
+        "allergies": "2026-09-30", "healthNotes": "2026-07-20",
+        "preferences.books": "2026-09-01", "preferences.activities": "2026-09-01" }
+    },
+    "profileHistory": [
+      { "date": "2026-07-20", "field": "healthNotes", "from": "反复挠脖颈", "to": "湿疹体质,洗澡后必涂保湿" },
+      { "date": "2026-08-14", "field": "comfortObject", "from": "", "to": "小兔子手帕" },
+      { "date": "2026-09-02", "field": "temperament", "from": "怕滑梯", "to": "慢热,先观察后加入" },
+      { "date": "2026-09-30", "field": "allergies", "from": "待观察", "to": "无" },
+      { "date": "2026-10-12", "field": "language", "from": "会说约 30 个词", "to": "会说约 50 个词,「不要」很溜" }
+    ],
     "issues": [
       { "id": "P1", "name": "就餐看动画", "status": "active", "opened": "09-05",
         "summary": "要动画片不给则哭闹;预告+替代选择执行中,第三次回访在 10-03",
@@ -60,8 +93,10 @@
       { "date": "09-28", "bedtime": "21:15", "wakings": 1, "totalHours": 10.7 }
     ], "note": "入睡时间目标 21:30 前;夜醒回落中(上周均 2.4 次 → 本周均 1.1 次)" },
     "strategies": [
+      { "id": "S20", "name": "作息渐进前移(目标 21:00 前入睡)", "applied": "入睡时刻每 2-3 天提前 15 分钟,起床同步前移;午睡上限压到 2 小时", "started": "10-16", "followup": "", "evidence": "回访 ×1", "status": "active" },
       { "id": "M1", "name": "正面强化", "applied": "如厕:每次成功坐盆后立即具体表扬(「你自己走到小马桶,真厉害」),不物质奖励", "started": "09-08", "followup": "09-22 回访:白天尿裤从 4 次/天降到 1 次/天,午睡起床会主动说「要小便」", "evidence": "回访 ×2,持续有效", "status": "effective" },
-      { "id": "S12", "name": "注意力转移", "applied": "就餐看动画片哭闹:预告+替代选择(「吃饭时不看动画片,你可以选用蓝色碗还是黄色碗」)", "started": "09-12", "followup": "09-19 回访:哭闹时长从 8 分钟缩短到 2 分钟内,但取消预告时仍反弹", "evidence": "回访 ×1,部分有效", "status": "partial", "issues": ["P1"] }
+      { "id": "S12", "name": "注意力转移", "applied": "就餐看动画片哭闹:预告+替代选择(「吃饭时不看动画片,你可以选用蓝色碗还是黄色碗」)", "started": "09-12", "followup": "09-19 回访:哭闹时长从 8 分钟缩短到 2 分钟内,但取消预告时仍反弹", "evidence": "回访 ×1,部分有效", "status": "partial", "issues": ["P1"] },
+      { "id": "S21", "name": "奖励贴纸表(试行)", "applied": "好好吃饭贴一颗,5 颗换去公园一次", "started": "09-02", "followup": "", "evidence": "回访 ×2,孩子只为贴纸讨价,停用观察", "status": "suspended" }
     ],
     "followups": [
       { "due": "10-03", "topic": "S12 注意力转移:预告撤除后是否稳定(第三次回访)", "status": "pending", "issues": ["P1"] },
@@ -78,7 +113,9 @@
     "notes": [
       { "date": "09-20", "tags": ["里程碑", "精细动作"], "text": "第一次完全自己穿上鞋子(左右还经常反)" },
       { "date": "09-24", "tags": ["社交", "可爱瞬间"], "text": "在游乐场主动把秋千让给排队的小妹妹" },
-      { "date": "09-27", "tags": ["睡眠"], "text": "夜里 23:40 哭醒一次,喝水后 5 分钟内自己睡着(以前要抱睡 20 分钟)" }
+      { "date": "09-27", "tags": ["睡眠"], "text": "夜里 23:40 哭醒一次,喝水后 5 分钟内自己睡着(以前要抱睡 20 分钟)" },
+      { "date": "10-21", "tags": ["语言"], "text": "新词「拿拿」会主动用了;把「鞋鞋」说成「碟碟」" },
+      { "date": "10-22", "time": "07:35", "tags": ["睡眠"], "text": "昨夜一觉到天亮,6:50 自己醒的(干预后第 3 周);早上情绪很好" }
     ]
   }
 }

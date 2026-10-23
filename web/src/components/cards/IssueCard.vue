@@ -104,9 +104,14 @@ function nextOf(i) {
 .irow:last-child { border-bottom: none; }
 .irow.wrap { flex-wrap: wrap; }
 .irow .nm { font-weight: 600; }
-.irow .dy { color: var(--sub); font-size: 12.5px; font-family: Georgia, serif; }
-.irow .nx { color: var(--sub); font-size: 12.5px; margin-left: auto; text-align: right;
-  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 45%; }
+/* 行右日期/摘要列=11.5 mono(2026-10-22 A1/B3 拍板:Georgia 无 tnum 是无效
+   组合,同行双字体收口;与 FocusCard .dorig 同族,列对齐优先) */
+.irow .dy { color: var(--sub); font-size: 11.5px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums; }
+.irow .nx { color: var(--sub); font-size: 11.5px; margin-left: auto; text-align: right;
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 45%;
+  font-variant-numeric: tabular-nums; }
 .irow .nx.full { flex-basis: 100%; max-width: none; white-space: normal;
   text-align: left; overflow: visible; margin-left: 0; }
 .irow.done { opacity: .82; }   /* 历史分组:弱一档,与在管行区分 */

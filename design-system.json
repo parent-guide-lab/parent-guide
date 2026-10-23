@@ -103,9 +103,9 @@
     ],
     "weight": "400/500/600/700;600 仅 Mac 真半粗,跨端产物(单文件报告在 Windows/安卓打开)注意漂移(拍板 4b 保留)",
     "lineHeight": "标题 1.3 / 紧凑行 1.5 / 正文 1.6;hero 数字 1",
-    "letterSpacing": "标题 .06em / eyebrow 标签 .2em",
-    "colorPairing": "title→ink-blue;body→ink;sub/cap→sub;muted 对比 4.90:1(AA,拍板 6c);徽章→状态色描边",
-    "digits": "中文 sans + 数字 Georgia 双轨;列对齐场景(时间轴日期/due 徽章)用 num-mono 等宽(拍板 7b);Georgia 无 tnum 特性,tabular-nums 对其无效",
+    "letterSpacing": "已 token 化+门禁白名单(2026-10-23,A3 收口):徽章 .04em(st/alab/care-n)/卡头标题 .06em/卡内 eyebrow 小节标签 .08em(plabel)/详情与分享层小节标题 .2em(IssueDetail/ShareModal,.22/.15 已归档)/serif 数字补偿 -.01~-0.02em/0=显式重置;Georgia 小号(≤12.5px)不加字距(与前瞻卡月分组一致);check-card-style.sh 规则 7 越档即红",
+    "colorPairing": "title→ink-blue;body→ink;sub/cap→sub;muted(=--sub,#5f7386)对比 4.90:1(AA,拍板 6c);--watch=#96630f 双场景 AA(白底/浅底 ≥4.5,7353f81;2026-10-21 拍板稿 a06a15 仅白底达标已作废,10-23 审核 tokens 门禁拦获);徽章→状态色描边",
+    "digits": "中文 sans + 数字 Georgia 双轨;多行日期列/ due 徽章等列对齐场景用 num-mono 等宽(拍板 7b);时间轴节点日期/单点日期=Georgia 衬线(2026-10-22 混合语法拍板:列 mono 对齐优先、轴点 Georgia 图纸感优先,NotesCard .d.dline 已按此实现;Georgia 无 tnum 特性,tabular-nums 对其无效)",
     "punctuation": "源文件半角体系不变;显示层把 CJK 邻接半角标点转全角(渲染层转换,拍板 8b;knowledge_render.cnpunct 覆盖 app 面板+site,web 侧 util.cnpunct 覆盖轮播条;「」保留)",
     "base": "body 不显式声明基准(拍板 5a);未设号元素=16px 预留(工具栏品牌名),新代码不得依赖",
     "note": "数字是本产品的第一语言,serif 数字=填表笔迹感;卡头=小字距 eyebrow,无 emoji;规范全文 docs/typography-spec-2026-10-21.md"
@@ -121,11 +121,11 @@
   },
   "signature": {
     "description": "儿保手册生长曲线页的坐标纸:每张卡是一页填好的图表,数字像钢笔填进表格,状态是描边小章",
-    "implementation": "卡片 CSS 网格背景;ProfileCard eyebrow+大 serif 月龄+名字章框;里程碑三色大计数;due serif 徽章"
+    "implementation": "卡片 CSS 网格背景;ProfileCard 名字章框(.seal)+大 serif 月龄(2026-10-10 E 案卡头后 eyebrow 字距标题已退役);里程碑/问题三色大计数;速记头条与前瞻下一站签名件(2026-10-22 中改);due 等宽徽章(原 serif 已按 7b 改 mono)"
   },
   "history": {
     "2026-10-06-rejected": "growth-journal(手账贴纸风:深色主卡+彩色tile+纸纹+大emoji)被用户否「更丑了」——装饰过度;教训:单调的解法是数字排版不是加色",
-    "2026-10-21": "排版规范落地:22 种散字号归 9 档;--sub 7d92a3→5f7386(AA);--watch c98a2d→a06a15;--hint 新增;due 徽章 serif→等宽(7b);标点渲染层转全角(8b);门禁加字号/字重白名单。依据 demo 对比 AEH + typography-spec-demo 八分歧拍板(1b 2a 3b 4b 5a 6c 7b 8b)",
+    "2026-10-21": "排版规范落地:22 种散字号归 9 档;--sub 7d92a3→5f7386(AA);--watch c98a2d→a06a15;--hint 新增;due 徽章 serif→等宽(7b);标点渲染层转全角(8b);门禁加字号/字重白名单。依据 demo 对比 AEH + typography-spec-demo 八分歧拍板(1b 2a 3b 4b 5a 6c 7b 8b);更正(2026-10-23):本条「--watch→a06a15」系拍板稿仅按白底测算(4.60),后被 7353f81 双场景 AA 修复取代为 #96630f(白底/浅底全 ≥4.5)——10-23 审核误信拍板记录回改 a06a15,被 tokens 门禁拦截(浅底 4.16<4.5),改判:#96630f 为权威,拍板记录已同步更正",
     "2026-10-21-b": "状态色双场景 AA 达标(ok/watch/todo 白底与浅底均 ≥4.5);build-site.py 改读 design-system.json 生成 site 色板+正文字体(单一来源,app/site 不再分叉);tests/check-tokens.sh=色板同步+对比度机械门禁,挂入 publish 链"
   }
 }

@@ -209,7 +209,7 @@ const briefSections = computed(() => {
   color: #fff; border-radius: 8px; padding: 5px 14px; font-size: 12.5px; cursor: pointer; }
 .is-head .x { flex: none; border: 0; background: none; color: var(--sub); font-size: 16px;
   cursor: pointer; padding: 2px 4px; }
-h3 { font-size: 12.5px; color: var(--sub); font-weight: 600; letter-spacing: .22em; margin: 16px 0 10px; }
+h3 { font-size: 12.5px; color: var(--sub); font-weight: 600; letter-spacing: .2em; margin: 16px 0 10px; }
 h3 .tag { font-size: 11.5px; font-weight: 400; letter-spacing: 0;
   border: 1px solid var(--line); border-radius: 5px; padding: 1px 8px; }
 .now-card { border: 1.5px solid var(--ink-blue); border-radius: 10px;
@@ -239,7 +239,7 @@ h3 .tag { font-size: 11.5px; font-weight: 400; letter-spacing: 0;
 .redline p { font-size: 14px; }
 .srcbox { border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 8px; }
 .srcbox h4 { font-size: 11.5px; color: var(--sub); font-weight: 600;
-  letter-spacing: .15em; margin-bottom: 3px; }
+  letter-spacing: .2em; margin-bottom: 3px; }
 .srcbox ul { padding-left: 16px; margin: 0; }
 .srcbox li { font-size: 12.5px; color: var(--sub); line-height: 1.55; }
 .tl-panel { border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px 14px;

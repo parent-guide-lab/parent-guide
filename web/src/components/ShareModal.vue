@@ -89,7 +89,8 @@ const age = computed(() => {
 })
 const dispName = computed(() => anonymized.value ? '宝宝' : (props.kid?.name || '宝宝'))
 const headTitle = computed(() => {
-  if (props.level === 'issue') return `${dispName.value}的${issuePack.value?.name || ''}:全家这样做`
+  // 标题冒号直接写全角(cnpunct 规则同款:CJK 邻接半角转全角;8b)
+  if (props.level === 'issue') return `${dispName.value}的${issuePack.value?.name || ''}：全家这样做`
   return titleFor(props.block) || '成长卡片'
 })
 const headSub = computed(() => {
