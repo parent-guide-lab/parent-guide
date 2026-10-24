@@ -97,7 +97,7 @@ const histMore = computed(() => hist.value.length - HIST_SHOW)
   <div class="cbody pf-body">
     <div class="phead">
       <div>
-        <div class="pname">{{ kid.name || '未填写' }}</div>
+        <div class="pname">{{ cnpunct(kid.name) || '未填写' }}</div>
         <div class="big"><span class="num-serif num-hero" v-if="age !== null">{{ age }}</span><span v-if="age !== null" class="num-unit">个月</span></div>
         <div v-if="nextStep" class="nextstep">下一档 <b>{{ nextStep.months }} 月</b> · {{ nextStep.ym }} 前后做发育盘点对照</div>
         <div class="meta">

@@ -3,7 +3,7 @@
 // 最新在最上;窄屏折叠单列)。大节点只认机械事件(opened/judged/strategy.started)
 // ——语义归一留读侧(spec issue-tracking-v1 §6.3)。只读:内容变更一律回对话。
 import { computed, ref } from 'vue'
-import { dueKey, dueLabel, zhPunct, bodyParas, segLabel, fullDate, issueDayNo, linkKnowledge, escHtml } from '../lib/util.js'
+import { dueKey, dueLabel, cnpunct, bodyParas, segLabel, fullDate, issueDayNo, linkKnowledge, escHtml } from '../lib/util.js'
 
 const props = defineProps({
   open: Boolean,
@@ -96,7 +96,7 @@ const briefSections = computed(() => {
     <div v-if="open && issue" class="issue-mask" @click.self="emit('close')">
       <div class="issue-sheet">
         <div class="is-head">
-          <span class="t">{{ issue.name }}</span>
+          <span class="t">{{ cnpunct(issue.name) }}</span>
           <span class="st" :class="ST_CLASS[issue.status]">{{ ST_LABEL[issue.status] }}</span>
           <span class="meta">{{ dayNo }} · 立案 {{ issue.opened }}<template
               v-if="issue.status === 'resolved' && issue.closed"> · 结案 {{ issue.closed }}</template>
@@ -111,32 +111,32 @@ const briefSections = computed(() => {
               <div class="nc-tag">当前状态</div>
               <div v-if="issue.pendingCare" class="act care">
                 <span class="alab">就医待办</span>
-                <span class="atxt">{{ zhPunct(issue.pendingCare) }}</span>
+                <span class="atxt">{{ cnpunct(issue.pendingCare) }}</span>
               </div>
               <div v-if="next" class="act next">
                 <span class="alab">下一步</span>
                 <span class="atxt">
                   <span class="due-b" :class="dueLabel(next.due).urgency || 'later'">
                     {{ fullDate(next.due) }} · {{ dueLabel(next.due).label }}</span>
-                  <span class="ntopic">{{ next.topic }}</span>
+                  <span class="ntopic">{{ cnpunct(next.topic) }}</span>
                 </span>
               </div>
-              <div class="nc-main">{{ zhPunct(issue.summary) }}</div>
+              <div class="nc-main">{{ cnpunct(issue.summary) }}</div>
             </div>
 
             <div v-for="sec in briefSections" :key="sec.key" class="brief">
               <h4>{{ sec.title }}</h4>
-              <ul><li v-for="(b, i) in sec.body" :key="i">{{ zhPunct(b) }}</li></ul>
+              <ul><li v-for="(b, i) in sec.body" :key="i">{{ cnpunct(b) }}</li></ul>
             </div>
 
             <div v-if="issue.brief?.redline" class="redline">
               <h4>出现这些直接就医，不等观察</h4>
-              <p>{{ zhPunct(issue.brief.redline) }}</p>
+              <p>{{ cnpunct(issue.brief.redline) }}</p>
             </div>
 
             <div v-if="issue.brief?.sources?.length" class="srcbox">
               <h4>依据</h4>
-              <ul><li v-for="(src, i) in issue.brief.sources" :key="i">{{ zhPunct(src) }}</li></ul>
+              <ul><li v-for="(src, i) in issue.brief.sources" :key="i">{{ cnpunct(src) }}</li></ul>
             </div>
           </div>
 
@@ -150,19 +150,19 @@ const briefSections = computed(() => {
                   <template v-if="e.big">
                     <span class="tt">
                       <span class="node-b" :class="{ ok: e.closed }">{{ e.big }}</span>
-                      <span class="b">{{ zhPunct(e.text) }}</span>
+                      <span class="b">{{ cnpunct(e.text) }}</span>
                     </span>
                   </template>
                   <template v-else-if="e.fu">
                     <span class="tt">
-                      <span>{{ zhPunct(e.text) }}</span>
+                      <span>{{ cnpunct(e.text) }}</span>
                       <span v-if="e.status === 'pending'" class="due-b"
                             :class="dueLabel(e.date).urgency || 'later'">{{ dueLabel(e.date).label }}</span>
                       <span v-else class="fu-done">{{ e.status === 'done' ? '已回访' : '已跳过' }}</span>
                     </span>
                   </template>
                   <div v-else class="ev">
-                    <div v-if="e.title" class="ev-title" @click="toggle(i)">{{ zhPunct(e.title) }}</div>
+                    <div v-if="e.title" class="ev-title" @click="toggle(i)">{{ cnpunct(e.title) }}</div>
                     <div v-if="e.tags.length" class="ev-chips">
                       <span v-for="t in e.tags" :key="t" class="chip">{{ t }}</span>
                     </div>

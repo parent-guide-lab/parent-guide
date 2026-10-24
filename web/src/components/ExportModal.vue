@@ -6,7 +6,7 @@
 // PDF/单文件网页入口同弹窗,交回 App 执行。
 import { ref, computed, watch, inject, nextTick } from 'vue'
 import GridBoard from './GridBoard.vue'
-import { exportPng, stampEl } from '../lib/util.js'
+import { exportPng, stampEl, cnpunct } from '../lib/util.js'
 
 const props = defineProps({
   open: Boolean,
@@ -30,7 +30,7 @@ const today = (() => {
   const d = new Date()
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 })()
-const dispName = computed(() => props.kid?.name || '页面')
+const dispName = computed(() => cnpunct(props.kid?.name) || '页面')
 
 function stripControls(root) {
   root.querySelectorAll('.share-fab, .hmode-fab, .tgl').forEach(el => el.remove())

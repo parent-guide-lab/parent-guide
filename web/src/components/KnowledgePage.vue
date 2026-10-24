@@ -3,7 +3,7 @@
 // 官方文档由 server 渲染(knowledge/ 闭集+site-src 速查),自建来自 knowledge/user/
 // (仅本机,永不发布);两区正文同走 .kb-doc 全局样式,引用经 linkifyHtml 转链。
 import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { linkifyHtml } from '../lib/util.js'
+import { linkifyHtml, cnpunct } from '../lib/util.js'
 
 const emit = defineEmits(['close'])
 
@@ -114,19 +114,19 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
           <div v-else-if="listError" class="kbp-hint err">{{ listError }}</div>
           <template v-else-if="tab === 'official'">
             <button v-for="t in sidebar.pinned" :key="t.slug" class="kbp-item pin"
-                    :class="{ on: sel.official === t.file }" @click="pick(t.file)">{{ t.title }}</button>
+                    :class="{ on: sel.official === t.file }" @click="pick(t.file)">{{ cnpunct(t.title) }}</button>
             <template v-for="g in sidebar.groups" :key="g.name">
-              <div class="kbp-group">{{ g.name }}</div>
+              <div class="kbp-group">{{ cnpunct(g.name) }}</div>
               <button v-for="t in g.items" :key="t.slug" class="kbp-item ind"
-                      :class="{ on: sel.official === t.file }" @click="pick(t.file)">{{ t.title }}</button>
+                      :class="{ on: sel.official === t.file }" @click="pick(t.file)">{{ cnpunct(t.title) }}</button>
             </template>
           </template>
           <template v-else>
             <div v-if="!user.length" class="kbp-hint">还没有自建文件</div>
             <button v-for="u in user" :key="u.file" class="kbp-item"
                     :class="{ on: sel.user === u.file }" @click="pick(u.file)">
-              {{ u.title }}
-              <span class="sub">{{ u.meta?.date }}<template v-if="u.meta?.type"> · {{ u.meta.type }}</template></span>
+              {{ cnpunct(u.title) }}
+              <span class="sub">{{ u.meta?.date }}<template v-if="u.meta?.type"> · {{ cnpunct(u.meta.type) }}</template></span>
             </button>
           </template>
         </aside>
@@ -136,7 +136,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
           <div v-else-if="docError" class="kbp-hint err">{{ docError }}</div>
           <div v-else-if="doc" class="kbp-docwrap">
             <div class="kbp-dochead">
-              <h1>{{ doc.title }}</h1>
+              <h1>{{ cnpunct(doc.title) }}</h1>
               <div class="kbp-docmeta">
                 <template v-if="docMeta.isUser">
                   <span v-if="doc.meta?.date">{{ doc.meta.date }}</span>

@@ -97,23 +97,12 @@ export function dueKey(d) {
 }
 
 // 中文语境标点归一(读侧机械转换,档案原文不动——中文文案排版指北口径):
-// 中文句子用全角 ；，（();嵌入的数字语境保持半角(14:30 / 1,000 / https://)。
-export function zhPunct(s) {
-  return String(s || '')
-    .replace(/;/g, '；')
-    .replace(/,/g, (m, off, str) =>
-      /\d/.test(str[off - 1] || '') && /\d/.test(str[off + 1] || '') ? ',' : '，')
-    .replace(/:/g, (m, off, str) => {
-      if (str.substr(off + 1, 2) === '//') return ':'          // URL 协议符
-      return /\d/.test(str[off - 1] || '') && /\d/.test(str[off + 1] || '') ? ':' : '：'
-    })
-    .replace(/\(/g, '（').replace(/\)/g, '）')
-}
-
 // 排版规范 8b(2026-10-21 拍板):CJK 邻接的半角标点转全角,其余保持半角——
-// 比 zhPunct 精确:英文语境 "(AAP, 2019)" / "d=0.39" / "10-17" 原样,中文句读
-// 全角。CJK 判定含汉字+中文标点+全角区,行内代码(`…`)整段跳过。
+// 英文语境 "(AAP, 2019)" / "d=0.39" / "10-17" 原样,中文句读全角。CJK 判定含
+// 汉字+中文标点+全角区,行内代码(`…`)整段跳过。
 // 与 knowledge_render.cnpunct 同规则双实现(server 侧 md 渲染用 Python 版)。
+// 旧 zhPunct(全量转 ,:;() 不转 ?!)2026-10-24 退役:与 8b 双规则并存时详情/速记
+// 层留下「测试;问?叹!」半转残留(e2e 对抗档抓到),全项目归一为 cnpunct 单规则。
 const _CN = '[\\u4e00-\\u9fff\\u3000-\\u303f\\uff00-\\uffef]'
 const _PUNCT_FULL = { ',': '，', ':': '：', ';': '；', '!': '！', '?': '？', '(': '（', ')': '）' }
 // 语法保护段:行内代码与 md 链接整体跳过(链接 ) 后跟中文若转全角会打断解析)
@@ -121,22 +110,28 @@ const _SYNTAX_SPAN = /(`[^`]*`|\[[^\]]*\]\([^)]*\))/g
 export function cnpunct(s) {
   return String(s ?? '').split(_SYNTAX_SPAN).map((seg, i) => {
     if (i % 2 === 1) return seg
+    // 三遍规则迭代到不动点:前一遍转出的全角字会制造新的 CJK 邻接对
+    // (判例 `(停会员业务);A3`——`)` 转全角后 `）;` 才成立,单趟扫不到)
+    for (let k = 0; k < 4; k++) {
+      const next = seg
+        .replace(new RegExp('(' + _CN + ')([,;:!?()])', 'g'), (m, c, p) => c + _PUNCT_FULL[p])
+        .replace(new RegExp('([,;:!?()])(' + _CN + ')', 'g'), (m, p, c) => _PUNCT_FULL[p] + c)
+        .replace(new RegExp('\\)(?=' + _CN + ')', 'g'), '）')
+      if (next === seg) break
+      seg = next
+    }
     return seg
-      .replace(new RegExp('(' + _CN + ')([,;:!?()])', 'g'), (m, c, p) => c + _PUNCT_FULL[p])
-      .replace(new RegExp('([,;:!?()])(' + _CN + ')', 'g'), (m, p, c) => _PUNCT_FULL[p] + c)
-      // 第三遍(2026-10-24 链式缺口补丁):闭括号后随 CJK(含前两遍转出的全角标点)
-      // 也转全角——`(约30-40min):洗漱` 单遍规则留下「min)：」半全混排,括号对补齐
-      .replace(new RegExp('\\)(?=' + _CN + ')', 'g'), '）')
   }).join('')
 }
 
 // 详情正文分段:标点归一后按中文分号切段(NN Group 分段/列点证据);
 // 段首「标签：」(<=8 字)由渲染层加粗——纯机械,不做语义判断。
+// 内核=cnpunct(8b 单规则);半→全为等长替换,seg.slice(lab.length) 不受影响。
 export function bodyParas(text) {
-  return zhPunct(text).split('；').map(t => t.trim()).filter(Boolean)
+  return cnpunct(text).split('；').map(t => t.trim()).filter(Boolean)
 }
 export function segLabel(seg) {
-  const m = zhPunct(seg).match(/^([^：]{1,8})：/)
+  const m = cnpunct(seg).match(/^([^：]{1,8})：/)
   return m ? m[1] + '：' : ''
 }
 

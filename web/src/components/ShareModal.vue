@@ -91,7 +91,7 @@ const age = computed(() => {
   const m = monthsAge(props.kid?.birthdate)
   return m > 0 ? `${m} 个月` : ''
 })
-const dispName = computed(() => anonymized.value ? '宝宝' : (props.kid?.name || '宝宝'))
+const dispName = computed(() => anonymized.value ? '宝宝' : (cnpunct(props.kid?.name) || '宝宝'))
 // 印章=孩子名首字(档案卡 .seal 同惯例;隐名时随 dispName 落「宝」)
 const sealChar = computed(() => dispName.value.trim().charAt(0) || '宝')
 const headTitle = computed(() => {

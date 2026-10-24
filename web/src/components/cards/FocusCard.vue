@@ -73,7 +73,7 @@ const openRow = (row) => { const i = issueOf(row); if (i) emit('open-issue', i.i
   <div class="cbody">
     <template v-if="careRows.length || dueRows.length">
       <div v-for="r in careRows" :key="r.issue.id" class="act care lnk"
-           :title="`点击查看${r.issue.name}病历`"
+           :title="`点击查看${cnpunct(r.issue.name)}病历`"
            @click="emit('open-issue', r.issue.id)">
         <span class="alab">就医待办</span>
         <span class="atxt">{{ cnpunct(r.text) }}</span>

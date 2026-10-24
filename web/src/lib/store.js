@@ -2,6 +2,7 @@
 //   server mode: GET/POST /api/page + /api/data (local server.py)
 //   file mode:   localStorage memory + embedded defaults from index.html
 import { reactive } from 'vue'
+import { cnpunct } from './util.js'
 
 export const state = reactive({
   page: null, data: null,
@@ -58,7 +59,7 @@ export async function init() {
     state.data = readEmbedded('pg-embedded-data')
   }
   if (state.serverMode && retiredStripped) persistPage()   // 存量清理写回
-  document.title = state.page?.title || '成长视图'
+  document.title = cnpunct(state.page?.title) || '成长视图'
   state.ready = true
 }
 

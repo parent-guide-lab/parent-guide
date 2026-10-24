@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "title": "半角(金丝雀),冒号:测试;问?叹!",
+  "child": "fixture",
+  "layout": [],
+  "blocks": [
+    {
+      "id": "profile",
+      "type": "profile",
+      "x": 0,
+      "y": 0,
+      "w": 6,
+      "h": 10,
+      "autoH": true,
+      "minH": 3
+    },
+    {
+      "id": "milestone",
+      "type": "milestone",
+      "x": 6,
+      "y": 0,
+      "w": 6,
+      "h": 7,
+      "props": {
+        "months": 30
+      },
+      "autoH": true,
+      "minH": 3
+    },
+    {
+      "id": "issue",
+      "type": "issue",
+      "x": 0,
+      "y": 10,
+      "w": 6,
+      "h": 4,
+      "autoH": true,
+      "minH": 3
+    },
+    {
+      "id": "note",
+      "type": "note",
+      "x": 6,
+      "y": 7,
+      "w": 6,
+      "h": 6,
+      "autoH": true,
+      "minH": 3
+    },
+    {
+      "id": "growth",
+      "type": "growth",
+      "x": 0,
+      "y": 14,
+      "w": 6,
+      "h": 8,
+      "autoH": true,
+      "minH": 3
+    },
+    {
+      "id": "focus",
+      "type": "focus",
+      "x": 6,
+      "y": 13,
+      "w": 6,
+      "h": 4,
+      "autoH": true,
+      "minH": 3
+    },
+    {
+      "id": "anticipatory",
+      "type": "anticipatory",
+      "x": 6,
+      "y": 17,
+      "w": 6,
+      "h": 8,
+      "autoH": true,
+      "minH": 3
+    },
+    {
+      "id": "strategy",
+      "type": "strategy",
+      "x": 0,
+      "y": 22,
+      "w": 6,
+      "h": 4,
+      "autoH": true,
+      "minH": 3
+    },
+    {
+      "id": "pg1",
+      "type": "page",
+      "x": 0,
+      "y": 26,
+      "w": 6,
+      "h": 8,
+      "props": {
+        "title": "半角(金丝雀),冒号:测试;问?叹!",
+        "blocks": [
+          {
+            "kind": "section",
+            "text": "半角(金丝雀),冒号:测试;问?叹!"
+          },
+          {
+            "kind": "p",
+            "text": "半角(金丝雀),冒号:测试;问?叹!"
+          },
+          {
+            "kind": "rows",
+            "items": [
+              {
+                "text": "半角(金丝雀),冒号:测试;问?叹!"
+              },
+              {
+                "text": "半角(金丝雀),冒号:测试;问?叹!"
+              }
+            ]
+          },
+          {
+            "kind": "kv",
+            "label": "半角(金丝雀),冒号:测试;问?叹!",
+            "text": "半角(金丝雀),冒号:测试;问?叹!"
+          },
+          {
+            "kind": "check",
+            "items": [
+              {
+                "text": "半角(金丝雀),冒号:测试;问?叹!",
+                "done": false
+              }
+            ]
+          },
+          {
+            "kind": "callout",
+            "tone": "warn",
+            "text": "半角(金丝雀),冒号:测试;问?叹!"
+          }
+        ]
+      },
+      "autoH": true,
+      "minH": 3
+    },
+    {
+      "id": "tk1",
+      "type": "tracker",
+      "x": 6,
+      "y": 25,
+      "w": 6,
+      "h": 10,
+      "props": {
+        "title": "半角(金丝雀),冒号:测试;问?叹!",
+        "head": [
+          {
+            "label": "半角(金丝雀),冒号:测试;问?叹!",
+            "count": "items"
+          },
+          {
+            "label": "半角(金丝雀),冒号:测试;问?叹!",
+            "count": "group",
+            "eq": "半角(金丝雀),冒号:测试;问?叹!"
+          }
+        ],
+        "items": [
+          {
+            "group": "半角(金丝雀),冒号:测试;问?叹!",
+            "badge": "半角(金丝雀),冒号:测试;问?叹!",
+            "text": "半角(金丝雀),冒号:测试;问?叹!",
+            "meta": "半角(金丝雀),冒号:测试;问?叹!"
+          },
+          {
+            "group": "半角(金丝雀),冒号:测试;问?叹!",
+            "badge": "半角(金丝雀),冒号:测试;问?叹!",
+            "text": "半角(金丝雀),冒号:测试;问?叹!",
+            "meta": "半角(金丝雀),冒号:测试;问?叹!"
+          }
+        ]
+      },
+      "autoH": true,
+      "minH": 3
+    }
+  ]
+}

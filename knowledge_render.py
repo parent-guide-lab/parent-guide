@@ -43,9 +43,16 @@ def cnpunct(s: str) -> str:
     for i, seg in enumerate(parts):
         if i % 2 == 1:   # split 带捕获组:奇数位=被保护的语法段
             continue
-        seg = _RE_AFTER_CJK.sub(lambda m: m.group(1) + _PUNCT_FULL[m.group(2)], seg)
-        seg = _RE_BEFORE_CJK.sub(lambda m: _PUNCT_FULL[m.group(1)] + m.group(2), seg)
-        parts[i] = _RE_CLOSE_BEFORE_CJK.sub("）", seg)
+        # 三遍规则迭代到不动点:前一遍转出的全角字会制造新的 CJK 邻接对
+        # (判例 `(停会员业务);A3`——`)` 转全角后 `）;` 才成立,单趟扫不到)
+        for _ in range(4):
+            new = _RE_AFTER_CJK.sub(lambda m: m.group(1) + _PUNCT_FULL[m.group(2)], seg)
+            new = _RE_BEFORE_CJK.sub(lambda m: _PUNCT_FULL[m.group(1)] + m.group(2), new)
+            new = _RE_CLOSE_BEFORE_CJK.sub("）", new)
+            if new == seg:
+                break
+            seg = new
+        parts[i] = seg
     return "".join(parts)
 
 # provenance header fields: official files use 入库:, self-built use 自建:
