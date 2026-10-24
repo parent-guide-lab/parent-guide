@@ -260,6 +260,46 @@ def make_server(port, data_dir, web_dir):
                                 raise ValueError(f"block {bid}: tracker head.count 必须是 items 或 group")
                             if "tone" in h and h["tone"] not in TONES:
                                 raise ValueError(f"block {bid}: tracker head.tone 必须是 ok/watch/todo/sub")
+                    # page 页面卡 props 白名单(2026-10-24 拍板:卡=小页面,AI 从锁定
+                    # 词汇表自由组装;text/list 退役存量兼容。fail-soft 原则同 tracker)
+                    PAGE_KINDS = {"section", "p", "rows", "kv", "check", "callout"}
+                    CALLOUT_TONES = {"hint", "warn"}
+                    for b in payload["blocks"]:
+                        if b.get("type") != "page":
+                            continue
+                        bid, p = b.get("id"), b.get("props") or {}
+                        if not str(p.get("title") or "").strip():
+                            raise ValueError(f"block {bid}: page 缺 title")
+                        pblocks = p.get("blocks")
+                        if not isinstance(pblocks, list) or not 1 <= len(pblocks) <= 30:
+                            raise ValueError(f"block {bid}: page blocks 必须是 1..30 块的数组")
+                        for i, bl in enumerate(pblocks):
+                            if not isinstance(bl, dict):
+                                raise ValueError(f"block {bid}: page blocks[{i}] 必须是对象")
+                            kind = bl.get("kind")
+                            if kind not in PAGE_KINDS:
+                                raise ValueError(
+                                    f"block {bid}: page blocks[{i}].kind 必须是 {'/'.join(sorted(PAGE_KINDS))}")
+                            if kind in ("section", "p", "callout") and not str(bl.get("text") or "").strip():
+                                raise ValueError(f"block {bid}: page blocks[{i}] 缺 text")
+                            if kind == "callout" and bl.get("tone") not in CALLOUT_TONES:
+                                raise ValueError(f"block {bid}: page callout.tone 必须是 hint/warn")
+                            if kind == "kv" and (not str(bl.get("label") or "").strip()
+                                                 or not str(bl.get("text") or "").strip()):
+                                raise ValueError(f"block {bid}: page kv 缺 label/text")
+                            if kind in ("rows", "check"):
+                                items = bl.get("items")
+                                if not isinstance(items, list) or not 1 <= len(items) <= 30:
+                                    raise ValueError(f"block {bid}: page {kind} items 必须是 1..30 条的数组")
+                                for j, it in enumerate(items):
+                                    if isinstance(it, dict):
+                                        if not str(it.get("text") or "").strip():
+                                            raise ValueError(f"block {bid}: page {kind} items[{j}] 缺 text")
+                                        if kind == "check" and "done" in it and not isinstance(it["done"], bool):
+                                            raise ValueError(
+                                                f"block {bid}: page check items[{j}].done 必须是布尔")
+                                    elif not (isinstance(it, str) and it.strip()):
+                                        raise ValueError(f"block {bid}: page {kind} items[{j}] 必须是字符串或对象")
                 if kind == "data" and not [k for k in payload if not k.startswith("_")]:
                     raise ValueError("child.json 必须包含至少一个孩子数据键")
                 payload.pop("bootstrapped", None)  # internal flag never persists

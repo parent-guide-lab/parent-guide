@@ -193,6 +193,49 @@ class ServerTest(unittest.TestCase):
                        self._tracker(head=[{"count": "sum", "label": "共"}]))
         self.assertEqual(code, 400)
 
+    # page 页面卡 props 校验(2026-10-24 拍板:卡=小页面,AI 从锁定词汇表自由组装;
+    # text/list 退役存量兼容。fail-soft 原则同 tracker:结构坏=拒写)
+    def _page(self, **over):
+        props = {"title": "英语启蒙",
+                 "blocks": [{"kind": "rows", "items": ["真人互动为主", "每天固定 15 分钟"]},
+                            {"kind": "callout", "tone": "hint", "text": "发音不准不纠正"}]}
+        props.update(over)
+        return {"version": 2, "blocks": [
+            {"id": "b9", "type": "page", "x": 0, "y": 0, "w": 5, "h": 5, "props": props}]}
+
+    def test_21_post_valid_page_accepted(self):
+        code, _ = call("POST", "/api/page", self._page())
+        self.assertEqual(code, 200)
+
+    def test_22_post_page_missing_title_rejected(self):
+        code, resp = call("POST", "/api/page", self._page(title="  "))
+        self.assertEqual(code, 400)
+        self.assertIn("title", resp["error"])
+
+    def test_23_post_page_bad_kind_rejected(self):
+        code, _ = call("POST", "/api/page",
+                       self._page(blocks=[{"kind": "chart", "text": "x"}]))
+        self.assertEqual(code, 400)
+
+    def test_24_post_page_rows_without_items_rejected(self):
+        code, _ = call("POST", "/api/page", self._page(blocks=[{"kind": "rows"}]))
+        self.assertEqual(code, 400)
+
+    def test_25_post_page_check_bad_done_rejected(self):
+        code, _ = call("POST", "/api/page",
+                       self._page(blocks=[{"kind": "check", "items": [{"text": "x", "done": "yes"}]}]))
+        self.assertEqual(code, 400)
+
+    def test_26_post_page_callout_bad_tone_rejected(self):
+        code, _ = call("POST", "/api/page",
+                       self._page(blocks=[{"kind": "callout", "tone": "blue", "text": "x"}]))
+        self.assertEqual(code, 400)
+
+    def test_27_post_page_kv_missing_label_rejected(self):
+        code, _ = call("POST", "/api/page",
+                       self._page(blocks=[{"kind": "kv", "text": "x"}]))
+        self.assertEqual(code, 400)
+
     def test_11_site_knowledge_pages_served(self):
         def raw(path):
             conn = http.client.HTTPConnection(HOST, PORT, timeout=5)

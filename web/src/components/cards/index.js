@@ -15,6 +15,7 @@ import StrategyCard from './StrategyCard.vue'
 import TextCard from './TextCard.vue'
 import ListCard from './ListCard.vue'
 import TrackerCard from './TrackerCard.vue'
+import PageCard from './PageCard.vue'
 import ErrorCard from '../ErrorCard.vue'
 
 export const REGISTRY = {
@@ -29,6 +30,7 @@ export const REGISTRY = {
   'text': TextCard,
   'list': ListCard,
   'tracker': TrackerCard,
+  'page': PageCard,
 }
 
 // Single source of truth for the add-panel, spec docs and validation.
@@ -47,8 +49,10 @@ export const CARD_META = {
   'anticipatory':   { group: 'builtin', name: '前瞻',       desc: '记下的提醒+疫苗/体检/筛查/入园月龄时间线', w: 6, h: 5 },
   'strategy':       { group: 'builtin', name: '在跑计划',   desc: '习惯养成/启蒙路线状态追踪(试行中/已成日常/效果不佳)', w: 6, h: 6 },
   'note':           { group: 'builtin', name: '成长速记',   desc: '最近的事件笔记', w: 6, h: 5 },
-  'text':           { group: 'custom', name: '文本卡',     desc: '标题+自由文本(奶奶须知/黑名单)', w: 4, h: 4 },
-  'list':           { group: 'custom', name: '清单卡',     desc: '可勾选清单(出门清单/待办)', w: 4, h: 5 },
+  // text/list 退役(2026-10-24 拍板「不要text卡,卡=小页面」):存量渲染兼容,不再新生产
+  'text':           { group: 'custom', name: '文本卡',     desc: '[退役]标题+自由文本', w: 4, h: 4 },
+  'list':           { group: 'custom', name: '清单卡',     desc: '[退役]可勾选清单', w: 4, h: 5 },
+  'page':           { group: 'custom', name: '页面卡',     desc: '小页面:AI 按需组装(段落/要点/键值/勾选/提示条)', w: 5, h: 5 },
   'tracker':        { group: 'custom', name: '记录卡',     desc: '分组台账:状态+计数(绘本管理/用药记录/奖励表)', w: 6, h: 5 },
 }
 

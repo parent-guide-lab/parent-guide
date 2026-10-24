@@ -18,14 +18,16 @@ const allTiles = computed(() => [...shown.value, ...hiddenBlocks.value])
 
 function labelOf(b) {
   const meta = CARD_META[b.type]
-  if (b.type === 'text' || b.type === 'list') return b.props?.title || meta?.name || b.type
+  if (meta?.group === 'custom') return b.props?.title || meta?.name || b.type
   const extra = b.props?.tag ? `· ${b.props.tag}` : b.props?.months ? `· ${b.props.months}月` : ''
   return (meta?.name || b.type) + (extra ? ` ${extra}` : '')
 }
 function descOf(b) {
   const meta = CARD_META[b.type]
   if (meta?.group === 'custom')
-    return b.type === 'list' ? `清单 · ${(b.props?.items || []).length} 项` : '便签'
+    if (b.type === 'list') return `清单 · ${(b.props?.items || []).length} 项`
+    if (b.type === 'page') return `页面 · ${(b.props?.blocks || []).length} 块`
+    return '便签'
   return meta?.desc || ''
 }
 const isCustom = (b) => CARD_META[b.type]?.group === 'custom'
