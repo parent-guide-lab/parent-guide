@@ -236,6 +236,18 @@ class ServerTest(unittest.TestCase):
                        self._page(blocks=[{"kind": "kv", "text": "x"}]))
         self.assertEqual(code, 400)
 
+    def test_28_post_page_tone_valid_accepted(self):
+        code, _ = call("POST", "/api/page", self._page(tone="violet"))
+        self.assertEqual(code, 200)
+
+    def test_29_post_page_tone_none_accepted(self):
+        code, _ = call("POST", "/api/page", self._page(tone="none"))
+        self.assertEqual(code, 200)
+
+    def test_30_post_page_bad_tone_rejected(self):
+        code, _ = call("POST", "/api/page", self._page(tone="pink"))
+        self.assertEqual(code, 400)
+
     def test_11_site_knowledge_pages_served(self):
         def raw(path):
             conn = http.client.HTTPConnection(HOST, PORT, timeout=5)

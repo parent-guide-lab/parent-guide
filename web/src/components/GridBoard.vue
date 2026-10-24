@@ -30,7 +30,20 @@ const emit = defineEmits(['geometry', 'share-card', 'props-update', 'open-issue'
 const TONE = { growth: 'tone-green', issue: 'tone-red', milestone: 'tone-gold',
   anticipatory: 'tone-violet', strategy: 'tone-violet', note: 'tone-teal',
   tracker: 'tone-tea', profile: 'tone-blue', focus: 'tone-violet' }
-const cardClass = (b) => ({ 'auto-h': b.autoH, [TONE[b.type]]: !!TONE[b.type] })
+// page 卡按 props.tone 上色(2026-10-24 拍板:颜色第一职能=定位锚,自定义页也应可定位;
+// 缺省墨蓝=本尊色,tone:'none'=白头退出)。选色纪律见 blocks-spec 内容守则。
+const PAGE_TONES = { green: 'tone-green', gold: 'tone-gold', red: 'tone-red',
+  violet: 'tone-violet', teal: 'tone-teal', tea: 'tone-tea', blue: 'tone-blue' }
+const cardClass = (b) => {
+  const c = { 'auto-h': !!b.autoH }
+  if (b.type === 'page') {
+    if (b.props?.tone === 'none') return c
+    c[PAGE_TONES[b.props?.tone] || 'tone-blue'] = true
+    return c
+  }
+  if (TONE[b.type]) c[TONE[b.type]] = true
+  return c
+}
 
 // Custom-card content updates (e.g. list checkboxes): patch the snapshot
 // element in place (keeps geometry write-back in sync with latest props),

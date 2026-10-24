@@ -264,12 +264,18 @@ def make_server(port, data_dir, web_dir):
                     # 词汇表自由组装;text/list 退役存量兼容。fail-soft 原则同 tracker)
                     PAGE_KINDS = {"section", "p", "rows", "kv", "check", "callout"}
                     CALLOUT_TONES = {"hint", "warn"}
+                    # 卡头身份色(2026-10-24 拍板:颜色=定位锚,自定义页也可定位;
+                    # 缺省=墨蓝本尊色,none=白头退出;选色纪律见 blocks-spec 内容守则)
+                    PAGE_TONES = {"green", "gold", "red", "violet", "teal", "tea", "blue", "none"}
                     for b in payload["blocks"]:
                         if b.get("type") != "page":
                             continue
                         bid, p = b.get("id"), b.get("props") or {}
                         if not str(p.get("title") or "").strip():
                             raise ValueError(f"block {bid}: page 缺 title")
+                        if "tone" in p and p["tone"] not in PAGE_TONES:
+                            raise ValueError(
+                                f"block {bid}: page tone 必须是 {'/'.join(sorted(PAGE_TONES))} 或缺省(墨蓝)")
                         pblocks = p.get("blocks")
                         if not isinstance(pblocks, list) or not 1 <= len(pblocks) <= 30:
                             raise ValueError(f"block {bid}: page blocks 必须是 1..30 块的数组")
