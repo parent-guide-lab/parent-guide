@@ -75,7 +75,7 @@ const pastText = computed(() => {
     .filter(r => r.status === 'past')
     .sort((a, b) => b.due.localeCompare(a.due))
   return past.length
-    ? `最近已过:${past[0].name}(${past[0].due.slice(0, 7)})`
+    ? `最近已过：${past[0].name}（${past[0].due.slice(0, 7)}）`
       + (past.length > 1 ? ` · 共 ${past.length} 项` : '')
     : ''
 })
@@ -91,7 +91,7 @@ const pastText = computed(() => {
           <span class="n">{{ daysUntil(nextStop.due) }}</span><span class="u">{{ daysUntil(nextStop.due) === 0 ? '今天到期' : '天后' }}</span>
           <span class="due">{{ nextStop.due.slice(5) }}</span>
         </div>
-        <div class="ns-what">{{ nextStop.name }}</div>
+        <div class="ns-what">{{ cnpunct(nextStop.name) }}</div>
         <div v-if="nextStop.note" class="ns-note">{{ cnpunct(nextStop.note) }}</div>
       </div>
       <div class="tl">
@@ -101,7 +101,7 @@ const pastText = computed(() => {
           <template v-for="(r, i) in rs" :key="i">
             <div class="tl-row">
               <span class="st" :class="r.cls">{{ r.badge }}</span>
-              <span class="t">{{ r.name }}</span>
+              <span class="t">{{ cnpunct(r.name) }}</span>
               <span class="d" :class="{ od: r.odue }">{{ r.due ? r.due.slice(5) : '' }}</span>
             </div>
             <div v-if="r.note" class="tl-note">{{ cnpunct(r.note) }}</div>
@@ -109,10 +109,10 @@ const pastText = computed(() => {
         </div>
       </div>
       <div v-if="pastText" class="psrc">{{ pastText }}</div>
-      <div v-if="!kid?.birthdate" class="src">还没填生日——对话里补上后,这里按月龄铺开疫苗/体检/筛查时间线。</div>
+      <div v-if="!kid?.birthdate" class="src">还没填生日——对话里补上后，这里按月龄铺开疫苗/体检/筛查时间线。</div>
     </template>
-    <div v-else-if="!kid?.birthdate" class="src">还没填生日——对话里补上后,这里按月龄铺开疫苗/体检/筛查时间线。</div>
-    <div v-else class="src">0-5 岁的前瞻节点都走完了,后续以儿保预约与当地要求为准。</div>
+    <div v-else-if="!kid?.birthdate" class="src">还没填生日——对话里补上后，这里按月龄铺开疫苗/体检/筛查时间线。</div>
+    <div v-else class="src">0-5 岁的前瞻节点都走完了，后续以儿保预约与当地要求为准。</div>
   </div>
 </template>
 

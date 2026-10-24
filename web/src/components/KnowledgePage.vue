@@ -35,7 +35,7 @@ async function loadList() {
       await pick(target)
     }
   } catch (e) {
-    listError.value = `知识库加载失败(${e.message})——确认本地服务已在运行`
+    listError.value = `知识库加载失败（${e.message}）——确认本地服务已在运行`
   } finally {
     loading.value = false
   }
@@ -51,7 +51,7 @@ async function openDoc(file) {
     // server 出的是转义后的 HTML,这里只补知识引用转链(同白名单,不自建死链)
     doc.value = { ...d, html: linkifyHtml(d.html) }
   } catch (e) {
-    docError.value = `打开失败:${e.message}`
+    docError.value = `打开失败：${e.message}`
   } finally {
     docLoading.value = false
   }
@@ -142,7 +142,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
                   <span v-if="doc.meta?.date">{{ doc.meta.date }}</span>
                   <span v-if="doc.meta?.type" class="kbp-badge">{{ doc.meta.type }}</span>
                   <span v-if="doc.meta?.check" class="kbp-badge">核对={{ doc.meta.check }}</span>
-                  <span v-if="doc.meta?.source">来源:{{ doc.meta.source }}</span>
+                  <span v-if="doc.meta?.source">来源：{{ doc.meta.source }}</span>
                   <span class="kbp-badge local">家庭自建 · 仅本地</span>
                 </template>
                 <template v-else-if="docMeta.src">
@@ -155,8 +155,8 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
             <div class="kb-doc" v-html="doc.html"></div>
           </div>
           <div v-else-if="tab === 'user' && !user.length" class="kbp-empty">
-            还没有自建知识。对话里调研沉淀或蒸馏出的专题会写进 knowledge/user/,出现在左侧目录——
-            只保存在你自己的电脑上,公开分享的只有官方库。
+            还没有自建知识。对话里调研沉淀或蒸馏出的专题会写进 knowledge/user/，出现在左侧目录——
+            只保存在你自己的电脑上，公开分享的只有官方库。
           </div>
         </main>
       </div>

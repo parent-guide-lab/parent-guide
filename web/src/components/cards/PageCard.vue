@@ -53,7 +53,7 @@ const punct = (s) => cnpunct(String(s ?? ''))
 </script>
 
 <template>
-  <div class="cband"><h3>{{ title }}</h3></div>
+  <div class="cband"><h3>{{ punct(title) }}</h3></div>
   <div class="cbody">
     <template v-if="blocks.length">
       <template v-for="(bl, bi) in blocks" :key="bi">
@@ -78,7 +78,7 @@ const punct = (s) => cnpunct(String(s ?? ''))
         </div>
       </template>
     </template>
-    <div v-else class="src">空页面——回到对话对 AI 说「把{{ title }}排成…」即可组装内容。</div>
+    <div v-else class="src">空页面——回到对话对 AI 说「把{{ punct(title) }}排成…」即可组装内容。</div>
   </div>
 </template>
 

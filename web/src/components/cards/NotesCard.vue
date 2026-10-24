@@ -3,7 +3,7 @@
 // 条目排版=IssueDetail 时间轴同款(那次打磨的成果):标题行渐进披露+
 // 正文分号切段圆点+段首 ≤8 字标签加粗+标点全角归一——读侧机械转换,原文不动。
 import { computed, ref } from 'vue'
-import { bodyParas, fullDate, segLabel, zhPunct, linkKnowledge, escHtml } from '../../lib/util.js'
+import { bodyParas, fullDate, segLabel, zhPunct, linkKnowledge, escHtml, cnpunct } from '../../lib/util.js'
 const props = defineProps({ block: Object, kid: Object })
 // 正文经 linkKnowledge 转链(知识引用自动可跳);v-html 内容吃不到 scoped
 // 样式,seg-lab/.klink 走全局 style.css。
@@ -58,7 +58,7 @@ function toggle(i) {
           <span v-if="lead.time" class="ld-t">{{ lead.time }}</span>
         </div>
         <div v-if="(lead.tags || []).length" class="ev-chips lead-chips">
-          <span v-for="t in lead.tags" :key="t" class="chip">{{ t }}</span>
+          <span v-for="t in lead.tags" :key="t" class="chip">{{ cnpunct(t) }}</span>
         </div>
         <div v-if="lead.title" class="lead-title">{{ zhPunct(lead.title) }}</div>
         <div class="lead-body"><p v-for="(seg, j) in bodyParas(lead.text)" :key="j" v-html="bodyHtml(seg)"></p></div>
@@ -70,7 +70,7 @@ function toggle(i) {
           <div class="ev">
             <div v-if="n.title" class="ev-title" @click="toggle(i)">{{ zhPunct(n.title) }}</div>
             <div v-if="(n.tags || []).length" class="ev-chips">
-              <span v-for="t in n.tags" :key="t" class="chip">{{ t }}</span>
+              <span v-for="t in n.tags" :key="t" class="chip">{{ cnpunct(t) }}</span>
             </div>
             <div v-if="!n.title || isOpen(i)" class="ev-body"
                  :class="{ clamp: !n.title && !isOpen(i) && !noClamp }">
@@ -84,7 +84,7 @@ function toggle(i) {
         </div>
       </div>
     </template>
-    <div v-else class="src">还没有记录过事件——值得记的瞬间(第一次/可爱时刻/生病)回到对话随手说,会积累在这里。</div>
+    <div v-else class="src">还没有记录过事件——值得记的瞬间（第一次/可爱时刻/生病）回到对话随手说，会积累在这里。</div>
   </div>
 </template>
 

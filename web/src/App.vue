@@ -63,7 +63,7 @@ window.addEventListener('afterprint', () => { captureExpand.value = capPrev })
 
 function toggleEdit() {
   if (!state.serverMode) {
-    alert('布局编辑需要本地服务:在仓库根目录运行 python3 server.py --open')
+    alert('布局编辑需要本地服务：在仓库根目录运行 python3 server.py --open')
     return
   }
   state.editing = !state.editing
@@ -142,16 +142,16 @@ function exportReport() {
     <div class="toolbar">
       <span class="brand">🧸 成长视图<small>parent-guide</small></span>
       <span class="mode-badge" :class="{ on: state.serverMode }" :title="state.serverMode
-        ? '已连接本地后端(server.py):拖拽/拉伸/编辑直接写回 data/page.json'
-        : '未检测到本地服务;想体验布局编辑,运行 python3 server.py --open'">
+        ? '已连接本地后端（server.py）：拖拽/拉伸/编辑直接写回 data/page.json'
+        : '未检测到本地服务；想体验布局编辑，运行 python3 server.py --open'">
         {{ state.serverMode ? '🔌 本地服务 · 编辑即保存' : '📄 文件模式 · 只读' }}
       </span>
-      <button v-if="state.serverMode" class="btn" title="官方循证知识 + 我的自建(knowledge/user/,仅本机)" @click="kbOpen = true">📖 知识库</button>
+      <button v-if="state.serverMode" class="btn" title="官方循证知识 + 我的自建（knowledge/user/，仅本机）" @click="kbOpen = true">📖 知识库</button>
       <button class="btn" :class="{ active: state.editing }" :disabled="!state.serverMode || isNarrow"
-              :title="isNarrow ? '窄屏为只读浏览,布局编辑请在桌面进行'
-                : state.editing ? '收起面板并退出拖拽' : '拖拽调布局;底部面板管卡片显隐与添加'"
+              :title="isNarrow ? '窄屏为只读浏览，布局编辑请在桌面进行'
+                : state.editing ? '收起面板并退出拖拽' : '拖拽调布局；底部面板管卡片显隐与添加'"
               @click="toggleEdit">{{ state.editing ? '完成编辑' : '编辑布局' }}</button>
-      <button class="btn primary" title="长图(手机版/桌面版)·PDF·单文件网页" @click="exportOpen = true">导出</button>
+      <button class="btn primary" title="长图（手机版/桌面版）·PDF·单文件网页" @click="exportOpen = true">导出</button>
     </div>
 
     <TickerBar @open-doc="f => { kbFile = f; kbOpen = true }" />

@@ -1,6 +1,6 @@
 <script setup>
 import { computed, inject, ref } from 'vue'
-import { monthsAge, fullDate } from '../../lib/util.js'
+import { monthsAge, fullDate, cnpunct } from '../../lib/util.js'
 const props = defineProps({ block: Object, kid: Object })
 const emit = defineEmits(['open-issue'])
 const age = computed(() => props.kid?.birthdate ? monthsAge(props.kid.birthdate) : null)
@@ -103,8 +103,8 @@ const histMore = computed(() => hist.value.length - HIST_SHOW)
         <div class="meta">
           <template v-if="kid.birthdate">{{ fullDate(kid.birthdate) }} 出生</template>
           <template v-else>生日未填写</template>
-          <template v-if="siblings"> · {{ siblings }}</template>
-          <template v-if="caregivers"> · {{ caregivers }}</template>
+          <template v-if="siblings"> · {{ cnpunct(siblings) }}</template>
+          <template v-if="caregivers"> · {{ cnpunct(caregivers) }}</template>
         </div>
       </div>
       <span class="seal">{{ initial }}</span>
@@ -114,28 +114,28 @@ const histMore = computed(() => hist.value.length - HIST_SHOW)
       <div class="plabel">当前关注</div>
       <div><span v-for="f in kid.currentFocus" :key="f" class="chip"
         :class="{ lnk: issueByName[f] }" :title="issueByName[f] ? '点击查看病历详情' : ''"
-        @click="issueByName[f] && emit('open-issue', issueByName[f].id)">{{ f }}<template v-if="issueByName[f]"><b class="p">{{ issueByName[f].id }}</b></template></span></div>
+        @click="issueByName[f] && emit('open-issue', issueByName[f].id)">{{ cnpunct(f) }}<template v-if="issueByName[f]"><b class="p">{{ issueByName[f].id }}</b></template></span></div>
     </div>
 
     <div v-if="hasPref || temperament || language || allergies" class="psec">
       <div class="plabel">孩子画像<template v-if="secAsOf"><span class="asof">截至 {{ secAsOf }}</span><span v-if="staleHint" class="asof stale">{{ staleHint }}</span></template></div>
-      <div v-if="temperament" class="kv"><b>气质</b><span>{{ temperament }}</span></div>
-      <div v-if="language" class="kv"><b>语言</b><span>{{ language }}</span></div>
+      <div v-if="temperament" class="kv"><b>气质</b><span>{{ cnpunct(temperament) }}</span></div>
+      <div v-if="language" class="kv"><b>语言</b><span>{{ cnpunct(language) }}</span></div>
       <div v-if="hasPref" class="kv"><b>偏好</b><span>
-        <span v-if="comfort" class="ptag"><i>安抚物</i>{{ comfort }}</span>
-        <span v-if="activities" class="ptag"><i>活动</i>{{ activities }}</span>
-        <span v-if="books" class="ptag"><i>绘本</i>{{ books }}</span>
+        <span v-if="comfort" class="ptag"><i>安抚物</i>{{ cnpunct(comfort) }}</span>
+        <span v-if="activities" class="ptag"><i>活动</i>{{ cnpunct(activities) }}</span>
+        <span v-if="books" class="ptag"><i>绘本</i>{{ cnpunct(books) }}</span>
       </span></div>
-      <div v-if="allergies" class="kv"><b>过敏</b><span>{{ allergies }}</span></div>
-      <div v-if="healthNotes" class="kv"><b>健康</b><span>{{ healthNotes }}</span></div>
-      <div v-if="familyNotes" class="kv"><b>家庭口径</b><span class="muted">{{ familyNotes }}</span></div>
+      <div v-if="allergies" class="kv"><b>过敏</b><span>{{ cnpunct(allergies) }}</span></div>
+      <div v-if="healthNotes" class="kv"><b>健康</b><span>{{ cnpunct(healthNotes) }}</span></div>
+      <div v-if="familyNotes" class="kv"><b>家庭口径</b><span class="muted">{{ cnpunct(familyNotes) }}</span></div>
     </div>
 
     <div v-if="hist.length" class="psec">
       <div class="plabel">画像变迁</div>
       <div v-for="(h, i) in histShown" :key="i" class="phist">
         <div class="phd">{{ h.date }} · {{ FIELD_LABELS[h.field] || h.field }}</div>
-        <div class="pvals"><span class="pv old">{{ h.from || '(未填)' }}</span><span class="parr">→</span><span class="pv">{{ h.to }}</span></div>
+        <div class="pvals"><span class="pv old">{{ h.from ? cnpunct(h.from) : '（未填）' }}</span><span class="parr">→</span><span class="pv">{{ cnpunct(h.to) }}</span></div>
       </div>
       <button v-if="histMore > 0 && !histOpen && !capForce" class="tgl"
               @click="histOpen = true">更多 {{ histMore }} 条 ▸</button>
@@ -144,7 +144,7 @@ const histMore = computed(() => hist.value.length - HIST_SHOW)
     </div>
 
     <div v-if="!hasPref && !temperament && !language && !allergies" class="src">
-      画像(气质/语言/偏好)还没填——聊到这些话题时 AI 会顺带记录,这里会慢慢丰满。
+      画像（气质/语言/偏好）还没填——聊到这些话题时 AI 会顺带记录，这里会慢慢丰满。
     </div>
   </div>
 </template>

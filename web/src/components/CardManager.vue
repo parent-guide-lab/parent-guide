@@ -6,6 +6,7 @@
 //     child.json,删除零损失);自定义卡带用户内容,删除唯一路径=对话(blocks-spec
 //     边界),瓦片上不给 ✕。
 import { computed } from 'vue'
+import { cnpunct } from '../lib/util.js'
 import { CARD_META } from './cards/index.js'
 
 const props = defineProps({ page: Object })
@@ -18,7 +19,7 @@ const allTiles = computed(() => [...shown.value, ...hiddenBlocks.value])
 
 function labelOf(b) {
   const meta = CARD_META[b.type]
-  if (meta?.group === 'custom') return b.props?.title || meta?.name || b.type
+  if (meta?.group === 'custom') return cnpunct(b.props?.title || meta?.name || b.type)
   const extra = b.props?.tag ? `· ${b.props.tag}` : b.props?.months ? `· ${b.props.months}月` : ''
   return (meta?.name || b.type) + (extra ? ` ${extra}` : '')
 }
@@ -48,14 +49,14 @@ const absentTypes = computed(() =>
     <div class="grp">页面上的卡片</div>
     <div class="tilegrid">
       <div v-for="b in allTiles" :key="b.id" class="tile" :class="{ off: b.hidden }"
-           :title="b.hidden ? '点击恢复显示(保留原位置)' : '点击隐藏(保留原位置)'"
+           :title="b.hidden ? '点击恢复显示（保留原位置）' : '点击隐藏（保留原位置）'"
            @click="emit('toggle', { id: b.id, on: !!b.hidden })">
         <div class="t-name">{{ labelOf(b) }}</div>
         <div class="t-desc">{{ descOf(b) }}</div>
         <div class="t-foot">
           <span class="t-state">{{ b.hidden ? '已隐藏 · 点击恢复' : '显示中 · 点击隐藏' }}</span>
           <button v-if="!isCustom(b)" class="t-del"
-                  title="从页面删除;想用随时在下方「添加卡片」加回"
+                  title="从页面删除；想用随时在下方「添加卡片」加回"
                   @click.stop="emit('remove', { id: b.id })">✕ 删除</button>
           <span v-else class="t-note">删除回对话</span>
         </div>
@@ -74,7 +75,7 @@ const absentTypes = computed(() =>
     </template>
 
     <div class="hint-box">
-      想加<b>自定义卡</b>(便签/清单)或改卡片内容?<b>回到对话跟 AI 说</b>,比如
+      想加<b>自定义卡</b>（便签/清单）或改卡片内容？<b>回到对话跟 AI 说</b>，比如
       「帮我加一张出门清单卡」「把奶奶须知卡的内容改成…」——AI 会按页面规范直接改配置。
     </div>
   </section>

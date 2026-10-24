@@ -177,7 +177,7 @@ async function doExport() {
               <button class="opt-chip" :class="{ on: ver === 'desktop' }" @click="ver = 'desktop'"
                       title="页面原卡按原宽导出——存档/打印底稿用">桌面版·原卡宽</button>
             </div>
-            <p v-if="level === 'card'" class="foot-hint">两版内容相同,均与页面这张卡一致(折叠区全展开+截至日期),只差宽度。</p>
+            <p v-if="level === 'card'" class="foot-hint">两版内容相同，均与页面这张卡一致（折叠区全展开+截至日期），只差宽度。</p>
 
             <template v-if="level === 'issue'">
               <div class="opt-chips">

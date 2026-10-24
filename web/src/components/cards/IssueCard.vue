@@ -4,7 +4,7 @@
 // (spec issue-tracking-v1 §2.4,不存冗余字段)。已解决默认只计数,
 // 点「已解决」在卡内展开历史分组(留档可查),行同样可开病历层。
 import { computed, inject, ref } from 'vue'
-import { dueKey, dueLabel, fullDate, issueDayNo } from '../../lib/util.js'
+import { dueKey, dueLabel, fullDate, issueDayNo, cnpunct } from '../../lib/util.js'
 
 const props = defineProps({ block: Object, kid: Object })
 const emit = defineEmits(['open-issue'])
@@ -62,23 +62,23 @@ function nextOf(i) {
       </div>
       <div v-for="i in list" :key="i.id" class="irow" :class="{ wrap: i.pendingCare }" @click="emit('open-issue', i.id)">
         <span class="st" :class="ST_CLASS[i.status] || 'plain'">{{ ST_LABEL[i.status] || i.status }}</span>
-        <span class="nm">{{ i.name }}</span>
+        <span class="nm">{{ cnpunct(i.name) }}</span>
         <span class="dy">{{ issueDayNo(i) }}</span>
-        <span v-if="i.pendingCare" class="nx full care">{{ i.pendingCare }}</span>
+        <span v-if="i.pendingCare" class="nx full care">{{ cnpunct(i.pendingCare) }}</span>
         <span v-else-if="nextOf(i)" class="nx">{{ nextOf(i).due }} · {{ dueLabel(nextOf(i).due).label }}</span>
-        <span v-else class="nx">{{ (i.summary || '').slice(0, 14) }}</span>
+        <span v-else class="nx">{{ cnpunct(i.summary || '').slice(0, 14) }}</span>
       </div>
       <div v-for="i in doneList" v-show="showDone && (doneOpen || capForce)" :key="i.id" class="irow done"
            @click="emit('open-issue', i.id)">
         <span class="st ok">已解决</span>
-        <span class="nm">{{ i.name }}</span>
+        <span class="nm">{{ cnpunct(i.name) }}</span>
         <span class="dy">{{ issueDayNo(i) }}</span>
         <span class="nx">结案 {{ fullDate(i.closed) }}</span>
       </div>
       <div v-if="!list.length && !(showDone && (doneOpen || capForce))" class="src">当前过滤下没有问题。</div>
     </template>
     <template v-else>
-      <div class="src">还没有在管问题——聊到持续议题(便秘/发脾气/戒断类)时开题,记录会自动归集到这里。</div>
+      <div class="src">还没有在管问题——聊到持续议题（便秘/发脾气/戒断类）时开题，记录会自动归集到这里。</div>
     </template>
   </div>
 </template>

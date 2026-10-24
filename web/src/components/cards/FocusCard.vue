@@ -5,7 +5,7 @@
 // 日期徽章+主题词粗体+细节分段圆点,行点击开病历);在跑计数入卡头副行,
 // 原 rollup「下一节点」由在途区第一行取代。点击行=开对应病历(有挂靠时)。
 import { computed } from 'vue'
-import { bodyParas, dueKey, dueLabel, fullDate, segLabel, linkKnowledge, escHtml } from '../../lib/util.js'
+import { bodyParas, dueKey, dueLabel, fullDate, segLabel, linkKnowledge, escHtml, cnpunct } from '../../lib/util.js'
 
 const props = defineProps({ block: Object, kid: Object })
 const emit = defineEmits(['open-issue'])
@@ -76,14 +76,14 @@ const openRow = (row) => { const i = issueOf(row); if (i) emit('open-issue', i.i
            :title="`点击查看${r.issue.name}病历`"
            @click="emit('open-issue', r.issue.id)">
         <span class="alab">就医待办</span>
-        <span class="atxt">{{ r.text }}</span>
+        <span class="atxt">{{ cnpunct(r.text) }}</span>
         <span class="adr">{{ r.issue.id }}</span>
       </div>
       <div v-for="f in dueRows" :key="f.due + f.topic" class="act next"
            :class="{ lnk: issueOf(f) }" :title="issueOf(f) ? '点击查看病历' : ''"
            @click="openRow(f)">
         <span class="alab">{{ f.diff < 0 ? `过期 ${-f.diff} 天` : f.diff === 0 ? '今天到期' : f.diff === 1 ? '明天' : `${f.diff} 天后` }}</span>
-        <span class="atxt">{{ f.topic }}</span>
+        <span class="atxt">{{ cnpunct(f.topic) }}</span>
         <span class="adr">{{ issueOf(f) ? issueOf(f).id + ' · ' : '' }}{{ fullDate(f.due) }}</span>
       </div>
     </template>
@@ -97,7 +97,7 @@ const openRow = (row) => { const i = issueOf(row); if (i) emit('open-issue', i.i
         <span class="due-b" :class="dueBadge(f).cls">{{ dueBadge(f).text }}</span>
         <span class="dorig">{{ fullDate(f.due) }}</span>
         <div class="topic">
-          <b>{{ splitTopic(f.topic).lead }}</b>
+          <b>{{ cnpunct(splitTopic(f.topic).lead) }}</b>
           <div v-if="splitTopic(f.topic).rest" class="ev-body">
             <p v-for="(seg, j) in restParas(splitTopic(f.topic).rest)" :key="j" v-html="bodyHtml(seg)">
             </p>
@@ -106,7 +106,7 @@ const openRow = (row) => { const i = issueOf(row); if (i) emit('open-issue', i.i
       </div>
     </template>
     <div v-if="!careRows.length && !dueRows.length && !upcoming.length" class="src">
-      回访会随计划自动排期——聊到想改的习惯时说「帮我记一下」,到期这里见。
+      回访会随计划自动排期——聊到想改的习惯时说「帮我记一下」，到期这里见。
     </div>
   </div>
 </template>

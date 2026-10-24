@@ -124,6 +124,9 @@ export function cnpunct(s) {
     return seg
       .replace(new RegExp('(' + _CN + ')([,;:!?()])', 'g'), (m, c, p) => c + _PUNCT_FULL[p])
       .replace(new RegExp('([,;:!?()])(' + _CN + ')', 'g'), (m, p, c) => _PUNCT_FULL[p] + c)
+      // 第三遍(2026-10-24 链式缺口补丁):闭括号后随 CJK(含前两遍转出的全角标点)
+      // 也转全角——`(约30-40min):洗漱` 单遍规则留下「min)：」半全混排,括号对补齐
+      .replace(new RegExp('\\)(?=' + _CN + ')', 'g'), '）')
   }).join('')
 }
 

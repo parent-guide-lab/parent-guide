@@ -30,6 +30,10 @@ _CJK = r"[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]"
 _PUNCT_FULL = {",": "，", ":": "：", ";": "；", "!": "！", "?": "？", "(": "（", ")": "）"}
 _RE_AFTER_CJK = re.compile("(" + _CJK + ")([,;:!?()])")
 _RE_BEFORE_CJK = re.compile("([,;:!?()])(" + _CJK + ")")
+# 第三遍(2026-10-24 链式缺口补丁):闭括号后随 CJK(含前两遍转出的全角标点)也转全角
+# ——`(约30-40min):洗漱` 中 `)` 前邻拉丁不转、后邻冒号后被第二遍转全角,留下
+# 「min)：」半全混排;括号对一侧已全角时另一侧补齐(CY/T 154 夹英文:外全内半)。
+_RE_CLOSE_BEFORE_CJK = re.compile("\\)(?=" + _CJK + ")")
 # 语法保护段:行内代码与 md 链接整体跳过(链接的 ) 后跟中文若被转全角会打断解析)
 _SYNTAX_SPAN = re.compile(r"(`[^`]*`|\[[^\]]*\]\([^)]*\))")
 
@@ -40,7 +44,8 @@ def cnpunct(s: str) -> str:
         if i % 2 == 1:   # split 带捕获组:奇数位=被保护的语法段
             continue
         seg = _RE_AFTER_CJK.sub(lambda m: m.group(1) + _PUNCT_FULL[m.group(2)], seg)
-        parts[i] = _RE_BEFORE_CJK.sub(lambda m: _PUNCT_FULL[m.group(1)] + m.group(2), seg)
+        seg = _RE_BEFORE_CJK.sub(lambda m: _PUNCT_FULL[m.group(1)] + m.group(2), seg)
+        parts[i] = _RE_CLOSE_BEFORE_CJK.sub("）", seg)
     return "".join(parts)
 
 # provenance header fields: official files use 入库:, self-built use 自建:

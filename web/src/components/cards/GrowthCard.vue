@@ -40,8 +40,8 @@ function position(metric, v, months) {
   if (!genderKey.value) return null
   const ref = refAt(genderKey.value, metric, months)
   if (!ref) return null
-  if (v < ref.p3) return { cls: 'out-low', label: '低于 P3', tip: '建议儿保评估(筛查线,非诊断)' }
-  if (v > ref.p97) return { cls: 'out-high', label: '高于 P97', tip: '建议儿保评估(筛查线,非诊断)' }
+  if (v < ref.p3) return { cls: 'out-low', label: '低于 P3', tip: '建议儿保评估（筛查线，非诊断）' }
+  if (v > ref.p97) return { cls: 'out-high', label: '高于 P97', tip: '建议儿保评估（筛查线，非诊断）' }
   const where = v >= (ref.p3 + ref.p50) / 2 ? '区间中上段' : '区间中下段'
   return { cls: 'in', label: `P3-P97 内 · ${where}`, tip: '沿自身通道稳定生长即为正常' }
 }
@@ -145,7 +145,7 @@ function chart(metric) {
   const last = recs[recs.length - 1]
   const lastRef = band ? refAt(genderKey.value, metric, last.months) : null
   const bandTxt = lastRef
-    ? `参考 ${last.months}月:P3 ${lastRef.p3.toFixed(1)} · P50 ${lastRef.p50.toFixed(1)} · P97 ${lastRef.p97.toFixed(1)}`
+    ? `参考 ${last.months}月：P3 ${lastRef.p3.toFixed(1)} · P50 ${lastRef.p50.toFixed(1)} · P97 ${lastRef.p97.toFixed(1)}`
     : ''
   return { bandPath, line, p50Line, dots, labels, yTicks, xTicks, bandTxt, x0, x1 }
 }
@@ -205,11 +205,11 @@ const list = computed(() => records.value.slice(-6).reverse())
       <div v-for="t in trendRows" :key="t.label" class="trend" :class="t.cross >= 2 ? 'alert' : 'mild'">
         <span class="tw">{{ t.label }}较上次 {{ t.from }} → {{ t.to }}</span>
         <span class="tt">{{ t.cross >= 2
-          ? (t.up ? '上跨两条参考线,超速生长也建议评估' : '下跨两条参考线,偏离自身通道')
-          : '跨一条参考线——先复测确认,家庭测量误差常见' }}<template v-if="t.cross >= 2">;复测仍如此,带记录看儿保</template></span>
+          ? (t.up ? '上跨两条参考线，超速生长也建议评估' : '下跨两条参考线，偏离自身通道')
+          : '跨一条参考线——先复测确认，家庭测量误差常见' }}<template v-if="t.cross >= 2">；复测仍如此，带记录看儿保</template></span>
       </div>
     </div>
-    <div v-if="trendStable" class="trend calm">两次记录同一参考区间,沿自身通道稳定生长</div>
+    <div v-if="trendStable" class="trend calm">两次记录同一参考区间，沿自身通道稳定生长</div>
 
     <div v-if="hChart" class="chart">
       <div class="ct">身高 cm<span v-if="genderKey" class="cb">{{ hChart.bandTxt }}</span></div>
@@ -232,7 +232,7 @@ const list = computed(() => records.value.slice(-6).reverse())
         <div v-if="hoverH" class="tip" :class="{ flip: hoverH.flip }" :style="{ left: (hoverH.x / 300 * 100) + '%' }">
           <b>{{ hoverH.month }} 月龄</b>
           <span v-if="hoverH.ref">推荐 P3 {{ hoverH.ref.p3.toFixed(1) }} · P50 {{ hoverH.ref.p50.toFixed(1) }} · P97 {{ hoverH.ref.p97.toFixed(1) }}</span>
-          <span v-if="hoverH.rec">实测 {{ hoverH.rec.v }}({{ hoverH.rec.months }}月 {{ hoverH.rec.date }})</span>
+          <span v-if="hoverH.rec">实测 {{ hoverH.rec.v }}（{{ hoverH.rec.months }}月 {{ hoverH.rec.date }}）</span>
         </div>
       </div>
     </div>
@@ -257,11 +257,11 @@ const list = computed(() => records.value.slice(-6).reverse())
         <div v-if="hoverW" class="tip" :class="{ flip: hoverW.flip }" :style="{ left: (hoverW.x / 300 * 100) + '%' }">
           <b>{{ hoverW.month }} 月龄</b>
           <span v-if="hoverW.ref">推荐 P3 {{ hoverW.ref.p3.toFixed(1) }} · P50 {{ hoverW.ref.p50.toFixed(1) }} · P97 {{ hoverW.ref.p97.toFixed(1) }}</span>
-          <span v-if="hoverW.rec">实测 {{ hoverW.rec.v }}({{ hoverW.rec.months }}月 {{ hoverW.rec.date }})</span>
+          <span v-if="hoverW.rec">实测 {{ hoverW.rec.v }}（{{ hoverW.rec.months }}月 {{ hoverW.rec.date }}）</span>
         </div>
       </div>
     </div>
-    <div v-if="!genderKey" class="src">档案未填性别,暂无参考区间对照——回对话补一下性别即可。</div>
+    <div v-if="!genderKey" class="src">档案未填性别，暂无参考区间对照——回对话补一下性别即可。</div>
 
     <button class="tgl" @click="listOpen = !listOpen">{{ listOpen ? '收起 ▴' : `详细记录 ${records.length} 条 ▸` }}</button>
     <div v-if="listOpen || capForce" class="rlist">
@@ -273,9 +273,9 @@ const list = computed(() => records.value.slice(-6).reverse())
         <span class="rv">{{ r.weight ? r.weight + 'kg' : '—' }}</span>
       </div>
     </div>
-    <div class="src">区间:WS/T 423—2022(<a class="klink" href="site/growth.html" target="_blank">知识库·生长监测</a>) · 筛查参照非诊断,出区间或跨百分位线建议儿保<template v-if="records.length < 2">;再记一笔(下月儿保/在家量)即长出曲线与参考带</template></div>
+    <div class="src">区间：WS/T 423—2022（<a class="klink" href="site/growth.html" target="_blank">知识库·生长监测</a>） · 筛查参照非诊断，出区间或跨百分位线建议儿保<template v-if="records.length < 2">；再记一笔（下月儿保/在家量）即长出曲线与参考带</template></div>
   </template>
-  <div v-else class="src">还没有生长记录——儿保体检本的身高体重抄回来:对话里说「记一下身高体重」,曲线和参考区间就亮了。</div>
+  <div v-else class="src">还没有生长记录——儿保体检本的身高体重抄回来：对话里说「记一下身高体重」，曲线和参考区间就亮了。</div>
   </div>
 </template>
 

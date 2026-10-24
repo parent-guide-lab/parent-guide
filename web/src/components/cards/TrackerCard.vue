@@ -6,7 +6,9 @@
 // 样式全锁图纸语言:mnums 大数字(里程碑/问题卡同族)/st 描边徽章(全局)/
 // Georgia 组标题(前瞻卡月分组同族)/虚线行分隔。
 import { computed } from 'vue'
+import { cnpunct } from '../../lib/util.js'
 const props = defineProps({ block: Object, kid: Object })
+const punct = (s) => cnpunct(String(s ?? ''))
 
 const p = computed(() => props.block?.props || {})
 const title = computed(() => p.value.title || '记录')
@@ -46,24 +48,24 @@ const toneOf = (it) =>
 </script>
 
 <template>
-  <div class="cband"><h3>{{ title }}</h3></div>
+  <div class="cband"><h3>{{ punct(title) }}</h3></div>
   <div class="cbody">
     <template v-if="items.length">
       <div v-if="head.length" class="mnums num-serif">
         <span v-for="(h, i) in head" :key="i" class="mn">
-          <i :style="{ color: `var(--${h.tone})` }">{{ h.n }}</i><small>{{ h.label }}</small>
+          <i :style="{ color: `var(--${h.tone})` }">{{ h.n }}</i><small>{{ punct(h.label) }}</small>
         </span>
       </div>
       <div v-for="(g, gi) in groups" :key="gi" class="tgrp">
-        <div v-if="g.label" class="tgrp-t">{{ g.label }} · {{ g.items.length }}</div>
+        <div v-if="g.label" class="tgrp-t">{{ punct(g.label) }} · {{ g.items.length }}</div>
         <div v-for="(it, ii) in g.items" :key="ii" class="trow">
-          <span v-if="it.badge" class="st" :class="toneOf(it)">{{ it.badge }}</span>
-          <span class="t">{{ it.text }}</span>
-          <span v-if="it.meta" class="meta">{{ it.meta }}</span>
+          <span v-if="it.badge" class="st" :class="toneOf(it)">{{ punct(it.badge) }}</span>
+          <span class="t">{{ punct(it.text) }}</span>
+          <span v-if="it.meta" class="meta">{{ punct(it.meta) }}</span>
         </div>
       </div>
     </template>
-    <div v-else class="src">还没有条目——回到对话对 AI 说「{{ title }}加上…」即可记录。</div>
+    <div v-else class="src">还没有条目——回到对话对 AI 说「{{ punct(title) }}加上…」即可记录。</div>
   </div>
 </template>
 

@@ -119,16 +119,16 @@ async function doExport() {
           <aside class="share-side">
             <div class="opt-chips">
               <button class="opt-chip" :class="{ on: ver === 'mobile' }" @click="ver = 'mobile'"
-                      title="375px 单列,与手机端渲染同构——发微信">手机版·单列</button>
+                      title="375px 单列，与手机端渲染同构——发微信">手机版·单列</button>
               <button class="opt-chip" :class="{ on: ver === 'desktop' }" @click="ver = 'desktop'"
                       title="12 列板面原样——存档/打印底稿">桌面版·原样</button>
             </div>
-            <p class="foot-hint">两版内容相同(折叠区全展开+截至日期角标),只差版式。</p>
+            <p class="foot-hint">两版内容相同（折叠区全展开+截至日期角标），只差版式。</p>
 
             <div class="side-foot">
               <button class="btn primary" :disabled="exporting" @click="doExport">{{ exporting ? '生成中…' : '导出长图(保存图片)' }}</button>
-              <button class="btn sub" @click="emit('print')">PDF(打印/存档)</button>
-              <button class="btn sub" @click="emit('report')">单文件网页(转发/存档)</button>
+              <button class="btn sub" @click="emit('print')">PDF（打印/存档）</button>
+              <button class="btn sub" @click="emit('report')">单文件网页（转发/存档）</button>
             </div>
           </aside>
 

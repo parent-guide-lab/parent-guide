@@ -6,7 +6,7 @@
 // 默认折叠计数(issue 卡「已解决」同款交互,capExpand 强制展开)。挂问题的计划
 // 行内带 P 号可点开病历(与档案卡当前关注 chips 同语言)。
 import { computed, inject, ref } from 'vue'
-import { fullDate } from '../../lib/util.js'
+import { fullDate, cnpunct } from '../../lib/util.js'
 
 const props = defineProps({ block: Object, kid: Object })
 const emit = defineEmits(['open-issue'])
@@ -54,16 +54,16 @@ const startedLabel = (s) => {
       <div v-for="s in running" :key="s.id" class="srow">
         <div class="shd">
           <span class="st" :class="stOf(s)[1]">{{ stOf(s)[0] }}</span>
-          <span class="nm">{{ s.name }}</span>
+          <span class="nm">{{ cnpunct(s.name) }}</span>
           <span class="sd">{{ startedLabel(s) }} 起</span>
         </div>
-        <div v-if="s.applied" class="sap">{{ s.applied }}</div>
+        <div v-if="s.applied" class="sap">{{ cnpunct(s.applied) }}</div>
         <div v-if="(s.issues || []).length || s.evidence" class="smeta">
           <template v-if="(s.issues || []).length">挂
             <a v-for="pid in s.issues" :key="pid" class="plink"
                title="点击查看病历详情" @click="emit('open-issue', pid)">{{ pid }}</a>
           </template>
-          <span v-if="s.evidence" :class="{ lead: (s.issues || []).length }">{{ s.evidence }}</span>
+          <span v-if="s.evidence" :class="{ lead: (s.issues || []).length }">{{ cnpunct(s.evidence) }}</span>
         </div>
       </div>
 
@@ -74,13 +74,13 @@ const startedLabel = (s) => {
       <div v-for="s in closedShown" :key="'c' + s.id" class="srow dim">
         <div class="shd">
           <span class="st" :class="stOf(s)[1]">{{ stOf(s)[0] }}</span>
-          <span class="nm">{{ s.name }}</span>
+          <span class="nm">{{ cnpunct(s.name) }}</span>
           <span class="sd">{{ startedLabel(s) }} 起</span>
         </div>
-        <div v-if="s.applied" class="sap">{{ s.applied }}</div>
+        <div v-if="s.applied" class="sap">{{ cnpunct(s.applied) }}</div>
       </div>
     </template>
-    <div v-else class="src">还没有计划——聊到想养成的习惯或想启动的事(如厕/启蒙/作息调整)时说「帮我定个计划」,这里会列出来,回访到期今日卡见。</div>
+    <div v-else class="src">还没有计划——聊到想养成的习惯或想启动的事（如厕/启蒙/作息调整）时说「帮我定个计划」，这里会列出来，回访到期今日卡见。</div>
   </div>
 </template>
 

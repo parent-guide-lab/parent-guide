@@ -61,7 +61,7 @@ const events = computed(() => {
   const i = issue.value
   if (!i) return []
   const ev = [{ date: i.opened, dstr: fullDate(i.opened), big: '立案',
-                text: `${i.name} 开题${i.status === 'watching' ? '(观察)' : ''}` }]
+                text: `${i.name} 开题${i.status === 'watching' ? '（观察）' : ''}` }]
   if (i.judged && i.brief?.what) ev.push({ date: i.judged, dstr: fullDate(i.judged), big: '判定', text: i.brief.what })
   if (i.status === 'resolved' && i.closed)
     ev.push({ date: i.closed, dstr: fullDate(i.closed), big: '结案', closed: true,
@@ -130,7 +130,7 @@ const briefSections = computed(() => {
             </div>
 
             <div v-if="issue.brief?.redline" class="redline">
-              <h4>出现这些直接就医,不等观察</h4>
+              <h4>出现这些直接就医，不等观察</h4>
               <p>{{ zhPunct(issue.brief.redline) }}</p>
             </div>
 

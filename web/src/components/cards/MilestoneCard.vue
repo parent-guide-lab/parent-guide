@@ -1,6 +1,6 @@
 <script setup>
 import { computed, inject, ref } from 'vue'
-import { monthsAge, nearestMilestone } from '../../lib/util.js'
+import { monthsAge, nearestMilestone, cnpunct } from '../../lib/util.js'
 
 const props = defineProps({ block: Object, kid: Object })
 // 页级长图生成期间强制展开(App 注入;平时为 false,用户折叠状态不受影响)
@@ -57,14 +57,14 @@ const nextStep = computed(() => {
       <template v-else>
         <div v-for="(i, idx) in (pack.data.items || [])" :key="idx" class="mrow">
           <span class="st" :class="i.status">{{ stLabel[i.status] || i.status }}</span>
-          <span style="color:var(--sub);flex:none;width:5.5em">{{ i.domain }}</span>
-          <span>{{ i.text }}</span>
+          <span style="color:var(--sub);flex:none;width:5.5em">{{ cnpunct(i.domain) }}</span>
+          <span>{{ cnpunct(i.text) }}</span>
         </div>
         <button v-if="allDone" class="tgl" @click="folded = true">收起 ▴</button>
       </template>
-      <div class="src">来源:{{ pack.data.source }}<template v-if="assessed"> · 盘于 {{ assessed }}</template></div>
+      <div class="src">来源：{{ cnpunct(pack.data.source) }}<template v-if="assessed"> · 盘于 {{ assessed }}</template></div>
     </template>
-    <div v-else class="src">还没盘过这个月龄。回到对话说「做个发育盘点」,几分钟判定完会显示在这里。</div>
+    <div v-else class="src">还没盘过这个月龄。回到对话说「做个发育盘点」，几分钟判定完会显示在这里。</div>
   </div>
 </template>
 
