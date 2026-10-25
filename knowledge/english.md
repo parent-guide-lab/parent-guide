@@ -25,8 +25,8 @@
 > Reading Rockets 五指法则页(原文级)+系列体量·渠道·价格带·点读笔生态
 > (转述级,底稿 §12);2026-10-19(R7 需求扫描→)R8 执行层与片单=BC 激励页·AAP 双语
 > FAQ·BC 教师版音素图表页(原文级)+常青动画出品方与渠道(摘要/转述级,
-> 底稿 §14);全部 URL 与分级见
-> docs/english-enlightenment-research-2026-10-17.md §7/§9/§10/§11/§12/§14**
+> 底稿 §14);URL 与分级=文末 §7 来源清单,逐轮调研细节/引语逐字归档/
+> 矛盾处理见 docs/english-enlightenment-research-2026-10-17.md §5-§14**
 
 ## 0. 一句话结论与三条纪律
 
@@ -387,8 +387,112 @@ Courage 2021 原文级);**成人支架优于 app 内置反馈**(Walter-Laager 20
 
 ## 7. 来源与时效
 
-全部来源 URL、溯源分级、矛盾处理与待补研清单见
+逐轮调研细节、引语逐字归档、矛盾处理与待补研清单见
 docs/english-enlightenment-research-2026-10-17.md(§5 矛盾/§7 来源/
-§8 待补研;第二轮增补=自然拼读/家长带法/AI 品类/泛读全文,见 §9;
-第三轮=分阶段路线五段深调与谱系,见 §10;R4-R8=交叉验证/遗留清偿/购买层/需求扫描/执行层与片单,见 §11-§14)。本篇 §3 为时点快照,
+§8 待补研;第二轮=自然拼读/家长带法/AI 品类/泛读全文,见 §9;
+第三轮=分阶段路线五段深调与谱系,见 §10;R4-R8=交叉验证/遗留清偿/购买层/需求扫描/执行层与片单,见 §11-§14)。本篇 §3/§3.5 为时点快照,
 复审优先核对渠道与价格(审计台账 docs/knowledge-audit-LOG.md)。
+
+**来源清单(2026-10-25 补链;访问日期=各轮调研时点 2026-10-17/18/19,逐轮见头注;分级沿用各轮核验记录,与正文标注一致;链接死活随下次复审重查)**:
+
+| 来源 | 分级 | 链接 |
+|---|---|---|
+| ASHA Bilingual Service Delivery(混说/词汇分布/单语常模不适用) | 原文级 | [asha.org](https://asha.org/practice-portal/professional-issues/bilingual-service-delivery/) |
+| WHO 2019 身体活动/屏幕指南新闻稿 | 原文级 | [who.int](https://who.int/news/item/24-04-2019-to-grow-up-healthy-children-need-to-sit-less-and-play-more) |
+| HealthyChildren(AAP)屏幕政策解读页 | 原文级 | —(healthychildren.org,底稿路径缩记) |
+| HealthyChildren(AAP)双语 FAQ「7 Myths & Facts」(确诊障碍可学双语) | 原文级 | —(healthychildren.org,页直链未记) |
+| AAP 5C 框架(选片/共视/延伸活动) | 转述级 | —(aap.org,具体页未记) |
+| CDC 里程碑检查表(4/5 岁写前条目) | 原文级 | [cdc.gov/milestones](https://www.cdc.gov/milestones)(hub,经 milestones.md 记录) |
+| NRP 2000 官方报告页(拼读小节,K-1 最强/母语样本) | 原文级 | [nichd.nih.gov](https://www.nichd.nih.gov/publications/pubs/nrp/findings) |
+| BC 家长页 how-start-teaching-kids-english-home(15 分钟/英语不完美/指图三段) | 原文级 | [learnenglishkids.britishcouncil.org](https://learnenglishkids.britishcouncil.org/parents/helping-your-child/how-start-teaching-kids-english-home) |
+| BC top-tips:keep-english-sessions-short-varied(10-15 分钟) | 原文级 | [learnenglishkids.britishcouncil.org](https://learnenglishkids.britishcouncil.org/parents/top-tips/keep-english-sessions-short-varied) |
+| BC top-tips:sing-songs-english-your-baby(「你的声音最好」) | 原文级 | [learnenglishkids.britishcouncil.org](https://learnenglishkids.britishcouncil.org/parents/top-tips/sing-songs-english-your-baby) |
+| BC helping-your-child(「不需要像母语者」) | 原文级 | [learnenglishkids.britishcouncil.org](https://learnenglishkids.britishcouncil.org/parents/helping-your-child) |
+| BC how-young-children-learn-english-another-language(理解大于口语/不强迫重复) | 原文级 | [learnenglishkids.britishcouncil.org](https://learnenglishkids.britishcouncil.org/how-young-children-learn-english-another-language) |
+| BC 激励页 motivating-your-child(§2.7 抵触五策) | 原文级 | [learnenglishkids.britishcouncil.org](https://learnenglishkids.britishcouncil.org/parents/helping-your-child/motivating-your-child) |
+| BC 教师版 silent-period(沉默期定义) | 原文级 | [teachingenglish.org.uk](https://www.teachingenglish.org.uk/article/silent-period) |
+| BC 教师版 using-flashcards(图卡先于字卡/Simon says) | 原文级 | [teachingenglish.org.uk](https://www.teachingenglish.org.uk/professional-development/teachers/managing-resources/articles/using-flashcards-young-learners) |
+| BC 教师版音素图表页(音标=5 岁以上发音工具) | 原文级 | —(teachingenglish.org.uk,页直链未记) |
+| BC Voices:phonics 分龄序列(3/4/5 岁)+多来源说话者句 | 原文级 | —(底稿未记直链) |
+| GOSH 12-24 月语言发展页(理解约为输出 5 倍) | 原文级 | [gosh.nhs.uk](https://www.gosh.nhs.uk/conditions-and-treatments/procedures-and-treatments/speech-and-language-development-12-24-months) |
+| Reading Rockets:sight words 与正字法映射 | 原文级 | [readingrockets.org](https://www.readingrockets.org/reading-101/reading-and-writing-basics/sight-words-and-orthographic-mapping) |
+| Reading Rockets:decodable books | 原文级 | [readingrockets.org](https://www.readingrockets.org/article/what-are-decodable-books-and-why-are-they-important) |
+| Reading Rockets:五指法则 | 原文级 | —(readingrockets.org,页直链未记) |
+| NC DPI pre-k 音韵活动清单(全部口头不出现字母) | 机构级 | —(北卡 DPI,页直链未记) |
+| BookTrust 1-2 岁书单(纸板书主体) | 原文级 | —(直链未记) |
+| CSM 选片口径(短集/慢节奏/无广告/关自动播放) | 机构级 | —(common sense media,经 AAP 5C 并引) |
+| Raising Children Network(传承语从出生交流) | 原文级 | —(raisingchildren.net.au,直链未记) |
+| F&P 官方 FAQ(否认与蓝思有官方对照表) | 摘要级 | — |
+| Kuhl 2003(真人 vs 电视/纯音频;UW 通稿) | 转述级 | —(washington.edu 通稿,路径缩记) |
+| Hartshorne 2018(约 67 万人语法学习关键期;MIT 通稿) | 转述级 | [news.mit.edu](https://news.mit.edu/2018/cognitive-scientists-define-critical-period-learning-language-0501) |
+| DeLoache 2010(早教 DVD 无增益) | Sage 摘要级 | [journals.sagepub.com](https://journals.sagepub.com/doi/abs/10.1177/0956797610384145) |
+| Roseberry 2014(实时应答式互动学词) | 原文级 | [PMC3962808](https://pmc.ncbi.nlm.nih.gov/articles/PMC3962808/) |
+| Dick 2019(控制人口学后双语执行优势消失) | 原文级 | [PMC7156280](https://pmc.ncbi.nlm.nih.gov/articles/PMC7156280/) |
+| Perry 2026(学业优势基本不由认知中介) | 原文级 | [PMC13212884](https://pmc.ncbi.nlm.nih.gov/articles/PMC13212884/) |
+| Buac & Kaushanskaya 2023(非母语输入不损害;可懂度预测/语法不预测) | 原文级 | —(webReader 全文直读,直链未记) |
+| Quirk 2024(双语共读互动量质跨形态稳定) | 原文级 | —(PMC,编号未记) |
+| Zhou 2025 双语共读综述 | 摘要级 | — |
+| Li & Pang(dialogic reading 长期保持弱) | 转述级 | —(付费墙) |
+| Nakanishi 2015 泛读 meta | ERIC 摘要级 | [ERIC EJ1052150](https://eric.ed.gov/?id=EJ1052150) |
+| Jeon & Day 2016 泛读 meta(49 研究/71 样本/学前零) | 原文级 | [ERIC EJ1117026](https://eric.ed.gov/?id=EJ1117026) |
+| Sangers 2025 泛读 meta(限级别+问责调节) | 原文级 | —(Springer OA 文章页直读,直链未记全) |
+| Odo 2021 拼读 L2 meta(g=0.53) | 转述级 | —(SAGE Open) |
+| Strouse & Samson 2021(视频学习≈真人一半) | 摘要级 | —(Europe PMC,编号未记) |
+| Courage 2021(约 3 岁视频学习缺陷消退) | 原文级 | —(PMC,编号未记) |
+| Meyer & Zosh 2021(受检 app 与商店主流不同) | 原文级 | — |
+| Walter-Laager 2016(成人支架优于 app 内置反馈) | 原文级(经 Courage 引) | — |
+| Werker & Tees 1984(语音辨别窄化) | 原文级 | — |
+| Morales 2000(应答性共同注意预测词汇) | 原文级 | — |
+| Tenenbaum 2014(注视跟随预测词汇) | 原文级 | — |
+| Krcmar 2007(<22 月视频学词失败) | 摘要级 | [doi.org](https://doi.org/10.1080/15213260701300931) |
+| Tare 2010(翻翻书妨碍词-物映射) | 原文级 | [PMC2952631](https://pmc.ncbi.nlm.nih.gov/articles/PMC2952631/) |
+| Horst 2011(重复读同一本) | 原文级 | —(Frontiers in Psychology 2:17) |
+| Schwab & Lew-Williams 2016(新词邻近复现) | 原文级 | — |
+| Strouse 2018(父母示范式共看) | 原文级 | — |
+| Kirkorian 2009(背景电视降互动量质) | 原文级 | — |
+| Suarez-Rivera 2024(背景声挤占互动) | 原文级 | — |
+| Samudra 2019(共视增益集中弱基线) | 原文级 | — |
+| Wright 2001(内容类型>时长) | 原文级 | — |
+| Mares & Pan 2013(芝麻街 15 国 meta) | 原文级(ERIC) | —(编号未记) |
+| Lillard 2011/2015(快节奏/奇幻设定损害 EF 两说) | 摘要级 | — |
+| Lopukhina 2025(学前儿童基本不看字幕) | 摘要级 | — |
+| Grøver 2020(挪威 cluster-RCT,d=0.25-0.66) | 摘要级 | [doi.org](https://doi.org/10.1111/cdev.13348) |
+| Lyster 2013(recast 重述) | 转述级 | — |
+| Huang & Hanley 1995(英国/香港/台湾三地对比) | 转述级 | — |
+| Liang 拼音相关 meta(Z≈0.35-0.38) | 摘要级 | — |
+| Frontiers in Psychology 2025(拼音学习未损害英语词汇) | 原文级 | — |
+| 转述级补块群(Bryant 1989 儿歌链/Byers-Heinlein 2010/Gordon 2015/René 2025/剑桥 BabyRhythm/Nathanson 2011/Troseth-Barr 系/Unsworth·Hoff·Paradis 经 Buac 引) | 转述级 | —(逐条见底稿 §9/§10) |
+| Dialogic reading 综述(CROWD 提问) | 原文级 | — |
+| Oxford Owl:reading-schemes-oxford-levels(20 级/年龄对照/eBook 库) | 原文级 | [home.oxfordowl.co.uk](https://home.oxfordowl.co.uk/reading/reading-schemes-oxford-levels/) |
+| OUP 中国官网 ORT 页(系列构成/Stage 1-5) | 原文级 | [oup.com.cn](https://www.oup.com.cn/zh/early-childhood-education/oxford-reading-tree) |
+| 典范英语官网(弘书阁授权改编教材版) | 原文级 | [dianfanyingyu.com](https://www.dianfanyingyu.com/newsinfo/4537499.html) |
+| 小彼恩产品页(毛毛虫封闭生态/点读包续用) | 原文级 | [xiaobien.com](https://www.xiaobien.com/product/detail/diandubao-11199) |
+| Learning A-Z 帮助中心/产品页(29 级/官方无标价) | 原文级 | [help.learninga-z.com](https://help.learninga-z.com/en/articles/13746744) |
+| raz-kids.com / raz-plus.com 样例页 | 原文级 | [raz-kids.com](https://www.raz-kids.com) / [raz-plus.com](https://www.raz-plus.com/samples) |
+| 伴鱼官网(1v1 现行「素质培养」文案) | 原文级 | [banyu.com](https://www.banyu.com) |
+| App Store:ABC Reading(27 级/价档) | 原文级 | [apps.apple.com](https://apps.apple.com/cn/app/id1338646799) |
+| App Store:伴鱼绘本/伴鱼少儿英语(价档) | 原文级 | [apps.apple.com](https://apps.apple.com/cn/app/id1203189645) / [id6736818693](https://apps.apple.com/cn/app/id6736818693) |
+| App Store:小小优趣/斑马AI学/叽里呱啦(品类价格快照) | 原文级 | —(商店页直读,ID 未记) |
+| 红火箭官方分层页(15 级/蓝盒黄盒) | 原文级 | [redrocketreaders.com](https://www.redrocketreaders.com) |
+| 兰登 Step into Reading(Step 1 在售 244 种) | 原文级 | — |
+| supersimple.com(SSS 官网,慢速动作导向) | 摘要级 | [supersimple.com](https://supersimple.com) |
+| 小小优趣官网(片单在架证据主源) | 原文级 | [ukids.cn](https://www.ukids.cn) |
+| BBC CBeebies 官方页(Yakka Dee 定位/Numberblocks Bitesize 段) | 摘要级(Bitesize 段原文级) | —(直链未记) |
+| 芒果TV(Peppa Pig 新季在架) | 原文级 | — |
+| IMDb(Numberblocks 3-6 岁) | 转述级 | — |
+| 海尼曼新东方首发(中国日报)/外研社大猫/知乎家庭版校园版深度文 | 摘要级 | —(底稿 §12) |
+| 新华网双减《意见》全文 | 原文级 | [xinhuanet.com](http://www.xinhuanet.com/politics/zywj/2021-07/24/c_1127691094.htm) |
+| 教育部变相违规查处通知(2021-09) | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202109/t20210908_560508.html) |
+| 学科类鉴别通知(教监管厅函〔2021〕3 号) | 转述级(经摘要转引) | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202107/t20210730_547807.html) |
+| 教育部 2021-12 学前 App 备案通知 | 原文级 | —(官网原文逐字核验,直链未记) |
+| 义务教育课程方案 2022(英语三年级起点) | 转述级 | [moe.gov.cn PDF](http://www.moe.gov.cn/srcsite/A26/s8001/202204/W020220420582343217634.pdf) |
+| 央广网奇奇学×牛津通稿(BCK 大陆独家授权措辞) | 转述级 | [edu.cnr.cn](http://edu.cnr.cn/gc/20251118/t20251118_527434088.shtml) |
+| smzdm 凯迪克退市分析 | 转述级 | [post.smzdm.com](https://post.smzdm.com/p/a3mozz07) |
+| 中国消费者报 RAZ 判例报道 | 转述级 | [zxb.ccn.com.cn](http://zxb.ccn.com.cn/html/zxb/20250317/131491.html) |
+| 多知网同案报道 | 转述级 | [duozhi.com](https://www.duozhi.com/industry/insight/2025031717090.shtml) |
+| 36氪等伴鱼行业报道 | 线索级 | [36kr.com](https://36kr.com/p/841458917640199) 等 |
+| 市场校验三篇(新浪/CSDN/知乎,2026-09/10) | 内容农场级(仅价格区间交叉校验) | —(底稿 §11.6 市场校验段) |
+
+注:链接由底稿记录的 URL 与编号(PMC/DOI/ERIC/App Store ID/官网路径)
+按原样展开(仅补 https 前缀);「—」=底稿未记直链,如实标注不补造,
+升级即补(挂台账遗留);访问日期=各轮调研时点(头注逐轮已注)。
