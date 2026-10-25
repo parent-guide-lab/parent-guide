@@ -25,8 +25,8 @@
 > Reading Rockets 五指法则页(原文级)+系列体量·渠道·价格带·点读笔生态
 > (转述级,底稿 §12);2026-10-19(R7 需求扫描→)R8 执行层与片单=BC 激励页·AAP 双语
 > FAQ·BC 教师版音素图表页(原文级)+常青动画出品方与渠道(摘要/转述级,
-> 底稿 §14);URL 与分级=文末 §7 来源清单,逐轮调研细节/引语逐字归档/
-> 矛盾处理见 docs/english-enlightenment-research-2026-10-17.md §5-§14**
+> 底稿 §14);2026-10-25 R10 优先级+记忆个体差异+低暴露预期=Weisleder & Fernald 2013·Masek 2021·Storkel 2019·Pillinger & Vardy 2022·Kucker 2025·Nakamura 2023·Speciale 2004·Adlof & Patten 2017(原文级)+Ojima 2011(摘要级)+NAEYC 反闪卡页(机构级)+Flege 1999·Muñoz·Lauricella 2011·Hirsh-Pasek 2015·Spiegel & Halberda 2011(转述/检索级),底稿 docs/english-32m-priority-research-2026-10-25.md;URL 与分级=文末 §7 来源清单,逐轮调研细节/引语逐字归档/
+> 矛盾处理见各轮底稿**
 
 ## 0. 一句话结论与三条纪律
 
@@ -57,6 +57,7 @@ RAZ=细粒度分级泛读体系(刷量扩阅读)、伴鱼=app 跟读打分+外�
 | 「家长英语不好,自己教会教坏」 | **不成立,但分层**。非母语输入与略弱的语言技能相关但不构成损害(49 名双语幼儿 96% 处于典型发展范围,Buac 2023 原文级——移民双语情境,外推降档);**可懂度正向预测、语法错误率不预测**;低熟练度纯家长输入的词汇增量有限(转述级)——家长管互动与热情,母语级输入交给原声资源 | Buac 2023/British Council |
 | 「先学拼音会和英语搞混」 | **主流研究是正迁移**。拼音技能与中文阅读/拼写显著相关(相关研究 meta,Z≈0.35-0.38,非因果);接受过拼音/注音训练的儿童语音意识强于只学英文字母者(组间比较);字母层混淆(shi↔she 类)存在、双向、属暂时现象,不损害英语词汇习得 | Huang & Hanley 1995/Liang meta/Frontiers 2025(分级见 §2.6) |
 | 「听力词汇要攒够 1000 词才能开口/进阶」 | **无官方口径**。BC/AAP/WHO 均未设任何词汇量门槛,社区流传的「1000 词」类阈值无引证来源,不背书(与剂量口径同款纪律)——不看数字,看理解与兴趣信号(§2.5/§2.7) | 本库纪律 |
+| 「孩子记性好,适合闪卡/早点背」 | **查无+机构否定**。记忆能力×输入方式的交互效应无任何实证;机构口径明确:「闪卡不是帮助幼儿建立语言与读写能力的有效方式」「记住了常常被误当成学会了」(NAEYC,原文级)。记忆好的正确用法=让重复更便宜,不是转向背诵(§2.8) | NAEYC/§2.8 |
 
 ## 2. 什么有效、什么无证据(证据层)
 
@@ -168,6 +169,49 @@ RAZ=细粒度分级泛读体系(刷量扩阅读)、伴鱼=app 跟读打分+外�
 - **何时才需要担忧**:不开口本身不是红旗——理解在涨就不是;沉默期
   「过度延长」才需与选择性缄默等鉴别,两语合计触里程碑红线走专业评估
   (T2,§1/§4)。
+
+## 2.8 低暴露家庭:优先级、记忆个体差异与预期(2026-10-25 R10)
+
+> 本节回答「家里每天只有一小段,做什么最重要、怎么预期」。三轮并行调研
+> (记忆×语言/输入质量/低暴露 EFL)+主会话复核,全部来源 URL 与分级见
+> 底稿 docs/english-32m-priority-research-2026-10-25.md。
+
+- **优先级序(证据从强到弱)**:①**应答性互动**——直接对儿童说的话与
+  词汇强相关(r=0.57),旁听/背景言语零关联(Weisleder & Fernald 2013,
+  原文级);"contingency 在语言学习中的力量无可争辩",会话轮换解释此后
+  十年语言方差的 19-32%(Masek 2021 综述,原文级;Gilkerson 2018 经其
+  转引,转述级)——「量」必须嵌在互动里才起作用;②**重复读同一本书**
+  ——词频相同时,同本重复比换书读一周保持高约 150%(Horst 2011,原文级,
+  39-48 月外推降档);剂量机制=总累计曝光是关键、分布灵活,但撤除后
+  5-6 天仅保持约 40%(Storkel 2019,原文级,DLD 临床样本降档)——持续
+  每天优于密集突击,词汇忘了再遇回来不算白学;③对话式共读整体中等效应
+  (<36 月 d≈0.38,Dunst 2012 机构 meta 降半档;表达性增益维持 3-9 月,
+  Pillinger & Vardy 2022 系统综述,原文级;PEER/CROWD 各技巧成分无拆解
+  比较,如实);④儿歌=高重复、可暂停等接词的优质载体,独立增益证据
+  不足(Bryant 1989 纵向相关设计;RCT 缺乏);⑤动画=共视条件下的补充位,
+  媒体对词汇的影响被照护人言语的质与量完全中介(Kucker 2025 综述,
+  原文级;Sundqvist 2022 经其转引)——陪看是必要条件不是加分项。
+- **剂量与预期(诚实线)**:每天 10-20 分钟≈清醒时间 1-2%;文献参照=
+  接受性词汇接近单语范围需 40-60% 暴露、表达性约 70%(Thordardottir/
+  Pearson 经 Nakamura 2023 转述,精度存疑)——**该剂量下合理目标=接受性
+  熟悉+语音熟悉感+兴趣,产出性英语不是合理预期**;暴露小时数是唯一稳健
+  预测变量,起始年龄不是(Ojima 2011,摘要级;Muñoz 系转述级并陈;Flege
+  1999 检索级:早开始红利主要在口音且前提是足量持续输入)。「家庭仪式式
+  输入 10-20 分钟/日」的专属 RCT 查无——文献空白,如实。
+- **「孩子记忆好」怎么用**:NWR(非词重复)与词汇量关联稳健,但因果方向
+  未定(Gathercole 系 vs Melby-Lervåg 2012,两派并陈);最稳口径=言语
+  短时记忆在新语音形式学习的**早期阶段**起作用(Speciale 2004,原文级,
+  成人样本降档最重)——是顺风,不是引擎;「记忆好的孩子更适合闪卡/死记」
+  的交互效应完全查无;NAEYC 机构级否定闪卡(§1 迷思表)。fast mapping
+  口径三档拆开防误读:30 月龄单次即时映射约 6 词(Spiegel & Halberda 2011,
+  转述级)/约 4 次曝光见即时学习(Flack & Horst,转述级)/一周保持需每词
+  数十次级累计曝光(Horst 2011,原文级)——「6 次接触学会一个词」类流行
+  口径查无原始出处,不采。落地:记忆好让「重复」的枯燥成本更低,把记忆力
+  花在语境化重复上,不花在背诵展示上。
+- **熟悉角色杠杆**:幼儿从熟悉角色(如 Elmo)学词显著优于陌生角色(24 月段
+  实验,Lauricella 2011,转述级×2 独立二手引证;准社会关系机制,Kucker
+  2025 原文级)——起步材料选孩子已痴迷的角色;对慢热儿童额外降低新事物
+  阻力为推断级(无直接抵触指标研究,如实)。
 
 ## 3. 三类工具对比(2026-10-17 时点快照)
 
@@ -326,7 +370,8 @@ Courage 2021 原文级);**成人支架优于 app 内置反馈**(Walter-Laager 20
 
 > 逐条来源、溯源分级与分段锚点见底稿 §10/§14。剂量口径只引 BC 与 WHO——英美澳官方
 > 框架均不提供量化分龄时长表,社区/商业侧的分钟数与「累计小时」阈值
-> 一律无引证、不背书。
+> 一律无引证、不背书。低暴露家庭的优先级排序、记忆个体差异与预期管理
+> 统一见 §2.8。
 
 ### 6.1 0-10 月:语音调音期
 
@@ -393,7 +438,7 @@ docs/english-enlightenment-research-2026-10-17.md(§5 矛盾/§7 来源/
 第三轮=分阶段路线五段深调与谱系,见 §10;R4-R8=交叉验证/遗留清偿/购买层/需求扫描/执行层与片单,见 §11-§14)。本篇 §3/§3.5 为时点快照,
 复审优先核对渠道与价格(审计台账 docs/knowledge-audit-LOG.md)。
 
-**来源清单(2026-10-25 补链;访问日期=各轮调研时点 2026-10-17/18/19,逐轮见头注;分级沿用各轮核验记录,与正文标注一致;链接死活随下次复审重查)**:
+**来源清单(2026-10-25 补链;访问日期=各轮调研时点 2026-10-17/18/19/25,逐轮见头注;分级沿用各轮核验记录,与正文标注一致;链接死活随下次复审重查)**:
 
 | 来源 | 分级 | 链接 |
 |---|---|---|
@@ -463,6 +508,19 @@ docs/english-enlightenment-research-2026-10-17.md(§5 矛盾/§7 来源/
 | Frontiers in Psychology 2025(拼音学习未损害英语词汇) | 原文级 | — |
 | 转述级补块群(Bryant 1989 儿歌链/Byers-Heinlein 2010/Gordon 2015/René 2025/剑桥 BabyRhythm/Nathanson 2011/Troseth-Barr 系/Unsworth·Hoff·Paradis 经 Buac 引) | 转述级 | —(逐条见底稿 §9/§10) |
 | Dialogic reading 综述(CROWD 提问) | 原文级 | — |
+| Masek et al. 2021, Dev Review(contingency 综述,R10) | 原文级 | [templeinfantlab.com](https://templeinfantlab.com/wp-content/uploads/sites/2/2021/07/Language_Masek_Where-language.pdf) |
+| Weisleder & Fernald 2013(直接言语 vs 旁听,R10) | 原文级 | [PMC5510534](https://pmc.ncbi.nlm.nih.gov/articles/PMC5510534/) |
+| Storkel et al. 2019(剂量/频次+遗忘曲线,R10;DLD 样本降档) | 原文级 | [PMC7210430](https://pmc.ncbi.nlm.nih.gov/articles/PMC7210430/) |
+| Pillinger & Vardy 2022(dialogic 系统综述,R10) | 原文级 | [reachoutandread.org PDF](https://reachoutandread.org/wp-content/uploads/2023/06/Pillinger_2022_A-story-so-far-A-systematic-review-of-the-dialogic-reading-literature.pdf) |
+| Dunst et al. 2012(<36 月共读 meta,R10;机构报告降半档) | 原文级(降半档) | [achievebeyondusa.com PDF](https://www.achievebeyondusa.com/images/virginia/Effects_of_Reading_to_Infants-and-Toddlers-on-Their-Early-Language-Development.pdf) |
+| Kucker, Barr & Perry 2025(video deficit/熟悉角色综述,R10) | 原文级 | [PMC12602769](https://pmc.ncbi.nlm.nih.gov/articles/PMC12602769/) |
+| Nakamura 2023, English Today(低暴露家庭批判综述,R10) | 原文级 | [cambridge.org](https://www.cambridge.org/core/journals/english-today/article/english-parenting-for-japanese-parents/846D83CD395DB19AC2371BBD63109B8E) |
+| Speciale, Ellis & Bywater 2004(STM×L2 词汇早期作用,R10;成人降档) | 原文级 | [umich.edu PDF](https://sites.lsa.umich.edu/nickellis-new/wp-content/uploads/sites/1284/2021/07/phonological-sequence-learning-and-short-term-store-capacity-determine-second-language-vocabulary-acquisition.pdf) |
+| Adlof & Patten 2017(NWR 预测新词学习,R10;学龄降档) | 原文级 | [PMC5544194](https://pmc.ncbi.nlm.nih.gov/articles/PMC5544194/) |
+| NAEYC 家长页「Describe, Don't Drill」(反闪卡,R10) | 机构级 | [naeyc.org](https://www.naeyc.org/our-work/families/toddlers-and-reading-describe-don%27t-drill) |
+| Ojima et al. 2011(暴露小时>起始年龄,R10) | 摘要级 | [PMID 21300112](https://pubmed.ncbi.nlm.nih.gov/21300112/) |
+| Lauricella et al. 2011(熟悉角色学习优势,R10) | 转述级(双二手引证) | —(ResearchGate 403,引证链见底稿 §7) |
+| R10 转述/检索级群(Hirsh-Pasek 2015/Flege 1999/Muñoz 系/Spiegel & Halberda 2011/Bryant 1989/Gathercole 系/Melby-Lervåg 2012/Deanda 2016 等) | 转述/检索级 | —(逐条 URL 见底稿 docs/english-32m-priority-research-2026-10-25.md §7) |
 | Oxford Owl:reading-schemes-oxford-levels(20 级/年龄对照/eBook 库) | 原文级 | [home.oxfordowl.co.uk](https://home.oxfordowl.co.uk/reading/reading-schemes-oxford-levels/) |
 | OUP 中国官网 ORT 页(系列构成/Stage 1-5) | 原文级 | [oup.com.cn](https://www.oup.com.cn/zh/early-childhood-education/oxford-reading-tree) |
 | 典范英语官网(弘书阁授权改编教材版) | 原文级 | [dianfanyingyu.com](https://www.dianfanyingyu.com/newsinfo/4537499.html) |
