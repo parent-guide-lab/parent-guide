@@ -18,7 +18,8 @@
 > Miyake 2000·Dekker 2012·Lillard 2017·Garon 2008·Wellman 2001·
 > Kassai 2019·Melby-Lervåg & Hulme 2013·Sala & Gobet 2017 等(摘要级)/
 > Lindell 2011·FTC Lumosity(转述/线索级如实)/逻辑狗德国官网材料(复用
-> 数学 R1 底稿 §4.2,原文级);全部 URL 与分级见
+> 数学 R1 底稿 §4.2,原文级);URL 与分级=文末 §5 来源清单,四路调研
+> 全量来源与探活状态见
 > docs/thinking-training-enlightenment-research-2026-10-19.md**
 
 ## 0. 一句话结论与四条纪律
@@ -273,3 +274,39 @@ CAES=.12、阅读 .09;抑制控制不预测数学。作者明示「不应视为�
 - 效应量数字忠于实际读到的层级:Scionti/Birtwistle/Morgan/Blair=原文级,
   Kassai/Melby-Lervåg/Sala & Gobet/Garon/Wellman=摘要级,Takács & Kassai
   2021=海报机构级——分级升级即数字复核(台账遗留)。
+
+**来源清单(2026-10-25 补链;访问日期=R1 调研时点 2026-10-19;分级沿用 R1 核验记录与正文标注;链接死活随下次复审重查)**:
+
+| 来源 | 分级 | 链接 |
+|---|---|---|
+| 《3-6 岁儿童学习与发展指南》全文(「思维」3 处/「思维训练」0 次通检) | 原文级 | [moe.gov.cn 原始 doc](http://www.moe.gov.cn/srcsite/A06/s3327/201210/t20121009_143254.html)(本轮经 edu.cn 28 分页 GBK 通道;moe 直链经 yuwen 清单) |
+| 《托育机构保育指导大纲》 | 原文级 | —(政府网站全文转载 rugao.gov.cn) |
+| 双减《意见》全文(学龄前专项条款) | 原文级 | [gov.cn](https://www.gov.cn/zhengce/2021-07/24/content_5627132.htm)(本轮经 moe t20210724_546576;gov.cn 直链经 yuwen 清单) |
+| 校外培训分类鉴别指南(教监管厅函〔2021〕16 号) | 原文级 | —(moe.gov.cn 直读,文号 t20211112_579358,全路径未记) |
+| EYFS Self-Regulation ELG 官方页(DfE) | 原文级 | —(gov.uk 帮助站,直链未记) |
+| CDC milestones hub(EF 术语检索) | 原文级 | [cdc.gov/milestones](https://www.cdc.gov/milestones)(经 milestones.md 记录) |
+| FTC v. Lumosity(「脑训练」处分) | 线索级 | —(处分令原文挂遗留,底稿 §8) |
+| Blair 2016(EF 与成就) | 原文级 | [PMC6051751](https://pmc.ncbi.nlm.nih.gov/articles/PMC6051751/) |
+| Morgan 2018(EF 与数学) | 原文级 | [PMC7306289](https://pmc.ncbi.nlm.nih.gov/articles/PMC7306289/) |
+| Scionti 2020(学前 EF 训练 meta) | 原文级 | —(Frontiers 全文复核,直链未记) |
+| Birtwistle & Chernikova 2025(4-6 岁组 meta) | 原文级 | —(SAGE Open 全文直读,直链未记) |
+| Miyake 2000(EF 三成分) | 摘要级 | [PMID 10945922](https://pubmed.ncbi.nlm.nih.gov/10945922/) |
+| Dekker 2012(「认知训练」fMRI 线) | 摘要级 | [PMC3475349](https://pmc.ncbi.nlm.nih.gov/articles/PMC3475349/) |
+| Lillard 2017(蒙氏 EF 证据) | 摘要级 | [PMC5670361](https://pmc.ncbi.nlm.nih.gov/articles/PMC5670361/) |
+| Garon 2008(EF 发展综述) | 摘要级 | [PMID 18193994](https://pubmed.ncbi.nlm.nih.gov/18193994/) |
+| Wellman 2001(心理理论 meta) | 摘要级 | [PMID 11405571](https://pubmed.ncbi.nlm.nih.gov/11405571/) |
+| Melby-Lervåg & Hulme 2013(WM 训练 meta) | 摘要级 | [PMID 22612437](https://pubmed.ncbi.nlm.nih.gov/22612437/) |
+| Sala & Gobet 2017(远迁移 meta) | 摘要级 | — |
+| Kassai 2019(数码认知训练 meta) | 摘要级 | —(Flinders 仓库摘要) |
+| Takács & Kassai 2019/2021(技术增强故事书) | 机构级(海报) | —(正式期刊版挂遗留) |
+| Lindell 2011(右脑神话) | 转述级 | —(原文挂遗留) |
+| 火花思维官网 FAQ | 机构自述 | [huohua.cn/faq](https://huohua.cn/faq) |
+| 摩比 tal.com 新闻稿 | 机构自述 | [tal.com](https://www.tal.com)(新闻稿具体页未记) |
+| App Store 逻辑狗页 | 机构自述 | —(ID 未记) |
+| 逻辑狗德国侧材料(Finken 官网+德文维基) | 原文级(维基)/摘要级(官网自述) | [de.wikipedia.org](https://de.wikipedia.org/wiki/Finken_Verlag) / [finken.de](https://www.finken.de/Logico-International/LOGICO-The-Learning-Game)(复用 math 底稿 §4.2 记录) |
+| 机构级/转述级/标题级群(火花官网索引/七田系商业页/P21 框架/史宁中·荣维东课标解读/waizi 57 号文转载/上海教委转发/gov.cn 托育条目/moe 非学科意见/AAP HealthyChildren FAQ/央广网·腾讯·凤凰/知乎·豆瓣/电商价格页) | 转述级为主 | —(逐条+探活见底稿 §7) |
+
+注:链接由底稿(§4/§7)与同源库内已核验记录(milestones.md 的 CDC、
+yuwen.md 的 moe/gov.cn 直链、math 底稿 §4.2 的逻辑狗德国侧)记录的
+编号与路径原样展开;「—」=记录未记直链,如实标注不补造,升级即补挂
+台账遗留。

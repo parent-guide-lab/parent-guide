@@ -160,3 +160,28 @@ PDF 未获取按转述级(底稿 docs/food-allergy-eczema-infection-draft-2026-1
 ## 5. 自主进食(与发育的交叉点)
 
 约 6-9 月龄起提供手指食物(软、可抓、入口即化的形态),允许抓握弄得一片狼藉——手抓进食是接受新食物与口腔发育的正路,脏乱是这个阶段的成本不是问题。勺子熟练度在 1-2 岁间逐步成熟,洒洒漏漏是过程。把「自己吃」的机会还给孩子的收益,通常大于「喂得干净省时」。
+
+## 6. 来源与时效
+
+**来源清单(2026-10-25 补链;访问日期=入库/审计/增补各轮时点 2026-09-29/10-08/10-15/10-19;分级沿用各轮核验记录;链接死活随下次复审重查)**:
+
+| 来源 | 分级 | 链接 |
+|---|---|---|
+| 卫健委《托育机构婴幼儿喂养与营养指南》(<1 岁辅食原味) | 摘要级 | —(nhc.gov.cn,具体页未记) |
+| 中国营养学会《7-24 月龄婴幼儿喂养指南》 | 摘要级 | [dg.cnsoc.org](http://dg.cnsoc.org) |
+| 《中国学龄前儿童膳食指南(2022)》准则五页(2-3 岁 ≤2g/4-5 岁 ≤3g;儿童分龄数字在表 1 图片层,经多源转述) | 原文级(成人 5g 句)/多源(儿童分龄) | [dg.cnsoc.org](http://dg.cnsoc.org/article/04/ApX3_ozGTmSoqQaFFh5z_Q.html) |
+| WHO 盐减量事实页(成人 5g,2-15 岁按能量下调) | 原文级 | [who.int](https://www.who.int/news-room/fact-sheets/detail/salt-reduction) |
+| WHO 红肉/加工肉 Q&A(§2.6 危害链,IARC 评估承载页) | 原文级(2016 版存档) | [who.int](http://www.who.int/features/qa/cancer-red-meat/en/) |
+| HealthyChildren(AAP)蜂蜜与肉毒杆菌页 | 摘要级 | —(healthychildren.org,具体页未记) |
+| 美国膳食指南 2020-2025(<2 岁避免添加糖,经 AAP 口径透传) | 摘要级(多源) | —(healthychildren.org 等) |
+| AAP Pediatric Nutrition(全脂奶 12-24 月/12 月前不作主饮) | 摘要级(多源) | — |
+| AAP 呛咳预防工具包(整粒坚果 <4 岁) | 摘要级 | —(publications.aap.org/toolkits/book/chapter,章节路径未记全) |
+| CDC foods-and-drinks 页(坚果/籽酱避免项) | 机构级 | [cdc.gov](https://www.cdc.gov/foods-and-drinks) |
+| Lorenzoni 2022(总结 AAP 呛咳口径) | 摘要级 | —(PMC,编号未记) |
+| Ellyn Satter Institute:sDOR 分工页(§1 骨架) | 原文级 | [ellynsatterinstitute.org](https://www.ellynsatterinstitute.org/how-to-feed/division-of-responsibility/) |
+| NIAID 2017 花生预防指南 Addendum(§2.7) | 原文级 | —(PMC 全文直读,编号未记) |
+| AAP 2019 过敏患者页(§2.7 透传) | 摘要级 | —(healthychildren.org,页未记) |
+| 中国辅食指南 2022 过敏章节 | 转述级(PDF 未获取) | — |
+| §2.6 危害链文献群(Stein 2012/CPS 口径/He 2006 血压环/IARC PR240) | 摘要/转述级 | —(逐条分级见 docs/nutrition-supplement-draft-2026-10-15.md) |
+
+注:链接由审计底稿(docs/knowledge-audit-2026-10-08/sleep-nutrition-audit.md N1-N7 证据列)与增补底稿记录的 URL 原样展开;「—」=记录未记直链,如实标注不补造,升级即补挂台账遗留。

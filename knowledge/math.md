@@ -17,7 +17,7 @@
 > Carey 2007·Sarnecka 2008·Hawes 2022·Frey 2024·Soylu 2018·
 > Rittle-Johnson 2017(摘要级)/EYFS 两条早期学习目标(官方条文,多源
 > 一致)/NAEYC-NCTM 联合声明(摘要级,声明 PDF 未能直读)/Zero to Three
-> 家长页(原文级);全部 URL 与分级见
+> 家长页(原文级);URL 与分级=文末 §5 来源清单,逐轮调研细节见
 > docs/math-enlightenment-research-2026-10-19.md**;
 > **2026-10-19 R2 数感深调核对=Jordan 2009(PMC2782699 直读)·Jordan 2012
 > (PMC4389641)·Dyson 2015(PMC4572740)·Schneider 2017 meta·Lyons & Beilock
@@ -391,7 +391,7 @@ NAEYC 无针对练习册的专门立场文件(「纸笔不宜作学前数学主�
 
 ## 5. 来源与时效
 
-全部来源 URL、溯源分级、矛盾处理与待补研清单见
+逐轮调研细节、矛盾处理与待补研清单见
 docs/math-enlightenment-research-2026-10-19.md(R1=§5 矛盾/§7 来源/§8
 待补研;R2 数感深调=§9-§16;R3 评估+排序+针对性养成=§17-§25;R4 资源
 选购层=§26-§31)。**§3.5 为时点快照,复审优先核对渠道与价格**(摩比
@@ -402,3 +402,84 @@ docs/math-enlightenment-research-2026-10-19.md(R1=§5 矛盾/§7 来源/§8
 模型的新证据);Bedtime Math 争议、模式训练因果性、ANS 训练争议、
 formal/informal 分流、Nguyen vs Fyfe 时点张力五处已并陈,复审时先查有无
 新证据。
+
+**来源清单(2026-10-25 补链;访问日期=各轮调研时点 2026-10-19,逐轮见头注;分级沿用各轮核验记录,与正文标注一致;链接死活随下次复审重查)**:
+
+| 来源 | 分级 | 链接 |
+|---|---|---|
+| 《3-6 指南》印发通知页 | 原文级(302 跳转,正文部分) | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A06/s3327/201210/t20121009_143254.html) |
+| UNICEF《指南》官方 PDF(三目标×三龄逐字) | 原文级 | [unicef.cn](https://www.unicef.cn/media/8456/file/) |
+| 2018 小学化治理通知 | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A06/s3327/201807/t20180713_342997.html) |
+| 2021 幼小衔接意见 | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A06/s3327/202104/t20210408_525137.html) |
+| 教育部 2026-08 学段衔接十问十答(央视网转载) | 原文级 | [edu.cctv.com](https://edu.cctv.com/2026/08/25/ARTIVnH9olRB3jCRbuqbCn3a260825.shtml) |
+| 义务教育数学课标 2022 | 转述级(扫描版引语多源交叉) | —(moe.gov.cn PDF,路径未记) |
+| 《托育机构保育指导大纲》 | 原文级 | —(政府网站全文转载 rugao.gov.cn) |
+| CDC 里程碑 PDF(2025 现行清单) | 原文级 | [cdc.gov PDF](https://www.cdc.gov/act-early/media/pdfs/2025/10/cdc-milestone-checklists-ltsae-english-508.pdf) |
+| EYFS 框架页 | 官方条文(多源一致) | [gov.uk](https://www.gov.uk/government/publications/early-years-foundation-stage-framework--2) |
+| NAEYC/NCTM 数学立场声明 | 摘要级 | [naeyc.org](https://www.naeyc.org/positionstatements/mathematics) |
+| Zero to Three 家长数学页 | 原文级 | [zerotothree.org](https://www.zerotothree.org/resource/help-your-child-develop-early-math-skills) |
+| APA 2025 手指计数新闻稿 | 机构级(原研究未读,已注) | [apa.org](https://www.apa.org/news/press/releases/2025/11/finger-counting-higher-math-skills) |
+| AAP Early Literacy and Math 页 | 机构级 | —(直链未记) |
+| Levine 2010 number talk | 原文级 | [PMC2998540](https://pmc.ncbi.nlm.nih.gov/articles/PMC2998540) |
+| Berkowitz 2015 | 摘要直读 | [PMID 26450209](https://pubmed.ncbi.nlm.nih.gov/26450209) |
+| Maloney 2015 | 摘要直读 | [PMID 26253552](https://pubmed.ncbi.nlm.nih.gov/26253552) |
+| Cvencek 2011(数学-性别自我概念) | 摘要直读 | [PMID 21410915](https://pubmed.ncbi.nlm.nih.gov/21410915) |
+| Marshall 2017(数学敏感期) | 原文级 | [PMC6161506](https://pmc.ncbi.nlm.nih.gov/articles/PMC6161506) |
+| Duncan 2007 | 摘要页 | [PMID 18020822](https://pubmed.ncbi.nlm.nih.gov/18020822) |
+| Watts 2014 | 原文级(作者自存 PDF) | [tylerwatts.org](https://tylerwatts.org/wp-content/uploads/2016/10/watts-et-al-2014-prek-to-hs-math.pdf) |
+| Frank 2016/Berkowitz 2016 Science 往来 | 原文级(PDF) | —(langcog.stanford.edu/voices.uchicago.edu,路径未记) |
+| Ramani & Siegler 2008(线板 RCT) | 摘要级 | [ERIC EJ789398](https://eric.ed.gov/?id=EJ789398) |
+| Siegler & Ramani 2008 | 摘要级 | [PMID 18801120](https://pubmed.ncbi.nlm.nih.gov/18801120) |
+| Ramani & Siegler 2009(线性 vs 圆形) | 摘要级 | —(kilthub.cmu.edu,路径未记) |
+| Le Corre & Carey 2007(knower-level) | 摘要级 | [PMC3856691](https://pmc.ncbi.nlm.nih.gov/articles/PMC3856691/) |
+| Sarnecka 2008 | 摘要级 | —(Cognition,付费墙) |
+| Hawes, Gilligan-Lee & Mix 2022 | 摘要级(付费墙) | —(psycnet 2022-25661-002) |
+| Yang 2021 | 摘要级 | [PMC7940534](https://pmc.ncbi.nlm.nih.gov/articles/PMC7940534/) |
+| Haberstroh & Schulte-Körne 2019(计算障碍) | 摘要级 | [PMC6440373](https://pmc.ncbi.nlm.nih.gov/articles/PMC6440373/) |
+| Shalev 2000(计算障碍) | 摘要级 | [PMID 11138905](https://pubmed.ncbi.nlm.nih.gov/11138905) |
+| Scionti 2020(认知训练 meta) | 摘要级 | [frontiersin.org](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02812/full) |
+| Kassai 2019(数码认知训练 meta) | 摘要级 | [psycnet.apa.org](https://psycnet.apa.org/record/2019-01878-002) |
+| Sala & Gobet(远迁移 meta) | 摘要级 | [osf.io](https://osf.io/download/c5kxn) |
+| Strouse 2021(视频缺陷 meta 论文版) | 摘要级 | —(Wiley 期刊版 cookie 墙未获取) |
+| R1 摘要级群(Soylu 2018/Frey 2024/Rittle-Johnson 2017/Levine 2012 puzzle) | 摘要级 | —(底稿 §7) |
+| Jordan 2012(数感成分预测) | 原文级 | [PMC4389641](https://pmc.ncbi.nlm.nih.gov/articles/PMC4389641/) |
+| Jordan 2009 Early Math Matters | 原文级 | [PMC2782699](https://pmc.ncbi.nlm.nih.gov/articles/PMC2782699/) |
+| Dyson 2015(数感干预 RCT) | 原文级 | [PMC4572740](https://pmc.ncbi.nlm.nih.gov/articles/PMC4572740/) |
+| Douglas 2026 事实流畅度 meta | 原文级 | [PMC13069136](https://pmc.ncbi.nlm.nih.gov/articles/PMC13069136/) |
+| Fuson & Li 2009(凑十跨文化) | 原文级 | —(karenfusonmath.net PDF,路径未记) |
+| Lyons & Beilock 2011 | 原文级 | —(uchicago PDF,路径未记) |
+| Schneider 2017 数感 meta(17201 人) | 原文级 | —(uni-trier PDF,路径未记) |
+| Clements 1999 | 原文级 | —(cpin PDF,路径未记) |
+| Andrews & Sayers 2014 | 原文级 | —(diva-portal PDF,路径未记) |
+| IES WWC 2021 早期数学指南 | 原文级 | —(PDF,路径未记) |
+| Bugden 2021 | 摘要级 | [PMID 33845980](https://pubmed.ncbi.nlm.nih.gov/33845980) |
+| Locuniak & Jordan 2008 | 摘要级 | [PMC3935894](https://pmc.ncbi.nlm.nih.gov/articles/PMC3935894/) |
+| R2 摘要级群(Szkudlarek & Brannon 2018/Park 2016/Vogel 2017/O'Connor 2018/Finke 2022/Sella 2016/Fischer 2008/Ribner 2022/Hopkins 2006) | 摘要级 | —(底稿 §15) |
+| R2 转述级群(EDC Quick Images/Gersten & Chard 1999/Berch 2005/Hechinger/中文凑十线) | 转述级 | —(底稿 §15) |
+| Nguyen 2016(四域竞争 β=.42) | 原文级 | [PMC4819335](https://pmc.ncbi.nlm.nih.gov/articles/PMC4819335/) |
+| Jordan Devlin & Botello 2022 | 原文级 | —(ldaustralia PDF,路径未记) |
+| Geary 2010(数学认知分型) | 原文级 | [PMC2821095](https://pmc.ncbi.nlm.nih.gov/articles/PMC2821095/) |
+| Fyfe 2018(接棒动态) | 原文级 | —(IU PDF,路径未记) |
+| Verdine 2014 | 原文级 | —(templeinfantlab PDF,路径未记) |
+| Menacho 2024 ENT-r | 原文级 | —(Frontiers 全文,直链未记) |
+| Aunio 等(低表现=风险因素) | 原文级 | —(SAJCE 全文,直链未记) |
+| Pruden 2011(空间谈话完全中介) | 原文级 | [PMC3372906](https://pmc.ncbi.nlm.nih.gov/articles/PMC3372906/) |
+| Daucourt 2021 | 原文级(部分) | [PMC8634776](https://pmc.ncbi.nlm.nih.gov/articles/PMC8634776/) |
+| Baroody 2006(number-after 桥) | 原文级(首屏) | —(kentuckymath PDF,路径未记) |
+| NAEYC 评估立场摘要 | 机构级 | — |
+| R3 摘要级群(Verdine 2017/Gilligan 2017/Lê & Noël 2021/Zippert 2020/Purpura & Lonigan 2013/Claessens 2009/Casasola 2020/Hawes 2015+2022/Yang 2020/Gunderson & Levine 2011/Eason 2021/Akther 2025/Young 2023/PENS/REMA) | 摘要级 | —(底稿 §24) |
+| R3 机构级群(Vanderbilt 新闻/Math Recovery/AVMR/IES 早期数学指南/Stanford prek-math/NAEYC 绘本数学页) | 机构级 | —(底稿 §24) |
+| 摩比练习册(「每月学 1 本」) | 机构级 | —(ChinaDaily,直链未记) |
+| 公文式(香港官网 placement/速度张力) | 原文级 | —(kumon 香港官网,直链未记) |
+| Moose Math(App Store:免费/无内购/无广告) | 原文级 | —(App Store,ID 未记) |
+| Khan Academy Kids | 机构级 | — |
+| 都都思维价档(App Store 中国区) | 原文级 | —(App Store,ID 未记) |
+| Numberblocks B 站正版中文番剧 | 转述级(版权地区限制=授权证据) | —(B 站番剧区) |
+| 何秋光/四五快算/小红花/多湖辉/新加坡数学中信版(渠道价格) | 转述级 | —(底稿 §27) |
+| 逻辑狗中国板次(知乎+搜狐) | 转述级 | —(本体判定与德国侧链接见 thinking-training.md) |
+| 火花思维官网 | 机构自述 | [huohua.cn](https://www.huohua.cn/) |
+| R1 线索级群(知乎问题群/smzdm/淘宝教辅榜/新华书店挂牌/2025-07 对比软广) | 标题级(软广不可用) | —(底稿 §7) |
+
+注:链接由底稿(§4/§7/§15/§24)记录的 URL 与编号(PMC/PubMed/
+ERIC/官网路径)原样展开;「—」=底稿未记直链或付费墙,如实标注不补造,
+升级即补挂台账遗留;A 路本地 PDF 存档见底稿 §15 注。
