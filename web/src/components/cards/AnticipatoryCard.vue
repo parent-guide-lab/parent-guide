@@ -75,7 +75,7 @@ const pastText = computed(() => {
     .filter(r => r.status === 'past')
     .sort((a, b) => b.due.localeCompare(a.due))
   return past.length
-    ? `最近已过：${past[0].name}（${past[0].due.slice(0, 7)}）`
+    ? `最近已过：${cnpunct(past[0].name)}（${past[0].due.slice(0, 7)}）`
       + (past.length > 1 ? ` · 共 ${past.length} 项` : '')
     : ''
 })

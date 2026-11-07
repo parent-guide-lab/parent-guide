@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>专注力 · parent-guide</title>
+<meta name="description" content="三网络本质、发育时间线与「保护大于训练」的证据">
+<meta property="og:title" content="专注力 · parent-guide">
+<meta property="og:description" content="三网络本质、发育时间线与「保护大于训练」的证据">
+<style>
+  :root { --bg:#fdfdfb; --card:#ffffff; --ink:#1e3a52; --sub:#5f7386; --accent:#2f5470; --accent-soft:#eef3f7; --line:#dde6ec; --grid:rgba(90,130,180,.07); --grid-line:rgba(90,130,180,.18); }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:system-ui, -apple-system, PingFang SC, HarmonyOS Sans SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+    background-color:var(--bg); color:var(--ink); line-height:1.75;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:22px 22px;
+    font-variant-numeric:tabular-nums; }
+  a { color:var(--accent); }
+  .num-serif { font-family:Georgia,serif; }
+  header.site { position:sticky; top:0; z-index:10; background:rgba(253,253,251,.95);
+    border-bottom:1px solid var(--line); backdrop-filter:blur(6px); }
+  .nav { max-width:860px; margin:0 auto; padding:10px 16px; display:flex;
+    gap:4px; align-items:center; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .brand { font-weight:700; color:var(--ink); text-decoration:none;
+    white-space:nowrap; margin-right:8px; }
+  .brand small { color:var(--sub); font-weight:400; margin-left:4px; }
+  .nav a.t { color:var(--sub); text-decoration:none; font-size:14px;
+    padding:4px 10px; border-radius:6px; white-space:nowrap; }
+  .nav a.t:hover, .nav a.t.on { background:var(--accent-soft); color:var(--accent); }
+  .wrap { max-width:860px; margin:0 auto; padding:28px 20px 48px; }
+  .hero h1 { font-size:30px; letter-spacing:-.5px; margin:18px 0 10px; color:var(--ink); }
+  .hero .sub { color:var(--sub); font-size:16px; margin-bottom:22px; }
+  .badge { display:inline-block; background:var(--card); color:var(--accent);
+    border:1px solid var(--grid-line); border-radius:6px;
+    padding:3px 14px; font-size:13px; margin:16px 0 6px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:16px; margin:20px 0; }
+  .toc-group { font-size:14.5px; color:var(--accent); margin:24px 0 -8px; }
+  .card { background-color:var(--card);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:14px 14px;
+    border:1px solid var(--grid-line); border-radius:10px;
+    padding:20px; text-decoration:none;
+    color:var(--ink); display:block; }
+  .card:hover { border-color:var(--accent); }
+  .card h3 { font-size:16px; margin-bottom:6px; }
+  .card p { font-size:13.5px; color:var(--sub); }
+  .card .src { display:block; margin-top:10px; font-size:12px; color:var(--sub); }
+  .cta { display:inline-block; background:var(--accent); color:#fff; border-radius:8px;
+    padding:11px 26px; font-size:15px; text-decoration:none; font-weight:600; }
+  .ghost { display:inline-block; margin-left:12px; color:var(--accent);
+    text-decoration:none; font-size:15px; }
+  article { background-color:var(--card);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:14px 14px;
+    border:1px solid var(--grid-line); border-radius:10px;
+    padding:26px 26px 18px; }
+  article h1 { font-size:24px; margin-bottom:6px; color:var(--ink); }
+  .pagehead .src { color:var(--sub); font-size:13px; margin-bottom:18px; }
+  article h2 { font-size:19px; margin:26px 0 10px; color:var(--ink); }
+  article h3 { font-size:16px; margin:20px 0 8px; }
+  article p { margin:10px 0; font-size:15.5px; }
+  article ul, article ol { margin:10px 0 10px 22px; font-size:15.5px; }
+  article li { margin:4px 0; }
+  article table { width:100%; border-collapse:collapse; margin:14px 0;
+    font-size:14px; display:block; overflow-x:auto; }
+  article th, article td { border:1px solid var(--line); padding:7px 10px;
+    text-align:left; vertical-align:top; }
+  article th { background:var(--accent-soft); font-weight:600; }
+  article .note { background:var(--card); border:1px solid var(--grid-line); border-radius:8px;
+    padding:12px 14px; font-size:14px; margin:12px 0; }
+  article pre { background:var(--accent-soft); border-radius:8px; padding:12px 14px;
+    overflow-x:auto; font-size:13.5px; }
+  article code { background:var(--accent-soft); border-radius:5px;
+    padding:1px 6px; font-size:.92em; font-family:ui-monospace,Menlo,monospace; }
+  article pre code { background:none; padding:0; }
+  article hr { border:none; border-top:1px dashed var(--grid-line); margin:22px 0; }
+  .foot { margin-top:28px; padding-top:18px; border-top:1px solid var(--line);
+    color:var(--sub); font-size:12.5px; }
+  .foot p { margin:6px 0; }
+</style>
+</head>
+<body>
+<header class="site"><nav class="nav"><a class="brand" href="index.html">🧸 parent-guide<small>知识库</small></a><a class="t" href="quick-ref.html">速查</a><a class="t" href="growth.html">生长监测</a><a class="t" href="eczema.html">湿疹护理</a><a class="t" href="newborn.html">新生儿两题</a><a class="t" href="anticipatory.html">前瞻节点</a><a class="t" href="sleep.html">睡眠</a><a class="t" href="nutrition.html">营养与喂养</a><a class="t" href="toilet.html">如厕训练</a><a class="t" href="weaning.html">戒安抚物</a><a class="t" href="screen.html">屏幕执行层</a><a class="t" href="honesty.html">诚实与说谎</a><a class="t" href="emotion.html">情绪与管教</a><a class="t" href="tantrum.html">发脾气现场</a><a class="t" href="child-mind.html">孩子的逻辑</a><a class="t" href="fears.html">恐惧与脱敏</a><a class="t" href="praise.html">表扬与思维</a><a class="t" href="milestones.html">发育里程碑</a><a class="t" href="activities.html">活动与绘本</a><a class="t" href="toys.html">玩具与环境</a><a class="t" href="social.html">同伴与同胞</a><a class="t" href="english.html">英语启蒙</a><a class="t" href="math.html">数学启蒙</a><a class="t" href="thinking-training.html">思维训练</a><a class="t" href="yuwen.html">语文启蒙</a><a class="t" href="kexue.html">科学启蒙</a><a class="t" href="yinyue.html">音乐启蒙</a><a class="t" href="meishu.html">美术启蒙</a><a class="t" href="yundong.html">运动与感统</a><a class="t on" href="attention.html">专注力</a><a class="t" href="books.html">育儿书地图</a></nav></header>
+<div class="wrap">
+<div class="pagehead" style="margin-bottom:14px">
+  <span class="badge">循证参考</span>
+</div>
+<article>
+<h1>专注力</h1>
+<div class="src">原创综述,基于注意网络研究与 Dunedin/Duncan 纵向证据整理 · 原创综述,不搬运机构原文 · 下次复审 2027-Q4</div>
+<h2>0. 一句话结论与四条纪律</h2>
+<p><b>结论：专注力不是一个笼统能力，是三个可分离的脑网络（警觉/定向/执行控制）， 0-5 岁的核心事实是「婴儿靠定向网络自我调节，3-4 岁执行注意网络才接管」—— 坐不住、被新异刺激抓走、需要成人帮拿住目标，是这个阶段的神经发育默认值， 不是品行问题。为什么要在意它：童年期自我控制与成年健康/财务/守法结局呈 人群梯度（控制 IQ 与家境后仍成立），入学时注意力是行为类指标中唯一稳定预测 学业的（但量级排第三，严禁夸大）。怎么培养：证据指向「保护大于训练」—— 不打断自主游戏、不频繁切换活动、高回应少代劳；孤立任务型「专注力训练」 （练习册/训练机/APP）无远迁移证据，「月龄×2-5 分钟」专注时长公式查无出处， 是不存在的标准。</b></p>
+<p>纪律（先于一切建议）：</p>
+<ol><li><b>预期按神经发育时间线设</b>:3-4 岁执行注意网络才接管、努力控制 18-20 月</li></ol>
+<p>才萌芽——要求 2 岁孩子「自始至终专心」违背发育规律；官方口径的大班（5-6 岁） 目标也只是「分心时能在成人提醒下调整注意力」，不是从不分心。</p>
+<ol><li><b>相关不因果化</b>：侵入式养育与持续注意负相关、打断的因果实验查无——</li></ol>
+<p>表述用「相伴/预测」，禁用「打断会伤害大脑」式断言。</p>
+<ol><li><b>训练产品按品类判定线走</b>（详见 thinking-training.md）：孤立任务型训练</li></ol>
+<p>无远迁移；针对 1-2 岁的「专注力训练班」与执行网络 3-4 岁才接管的客观 时间线冲突，属超前营销。</p>
+<ol><li><b>正常与否看行为不看分钟</b>：能投入感兴趣的活动、被打断后能回到活动、</li></ol>
+<p>分心时经提醒能调整；持续多情境的注意异常走 milestones.md 红旗 T2, 单一情境（只在某类课堂坐不住）不构成信号。</p>
+<h2>1. 专注力本质：三网络与两套框架</h2>
+<p><b>「专注」不是一个东西</b>，是三个功能、解剖、神经调质各不相同的注意网络 (Posner &amp; Petersen 1990 提出；Petersen &amp; Posner 2012 二十年后更新，均原文级）：</p>
+<table><thead><tr><th>网络</th><th>功能</th><th>神经基础</th><th>调制</th><th>0-5 岁状态</th></tr></thead><tbody><tr><td>警觉（alerting)</td><td>达到并维持警醒状态</td><td>蓝斑去甲肾上腺素系统+右额顶（紧张性警觉偏右，部分相位性研究偏左，原文自注原因未知）</td><td>去甲肾上腺素（药物可阻断）</td><td>第一年内发展</td></tr><tr><td>定向（orienting)</td><td>从众多刺激中选出目标</td><td>顶叶为核心；2012 版修正为「额叶+后部共同参与」（背侧=额叶眼区+顶内沟，腹侧=颞顶联合区+腹侧额叶）</td><td>乙酰胆碱（与去甲肾上腺素构成药理学双分离）</td><td>婴儿期已高效，<b>是 0-2 岁自我调节的主导系统</b></td></tr><tr><td>执行控制（executive control)</td><td>监测并解决冲突、维持任务目标</td><td>前扣带回+外侧前额叶（2012 版细分扣带-盖部+额顶双网络）</td><td>多巴胺（证据=基因多态与网络效率相关，无直接药理学调制证据）</td><td>3-4 岁才接管，3-7 岁为重要发展期</td></tr></tbody></table>
+<p><b>术语边界有学派分歧，本篇口径显式声明</b>:Diamond 2013（原文级）把 「executive attention/选择性注意」归入执行功能的抑制（干扰控制）之下——且她 自己在小结里标注这个归属是开放问题；Posner/Rothbart 框架则把执行注意当作 独立注意网络，并视其为气质维度「努力控制（effortful control）」的神经基础。 两套术语并存且互指，本篇以 Posner 三网络为骨架（发展研究主线在 Posner/Rothbart 系），家长口中的「坐得住、专心做事」在学龄前主要落在 执行注意/干扰控制上。</p>
+<p><b>努力控制（effortful control)</b>=自主调节行为与注意的能力（抑制优势反应、 激活次优势反应），是气质的重要维度：18-20 个月出现最初迹象，22-33 个月间 显著改善且个体排名稳定（纵向，Kochanska 2000,N=106 原文级），3-4 岁首次 观测到它调制情绪表达。它是注意能力通向社会化结果（情绪调节、克制）的 中枢变量。</p>
+<h2>2. 生物学机制（机制层）</h2>
+<p><b>前额叶发育轨迹</b>：额叶突触密度出生后 1-2 岁达峰（约高于成人 50%），随后 2-16 岁持续净修剪；区域异时性——听皮层约 3 个月达峰，前额叶 15 个月之后 才达峰、修剪延伸到青春期中段（Huttenlocher 1979/1997，原文级；绝对数值来自 小样本尸检，本库只用「异时性+长程性」定性结论）。0-5 岁正处于前额叶 「突触过剩、远未修剪完成」的窗口——随意注意的硬件天然不成熟。<b>这同时是 「0-3 岁突触黄金期，错过不可逆」营销话术的反证</b>：突触发育的时间表不由 消费行为加速。</p>
+<p><b>发育转换主线（本篇承重结构）</b>：「婴儿期由定向网络主导调节，3-4 岁 执行注意网络接管」（Rothbart et al. 2011 原文级，摘要原句）。里程碑 （典型值）：4 个月获得灵活解除注意能力；7 个月出现成人式错误监测脑电反应 （但「对错误采取行动」要再等数年）；2 岁脑连接显著增强；18-20 个月努力控制 萌芽；3-4 岁执行注意接管、努力控制开始调制情绪表达。ANT 测量口径： 执行冲突效应 7 岁趋稳，警觉网络效率 10 岁后仍在变（Rueda 2004 原文级）。 养育含义：<b>0-2 岁靠转移注意安抚是天经地义的正式手段</b>（定向网络主导）， 不是「惯坏」；纠正行为靠改环境，讲道理要等执行系统到位。</p>
+<p><b>神经递质（结论层）</b>：去甲肾上腺素=警觉、乙酰胆碱=定向（药理学双分离， Petersen &amp; Posner 2012）；多巴胺与执行注意的个体差异相关，但「补充/提升 多巴胺提高专注」无机制支持——递质系统是基因×环境塑造的调制系统，不是可以 外部「加注」的油箱。</p>
+<p><b>遗传度与基因×养育交互</b>：注意问题的遗传度约 75%（双生子，3-12 岁各年龄点 一致，Rietveld 2004 原文级）；执行功能共同因子遗传度约 99%(Friedman 2008, 单样本需谨慎外推）；ADHD 症状约 74%(Faraone &amp; Larsson 2019）。<b>高遗传度 不等于宿命</b>——遗传度描述人群方差来源，不是个体结局判决，不否定养育对 均值与波动的作用。基因×养育交互（如 DRD4×养育质量）证据弱、原作者自认 「报告相互冲突」，一律标<b>机制未定</b>；「注意力基因检测/天赋基因检测」产品 据此判定为无证据产品。</p>
+<p><b>白质与屏幕（弱证据，谨慎表述）</b>:2-8 岁纵向 DTI 显示白质全面快速变化 (Reynolds 2019 原文级），发育「快慢」在幼儿期噪声极大，横向比较无意义； 「屏幕使用与白质完整性」只有横断面关联且存在公开学术争议（Hutton 2020, 原文级，含期刊质疑信）——只够支撑「屏幕是低结构刺激、优先换成人互动」的 弱证据，不构成「屏幕伤脑」因果结论。</p>
+<h2>3. 0-5 岁发展轨迹（全部为典型值，个体差异大）</h2>
+<table><thead><tr><th>阶段</th><th>典型年龄</th><th>主导机制</th><th>家长可预期</th></tr></thead><tbody><tr><td>反射性/外源注意</td><td>0-3 月（向 3-6 月过渡）</td><td>反射性定向</td><td>注意被强刺激牵着走是反射不是兴趣</td></tr><tr><td>自主/内源注意渐萌</td><td>3-6 月起渐进</td><td>内源性注意出现；共同注意行为上线</td><td>注视交替约 8-9 月、声明性指物约 10-12 月（「1 岁末自主注意萌发」的精确分期原文级证据薄弱，表述降格为框架+间接证据）</td></tr><tr><td>语言参与调节</td><td>2-3 岁</td><td>语言-注意稳定相关（36 月语言与 42 月注意 r=.35,McQuillan 2021 原文级）；口头提示开始有效但仍弱</td><td>「自己停一下」只能逐步要求</td></tr><tr><td>努力控制成型</td><td>3-5 岁</td><td>执行注意接管后持续注意显著增长</td><td>自主长时间专注此时才逐步成型</td></tr></tbody></table>
+<p><b>共同注意（joint attention，约 9-18 月）</b>：与他人协调注意指向同一物体/ 事件的能力——注视交替约 8-9 月可观察、近端回应约 9-10 月、声明性（为分享 而指）约 10-12 月、远端回应约 14-15 月（Montagut-Asunción et al. 原文级）。 它是语言与符号思维的基石，也是 ASD 的最强早期标记之一（偏离典型区间走 专业筛查，不能反推「18 月不会指物=有问题」）。<b>支持方式：回应孩子的指向、 跟随他的视线，而不是反向指挥。</b></p>
+<p><b>「专注时长=月龄×2-5 分钟」是迷思（判定：破除）</b>：该公式查无任何同行 评审出处；流通信源数字互相矛盾（2 岁 4-6 分钟 vs 2-5 分钟×年龄 vs 幼儿 8-12 分钟并存）；CDC 2022 修订版里程碑逐字核对<b>无任何专注时长分钟指标</b>; AAP 无分钟标准；发展研究测的是自由游戏注意占比、任务坚持秒数这类连续行为 指标，不存在线性公式。<b>判断孩子专注是否正常，看他能否投入感兴趣的活动、 被打断后能否回到活动，不是掐表数分钟。</b></p>
+<p>参考锚（非标准）：30-42 月自由游戏注意合成分 M=.83→.95；任务坚持（token sort）约 37 秒→95 秒（McQuillan 2021 原文级，N=314 纵向）；2→4.5 岁视频 观看任务注意占比 M=80.1→91.4,77% 儿童有提升、个体差异随年龄收窄 (Graziano 2011 原文级）。这些是连续分布，只说明「随年龄增长、个体差异大」， 不是达标线。</p>
+<h2>4. 为什么要培养：证据与口径</h2>
+<p><b>终身梯度（人群层面，不是个体判决）</b>:Dunedin 队列 n=1,037 追踪至 32 岁 (Moffitt 2011，原文级）：童年期（3-11 岁）自我控制每低 1 个 SD，控制 IQ 与社会阶层后，32 岁犯罪定罪几率比 OR=1.714；最低与最高五分位的定罪率 43% vs 13%，多项健康问题 27% vs 11%。同家庭异卵同胞比较方向一致。<b>诚实 口径</b>：这是连续的坡不是判决——童年分数与成年排序稳定性 r=0.30，青少年期 事件可解释部分效应；引用禁止写成「专注力提高 X 分」的错误口径。</p>
+<p><b>入学准备度（已纠偏）</b>:6 个纵向数据集元分析（Duncan 2007,APA PDF 全文）： 入学时技能对后续学业的合并标准化系数——<b>数学 β=.33 &gt; 阅读 β=.13 &gt; 注意力 β=.07-.10</b>；注意力是<b>行为类指标中唯一稳定预测者</b>（原文逐字： "among attention-related and socioemotional behaviors, only the attention-related skills predicted later academic achievement with any consistency"），社交技能与行为问题几乎为零。<b>流传的「注意力 β≈0.20」是 未加权均值口径，合并值只有 0.07-0.10，引用严禁高估 2-3 倍。</b>通俗版： 「坐得住、能听完指令做完一件事」比「外向/合群」预测得更准，但排不进前两名 ——会数数、认识字这类具体技能预测力更强。</p>
+<p><b>分域</b>：阅读有视觉空间注意的特异性预测证据（Franceschini 2012 摘要级）， 数学与选择性持续注意相关（Brueggemann 2018，摘要级，n=31 小样本）； 「哪类注意更相关」下不了排序断言。</p>
+<p><b>权威口径</b>：哈佛大学儿童发展中心原话：执行功能与自我调节技能 "essential for school achievement"、幼儿期习得它们是"one of the most important and challenging tasks of the early childhood years"（页面原文级； 「自我调节是学校成功的第一预测因子」式绝对化引语查无，禁用）。中国官方 口径（原文级逐字）：「认真专注」=《3-6 岁儿童学习与发展指南》五项学习品质 之一，「忽视幼儿学习品质培养，单纯追求知识技能学习的做法是短视而有害的」； 大班目标=「能专注地做事，分心时能在成人提醒下调整注意力」；「学习习惯比 获取知识更重要」；教育建议=「避免因活动频繁转换干扰幼儿专注做事」「儿童 遇到困难时，不急于干预」。<b>官方口径与国际证据、保护性立场完全同向。</b></p>
+<p><b>可训练性（诚实处理，本篇最重判定线）</b>:</p>
+<ul><li>常被引用的「注意力可训练」原始研究 Rueda 2005 PNAS(4 岁与 6 岁共 73 人、</li></ul>
+<p>5 天训练），<b>行为主指标无训练效应</b>:6 岁组组×时间交互 P=0.17,4 岁组 对照组冲突分数改善（−78ms）反而大于受训组（−16ms）；原文自认「ANT 数据 本身不提供特定训练效应的充分证据」；训练效应约为自然发育效应（4→6 岁） 的一半；观察到的是脑电（ERP）模式变化与小幅智商分变化。<b>注意：该文摘要 比正文乐观，引用以正文限定为准。</b></p>
+<ul><li>脑训练迁移共识（Simons 2016,83 页综述）：训练任务本身有提升，近迁移证据</li></ul>
+<p>减少，<b>远迁移与日常认知 little evidence</b>；工作记忆训练元分析 (Melby-Lervåg 2016,145 个对照比较）校正发表偏倚后远迁移效应趋近零。</p>
+<ul><li>对冲面（必须并陈）：Diamond &amp; Lee 2011(Science)——4-12 岁儿童的执行</li></ul>
+<p>功能可被多种<b>广义活动</b>改善（游戏、有氧运动、武术、正念、课程），共性是 重复练习+难度渐进+身心社参与，EF 最弱的孩子获益最大。</p>
+<ul><li><b>立场合成：「专注力值得培养」与「专注力训练产品普遍存疑」同时为真</b>——</li></ul>
+<p>可训练证据支持嵌入日常的广义活动，不支持孤立任务型「脑训练」向学业/生活 远迁移。</p>
+<h2>5. 0-5 岁怎么培养（R1 版：保护大于训练）</h2>
+<p><b>「保护大于训练」是三股证据的汇合</b>:</p>
+<ol><li><b>相关证据</b>:2 岁时母亲侵入/过度控制与幼儿持续注意负相关（β=−.22,</li></ol>
+<p>p&lt;.001）；作者解释：侵入性养育剥夺孩子独立练习持续注意的动机。母亲 温暖/回应性是唯一在控制基线后仍预测注意增长的变量（β=.13)—— <b>「少打扰+高回应」组合最优</b>(Graziano 2011，原文级，纵向 2→4.5 岁）。 口径提醒：过度控制只与起点水平相关、未预测增长变慢，禁因果化表述。</p>
+<ol><li><b>链条证据</b>:2 岁被观察到的过度控制养育→5 岁更差的情绪调节与抑制控制</li></ol>
+<p>→10 岁更多情绪与学校问题（Perry 2018,n=422 追 8 年，摘要级）。</p>
+<ol><li><b>官方建议</b>：教育部「避免因活动频繁转换干扰幼儿专注做事」「不轻易打断</li></ol>
+<p>幼儿讲话」「不急于干预」；美国儿科学会自由游戏临床报告呼吁保护游戏 (Ginsburg 2007）。「打断会造成持续损害」的直接因果实验查无——本篇 以「相关+官方建议」强度书写，不升格。</p>
+<p><b>家庭动作清单（全部零成本）</b>:</p>
+<ul><li>孩子在自由游戏中专注时<b>不打扰</b>；活动<b>不频繁切换</b>，给完整时间段。</li><li><b>高回应、少代劳</b>：孩子遇到困难不急着帮（官方原话「不急于干预」），回应</li></ul>
+<p>他的指向与视线（共同注意期）。</p>
+<ul><li>用<b>定向网络</b>帮忙：0-2 岁的安抚与引导靠转移注意、呈现新异事物是正式</li></ul>
+<p>手段；2-3 岁后口头提示逐渐可用但别指望它替代环境设计。</p>
+<ul><li>屏幕按 screen.md 底线执行（背景电视使 12-36 月幼儿游戏片段更短，即使</li></ul>
+<p>孩子没在看）。</p>
+<ul><li>睡眠按 sleep.md 执行：睡眠不规律、午睡过长与 30-42 月注意增长较少相关</li></ul>
+<p>(McQuillan 2021，相关证据）。</p>
+<p><b>分龄合理预期（一句话版）</b>:0-2 岁靠转移注意安抚是科学的；2-3 岁口头提示 开始有效但仍弱；自主长时专注 3-5 岁才逐步成型；官方对 5-6 岁的期望也只是 「分心时能在成人提醒下调整注意力」。</p>
+<p><b>分龄正面培养路径（具体活动、环境设计、玩具选择）留 R2/R3 调研后增补—— 本节只有保护侧，这是如实标注的范围边界，不是没有更多可做。</b></p>
+<h2>6. 迷思与流行说法核查</h2>
+<table><thead><tr><th>流行说法</th><th>判定</th><th>依据</th></tr></thead><tbody><tr><td>「专注时长=月龄×2-5 分钟」</td><td><b>迷思，破除</b>：无任何同行评审出处；信源数字互相矛盾；CDC 里程碑与教育部文件均无分钟指标</td><td>§3;CDC 3 岁页逐字核对（原文级）</td></tr><tr><td>「孩子专注力差=缺训练，买练习册/舒尔特方格」</td><td>市售专注力产品无商品级同行评审检验；舒尔特方格本是测量工具，训练迁移无 RCT</td><td>thinking-training.md §1（互链）</td></tr><tr><td>「0-3 岁突触黄金期，错过不可逆」</td><td>营销伪命题：前额叶突触 15 月后才达峰、修剪延伸到青春期；突触时间表不由消费行为加速</td><td>Huttenlocher 系列（原文级）</td></tr><tr><td>「补充/提升多巴胺能提高专注力」</td><td>无机制支持：递质是基因×环境塑造的调制系统，不是油箱</td><td>Petersen &amp; Posner 2012（原文级）</td></tr><tr><td>「注意力基因检测/天赋基因检测」</td><td>无证据产品：候选基因×养育交互复制失败是领域现状，原作者自认报告冲突</td><td>§2 遗传度节；Sheese 2007</td></tr><tr><td>「注意力是入学准备中最强预测因子」</td><td>纠偏：是行为类唯一稳定预测者，但合并 β=.07-.10 排第三（数学 .33&gt；阅读 .13)</td><td>Duncan 2007（原文级）</td></tr><tr><td>「Rueda 2005 证明注意力可训练」</td><td>口径反了：行为主指标 P=0.17 无效应，只有 ERP 变化；摘要比正文乐观，以正文为准</td><td>§4；主会话 PMC 全文复核</td></tr><tr><td>「屏幕伤脑（白质）」</td><td>证据不足：横断面关联+公开学术争议，只能支撑「低结构刺激优先换互动」的弱证据</td><td>Hutton 2020（原文级，含质疑信）</td></tr></tbody></table>
+<h2>7. 红旗分流（指针）</h2>
+<p>注意维持、指令跟随、冲动控制<b>持续且跨多情境</b>的异常，走 milestones.md 红旗 T2 就医分流；共同注意显著偏离典型区间（如 18 月无指点/无注视交替） 走专业筛查——不构成「月龄不达标=有问题」的反推。单一情境（只在某类课堂 坐不住）不构成信号。本篇不设就医线，避免与 milestones 重复。</p>
+<h2>8. 依据强度分级</h2>
+<table><thead><tr><th>主张</th><th>强度</th></tr></thead><tbody><tr><td>三网络框架与其神经基础；定向→执行 3-4 岁接管；前额叶突触异时性；Rueda 2005 行为主指标无效应；Duncan 2007 合并系数；Dunedin 梯度；教育部官方文件表述</td><td>强（原文级多源）</td></tr><tr><td>侵入式养育与持续注意负相关、温暖回应预测增长；睡眠-注意相关；语言-注意相关；努力控制 22-33 月稳定性</td><td>中-强（纵向相关，单研究为主，禁因果化）</td></tr><tr><td>阅读视觉空间注意特异性；数学选择性持续注意；白质-屏幕关联；DRD4×养育交互</td><td>弱-中（小样本/横断面/复制失败，均带限定）</td></tr><tr><td>「1 岁末自主注意萌发」精确分期；「2-3 岁语言调节注意」因果版；幼儿心流测量；打断的因果代价</td><td>未确立（查无/间接证据，表述已降格）</td></tr></tbody></table>
+<h2>9. 来源与时效</h2>
+<ul><li>R1 调研（2026-11-07，三路并行+主会话 Rueda 2005 PMC 全文复核）：论证与</li></ul>
+<p>查无清单见 docs/attention-research-2026-11-07.md；素材=attention-r1-bio / attention-r1-essence / attention-r1-why（同日期三份，各含逐条来源分级）。</p>
+<ul><li>效应量数字忠于实际读到的层级：标注「原文级」者读到摘要或全文，「摘要级」</li></ul>
+<p>只读摘要——分级升级即数字复核（台账遗留）。</p>
+<ul><li>Rueda 2005 的摘要与正文口径差已入册：任何未来引用以正文自认限定为准。</li></ul>
+<p><b>来源清单（2026-11-07 入库；访问日期=R1 调研时点 2026-11-07；分级=本次 核验记录；链接死活随下次复审重查）</b>:</p>
+<table><thead><tr><th>来源</th><th>分级</th><th>链接</th></tr></thead><tbody><tr><td>Posner &amp; Petersen 1990, Annu Rev Neurosci（题录，内容经 2012 版全文回述）</td><td>原文级-题录</td><td>https://pubmed.ncbi.nlm.nih.gov/2183676/</td></tr><tr><td>Petersen &amp; Posner 2012, Annu Rev Neurosci</td><td>原文级</td><td>https://pmc.ncbi.nlm.nih.gov/articles/PMC3413263/</td></tr><tr><td>Huttenlocher 1979, Brain Res</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/427544/</td></tr><tr><td>Huttenlocher &amp; Dabholkar 1997, J Comp Neurol</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/9336221/</td></tr><tr><td>Colombo 2001, Annu Rev Psychol</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/11148309/</td></tr><tr><td>Rothbart, Sheese, Rueda &amp; Posner 2011, Emotion Review</td><td>原文级</td><td>https://pmc.ncbi.nlm.nih.gov/articles/PMC3164871/</td></tr><tr><td>Rueda et al. 2004, Neuropsychologia</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/15093142/</td></tr><tr><td>Kochanska, Murray &amp; Harlan 2000, Dev Psychol</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/10749079/</td></tr><tr><td>Rothbart, Ahadi &amp; Evans 2000, J Pers Soc Psychol</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/10653510/</td></tr><tr><td>Eisenberg et al. 2000, J Pers Soc Psychol</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/10653511/</td></tr><tr><td>Diamond 2013, Annu Rev Psychol（全文）</td><td>原文级</td><td>https://pmc.ncbi.nlm.nih.gov/articles/PMC4084861</td></tr><tr><td>McQuillan et al. 2021, Child Development（全文）</td><td>原文级</td><td>https://pmc.ncbi.nlm.nih.gov/articles/PMC8406408</td></tr><tr><td>Montagut-Asunción et al. 2026（共同注意纵向，全文）</td><td>原文级</td><td>https://pmc.ncbi.nlm.nih.gov/articles/PMC13406439</td></tr><tr><td>Graziano, Calkins &amp; Keane 2011, ECRQ（全文）</td><td>原文级</td><td>https://pmc.ncbi.nlm.nih.gov/articles/PMC3222561</td></tr><tr><td>Friedman et al. 2008, J Exp Psychol Gen</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/18473654/</td></tr><tr><td>Rietveld et al. 2004, J Child Psychol Psychiatry</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/15055376/</td></tr><tr><td>Faraone &amp; Larsson 2019, Mol Psychiatry</td><td>原文级（摘要）</td><td>https://pubmed.ncbi.nlm.nih.gov/29892054/</td></tr><tr><td>Sheese et al. 2007, Dev Psychopathol</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/17931433/</td></tr><tr><td>Reynolds et al. 2019, Neuroimage</td><td>原文级</td><td>https://pubmed.ncbi.nlm.nih.gov/30959194/</td></tr><tr><td>Hutton et al. 2020, JAMA Pediatrics</td><td>原文级</td><td>https://jamanetwork.com/journals/jamapediatrics/fullarticle/2754101</td></tr><tr><td>Tau &amp; Peterson 2010, Neuropsychopharmacology</td><td>原文级摘要（正文转述）</td><td>https://pubmed.ncbi.nlm.nih.gov/19794405/</td></tr><tr><td>Moffitt et al. 2011, PNAS（全文含表格）</td><td>原文级</td><td>https://pmc.ncbi.nlm.nih.gov/articles/PMC3041102/</td></tr><tr><td>Duncan et al. 2007, Dev Psychol(APA PDF 全文）</td><td>原文级</td><td>https://www.apa.org/pubs/journals/releases/dev-4361428.pdf</td></tr><tr><td>Rueda et al. 2005, PNAS（全文，主会话复核）</td><td>原文级</td><td>https://pmc.ncbi.nlm.nih.gov/articles/PMC1253585/</td></tr><tr><td>Simons et al. 2016, PSPI</td><td>原文级（摘要逐字）</td><td>https://pubmed.ncbi.nlm.nih.gov/27697851/</td></tr><tr><td>Melby-Lervåg, Redick &amp; Hulme 2016, PPS</td><td>原文级（摘要）</td><td>https://pubmed.ncbi.nlm.nih.gov/27474138/</td></tr><tr><td>Diamond &amp; Lee 2011, Science</td><td>原文级（摘要）</td><td>https://pubmed.ncbi.nlm.nih.gov/21852486/</td></tr><tr><td>Franceschini et al. 2012, Curr Biol</td><td>原文级（摘要）</td><td>https://pubmed.ncbi.nlm.nih.gov/22483940/</td></tr><tr><td>Brueggemann &amp; Gable 2018, J Exp Child Psychol</td><td>原文级（摘要）</td><td>https://pubmed.ncbi.nlm.nih.gov/29530326/</td></tr><tr><td>Stevens &amp; Bavelier 2012, Dev Cogn Neurosci</td><td>原文级（摘要）</td><td>https://pubmed.ncbi.nlm.nih.gov/22682909/</td></tr><tr><td>Perry et al. 2018, Dev Psychol</td><td>原文级（摘要）</td><td>https://pubmed.ncbi.nlm.nih.gov/29911876/</td></tr><tr><td>Ginsburg 2007, Pediatrics(AAP 自由游戏临床报告）</td><td>原文级（摘要）</td><td>https://pubmed.ncbi.nlm.nih.gov/17200287/</td></tr><tr><td>教育部《3-6 岁儿童学习与发展指南》（教基二〔2012〕4 号）</td><td>原文级</td><td>http://www.moe.gov.cn/srcsite/A06/s3327/201210/t20121009_143254.html</td></tr><tr><td>教育部《幼儿园入学准备教育指导要点》（2021,DOCX 下载核对）</td><td>原文级</td><td>http://www.moe.gov.cn/srcsite/A06/s3327/202104/W020210408542301046133.docx</td></tr><tr><td>教育部《小学入学适应教育指导要点》（2021,DOCX 下载核对）</td><td>原文级</td><td>https://hudong.moe.gov.cn/srcsite/A06/s3327/202104/W020210408542301063995.docx</td></tr><tr><td>CDC Milestones by 3 Years(2022 修订，全文核对）</td><td>原文级</td><td>https://www.cdc.gov/act-early/milestones/3-years.html</td></tr><tr><td>Harvard Center on the Developing InBrief: Executive Function</td><td>原文级</td><td>https://developingchild.harvard.edu/resources/inbrief-executive-function/</td></tr><tr><td>Harvard Working Paper 11(air traffic control)</td><td>原文级</td><td>https://developingchild.harvard.edu/resources/building-the-brains-air-traffic-control-system-how-early-experiences-shape-the-development-of-executive-function/</td></tr><tr><td>Harvard EF 关键概念页</td><td>原文级</td><td>https://developingchild.harvard.edu/science/key-concepts/executive-function/</td></tr><tr><td>《指南》全文转载页（说明部分逐字核对）</td><td>原文级（转载）</td><td>https://m.cmt.com.cn/detail/91393.html</td></tr><tr><td>Posner &amp; Rothbart 2014(Cambridge 章节）</td><td>转述级</td><td>https://psycnet.apa.org/record/2014-12898-019</td></tr><tr><td>Colombo &amp; Cheatham 2006(endogenous attention)</td><td>转述级</td><td>—（未记直链，升级即补挂）</td></tr><tr><td>Rothbart, Ellis, Rueda &amp; Posner 2003, J Personality</td><td>转述级</td><td>https://onlinelibrary.wiley.com/doi/10.1111/1467-6494.7106009</td></tr><tr><td>Krieber-Tomantschger et al. 2022, Infancy</td><td>转述级</td><td>https://onlinelibrary.wiley.com/doi/full/10.1111/infa.12449</td></tr><tr><td>Child Encyclopedia 2020(Attention and Early Brain Development)</td><td>转述级</td><td>https://www.child-encyclopedia.com/brain/according-experts/attention-and-early-brain-development</td></tr><tr><td>Kannass 2010（指令与幼儿注意）</td><td>转述级</td><td>https://www.researchgate.net/publication/49739875</td></tr><tr><td>Romano et al. 2010（加拿大复制）</td><td>转述级</td><td>https://eric.ed.gov/?id=EJ897252</td></tr><tr><td>MiniMinds 事实核查（专注时长公式）</td><td>转述级</td><td>https://www.miniminds.app/en/blog/cocuklarda-dikkat-suresi-konsantrasyon-2026</td></tr></tbody></table>
+</article>
+<div class="foot">
+  <p>本站内容为育儿参考,不构成医疗建议,不替代医生诊断;健康问题请咨询专业医生。里程碑内容源自 CDC「Learn the Signs. Act Early.」(公有领域)中文化,不构成 CDC 背书。部分内容由 AI 辅助生成,关键内容经人工与官方来源核对。</p>
+  <p>开源项目,数据本地:<a href="https://github.com/parent-guide-lab/parent-guide">GitHub 获取源码</a> ·
+  把它装进你的 AI,还能记录与回访你家孩子的计划。</p>
+</div>
+</div>
+</body>
+</html>

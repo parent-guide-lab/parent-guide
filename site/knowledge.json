@@ -216,6 +216,14 @@
     "group": "发育与玩耍"
   },
   {
+    "file": "attention.md",
+    "slug": "attention",
+    "title": "专注力",
+    "hook": "三网络本质、发育时间线与「保护大于训练」的证据",
+    "src": "原创综述,基于注意网络研究与 Dunedin/Duncan 纵向证据整理",
+    "group": "发育与玩耍"
+  },
+  {
     "file": "books.md",
     "slug": "books",
     "title": "育儿书地图",
