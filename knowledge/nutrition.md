@@ -1,7 +1,7 @@
 # 营养与喂养专题综述(原创)
 
 > 性质:原创综述,只引用各机构公开口径数字。口径来源:中国营养学会、AAP、WHO、Ellyn Satter Institute(sDOR)。与知识核 §2 速查一致,本篇给执行细节与分级。
-> **入库:2026-09-29;核对=口径数字与公开指南对照(综述为原创,不搬运原文)。2026-10-09 引用审计修正:盐分龄口径对齐《中国学龄前儿童膳食指南(2022)》(2g 数字官方年龄带为 2-3 岁,1-2 岁无数字口径);糖升级为「<2 岁避免添加糖」(美国膳食指南 2020-2025);全脂奶补 2% 例外注(审计底稿 docs/knowledge-audit-2026-10-08/)。2026-10-15 增补 §2.6 加工肉危害链(逐断言全审 4✅+2⚠️已修,底稿 docs/nutrition-supplement-draft-2026-10-15.md)。2026-10-19 增补 §2.7 高致敏食物引入与食物过敏(NIAID 2017 PMC 全文原文级+AAP 2019 透传;中国辅食指南 PDF 未获取按转述级;底稿 docs/food-allergy-eczema-infection-draft-2026-10-19.md)。2026-11-10 增补 §5.2 退喂转型(2-3 岁「吃饭要喂」:608 号文+《指南》原文锚+Galloway 压食实验链+sDOR 退喂细则,底稿 docs/feeding-independence-research-2026-11-10.md)**
+> **入库:2026-09-29;核对=口径数字与公开指南对照(综述为原创,不搬运原文)。2026-10-09 引用审计修正:盐分龄口径对齐《中国学龄前儿童膳食指南(2022)》(2g 数字官方年龄带为 2-3 岁,1-2 岁无数字口径);糖升级为「<2 岁避免添加糖」(美国膳食指南 2020-2025);全脂奶补 2% 例外注(审计底稿 docs/knowledge-audit-2026-10-08/)。2026-10-15 增补 §2.6 加工肉危害链(逐断言全审 4✅+2⚠️已修,底稿 docs/nutrition-supplement-draft-2026-10-15.md)。2026-10-19 增补 §2.7 高致敏食物引入与食物过敏(NIAID 2017 PMC 全文原文级+AAP 2019 透传;中国辅食指南 PDF 未获取按转述级;底稿 docs/food-allergy-eczema-infection-draft-2026-10-19.md)。2026-11-10 增补 §5.2 退喂转型(2-3 岁「吃饭要喂」:608 号文+《指南》原文锚+Galloway 压食实验链+sDOR 退喂细则,底稿 docs/feeding-independence-research-2026-11-10.md)。同日二轮执行层增补=FAQ 六则(宣告不解释/哭闹要喂现场/没吃饿了兜底/小号正餐补偿/菜单不改形态改/少盛添饭,底稿 §9)**
 > **下次复审:2027-Q3**(档期权威=docs/knowledge-audit-LOG.md,随审计/增补轮同步)
 
 ## 1. sDOR:责任分工(喂养关系的骨架)
@@ -183,7 +183,16 @@ PDF 未获取按转述级(底稿 docs/food-allergy-eczema-infection-draft-2026-1
 
 **「要喂」的心理层(【推断】,读侧=child-mind.md)**:2 岁后自主性萌发,「要喂」常见不是能力退行,而是权力归属(喂=我的活被干了)或饭桌习得的省事模式;硬戒=正面权力斗争(被挑战想赢→对抗升级),退喂靠结构与有限选择(「用哪个勺子」)不靠正面顶撞。
 
-**入库三要素**:增补 2026-11-10;触发=32.6 月童「吃饭要喂」主攻拍板(dogfooding,用户认领入库);核对=608 号文官方页反爬 412、经人民网逐字转载(转载级如实标注)+《指南》doc 附件原文级+Galloway 两篇 PMID 摘要级+CDC/ESI 页原文级;压食↔瘦反向因果、ESI「禁勺喂」逐字条文、饿一餐风险红旗、工具层=四处查无/推断就地标注(底稿 docs/feeding-independence-research-2026-11-10.md)。
+**执行问答六则(2026-11-10 第二轮增补,现场细节;有据/设计分层,详底稿 §9)**:
+
+1. **宣告不解释**:一句「长大了,饭饭自己吃」+行为示范(AAP「children learn by watching」原文级);退喂宣布脚本与过渡仪式权威层查无,不需要;过度解释=tantrum「每次解释都是关注」同构,不展开理由;
+2. **哭闹要喂**:平静一句「自己吃,妈妈坐在这儿」→planned ignoring(不对视不对话不解释)→**一安静立即回应并肯定**;卡壳给小选择降级「大勺还是小勺」(AAP 原文级);打人/扔砸当场制止(不可忽视例外);中途接勺=让步(权力斗争「让步则换阵地」,child-mind.md);「强制坐到吃完」无机构背书,以到点收桌替代;
+3. **正餐没吃,饿了/睡前**:加餐点照常**不提前**(ESI「midway between meals」原文级,话术「刚吃完饭呀,点心时间快到了」);单餐不吃**以周为单位补足**(CDC 原文级「可能几天吃得不多」);睡前兜底=**「include a bedtime snack if needed」**(ESI 原文级,场景即「晚饭没吃好/睡前饿」);睡前奶照给、计入日额度、不因拒吃加量;
+4. **补偿给什么**:小号正餐——正餐同框架小份组合(水果+酸奶/小饼+奶酪),**不给包装零食**(ESI「small, intentional meals—not treats or food handouts」原文级);时刻=原定点,且保「下顿饭前能重新饿起来」;份量约成人 1/4-1/3(手册转述级);「重热原菜」无逐字来源,由 mini-meal 定义指向(设计层);
+5. **食物要求**:菜单不因自喂而改=**每餐 1-2 样常吃+正常家庭菜**(ESI 原文级),不必换手指食物;形态=细条/一口大小/小圆四分(转述级);安全形态 §4 照旧;能量密度无自喂专项口径;
+6. **少盛与添饭**:仍少盛(低启动门槛+碗见底完成感);**吃完碗空家长平静补位**——直接再递一小份或问「还要吗」,供给节奏属家长「提供食物」职责,吃不吃属孩子职责,sDOR 分工不乱;不问「你饱不饱」(诱导结束)不劝「再吃两口」(施压);他不添即收摊,判读=周总量+生长曲线,单餐量不是裁判【设计层:份量供给细节无机构逐字,由 sDOR 职责划分推得】。
+
+**入库三要素**:增补 2026-11-10;触发=32.6 月童「吃饭要喂」主攻拍板(dogfooding,用户认领入库);核对=608 号文官方页反爬 412、经人民网逐字转载(转载级如实标注)+《指南》doc 附件原文级+Galloway 两篇 PMID 摘要级+CDC/ESI 页原文级;压食↔瘦反向因果、ESI「禁勺喂」逐字条文、饿一餐风险红旗、工具层=四处查无/推断就地标注(底稿 docs/feeding-independence-research-2026-11-10.md)。**2026-11-10 二轮执行层增补**:家长五问现场细则+少盛添饭原则,ESI snacks/Feeding at Every Age/CDC how-much/AAP tantrums+drinks 页原文级,AAP 样单/Rutgers/ESI 手册 PDF 转述级,科普级仅线索(底稿 §9,同日);「拒吃正餐时睡前奶照给与否」「重热原菜」「份量供给细节」三处查无/设计层如实标注。
 
 ## 6. 来源与时效
 
@@ -216,5 +225,11 @@ PDF 未获取按转述级(底稿 docs/food-allergy-eczema-infection-draft-2026-1
 | Satter 2014(sDOR 原理文)/ESI ages & stages(11-36 月自喂段)(§5.2) | 转述级/原文级(页面) | [PMC4135507](https://pmc.ncbi.nlm.nih.gov/articles/PMC4135507)/[ellynsatterinstitute.org](https://www.ellynsatterinstitute.org/child-feeding-ages-and-stages) |
 | AAP Picky Eaters 患者页(§5.2 不做替代餐) | 摘要级 | [healthychildren.org](https://www.healthychildren.org/English/ages-stages/toddler/nutrition/Pages/Picky-Eaters.aspx) |
 | 中国疾控中心辅食喂养指南 2024 解读(回应性喂养)/香港卫生署 12-24 月饮食(边走边吃=哽噎) | 转述级 | [chinacdc.cn](https://www.chinacdc.cn/jkkp/yyjk/rqyy/202408/t20240825_295584.html)/[fhs.gov.hk](https://www.fhs.gov.hk/sc_chi/health_info/child/16301.html) |
+| ESI Sit-down Snacks/Feeding at Every Age 页(§5.2 执行层:定点加餐话术/bedtime snack if needed/mini meals) | 原文级 | [ellynsatterinstitute.org](https://www.ellynsatterinstitute.org/how-to-feed/making-meals-happen/sit-down-snacks-2) |
+| CDC How Much and How Often To Feed(2-3h 节奏/反 grazing/以周补足) | 原文级 | [cdc.gov](https://www.cdc.gov/infant-toddler-nutrition/foods-and-drinks/how-much-and-how-often-to-feed.html) |
+| AAP Temper Tantrums/Shape & Manage 行为页(小选择降级/示范学习/一致性) | 原文级 | [healthychildren.org](https://www.healthychildren.org/English/family-life/family-dynamics/communication-discipline/Pages/Temper-Tantrums.aspx) |
+| AAP Recommended Drinks 0-5(plain milk 16-24oz/日上限) | 原文级 | [healthychildren.org](https://www.healthychildren.org/English/healthy-living/nutrition/Pages/recommended-drinks-for-young-children-ages-0-5.aspx) |
+| ESI toddler 手册 PDF(份量 1/4-1/3)+AAP 两岁样单+Rutgers FS1046(自喂形态) | 转述级 | [ellynsatterinstitute.org PDF](https://www.ellynsatterinstitute.org/wp-content/uploads/2016/03/NutrFdg-Sample-howtofeedtoddler.pdf) |
+| 奶嘴戒除科普句式(Hiccapop/Children's Wisconsin)+饭桌哭闹科普(Your Kid's Table/Hand in Hand) | 科普级(仅线索,标注不背书) | —(URL 见底稿 §9) |
 
 注:链接由审计底稿(docs/knowledge-audit-2026-10-08/sleep-nutrition-audit.md N1-N7 证据列)与增补底稿记录的 URL 原样展开;「—」=记录未记直链,如实标注不补造,升级即补挂台账遗留。
