@@ -279,6 +279,22 @@ RAZ=细粒度分级泛读体系(刷量扩阅读)、伴鱼=app 跟读打分+外�
   家长自己朗读她听得见(示范)、固定时间把书摆出来(仪式信号),她凑
   过来就读、不凑就收,次日重来。红线自查:抵触升级时先查家长有没有把
   共读变任务(问「学会没」「刚才读了什么」=考核化,见上条)。
+- **「书=快乐时光」联结的建立=R12.2**:机制口径——被朗读的婴儿期孩子
+  学会把书与「乐趣和社会亲密」关联(associate books with enjoyment
+  and social closeness,AAP 立场,经香港家庭健康服务机构页,直读);
+  来回应答(serve and return)式共读既建语言连接也建情感联结(同页引
+  哈佛 Center on the Developing Child)。操作件:①身体亲密为载体——
+  怀里/腿上读、睡前灯光低抱怀里,书=依恋时间的固定发生地;②她说了算
+  的三件事=选哪本(两三本里挑)/翻页权/何时停——控制感是幼儿快乐的
+  核心来源;③家长的情绪质量是真的投入——变声、夸张表情、演出来,
+  任务脸孩子一眼看穿,也不必每本都演成大戏;④重复她点名的书=老朋友
+  效应(熟悉=安全=快乐,Horst/Kucker 同向),重复中加花样(换声线/
+  让她补词/问细节)而非机械复读;⑤书出圈进生活——白天遇到书中事物
+  就指认,让她体验到「书帮我理解世界」;⑥场景泛化——图书馆/书店当
+  游乐项目定期去,顺带解决单级读完的新书轮换。配对纪律:共读时段别
+  叠加大人讨厌的安排(读完立刻收走玩正嗨的东西、用「读完才许睡」当
+  谈判筹码=书被体验为障碍,推断级实践提醒)。联结是周/月级配对积累,
+  不是一次成功的仪式;冷启动从她现有迷恋物选主题、1-2 分钟起步。
 
 ## 3. 三类工具对比(2026-10-17 时点快照)
 
@@ -684,6 +700,7 @@ docs/english-enlightenment-research-2026-10-17.md(§5 矛盾/§7 来源/
 | Read Write Inc. 家长指引(一本书读三遍:读准/流利/理解,R12) | 转述级(搜索摘要,未直读) | —(home.oxfordowl.co.uk read-write-inc-phonics-guide) |
 | De Naeghel, Van Keer & Vansteenkaste 2016 等 SDT 阅读动机系列(自主型 vs 受控型动机;R12.1) | 转述级(搜索摘要,PDF 未直读) | [selfdeterminationtheory.org](https://selfdeterminationtheory.org/wp-content/uploads/2019/07/2016_DeNaeghelVanKeerVansteenkiste_JournEdResearch.pdf) |
 | 机构/实务口径群:坐不住与拒绝共读处置(Read Brightly/Hearing First 等,不强迫坐/边玩边听算/失去兴趣即停;R12.1) | 转述级(多源一致) | [readbrightly.com](https://www.readbrightly.com/how-to-read-aloud-to-a-child-that-wont-sit-still) 等 |
+| 香港家庭健康服务:Reading Can Build Connections(「把书与乐趣和社会亲密关联」AAP 立场引述+serve-and-return 情感联结+分龄共读操作;R12.2 直读) | 机构级(政府卫生机构,直读) | [fhs.gov.hk](https://www.fhs.gov.hk/english/health_professional/OMP_eNewsletter/enews_20180209.html) |
 | 新华网双减《意见》全文 | 原文级 | [xinhuanet.com](http://www.xinhuanet.com/politics/zywj/2021-07/24/c_1127691094.htm) |
 | 教育部变相违规查处通知(2021-09) | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202109/t20210908_560508.html) |
 | 学科类鉴别通知(教监管厅函〔2021〕3 号) | 转述级(经摘要转引) | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202107/t20210730_547807.html) |
