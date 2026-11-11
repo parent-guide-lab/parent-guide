@@ -265,9 +265,20 @@ RAZ=细粒度分级泛读体系(刷量扩阅读)、伴鱼=app 跟读打分+外�
   时长;③一致性=固定 slot 仪式化,中断后重启成本要低(书常在手边,
   不求每天、求长期在轨);④技巧可学——dialogic 三拍与每册 tips 照做
   即可,无需任何培训。
-- **预期管理**:共读承诺的是兴趣、习惯与听力词汇,不是词表产出;效果
-  看理解反应不看开口(§2.5);共读干预长期保持效应弱(§2.5)——
-  **让共读本身成为孩子期待的时段,是唯一可持续的护城河**。
+- **孩子不想看:引导环境,不强迫行为(R12.1)**。「随他 vs 引导」的
+  正解=第三条路——**环境坚持,行为放手,邀请不强制**。实证代价线:
+  强迫/控制型阅读把动机推向「受控端」(为满足外部要求而读),投入变
+  浅;控制型信号(「你的偏好不重要」)直接损害阅读动机(自我决定理论
+  框架,De Naeghel 2016 等,转述级;Reading Rockets 教师实践综述,
+  机构级)。学龄前目标=「书=快乐时光」的联结,强迫一次裂一次。
+  处置分流:①状态不好(累/困/情绪差)→停,改天再试优于强迫继续
+  (BC 原文级,§2.7);②不想看这本书→换书+给选择权;③不想共读
+  这个形式→换载体(§2.7)或降格——**不需要坐着才算听书,边玩边听
+  也在吸收,3-5 分钟也算共读**(机构实务多源一致,转述级)。纯「随
+  他」同样错:撤掉环境的责任在家长——书留在她够得到的地方(可及性)、
+  家长自己朗读她听得见(示范)、固定时间把书摆出来(仪式信号),她凑
+  过来就读、不凑就收,次日重来。红线自查:抵触升级时先查家长有没有把
+  共读变任务(问「学会没」「刚才读了什么」=考核化,见上条)。
 
 ## 3. 三类工具对比(2026-10-17 时点快照)
 
@@ -671,6 +682,8 @@ docs/english-enlightenment-research-2026-10-17.md(§5 矛盾/§7 来源/
 | Bains et al. 2025(阅读材料选择权×动机综述,R12) | 转述级(摘要未直读) | [PMC12982546](https://pmc.ncbi.nlm.nih.gov/articles/PMC12982546) |
 | 刘海丹等 2022,心理学报(家庭读写环境×接受性词汇中文 meta,R12) | 转述级 | [journal.psych.ac.cn](https://journal.psych.ac.cn/xlkxjz/CN/article/downloadArticleFile.do?attachType=PDF&id=5800) |
 | Read Write Inc. 家长指引(一本书读三遍:读准/流利/理解,R12) | 转述级(搜索摘要,未直读) | —(home.oxfordowl.co.uk read-write-inc-phonics-guide) |
+| De Naeghel, Van Keer & Vansteenkaste 2016 等 SDT 阅读动机系列(自主型 vs 受控型动机;R12.1) | 转述级(搜索摘要,PDF 未直读) | [selfdeterminationtheory.org](https://selfdeterminationtheory.org/wp-content/uploads/2019/07/2016_DeNaeghelVanKeerVansteenkiste_JournEdResearch.pdf) |
+| 机构/实务口径群:坐不住与拒绝共读处置(Read Brightly/Hearing First 等,不强迫坐/边玩边听算/失去兴趣即停;R12.1) | 转述级(多源一致) | [readbrightly.com](https://www.readbrightly.com/how-to-read-aloud-to-a-child-that-wont-sit-still) 等 |
 | 新华网双减《意见》全文 | 原文级 | [xinhuanet.com](http://www.xinhuanet.com/politics/zywj/2021-07/24/c_1127691094.htm) |
 | 教育部变相违规查处通知(2021-09) | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202109/t20210908_560508.html) |
 | 学科类鉴别通知(教监管厅函〔2021〕3 号) | 转述级(经摘要转引) | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202107/t20210730_547807.html) |

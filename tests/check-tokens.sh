@@ -34,7 +34,9 @@ sync = [("--bg", light["bg"]), ("--card", light["card"]), ("--ink", light["fg"])
         ("--cream-grid", light["creamGrid"]), ("--cream-band", light["creamBand"]),
         ("--id-violet", ident.get("violet", "")), ("--id-teal", ident.get("teal", "")),
         ("--id-violet-bg", ident.get("violetBg", "")),
-        ("--id-teal-bg", ident.get("tealBg", ""))]
+        ("--id-teal-bg", ident.get("tealBg", "")),
+        # 品牌绿(2026-11-11):顶栏品牌图标独占,非正文色
+        ("--brand-green", ident.get("brand", ""))]
 for var, want in sync:
     got = cv.get(var, "").strip()
     if got.lower() != str(want).lower():
@@ -70,7 +72,9 @@ pairs = ([("正文/强调/辅助/状态 于卡面(白底)", hx(cv[v]), light["ca
          + [("身份 ink-blue 于档案浅底", hx(cv["--ink-blue"]), hx(cv["--accent-soft"]), 4.5)]
          # D 分享层(2026-10-23):家人卡文字色于奶油纸传阅品底
          + [(f"D {v} 于奶油纸", hx(cv[v]), hx(cv["--cream"]), 4.5)
-            for v in ("--ink", "--ink-blue", "--sub", "--todo", "--hint", "--watch", "--ok")])
+            for v in ("--ink", "--ink-blue", "--sub", "--todo", "--hint", "--watch", "--ok")]
+         # 品牌绿(2026-11-11):图形件线 3.0(仅图标描边不落文字,不适用 4.5 正文线)
+         + [("品牌绿 于白底(图形件线)", hx(cv["--brand-green"]), light["card"], 3.0)])
 for name, fg, bg, need in pairs:
     r = ratio(fg, bg)
     if r < need:
@@ -81,5 +85,5 @@ if problems:
     for x in problems:
         print("  -", x)
     sys.exit(1)
-print(f"PASS: tokens synced + contrast OK ({len(sync)} 色值同步, {len(pairs)} 配对 ≥4.5)")
+print(f"PASS: tokens synced + contrast OK ({len(sync)} 色值同步, {len(pairs)} 配对达标[文字线 4.5/图形件线 3.0])")
 PY

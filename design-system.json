@@ -119,7 +119,7 @@
     "colorPairing": "title→ink-blue(默认/自定义卡)或白(身份卡实色卡头,白于身份色底 5.14-8.01 全 AA,卡头内一切文字含计数/警示徽章统一白——直接指定色会被白字规则组接管);body→ink;sub/cap→sub;muted(=--sub,#5f7386)对比 4.90:1(AA,拍板 6c);--watch=#96630f 双场景 AA(白底/浅底 ≥4.5,7353f81;2026-10-21 拍板稿 a06a15 仅白底达标已作废,10-23 审核 tokens 门禁拦获);徽章→状态色描边;sec-t 节标题→ink(近黑)+3px 竖锚=卡身份 --id(无 tone 回退墨蓝),分享层 sc-sec-title→ink+茶棕锚 --hint(cream 纸),锚带身份信息非装饰(2026-11-10)",
     "digits": "中文 sans + 数字 Georgia 双轨;多行日期列/ due 徽章等列对齐场景用 num-mono 等宽(拍板 7b);时间轴节点日期/单点日期=Georgia 衬线(2026-10-22 混合语法拍板:列 mono 对齐优先、轴点 Georgia 图纸感优先,NotesCard .d.dline 已按此实现;Georgia 无 tnum 特性,tabular-nums 对其无效)",
     "punctuation": "源文件半角体系不变;显示层把 CJK 邻接半角标点转全角(渲染层转换,拍板 8b;knowledge_render.cnpunct 覆盖 app 面板+site,web 侧 util.cnpunct 覆盖轮播条;「」保留)",
-    "base": "body 不显式声明基准(拍板 5a);未设号元素=16px 预留(工具栏品牌名),新代码不得依赖",
+    "base": "body 不显式声明基准(拍板 5a);未设号元素=16px 预留(原例工具栏品牌名已于 2026-11-11 显式落 16 title 档),新代码不得依赖",
     "note": "数字是本产品的第一语言,serif 数字=填表笔迹感;卡头=小字距 eyebrow,无 emoji;规范全文 docs/typography-spec-2026-10-21.md"
   },
   "layout": {
