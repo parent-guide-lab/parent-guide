@@ -153,7 +153,7 @@ function exportReport() {
   <template v-if="state.ready">
     <div class="toolbar">
       <span class="brand">
-        <svg class="brand-mark" width="19" height="19" viewBox="0 0 24 24" fill="none"
+        <svg class="brand-mark" width="20" height="20" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-8"/><path d="M12 13C12 9 9 6 4 6c0 4 3 7 8 7z"/><path d="M12 13c0-4 3-7 8-7 0 4-3 7-8 7z"/></svg>育儿指南<span class="en">parent-guide</span></span>
       <span v-if="!state.serverMode" class="mode-badge"
         title="未检测到本地服务；想体验布局编辑，运行 python3 server.py --open">文件模式 · 只读</span>

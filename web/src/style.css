@@ -13,6 +13,10 @@
   --id-violet: #6b5a8e; --id-teal: #2e6e6a;
   /* 身份浅底(卡头带/圆点圈;紫青=5% 混白计算值,茶棕=hint 族浅底) */
   --id-violet-bg: #f8f7f9; --id-teal-bg: #f5f8f8; --hint-bg: #f7f2ec;
+  /* 品牌绿(2026-11-11 拍板 B 新叶):仅进顶栏品牌图标一处,非正文色;
+     图形件线 3.76:1(适用 3:1 不适用 4.5 文字线),避开 ok 达标绿 H158°/
+     teal 速记青 H190° 色相带(H150°,彩度 C.124 高于语义族上限 .081=生命力来源) */
+  --brand-green: #3f9457;
 }
 * { box-sizing: border-box; margin: 0; }
 body { font-family: system-ui, -apple-system, "PingFang SC", "HarmonyOS Sans SC",
@@ -27,9 +31,13 @@ body { font-family: system-ui, -apple-system, "PingFang SC", "HarmonyOS Sans SC"
 .toolbar { position: sticky; top: 0; z-index: 10; background: var(--card);
   border-bottom: 1px solid var(--line); padding: 10px 20px;
   display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+/* 品牌区(2026-11-11 拍板):标题与卡片题 cband h3 同声音(16px/700/墨蓝/.06em
+   =品牌名即产品大标题,卡片题=内容标题);图标独占品牌绿。绿不上正文
+   (15px 绿字不过 AA 4.5,且会稀释状态绿语义)。en 副标 11.5 mono sub 不动。 */
 .toolbar .brand { font-weight: 700; margin-right: auto; display: inline-flex;
-  align-items: center; gap: 9px; font-size: 15px; }
-.toolbar .brand .brand-mark { color: var(--ink-blue); flex: none; }
+  align-items: center; gap: 9px; font-size: 16px; letter-spacing: .06em;
+  color: var(--ink-blue); }
+.toolbar .brand .brand-mark { color: var(--brand-green); flex: none; }
 .toolbar .brand .en { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 11.5px; color: var(--sub); font-weight: 400; letter-spacing: .04em; }
 .btn { border: 1px solid var(--line); background: #fff; color: var(--ink);

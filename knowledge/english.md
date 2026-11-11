@@ -32,7 +32,7 @@
 > 收口=校园版货架导览(两条线功能与时序接力/1+ 独立级/奇奇学自拼四子
 > 系列)+两案并陈分界=家长投入形态+奇奇学 L1+ 单级 ¥669 快照+Floppy 笔
 > 标准-WiFi 版区别+正版渠道防伪判例(¥8/册口诀/ISBN 978-0-19 前缀)
-> (Oxford Owl 官方页复核,原文级;书目与渠道多源转述级,底稿 §15/§16);URL 与分级=文末 §7 来源清单,逐轮调研细节/引语逐字归档/
+> (Oxford Owl 官方页复核,原文级;书目与渠道多源转述级,底稿 §15/§16);2026-11-11 R12 牛津树读法与兴趣机制=Flack 2018 meta·Petrie 2023(PubMed 摘要级直读)+Oxford Owl 官方两页(原文级直读)+Bains 2025·刘海丹 2022(转述级),底稿 docs/english-ort-reading-method-research-2026-11-11.md;URL 与分级=文末 §7 来源清单,逐轮调研细节/引语逐字归档/
 > 矛盾处理见各轮底稿**
 
 ## 0. 一句话结论与三条纪律
@@ -219,6 +219,55 @@ RAZ=细粒度分级泛读体系(刷量扩阅读)、伴鱼=app 跟读打分+外�
   实验,Lauricella 2011,转述级×2 独立二手引证;准社会关系机制,Kucker
   2025 原文级)——起步材料选孩子已痴迷的角色;对慢热儿童额外降低新事物
   阻力为推断级(无直接抵触指标研究,如实)。
+
+## 2.9 牛津树怎么读:共读执行手册与兴趣机制(2026-11-11 R12)
+
+> 触发=用户「牛津树怎么读/怎么培养英语与阅读兴趣/家长怎么做/对家长有
+> 什么要求」。证据=Flack 2018 meta+Petrie 2023(PubMed 摘要级直读)+
+> Oxford Owl 官方两页(原文级直读)+Bains 2025 综述与中文家庭读写环境
+> meta(转述级)。共读通用方法细节在 activities.md,本节管牛津树语境
+> 的执行与兴趣。
+
+- **无字书(L1/Wordless):家长看图讲故事,不用「教」**。证据:无字书
+  共读引发更多互动——家长提示率与回应反馈更高、孩子话语贡献显著更多
+  (36 名家长/3.5-5.5 岁儿童/居家音频记录,Petrie 2023,摘要级);但
+  家长语言的词汇多样性与语法复杂度在有字书叙述时更高——**两种书形态
+  创造质上不同的语言环境,交替读优于只读一种**。讲法=命名指图+扩展成
+  句+开放式问题;中文讨论大方用(§2.5);没有「讲错」这回事——可懂
+  度>语法正确(§2.5)。
+- **一词/短句书(L1+):读-指-应三拍**。读一句指一图;新词当场连说几遍
+  优于分散重复(Schwab 2016,24-35 月,原文级);孩子要求同一本读第 N
+  遍=正确信号不是问题(Horst 2011;目标词出现次数 token 是词学习的
+  meta 级调节因子,Flack 2018,摘要级——重复不是浪费是机制本身)。
+  重复想玩花样可用官方「一本书读三遍」框架(第一遍读准/第二遍流利/
+  第三遍理解;Read Write Inc 家长指引,转述级)。
+- **dialogic 风格是 meta 级有效成分**:提问/回应/扩展的对话式读法显著
+  调节共读词学习(38 研究/2455 儿童/110 效应量,Flack 2018,摘要级;
+  且儿童年龄、谁读、读后间隔均不调节=各年龄段普遍适用;ESL 短期
+  g=.49、长期保持弱如 §2.5 并陈)——**把「读完了吗」换成「你觉得呢」**。
+- **兴趣四要素(实证与官方口径一致)**:①自主选择权——给孩子从两三本
+  里挑的权利(「参与选择=强动力」BC 原文级;选择权增强阅读动机,
+  Bains 2025 综述+Reading Rockets 动机综述,转述/机构级);②可及性
+  ——书放孩子自己够得到的地方,几块垫子+一篮书就是阅读角(Oxford
+  Owl 官方 tips,原文级;图书易接触+匹配兴趣→动机提升,OUP McGeown,
+  机构转述);③仪式感——固定时间共读,读到「像刷牙一样自然」(同页,
+  原文级);④家长朗读示范——被朗读越多的孩子越可能自主选择阅读
+  (Oxford Owl 官方口径,原文级;家庭读写环境与接受性词汇正相关,
+  中文 meta 刘海丹 2022,转述级)。
+- **不考核纪律**:学龄前不 quiz、不检查「学会了没」、不比进度——quiz
+  的证据位置在 4 岁半后的分级泛读(§2/§4);考核化是兴趣第一杀手
+  (与 NAEYC「记住≠学会」同向,§2.8)。戏剧化演绎(变声/角色扮演/
+  毛绒玩具演故事/让孩子复述)是官方与家长实践一致推荐的兴趣放大器
+  (Oxford Owl tips,原文级)。
+- **对家长的要求(四条,全部可达成)**:①英语水平不设门槛——可懂度
+  >语法完美,热情与鼓励才是核心变量(§2.5);发音没把握的词用官方
+  音频兜底;②时间=每天 10-15 分钟足额(BC,原文级),稳定性大于单次
+  时长;③一致性=固定 slot 仪式化,中断后重启成本要低(书常在手边,
+  不求每天、求长期在轨);④技巧可学——dialogic 三拍与每册 tips 照做
+  即可,无需任何培训。
+- **预期管理**:共读承诺的是兴趣、习惯与听力词汇,不是词表产出;效果
+  看理解反应不看开口(§2.5);共读干预长期保持效应弱(§2.5)——
+  **让共读本身成为孩子期待的时段,是唯一可持续的护城河**。
 
 ## 3. 三类工具对比(2026-10-17 时点快照)
 
@@ -615,6 +664,13 @@ docs/english-enlightenment-research-2026-10-17.md(§5 矛盾/§7 来源/
 | Oxford Owl:BCK Storyteller videos(仅 Stage 4-5 两本;R11 音频边界直读核 2026-11-11) | 原文级 | [home.oxfordowl.co.uk](https://home.oxfordowl.co.uk/storyteller-videos/storyteller-videos-biff-chip-kipper/) |
 | 京东奇奇学套装在售页(拓展阅读 L1+ 36 册含 WiFi 笔约 ¥669;R11.5 快照 2026-11-11) | 转述级 | [jd.com](https://www.jd.com/hprm/1713aab776aac53625f3.html) |
 | 奇奇学点读笔资源页(标准版 touchPen/WiFi 版 wifiPen,页面在架;两版区别口径=搜索转述) | 存在性原文级/口径转述级 | [qiqixue.com/touchPen](https://qiqixue.com/touchPen) / [qiqixue.com/wifiPen](https://qiqixue.com/wifiPen) |
+| Petrie et al. 2023, J Child Lang(无字书 vs 有字书共读互动对比;无字书互动多/有字书家长语言复杂度更高,R12) | 摘要级(直读) | [PMID 34789359](https://pubmed.ncbi.nlm.nih.gov/34789359/) |
+| Flack, Field & Horst 2018, Dev Psychol(共读词学习 meta 38 研究:dialogic 风格与 token 调节;年龄/谁读不调节,R12) | 摘要级(直读) | [PMID 29595311](https://pubmed.ncbi.nlm.nih.gov/29595311/) |
+| Oxford Owl:Read with Oxford parent guide(Stage 1=Oxford Levels 1 与 1+;各 Stage 能力描述,R12 直读) | 原文级 | [home.oxfordowl.co.uk](https://home.oxfordowl.co.uk/reading/reading-schemes-oxford-levels/read-with-oxford-guide/) |
+| Oxford Owl:Top tips from parents on sharing stories(选择权/阅读角/仪式/继续朗读/读后讨论/戏剧化,R12 直读) | 原文级 | [home.oxfordowl.co.uk](https://home.oxfordowl.co.uk/top-tips-from-parents-on-sharing-stories-at-home/) |
+| Bains et al. 2025(阅读材料选择权×动机综述,R12) | 转述级(摘要未直读) | [PMC12982546](https://pmc.ncbi.nlm.nih.gov/articles/PMC12982546) |
+| 刘海丹等 2022,心理学报(家庭读写环境×接受性词汇中文 meta,R12) | 转述级 | [journal.psych.ac.cn](https://journal.psych.ac.cn/xlkxjz/CN/article/downloadArticleFile.do?attachType=PDF&id=5800) |
+| Read Write Inc. 家长指引(一本书读三遍:读准/流利/理解,R12) | 转述级(搜索摘要,未直读) | —(home.oxfordowl.co.uk read-write-inc-phonics-guide) |
 | 新华网双减《意见》全文 | 原文级 | [xinhuanet.com](http://www.xinhuanet.com/politics/zywj/2021-07/24/c_1127691094.htm) |
 | 教育部变相违规查处通知(2021-09) | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202109/t20210908_560508.html) |
 | 学科类鉴别通知(教监管厅函〔2021〕3 号) | 转述级(经摘要转引) | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202107/t20210730_547807.html) |
