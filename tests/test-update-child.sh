@@ -760,5 +760,180 @@ class T(unittest.TestCase):
         self.assertIn("siblings", c["profile"]["_asOf"])
         self.assertIn("healthNotes", c["profile"]["_asOf"])
 
+    # ── 洞察回路(2026-11-11 拍板:提议-人审+台账,docs/skill-self-evolution-research)──
+
+    def log_lines(self):
+        p = self.tmp / "insights-log.jsonl"
+        if not p.exists():
+            return []
+        return [json.loads(l) for l in p.read_text("utf-8").splitlines() if l.strip()]
+
+    def test_60_insight_propose_logs_only(self):
+        # 提议只进台账,child.json 不动(提议-人审:档案里只有确认过的)
+        code, msg = run(self.tmp, "propose-insight", "--topic", "抗拒刷牙",
+                        "--statement", "抗拒刷牙可能与想自己来有关,待更多观察",
+                        "--anchor", "11-02 两次抢牙刷哭", "--window", "30,42")
+        self.assertEqual(code, 0, msg)
+        self.assertIn("I1", msg)
+        c = self.child()
+        self.assertEqual([x for x in c.get("insights", [])], [])   # 档案未写
+        log = self.log_lines()
+        self.assertEqual(len(log), 1)
+        self.assertEqual(log[0]["action"], "proposed")
+        self.assertEqual(log[0]["id"], "I1")
+
+    def test_61_insight_confirm_writes_archive(self):
+        run(self.tmp, "propose-insight", "--topic", "抗拒刷牙",
+            "--statement", "抗拒刷牙可能与想自己来有关,待更多观察",
+            "--anchor", "11-02 两次抢牙刷哭", "--window", "30,42")
+        code, msg = run(self.tmp, "confirm-insight", "--id", "I1")
+        self.assertEqual(code, 0, msg)
+        c = self.child()
+        self.assertEqual(len(c["insights"]), 1)
+        it = c["insights"][0]
+        self.assertEqual(it["id"], "I1")
+        self.assertEqual(it["topic"], "抗拒刷牙")
+        self.assertEqual(it["window"], [30, 42])
+        self.assertEqual(it["status"], "active")
+        self.assertTrue(it["anchors"])
+        actions = [x["action"] for x in self.log_lines()]
+        self.assertEqual(actions, ["proposed", "confirmed"])
+        # 重复确认拒绝(幂等)
+        code, _ = run(self.tmp, "confirm-insight", "--id", "I1")
+        self.assertNotEqual(code, 0)
+
+    def test_62_insight_confirm_with_revision(self):
+        # 家长确认时改了口:confirm 参数为准
+        run(self.tmp, "propose-insight", "--topic", "抗拒刷牙",
+            "--statement", "抗拒刷牙可能与想自己来有关",
+            "--anchor", "11-02 抢牙刷", "--window", "30,42")
+        code, msg = run(self.tmp, "confirm-insight", "--id", "I1",
+                        "--statement", "想自己拿牙刷,先给选择再代刷",
+                        "--anchor", "11-09 递选择后配合")
+        self.assertEqual(code, 0, msg)
+        it = self.child()["insights"][0]
+        self.assertEqual(it["statement"], "想自己拿牙刷,先给选择再代刷")
+        self.assertIn("11-09", it["anchors"][0])
+
+    def test_63_insight_reject_logs_no_reuse(self):
+        run(self.tmp, "propose-insight", "--topic", "抗拒刷牙",
+            "--statement", "可能与想自主有关", "--anchor", "11-02 抢牙刷",
+            "--window", "30,42")
+        code, msg = run(self.tmp, "reject-insight", "--id", "I1", "--reason", "观察次数不够")
+        self.assertEqual(code, 0, msg)
+        self.assertEqual([x for x in self.child().get("insights", [])], [])
+        self.assertEqual(self.log_lines()[-1]["action"], "rejected")
+        # id 不复用:被拒的 I1 占号,下一条是 I2
+        code, msg = run(self.tmp, "propose-insight", "--topic", "分离焦虑",
+                        "--statement", "换环境后入睡哭闹增多,待观察", "--anchor",
+                        "11-05 奶奶家午睡哭 20 分钟", "--window", "30,36")
+        self.assertEqual(code, 0, msg)
+        self.assertIn("I2", msg)
+
+    def test_64_insight_blacklist_rejected(self):
+        # 定性词黑名单:机械拦「她是X型」类标签(假设级纪律的 fail fast)
+        code, msg = run(self.tmp, "propose-insight", "--topic", "气质",
+                        "--statement", "她是慢热型的孩子",
+                        "--anchor", "11-02 生人面前躲", "--window", "30,42")
+        self.assertNotEqual(code, 0)
+        self.assertIn("定性", msg)
+        self.assertEqual(self.log_lines(), [])
+
+    def test_65_insight_requires_anchor(self):
+        code, _ = run(self.tmp, "propose-insight", "--topic", "抗拒刷牙",
+                      "--statement", "可能与想自主有关", "--window", "30,42")
+        self.assertNotEqual(code, 0)
+
+    def test_66_insight_window_validation(self):
+        base = ["--topic", "x", "--statement", "可能与有关,待观察", "--anchor", "11-02 看到"]
+        code, _ = run(self.tmp, "propose-insight", *base, "--window", "42,30")
+        self.assertNotEqual(code, 0)   # from>to
+        code, _ = run(self.tmp, "propose-insight", *base, "--window", "abc")
+        self.assertNotEqual(code, 0)
+        code, _ = run(self.tmp, "propose-insight", *base, "--window", "30,90")
+        self.assertNotEqual(code, 0)   # 超 0-72 月适配范围
+
+    def test_67_insight_review_reaffirm(self):
+        run(self.tmp, "propose-insight", "--topic", "抗拒刷牙",
+            "--statement", "可能与想自主有关", "--anchor", "11-02 抢牙刷",
+            "--window", "30,36")
+        run(self.tmp, "confirm-insight", "--id", "I1")
+        code, msg = run(self.tmp, "review-insight", "--id", "I1",
+                        "--verdict", "reaffirm", "--window", "36,42", "--note", "过窗复验仍成立")
+        self.assertEqual(code, 0, msg)
+        it = self.child()["insights"][0]
+        self.assertEqual(it["window"], [36, 42])
+        self.assertEqual(it["status"], "active")
+        self.assertEqual(self.log_lines()[-1]["action"], "reviewed")
+
+    def test_68_insight_review_drop_and_supersede(self):
+        run(self.tmp, "propose-insight", "--topic", "抗拒刷牙",
+            "--statement", "可能与想自主有关", "--anchor", "11-02 抢牙刷",
+            "--window", "30,36")
+        run(self.tmp, "confirm-insight", "--id", "I1")
+        code, msg = run(self.tmp, "review-insight", "--id", "I1",
+                        "--verdict", "drop", "--note", "现已主动刷牙,不再成立")
+        self.assertEqual(code, 0, msg)
+        self.assertEqual(self.child()["insights"][0]["status"], "expired")
+        # superseded-by 必须指向存在的洞察
+        code, _ = run(self.tmp, "review-insight", "--id", "I1",
+                      "--verdict", "drop", "--superseded-by", "I9")
+        self.assertNotEqual(code, 0)
+
+    def test_69_insight_stats_rates(self):
+        # 两比率从台账机械算:2 提议 1 确认 1 驳回 → 驳回率 1/2
+        run(self.tmp, "propose-insight", "--topic", "抗拒刷牙",
+            "--statement", "可能与想自主有关", "--anchor", "11-02 抢牙刷",
+            "--window", "30,36")
+        run(self.tmp, "confirm-insight", "--id", "I1")
+        run(self.tmp, "propose-insight", "--topic", "分离焦虑",
+            "--statement", "换环境入睡哭闹增多,待观察", "--anchor",
+            "11-05 午睡哭", "--window", "30,36")
+        run(self.tmp, "reject-insight", "--id", "I2", "--reason", "单次事件")
+        code, msg = run(self.tmp, "insight-stats")
+        self.assertEqual(code, 0, msg)
+        self.assertIn("提议 2", msg)
+        self.assertIn("确认 1", msg)
+        self.assertIn("驳回 1", msg)
+
+    def test_70_check_flags_bad_insight(self):
+        # check 抓手改档案:手插黑名单/缺锚洞察必须 FAIL
+        doc = json.loads((self.tmp / "child.json").read_text("utf-8"))
+        c = doc["taozi"]
+        c["insights"] = [{"id": "I1", "topic": "气质", "statement": "她就是高需求型",
+                          "anchors": [], "window": [30, 40], "status": "active",
+                          "created": "11-11"}]
+        (self.tmp / "child.json").write_text(json.dumps(doc, ensure_ascii=False), "utf-8")
+        code, msg = run(self.tmp, "check")
+        self.assertNotEqual(code, 0)
+        self.assertIn("I1", msg)
+
+    def test_71_confirm_without_proposal_fails(self):
+        code, _ = run(self.tmp, "confirm-insight", "--id", "I9")
+        self.assertNotEqual(code, 0)
+
+    def test_72_insight_issue_link(self):
+        run(self.tmp, "propose-insight", "--topic", "抗拒刷牙",
+            "--statement", "可能与想自主有关", "--anchor", "11-02 抢牙刷",
+            "--window", "30,36", "--issue", "P1")
+        code, msg = run(self.tmp, "confirm-insight", "--id", "I1")
+        self.assertEqual(code, 0, msg)
+        self.assertEqual(self.child()["insights"][0]["issues"], ["P1"])
+        code, _ = run(self.tmp, "propose-insight", "--topic", "x",
+                      "--statement", "可能与有关,待观察", "--anchor", "11-02 看到",
+                      "--window", "30,36", "--issue", "P9")
+        self.assertNotEqual(code, 0)   # 挂不存在的问题=拒
+
+    def test_73_ledger_bad_lines_visible(self):
+        # 坏行不得静默吞(fail fast):stats 必须显示坏行计数,计量失真要可见
+        run(self.tmp, "propose-insight", "--topic", "x",
+            "--statement", "可能与有关,待观察", "--anchor", "11-02 看到",
+            "--window", "30,36")
+        with open(self.tmp / "insights-log.jsonl", "a", encoding="utf-8") as f:
+            f.write("{broken json!!\n")
+        code, msg = run(self.tmp, "insight-stats")
+        self.assertEqual(code, 0, msg)
+        self.assertIn("坏行 1 条", msg)
+
 unittest.main(verbosity=2, argv=["test-update-child"])
 PY

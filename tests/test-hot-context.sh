@@ -31,6 +31,35 @@ if printf '%s\n' "$BARE_OUT" | grep -q "规律层"; then
 fi
 rm -rf "$BARE"
 
+# insights section (2026-11-11 conversation.md §2.9): no insights -> no section
+# (hot zone stays minimal); active insight renders with month-age window;
+# window ended -> overdue nudge (re-validate before citing = R0/R1 trigger)
+if printf '%s\n' "$OUT" | grep -q "\[洞察\]"; then
+  echo "FAIL: insight section printed for fixture without insights"; exit 1
+fi
+INS_DIR="$(mktemp -d)"
+cp "$ROOT/tests/fixtures/test-env/data/child.json" "$INS_DIR/"
+python3 - "$INS_DIR/child.json" <<'PY'
+import json, sys
+p = sys.argv[1]
+doc = json.load(open(p, encoding="utf-8"))
+key = next(k for k in doc if not k.startswith("_"))
+doc[key]["insights"] = [
+    {"id": "I1", "topic": "抗拒刷牙", "statement": "可能与想自己来有关,待观察",
+     "anchors": ["11-02 抢牙刷"], "window": [30, 36], "status": "active",
+     "created": "11-11"},
+    {"id": "I2", "topic": "分离焦虑", "statement": "换环境入睡哭闹增多,待观察",
+     "anchors": ["11-05 午睡哭"], "window": [24, 28], "status": "active",
+     "created": "10-01"},
+]
+json.dump(doc, open(p, "w", encoding="utf-8"), ensure_ascii=False)
+PY
+INS_OUT="$(bash "$ROOT/skills/parent-guide/scripts/hot-context.sh" "$INS_DIR")"
+printf '%s\n' "$INS_OUT" | grep -q "\[洞察\]"    || { echo "FAIL: no insight section"; exit 1; }
+printf '%s\n' "$INS_OUT" | grep -q "I1 抗拒刷牙"  || { echo "FAIL: no active insight line"; exit 1; }
+printf '%s\n' "$INS_OUT" | grep -q "I2.*已过窗"  || { echo "FAIL: overdue marker missing on ended window"; exit 1; }
+rm -rf "$INS_DIR"
+
 # profile staleness hint (2026-10-14): no _asOf (never migrated) -> silent;
 # stale _asOf (>6 months) -> one nudge line naming the stale fields
 if printf '%s\n' "$OUT" | grep -q "未核实"; then

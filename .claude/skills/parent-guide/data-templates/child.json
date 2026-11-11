@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "notice": "孩子档案模板:复制到你的 data/ 目录改名为 child.json 并填入真实内容。此文件存你本地,绝不入库/上传。字段结构是 hot-context.sh 的契约,改字段名需同步改脚本。birthdate 先用示例日期保证脚本开箱即跑,建档后务必改成真实生日。profile._asOf(各画像字段的核实日期)与 profileHistory(画像变更留档)由 update-child.py 维护,手改无效不必填。"
+    "notice": "孩子档案模板:复制到你的 data/ 目录改名为 child.json 并填入真实内容。此文件存你本地,绝不入库/上传。字段结构是 hot-context.sh 的契约,改字段名需同步改脚本。birthdate 先用示例日期保证脚本开箱即跑,建档后务必改成真实生日。profile._asOf(各画像字段的核实日期)与 profileHistory(画像变更留档)由 update-child.py 维护,手改无效不必填。insights(孩子特点洞察)只经 propose-insight→家长确认→confirm-insight 写入,别手改;提议/驳回历史在同目录 insights-log.jsonl。"
   },
   "child": {
     "name": "孩子小名",
@@ -22,6 +22,7 @@
       }
     },
     "profileHistory": [],
+    "insights": [],
     "issues": [
       {
         "id": "P1",

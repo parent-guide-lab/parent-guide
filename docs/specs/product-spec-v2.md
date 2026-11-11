@@ -39,6 +39,7 @@
 | `currentFocus` | 当前关注(整组覆盖) | 热区第一行 |
 | `notes` | 事件速记(tags 多标签/可选 title 与 time) | 最高频写入区,时间轴数据源 |
 | `issues` | 问题一等实体(P<N>:status active/watching/resolved,brief{what,why,how,redline,sources},pendingCare) | 时间线=notes/strategies/followups 按 `issues` 外键聚合,不设独立 events 数组 |
+| `insights` | 孩子特点洞察一等实体(I<N>:status active/superseded/expired,statement 假设级[定性词黑名单机械拒],anchors ≥1 观察锚,window 月龄窗[发育性过期]) | 依据档恒【推断】;**提议-人审**:propose→家长确认才落档;过窗热区提示重验(2026-11-11,conversation.md §2.9);台账 `data/insights-log.jsonl` 只计量非知识源 |
 | `strategies` | L2 计划(六状态) | 可挂 issues |
 | `followups` | 回访(due/topic/status pending/done/skipped) | 可挂 issues |
 | `reminders` | 认领的前瞻提醒(YYYY-MM-DD 跨年保年份) | |
@@ -47,11 +48,12 @@
 | `sleep` | sleep.note 概况字段 | 不逐日记录(2026-10-01 拍板) |
 
 写入纪律:三步门(读热区→Run 脚本→引脚本输出为证);`activeConcerns`/`severity` 类结构化
-已废弃——**结构化只给机械操作,语义归一留读侧**(全项目铁律)。写入动作全集 20 个
+已废弃——**结构化只给机械操作,语义归一留读侧**(全项目铁律)。写入动作全集 24 个
 (add-note/set-profile[--verify]/set-milestone/add-issue/set-issue-brief/link-issue/
 add-strategy/add-followup/add-growth/add-reminder/set-focus/mark-revisited/
 set-note-time/set-note-title/set-status/set-issue-status/set-reminder-status/
-set-followup-status/check/init,以 `update-child.py --help` 为准)。
+set-followup-status/propose-insight/confirm-insight/reject-insight/review-insight/
+insight-stats/check/init,以 `update-child.py --help` 为准)。
 
 ## 5. skill 协议体系(parent-guide)
 
@@ -113,3 +115,6 @@ set-followup-status/check/init,以 `update-child.py --help` 为准)。
    零数字方案替代)。
 4. Phase B(MCP server)与 Phase C(独立应用)。
 5. 付费/订阅体系(语料已全量开源,open core 三层变现设计废止,2026-10-14)。
+6. insights 卡片化(InsightCard/分享过滤/热区条数上限/daily-tips 消费):洞察回路
+   2026-11-11 v1 走对话与热区消费,卡片化等真实洞察量起量再做;**web 端当前不渲染
+   insights 属设计而非遗漏**,卡片化时必须带分享过滤(conversation.md §2.9 第 7 条)。

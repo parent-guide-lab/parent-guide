@@ -121,6 +121,23 @@ for x in live:
 if c.get("activeConcerns"):
     print("(检测到旧 activeConcerns:已废弃,迁到 issues 后清空)")
 print()
+# insights(孩子模型洞察,2026-11-11):假设级,只作判断参考;过窗=发育性过期,
+# 重验(review-insight)前不得当依据引用——这是 R0/R1 风险(发育性混淆/确认循环)
+# 的机械触发器。无洞察不打印整段(热区保持最小)。
+if c.get("insights"):
+    print("[洞察](假设级,只作参考;过窗须重验后才能引用)")
+    for x in c.get("insights", []):
+        if x.get("status") != "active":
+            continue    # superseded/expired 留档作历史,热区只看在管
+        w = x.get("window") or [None, None]
+        tag = f"(窗 {w[0]}-{w[1]} 月)"
+        try:
+            if months > int(w[1]):
+                tag = f"(窗 {w[0]}-{w[1]} 月,已过窗——review-insight 重验,重验前不得引用)"
+        except (TypeError, ValueError):
+            pass
+        print(f"- {x.get('id', '?')} {x.get('topic', '')}:{x.get('statement', '')}{tag}")
+    print()
 print("[活跃策略]")
 for s in c.get("strategies", []):
     print(f"- {s['id']} {s['name']}:{s['applied']}")

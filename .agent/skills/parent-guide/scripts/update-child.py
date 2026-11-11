@@ -18,6 +18,15 @@ Actions:
   add-note      --date MM-DD --text                  append journal note
   mark-revisited --id --result [--status effective|partial|ineffective]
   set-status    --id --status active|suspended|absorbed|ineffective [--note]
+  propose-insight --topic --statement --anchor .. [--anchor ..] --window 起,止
+                  [--issue P1]   child-model insight proposal: ledger only,
+                  parent confirms before it enters the archive (提议-人审)
+  confirm-insight --id [--topic/--statement/--anchor/--window overrides]
+                  write the proposed insight into child.json (家长确认=门)
+  reject-insight --id [--reason]   log the rejection (ledger only; id 占号不复用)
+  review-insight --id --verdict reaffirm|revise|drop [--window/--statement/
+                  --anchor/--superseded-by/--note]   re-validation at window end
+  insight-stats  proposal-ledger rates (驳回率/过窗滞留; 机械计量非 AI 自报)
 
 MM-DD arguments also accept YYYY-MM-DD (auto year-stripped on write), so a
 caller passing full dates still produces a check-clean archive.
@@ -54,6 +63,17 @@ from pathlib import Path
 VALID_STATUS = {"active", "effective", "partial", "ineffective", "suspended", "absorbed"}
 MILESTONE_STATUS = {"ok", "watch", "todo"}
 ISSUE_STATUS = {"active", "watching", "resolved"}   # docs/specs/issue-tracking-v1.md
+# insights(孩子模型洞察,2026-11-11):提议-人审+台账回路,协议=conversation.md §2.9,
+# 调研=docs/skill-self-evolution-research-2026-11-11.md(拆件:SkillEvo 证据边界/合并不
+# 补丁 + SkillOpt validation-gated + ExpeL 池操作)。依据档恒为【推断】个案观察,不入字段。
+INSIGHT_STATUS = {"active", "superseded", "expired"}
+INSIGHT_VERDICTS = {"reaffirm", "revise", "drop"}
+INSIGHT_BLACKLIST = re.compile(
+    r"(天生|生来|一直都是|从来都|就是个|定型了|慢热型|高需求型|难养型|易养型"
+    r"|天使宝宝|魔鬼宝宝|[内外向慢热高需难易敏感固执胆小大胆]{1,3}型)")
+INSIGHT_MAX_TOPIC = 20      # 字;话题短语
+INSIGHT_MAX_STATEMENT = 100 # 字;一句假设级表述
+INSIGHT_MAX_ANCHOR = 60     # 字;单条观察锚
 TIME_OF_DAY = re.compile(r"^(\d{1,2}):(\d{1,2})$")  # note.time HH:MM(可选,容忍 9:5)
 
 
@@ -233,6 +253,96 @@ def _find_note(child, spec):
     return hits[0], None
 
 
+# ═══ insights:提议-人审+台账(docs/skill-self-evolution-research-2026-11-11)═══
+
+def _insight_log_path(data_dir):
+    return Path(data_dir) / "insights-log.jsonl"
+
+
+def _append_log(data_dir, entry):
+    with _insight_log_path(data_dir).open("a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
+def _read_log_full(data_dir):
+    """读洞察台账,返回(条目列表, 坏行数)。坏行跳过不炸(台账只计量,
+    读失败不挡档案动作)——但坏行数必须可见(insight-stats 显示),
+    不静默吞:计量失真要能被发现。"""
+    p = _insight_log_path(data_dir)
+    if not p.exists():
+        return [], 0
+    out, bad = [], 0
+    for line in p.read_text("utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            out.append(json.loads(line))
+        except ValueError:
+            bad += 1
+    return out, bad
+
+
+def _read_log(data_dir):
+    return _read_log_full(data_dir)[0]
+
+
+def _next_insight_id(child, used_ids):
+    """I<N> 连续且不复用——被拒提议的 id 也占号(台账可追溯到提议总量)。"""
+    nums = [int(m.group(1)) for x in child.get("insights", [])
+            for m in [re.match(r"I(\d+)$", str(x.get("id", "")))] if m]
+    nums += [int(m.group(1)) for i in used_ids
+             for m in [re.match(r"I(\d+)$", str(i))] if m]
+    return f"I{max(nums, default=0) + 1}"
+
+
+def _parse_window(v):
+    """--window "30,42" -> [30, 42];非两整数返回 None 交上层拒绝。"""
+    parts = str(v or "").split(",")
+    if len(parts) != 2:
+        return None
+    try:
+        return [int(parts[0].strip()), int(parts[1].strip())]
+    except ValueError:
+        return None
+
+
+def _insight_problems(topic, statement, anchors, window):
+    """洞察三硬纪律机械校验(fail fast;对应协议 §2.9):①假设级语言(定性
+    黑名单拦截)②观察锚 ≥1 条(证据边界:只从已观察事实提炼)③月龄窗必填
+    (发育性过期:洞察属于月龄段而非永远成立)。返回(问题列表, 清洗后锚)。"""
+    problems = []
+    topic = str(topic or "").strip()
+    statement = str(statement or "").strip()
+    if not topic:
+        problems.append("topic 必填(主题短语)")
+    elif len(topic) > INSIGHT_MAX_TOPIC:
+        problems.append(f"topic 须 ≤{INSIGHT_MAX_TOPIC} 字(现在是 {len(topic)} 字)")
+    if not statement:
+        problems.append("statement 必填(一句假设级表述)")
+    elif len(statement) > INSIGHT_MAX_STATEMENT:
+        problems.append(f"statement 须 ≤{INSIGHT_MAX_STATEMENT} 字(现在是 {len(statement)} 字)")
+    else:
+        hit = INSIGHT_BLACKLIST.search(statement)
+        if hit:
+            problems.append(f"statement 含定性标签表述「{hit.group(0)}」——洞察只写假设级"
+                            "(「可能与…有关,待观察」),不做定性结论(协议 §2.9)")
+    clean_anchors = [str(a).strip() for a in (anchors or []) if str(a).strip()]
+    if not clean_anchors:
+        problems.append("anchors 必填 ≥1 条观察锚(日期+白描短句)——无锚洞察不进档案")
+    for a in clean_anchors:
+        if len(a) > INSIGHT_MAX_ANCHOR:
+            problems.append(f"锚「{a[:16]}…」超 {INSIGHT_MAX_ANCHOR} 字,精简后重试")
+    if (not isinstance(window, list) or len(window) != 2
+            or not all(isinstance(w, int) for w in window)):
+        problems.append("window 必填且为 [起月龄,止月龄] 两个整数(如 --window 30,42)")
+    elif window[0] > window[1]:
+        problems.append(f"window 起月龄 {window[0]} > 止月龄 {window[1]}")
+    elif window[0] < 0 or window[1] > 72:
+        problems.append(f"window 须在 0-72 月内(0-5 岁适配范围;现在是 {window})")
+    return problems, clean_anchors
+
+
 def execute(argv=None):
     ap = argparse.ArgumentParser(prog="update-child.py")
     ap.add_argument("--data", default="./data", help="data directory (default ./data)")
@@ -363,6 +473,46 @@ def execute(argv=None):
     p.add_argument("--note", required=True, help="YYYY-MM-DD:前缀(同 link-issue 定位)")
     p.add_argument("--title", required=True, help="一句话标题,<=25 字,意思不变")
 
+    p = sub.add_parser("propose-insight", help="propose a child-model insight "
+                       "(ledger only; parent confirms before it enters the archive)")
+    p.add_argument("--topic", required=True, help="主题短语 ≤20 字")
+    p.add_argument("--statement", required=True,
+                   help="一句假设级表述 ≤100 字;定性标签(「X型/天生」类)会被拒绝")
+    p.add_argument("--anchor", action="append", required=True,
+                   help="观察锚:日期+白描短句,一条一传,≥1 条必填")
+    p.add_argument("--window", required=True, help="月龄窗 起,止(如 30,42;0-72)")
+    p.add_argument("--issue", action="append", default=None, help="挂到问题,如 P1")
+
+    p = sub.add_parser("confirm-insight", help="家长确认后把提议写入档案;不带修订参数"
+                       "=按提议原样,给了=以确认口径为准")
+    p.add_argument("--id", required=True)
+    p.add_argument("--topic", default=None)
+    p.add_argument("--statement", default=None)
+    p.add_argument("--anchor", action="append", default=None,
+                   help="给了=整组覆盖提议锚")
+    p.add_argument("--window", default=None)
+    p.add_argument("--issue", action="append", default=None)
+
+    p = sub.add_parser("reject-insight", help="驳回提议:只进台账(档案不动);"
+                       "id 占号不复用")
+    p.add_argument("--id", required=True)
+    p.add_argument("--reason", default="", help="驳回原因=提炼纪律的校准数据")
+
+    p = sub.add_parser("review-insight", help="窗口到期重验(热区会提示过窗洞察)")
+    p.add_argument("--id", required=True)
+    p.add_argument("--verdict", required=True, choices=sorted(INSIGHT_VERDICTS),
+                   help="reaffirm=仍成立延窗(须 --window 新窗)/revise=修订表述或锚"
+                        "(须 --statement 和/或 --anchor)/drop=废弃"
+                        "(默认 expired;--superseded-by 指向新洞察则 superseded)")
+    p.add_argument("--window", default=None)
+    p.add_argument("--statement", default=None)
+    p.add_argument("--anchor", action="append", default=None)
+    p.add_argument("--superseded-by", dest="superseded_by", default=None)
+    p.add_argument("--note", default="")
+
+    p = sub.add_parser("insight-stats", help="台账计量:提议/确认/驳回/重验与过窗滞留"
+                       "(机械计数,不由 AI 自报)")
+
     p = sub.add_parser("check", help="validate the archive: required fields, date "
                   "formats (YYYY-MM-DD / MM-DD), status enums, numeric fields, "
                   "id uniqueness; human-readable problem list")
@@ -417,7 +567,7 @@ def execute(argv=None):
         child["currentFocus"] = [f.strip() for f in (args.focus or "").split(",") if f.strip()]
         # drop teaching samples from the template: a fresh archive starts empty
         for section in ("strategies", "suspended", "experiments", "followups", "notes",
-                         "reminders", "issues"):
+                         "reminders", "issues", "insights"):
             child[section] = []
         child.pop("activeConcerns", None)   # 已废弃(issues 取代)
         child["milestones"] = {}
@@ -435,6 +585,31 @@ def execute(argv=None):
         doc, key, child = _load(path)
     except (OSError, ValueError, StopIteration) as e:
         return 1, f"ERROR: cannot load {path}: {e}"
+
+    if args.action == "insight-stats":
+        log, bad_lines = _read_log_full(Path(args.data))
+        n = {k: sum(1 for e in log if e.get("action") == k)
+             for k in ("proposed", "confirmed", "rejected", "reviewed")}
+        ins = child.get("insights", [])
+        st = {k: sum(1 for x in ins if x.get("status") == k) for k in sorted(INSIGHT_STATUS)}
+        months_now = _months_at(str(child.get("birthdate") or ""), date.today().isoformat())
+        overdue = [str(x.get("id")) for x in ins
+                   if x.get("status") == "active" and isinstance(x.get("window"), list)
+                   and len(x["window"]) == 2 and months_now > x["window"][1]]
+        rate = f"驳回率 {n['rejected']}/{n['proposed']}" if n["proposed"] else "驳回率 -(尚无提议)"
+        lines = [f"洞察台账:提议 {n['proposed']}·确认 {n['confirmed']}·驳回 {n['rejected']}"
+                 f"·重验 {n['reviewed']}({rate})",
+                 f"在档 {len(ins)} 条(active {st['active']}/superseded {st['superseded']}"
+                 f"/expired {st['expired']};当前 {months_now} 月龄)"]
+        if bad_lines:
+            lines.append(f"⚠️ 台账坏行 {bad_lines} 条已跳过(计量分母可能失真,"
+                         "检查 insights-log.jsonl)")
+        if overdue:
+            lines.append(f"过窗滞留 {len(overdue)} 条:{','.join(overdue)}——"
+                         "review-insight 重验(引用过窗洞察前先重验)")
+        else:
+            lines.append("过窗滞留:无")
+        return 0, "\n".join(lines)
 
     if args.action == "add-strategy":
         linked = _validated_issues(child, args.issue)
@@ -790,6 +965,118 @@ def execute(argv=None):
         n["title"] = args.title
         msg = f"recorded note title 「{args.title}」({n.get('date')}:{str(n.get('text', ''))[:24]})"
 
+    elif args.action == "propose-insight":
+        # 提议只进台账,档案不动(提议-人审:档案里只有确认过的洞察)
+        window = _parse_window(args.window)
+        linked = _validated_issues(child, args.issue)
+        if linked is None:
+            return 1, f"ERROR: --issue 挂了不存在的问题:{'/'.join(args.issue or [])}(先 add-issue)"
+        problems, anchors = _insight_problems(args.topic, args.statement, args.anchor, window)
+        if problems:
+            return 1, "ERROR: 拒绝提议(洞察三硬纪律):\n" + "\n".join(problems)
+        used = [e.get("id") for e in _read_log(Path(args.data))]
+        iid = _next_insight_id(child, used)
+        entry = {"date": date.today().isoformat(), "action": "proposed", "id": iid,
+                 "topic": args.topic.strip(), "statement": args.statement.strip(),
+                 "anchors": anchors, "window": window, "by": "ai"}
+        if linked:
+            entry["issues"] = linked
+        _append_log(Path(args.data), entry)
+        # 只动台账:提前 return,不走公共尾部(那里会写 child.json 并报
+        # 「saved child.json」——对提议是假证据,违反证据先于断言)
+        return 0, (f"proposed insight {iid}「{args.topic.strip()}」:{args.statement.strip()}"
+                   f"(窗 {window[0]}-{window[1]} 月,锚 ×{len(anchors)},依据档=【推断】个案观察)"
+                   f" | 待家长确认:confirm-insight --id {iid} / reject-insight --id {iid}"
+                   " | 只记台账未入档案(saved insights-log.jsonl)")
+
+    elif args.action == "confirm-insight":
+        # 家长确认=门;修订参数给了以确认口径为准
+        prop = next((e for e in reversed(_read_log(Path(args.data)))
+                     if e.get("action") == "proposed" and e.get("id") == args.id), None)
+        if prop is None:
+            return 1, f"ERROR: 台账没有 {args.id} 的提议记录(先 propose-insight)"
+        if args.id in {x.get("id") for x in child.get("insights", [])}:
+            return 1, f"ERROR: {args.id} 已在档案(幂等守卫,不重复确认)"
+        topic = args.topic if args.topic is not None else prop["topic"]
+        statement = args.statement if args.statement is not None else prop["statement"]
+        window = _parse_window(args.window) if args.window else prop["window"]
+        anchors_in = args.anchor if args.anchor else prop["anchors"]
+        issues_in = args.issue if args.issue else prop.get("issues", [])
+        linked = _validated_issues(child, issues_in)
+        if linked is None:
+            return 1, f"ERROR: --issue 挂了不存在的问题:{'/'.join(issues_in or [])}"
+        problems, anchors = _insight_problems(topic, statement, anchors_in, window)
+        if problems:
+            return 1, "ERROR: 拒绝确认(洞察三硬纪律):\n" + "\n".join(problems)
+        rec = {"id": args.id, "topic": str(topic).strip(),
+               "statement": str(statement).strip(), "anchors": anchors,
+               "window": window, "status": "active", "created": _today()}
+        if linked:
+            rec["issues"] = linked
+        child.setdefault("insights", []).append(rec)
+        _append_log(Path(args.data), {"date": date.today().isoformat(),
+                                      "action": "confirmed", "id": args.id, "by": "parent"})
+        msg = (f"recorded insight {args.id}「{rec['topic']}」:{rec['statement']}"
+               f"(窗 {window[0]}-{window[1]} 月) | 过窗热区会提示重验;"
+               "台账只计量,被拒提议不进档案")
+
+    elif args.action == "reject-insight":
+        prop = next((e for e in reversed(_read_log(Path(args.data)))
+                     if e.get("action") == "proposed" and e.get("id") == args.id), None)
+        if prop is None:
+            return 1, f"ERROR: 台账没有 {args.id} 的提议记录"
+        if args.id in {x.get("id") for x in child.get("insights", [])}:
+            return 1, f"ERROR: {args.id} 已确认在档,不能 reject(用 review-insight)"
+        _append_log(Path(args.data), {"date": date.today().isoformat(),
+                                      "action": "rejected", "id": args.id,
+                                      "reason": args.reason or ""})
+        # 只动台账:提前 return(同 propose,不报 saved child.json 假证据)
+        return 0, (f"rejected insight {args.id}(档案未动;台账留痕"
+                   f"{',原因:' + args.reason if args.reason else ''})"
+                   " | 驳回原因=提炼纪律的校准数据,insight-stats 可查比率")
+
+    elif args.action == "review-insight":
+        it = next((x for x in child.get("insights", []) if x.get("id") == args.id), None)
+        if it is None:
+            known = ";".join(str(x.get("id", "?")) for x in child.get("insights", [])) or "(无)"
+            return 1, f"ERROR: insight {args.id} not found(只可重验已确认在档的) | 现有:{known}"
+        touched = []
+        if args.verdict == "reaffirm":
+            if not args.window:
+                return 1, "ERROR: reaffirm 须给新 --window 起,止(延窗=重验通过的机械证据,不默认延期)"
+            w = _parse_window(args.window)
+            problems, _ = _insight_problems(it["topic"], it["statement"], it["anchors"], w)
+            if problems:
+                return 1, "ERROR: 拒绝延窗:\n" + "\n".join(problems)
+            it["window"] = w
+            touched.append(f"window→{w[0]}-{w[1]}")
+        elif args.verdict == "revise":
+            if not (args.statement or args.anchor):
+                return 1, "ERROR: revise 须给 --statement 和/或 --anchor"
+            stmt = args.statement if args.statement is not None else it["statement"]
+            anch = [a.strip() for a in args.anchor if a.strip()] if args.anchor else it["anchors"]
+            problems, anchors = _insight_problems(it["topic"], stmt, anch, it["window"])
+            if problems:
+                return 1, "ERROR: 拒绝修订(洞察三硬纪律):\n" + "\n".join(problems)
+            it["statement"] = str(stmt).strip()
+            it["anchors"] = anchors
+            touched.append("statement/anchors 以重验口径覆盖")
+        else:  # drop
+            if args.superseded_by:
+                if args.superseded_by not in {x.get("id") for x in child.get("insights", [])}:
+                    return 1, (f"ERROR: --superseded-by {args.superseded_by} 不存在"
+                               "(先确认新洞察,再废弃旧的)")
+                it["status"] = "superseded"
+                it["supersededBy"] = args.superseded_by
+            else:
+                it["status"] = "expired"
+            touched.append(f"status→{it['status']}")
+        _append_log(Path(args.data), {"date": date.today().isoformat(),
+                                      "action": "reviewed", "id": args.id,
+                                      "verdict": args.verdict, "note": args.note or ""})
+        msg = (f"reviewed insight {args.id}({args.verdict}:{' / '.join(touched)})"
+               + (f" | {args.note}" if args.note else ""))
+
     elif args.action == "check":
         problems, ph = _check(child)
         note = f"\n  提示: 还有 {ph} 处模板占位值待替换为真实内容" if ph else ""
@@ -979,9 +1266,45 @@ def _check(child):
             problems.append(f"issue {iid}: summary 必填(当前状态一句话)")
         problems += _brief_format_problems(iid, it.get("brief") or {})
 
+    # insights(一等实体, 2026-11-11:提议-人审+台账, conversation.md §2.9)
+    all_ins = child.get("insights", [])
+    insight_ids = {str(x.get("id")) for x in all_ins}
+    for it in all_ins:
+        iid = str(it.get("id", ""))
+        if not re.match(r"^I\d+$", iid):
+            problems.append(f"insight id 须为 I<N> 格式(现在是 {iid!r})")
+        elif sum(1 for x in all_ins if str(x.get("id")) == iid) > 1:
+            problems.append(f"insight id 重复:{iid}")
+        if it.get("status") not in INSIGHT_STATUS:
+            problems.append(f"insight {iid}: status 须为 active/superseded/expired"
+                            f"(现在是 {it.get('status')!r})")
+        if not DATE_SHORT.match(str(it.get("created") or "")):
+            problems.append(f"insight {iid}: created 须为 MM-DD(现在是 {it.get('created')!r})")
+        w = it.get("window")
+        if (not isinstance(w, list) or len(w) != 2
+                or not all(isinstance(x, int) for x in w)
+                or w[0] > w[1] or w[0] < 0 or w[1] > 72):
+            problems.append(f"insight {iid}: window 须为 [起月龄,止月龄]"
+                            f"(0-72 且起≤止;现在是 {w!r})")
+        anc = it.get("anchors")
+        if (not isinstance(anc, list) or not anc
+                or not all(str(a).strip() for a in anc)):
+            problems.append(f"insight {iid}: anchors 须 ≥1 条观察锚(无锚洞察不落档)")
+        st = str(it.get("statement") or "")
+        if not st.strip():
+            problems.append(f"insight {iid}: statement 必填(一句假设级表述)")
+        else:
+            hit = INSIGHT_BLACKLIST.search(st)
+            if hit:
+                problems.append(f"insight {iid}: statement 含定性表述「{hit.group(0)}」"
+                                "——改写为假设级(「可能与…有关,待观察」)")
+        if it.get("status") == "superseded" and str(it.get("supersededBy")) not in insight_ids:
+            problems.append(f"insight {iid}: superseded 须带 supersededBy 指向在档洞察")
+
     for sec, loc in (("notes", lambda r: f"{r.get('date', '')} {str(r.get('text', ''))[:12]}"),
                      ("strategies", lambda r: str(r.get("id", ""))),
-                     ("followups", lambda r: f"{r.get('due', '')} {str(r.get('topic', ''))[:12]}")):
+                     ("followups", lambda r: f"{r.get('due', '')} {str(r.get('topic', ''))[:12]}"),
+                     ("insights", lambda r: str(r.get("id", "")))):
         for r in child.get(sec, []):
             for ref in r.get("issues", []):
                 if ref not in issue_ids:
