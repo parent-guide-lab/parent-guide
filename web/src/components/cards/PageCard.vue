@@ -1,7 +1,7 @@
 <script setup>
 // 页面卡(2026-10-24 拍板:卡=小页面,text/list 退役存量兼容)——
 // AI 从锁定样式的积木词汇表自由组装,框架管样式、大模型管编排:
-//   section 小节标题 / p 段落 / rows 要点行(自动序号) / kv 键值行 /
+//   section 节标题(全局 .sec-t,2026-11-10 节标题化) / p 段落 / rows 要点行(自动序号) / kv 键值行 /
 //   check 勾选组(可交互,同 ListCard local-first) / callout 提示|警示条。
 // 未知 kind 一律按 p 渲染(fail-soft:AI 自由发挥不崩卡);
 // 全部文本渲染层过 cnpunct(源数据半角不动,8b 口径 finally 齐了)。
@@ -57,7 +57,7 @@ const punct = (s) => cnpunct(String(s ?? ''))
   <div class="cbody">
     <template v-if="blocks.length">
       <template v-for="(bl, bi) in blocks" :key="bi">
-        <div v-if="bl.kind === 'section'" class="pg-sec">{{ punct(bl.text) }}</div>
+        <div v-if="bl.kind === 'section'" class="sec-t">{{ punct(bl.text) }}</div>
         <p v-else-if="bl.kind === 'p'" class="pg-p">{{ punct(bl.text) }}</p>
         <div v-else-if="bl.kind === 'rows'" class="pg-rows">
           <div v-for="(it, i) in bl.items" :key="i" class="pg-row">
@@ -83,8 +83,6 @@ const punct = (s) => cnpunct(String(s ?? ''))
 </template>
 
 <style scoped>
-.pg-sec { font-size: 11.5px; letter-spacing: .08em; color: var(--sub); margin: 12px 0 4px; }
-.pg-sec:first-child { margin-top: 2px; }
 .pg-p { font-size: 14px; color: var(--ink); line-height: 1.7; margin: 6px 0; }
 .pg-p:first-child { margin-top: 0; }
 .pg-rows { margin: 4px 0; }

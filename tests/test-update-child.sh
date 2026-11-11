@@ -499,6 +499,46 @@ class T(unittest.TestCase):
         code, _ = run(self.tmp, "set-issue-brief", "--id", iid)
         self.assertNotEqual(code, 0)                  # 什么都不传=报错
 
+    def test_43b_brief_format_gate(self):
+        # brief 条目格式门禁(2026-11-10 P4 返工判例):①②③内联糊条=拒绝写入
+        # +check 抓手改档案;拒绝时原子不落盘。
+        code, msg = run(self.tmp, "add-issue", "--name", "全喂", "--status", "active",
+                        "--summary", "v1",
+                        "--how", "五件套:①结构先行②半步撤退③自然后果")
+        self.assertNotEqual(code, 0, msg)             # 写入即拒(fail fast)
+        self.assertIn("内联编号", msg)
+        code, _ = run(self.tmp, "add-issue", "--name", "全喂", "--status", "active",
+                       "--summary", "v1", "--what", "a①b")
+        self.assertNotEqual(code, 0)                  # what 单字段也拦
+        self.assertEqual([i for i in self.child()["issues"] if i["name"] == "全喂"], [])
+        # 正常写入口径后,拆条写法畅通
+        run(self.tmp, "add-issue", "--name", "全喂", "--status", "active",
+            "--summary", "v1", "--why", "压食证据", "--why", "官方窗口",
+            "--how", "结构先行", "--how", "半步撤退")
+        iid = self.child()["issues"][-1]["id"]
+        code, msg = run(self.tmp, "set-issue-brief", "--id", iid,
+                        "--how", "①②③糊成一条")
+        self.assertNotEqual(code, 0, msg)             # set-issue-brief 同拒
+        it = next(i for i in self.child()["issues"] if i["id"] == iid)
+        self.assertEqual(it["brief"]["how"], ["结构先行", "半步撤退"])   # 原子:未落盘
+        # check 抓手改档案:手工种植违规(绕过写入路径)
+        issues = self.child()["issues"]
+        it = next(i for i in issues if i["id"] == iid)
+        it["brief"]["sources"] = ["来源一①补充②补充"]
+        d = json.loads((self.tmp / "child.json").read_text("utf-8"))
+        d[next(k for k in d if not k.startswith("_"))]["issues"] = issues
+        (self.tmp / "child.json").write_text(json.dumps(d, ensure_ascii=False), "utf-8")
+        code, msg = run(self.tmp, "check")
+        self.assertNotEqual(code, 0)
+        self.assertIn("sources[0]", msg)
+        # 清掉违规后 check 复绿
+        it["brief"]["sources"] = ["来源一", "来源二"]
+        d = json.loads((self.tmp / "child.json").read_text("utf-8"))
+        d[next(k for k in d if not k.startswith("_"))]["issues"] = issues
+        (self.tmp / "child.json").write_text(json.dumps(d, ensure_ascii=False), "utf-8")
+        code, msg = run(self.tmp, "check")
+        self.assertEqual(code, 0, msg)
+
     def test_44_link_and_unlink(self):
         run(self.tmp, "add-issue", "--name", "便秘", "--status", "active", "--summary", "x")
         iid = self.child()["issues"][-1]["id"]

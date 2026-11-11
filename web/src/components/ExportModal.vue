@@ -94,13 +94,13 @@ async function doExport() {
     if (!mobEl.value) return
     exporting.value = true
     try {
-      await exportPng(mobEl.value, `成长视图-${dispName.value}-手机版-${today}.png`)
+      await exportPng(mobEl.value, `育儿指南-${dispName.value}-手机版-${today}.png`)
     } finally { exporting.value = false }
   } else {
     if (!deskOff) return
     exporting.value = true
     try {
-      await exportPng(deskOff, `成长视图-${dispName.value}-桌面版-${today}.png`)
+      await exportPng(deskOff, `育儿指南-${dispName.value}-桌面版-${today}.png`)
     } finally { exporting.value = false }
   }
 }

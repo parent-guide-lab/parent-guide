@@ -1,4 +1,4 @@
-/* parent-guide 成长视图 —— 设计系统 A·生长图纸(儿保手册坐标纸,见 demo/ui-2026-10/a-graph.html) */
+/* parent-guide 育儿指南 —— 设计系统 A·生长图纸(儿保手册坐标纸,见 demo/ui-2026-10/a-graph.html) */
 /* 排版规范(2026-10-21 拍板,全文 docs/typography-spec-2026-10-21.md):字阶 9 档/字重 400-700/颜色配对/等宽数字/标点渲染层转换 */
 :root {
   --bg: #fdfdfb; --card: #ffffff; --ink: #1e3a52; --ink-blue: #2f5470; --sub: #5f7386;
@@ -27,17 +27,22 @@ body { font-family: system-ui, -apple-system, "PingFang SC", "HarmonyOS Sans SC"
 .toolbar { position: sticky; top: 0; z-index: 10; background: var(--card);
   border-bottom: 1px solid var(--line); padding: 10px 20px;
   display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.toolbar .brand { font-weight: 700; margin-right: auto; }
-.toolbar .brand small { color: var(--sub); font-weight: 400; margin-left: 8px; }
+.toolbar .brand { font-weight: 700; margin-right: auto; display: inline-flex;
+  align-items: center; gap: 9px; font-size: 15px; }
+.toolbar .brand .brand-mark { color: var(--ink-blue); flex: none; }
+.toolbar .brand .en { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px; color: var(--sub); font-weight: 400; letter-spacing: .04em; }
 .btn { border: 1px solid var(--line); background: #fff; color: var(--ink);
   border-radius: 8px; padding: 6px 14px; font-size: 12.5px; cursor: pointer; }
+/* 顶栏按钮统一宽度(2026-11-10 用户拍板):知识库(3字)与编辑布局(4字)等宽,
+   导出随档;实测 编辑布局=80px 取为 min-width */
+.toolbar .btn { min-width: 80px; text-align: center; }
 .btn:hover { border-color: var(--accent); color: var(--accent); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
 .btn:disabled { opacity: .45; cursor: not-allowed; }
 .mode-badge { font-size: 12.5px; color: var(--sub); border: 1px solid var(--line);
   border-radius: 99px; padding: 2px 10px; margin-right: 10px; white-space: nowrap; }
-.mode-badge.on { color: var(--ok); border-color: #bcdcc9; background: var(--ok-bg); }
 
 /* 文件模式:CSS grid 流式只读(x/y/h 忽略,按顺序+宽度) */
 .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px;
@@ -102,6 +107,21 @@ body.editing .grid-stack .card { outline: 2px dashed #d8b7a4; outline-offset: -2
   font-size: 12.5px; min-width: 0; }
 .cband .cbsub .head-stats, .cband .cbsub .care-n { margin-left: 0; }
 .cbody { flex: 1; min-height: 0; overflow-y: auto; padding: 10px 20px 14px; }
+
+/* 节标题层(2026-11-10 拍板方案 2,demo/section-title-2026-11-10 三列对比):
+   14px/700/近黑/字距 0/留白加大 + 3px 身份色竖锚(锚=卡身份 --id,无 tone 回退
+   墨蓝——锚带身份信息非装饰,与 C1 实色卡头同源)。字重 700=中文真粗(600 跨
+   平台漂移,排印审计 2026-10-21);次层字段标签(plabel/phd/pg-sec 外的 11.5
+   灰眉)保持不动——节与字段两级拉开。分享层用 ShareModal 的 sc-sec-title
+   (cream 纸语境,锚=茶棕)。消费者:ProfileCard/PageCard/IssueDetail/FocusCard */
+.sec-t { display: flex; align-items: center; gap: 8px; font-size: 14px;
+  color: var(--ink); font-weight: 700; letter-spacing: 0;
+  margin: 16px 0 6px; }
+.sec-t::before { content: ''; width: 3px; height: 14px; border-radius: 2px;
+  background: var(--id, var(--ink-blue)); flex: none; }
+.sec-t:first-child { margin-top: 0; }
+.sec-t .asof { margin-left: auto; letter-spacing: 0; font-size: 11.5px;
+  color: var(--sub); font-weight: 400; }
 /* 窄屏/移动端(blocks-spec「窄屏与移动端」):断点 ≤720px 单列=文件模式排版
    模型,内边距收敛(TickerBar 窄屏先例同款节奏);触控目标在组件 scoped
    内放大(share-fab/.tgl/.mn.tog,命中区 ≥44px) */

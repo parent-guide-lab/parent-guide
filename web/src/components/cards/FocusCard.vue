@@ -90,7 +90,7 @@ const openRow = (row) => { const i = issueOf(row); if (i) emit('open-issue', i.i
     <div v-else class="calm">今天没有到期事项 ✓</div>
 
     <template v-if="upcoming.length">
-      <div class="glabel">接下来的回访</div>
+      <div class="sec-t">接下来的回访</div>
       <div v-for="f in upcoming" :key="f.due + f.topic" class="frow"
            :class="{ lnk: issueOf(f) }" :title="issueOf(f) ? '点击查看病历' : ''"
            @click="openRow(f)">
@@ -127,8 +127,6 @@ const openRow = (row) => { const i = issueOf(row); if (i) emit('open-issue', i.i
 .act .adr { margin-left: auto; flex: none; font-size: 11.5px; color: var(--sub);
   font-family: Georgia, serif; font-variant-numeric: tabular-nums; }
 .calm { font-size: 12.5px; color: var(--ok); padding: 6px 2px; }
-.glabel { font-size: 11.5px; color: var(--sub); letter-spacing: .08em; margin: 10px 0 4px;
-  padding-top: 8px; border-top: 1px dashed var(--grid-line); }
 .frow { display: flex; gap: 10px; align-items: flex-start; padding: 6px 2px;
   border-bottom: 1px dashed var(--grid-line); font-size: 14px; }
 .frow:last-child { border-bottom: none; }

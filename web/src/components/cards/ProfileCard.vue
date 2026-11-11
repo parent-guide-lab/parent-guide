@@ -1,6 +1,6 @@
 <script setup>
 import { computed, inject, ref } from 'vue'
-import { monthsAge, fullDate, cnpunct } from '../../lib/util.js'
+import { monthsAge, fullDate, cnpunct, bodyParas, segLabel } from '../../lib/util.js'
 const props = defineProps({ block: Object, kid: Object })
 const emit = defineEmits(['open-issue'])
 const age = computed(() => props.kid?.birthdate ? monthsAge(props.kid.birthdate) : null)
@@ -15,6 +15,14 @@ const nextStep = computed(() => {
   const b = new Date(props.kid.birthdate)
   const d = new Date(b.getFullYear(), b.getMonth() + m, b.getDate())
   return { months: m, ym: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}` }
+})
+
+// 画像长字段分段(2026-11-10 用户拍板 B 案,demo/profile-block-2026-11-10):
+// kv 侧标签装不下长文,改块状=小标签行+分号分行;段前「维度:」自动加粗加蓝——
+// 维度词不固定(写侧按内容起,conversation.md 判例),渲染只认机械规则
+const profSegs = (t) => bodyParas(t || '').map(seg => {
+  const lab = segLabel(seg)
+  return { lab, text: lab ? seg.slice(lab.length) : seg }
 })
 
 // 关注 chips 挂 P 号:与在管问题按名称精确匹配(机械),命中可点开病历
@@ -84,12 +92,10 @@ const staleHint = computed(() => {
 // 生成期间强制全展开(capExpand,与里程碑/问题卡同口径,折叠区必须全包含)
 const capExpand = inject('captureExpand', { value: false })
 const capForce = computed(() => !!capExpand.value)
-const HIST_SHOW = 3
 const hist = computed(() => (props.kid?.profileHistory || []).slice().reverse())
+/* 整节默认收起(2026-11-10 用户拍板;原「默认 3 条+更多 N 条」分页随之退役——
+   展开即显全部,条数本就少);导出 capForce 照旧强制展开(折叠区纪律) */
 const histOpen = ref(false)
-const histShown = computed(() =>
-  (capForce.value || histOpen.value) ? hist.value : hist.value.slice(0, HIST_SHOW))
-const histMore = computed(() => hist.value.length - HIST_SHOW)
 </script>
 
 <template>
@@ -111,36 +117,59 @@ const histMore = computed(() => hist.value.length - HIST_SHOW)
     </div>
 
     <div v-if="(kid.currentFocus || []).length" class="psec">
-      <div class="plabel">当前关注</div>
+      <div class="sec-t">当前关注</div>
       <div><span v-for="f in kid.currentFocus" :key="f" class="chip"
         :class="{ lnk: issueByName[f] }" :title="issueByName[f] ? '点击查看病历详情' : ''"
         @click="issueByName[f] && emit('open-issue', issueByName[f].id)">{{ cnpunct(f) }}<template v-if="issueByName[f]"><b class="p">{{ issueByName[f].id }}</b></template></span></div>
     </div>
 
     <div v-if="hasPref || temperament || language || allergies" class="psec">
-      <div class="plabel">孩子画像<template v-if="secAsOf"><span class="asof">截至 {{ secAsOf }}</span><span v-if="staleHint" class="asof stale">{{ staleHint }}</span></template></div>
-      <div v-if="temperament" class="kv"><b>气质</b><span>{{ cnpunct(temperament) }}</span></div>
-      <div v-if="language" class="kv"><b>语言</b><span>{{ cnpunct(language) }}</span></div>
-      <div v-if="hasPref" class="kv"><b>偏好</b><span>
-        <span v-if="comfort" class="ptag"><i>安抚物</i>{{ cnpunct(comfort) }}</span>
-        <span v-if="activities" class="ptag"><i>活动</i>{{ cnpunct(activities) }}</span>
-        <span v-if="books" class="ptag"><i>绘本</i>{{ cnpunct(books) }}</span>
-      </span></div>
-      <div v-if="allergies" class="kv"><b>过敏</b><span>{{ cnpunct(allergies) }}</span></div>
-      <div v-if="healthNotes" class="kv"><b>健康</b><span>{{ cnpunct(healthNotes) }}</span></div>
-      <div v-if="familyNotes" class="kv"><b>家庭口径</b><span class="muted">{{ cnpunct(familyNotes) }}</span></div>
+      <div class="sec-t">孩子画像<template v-if="secAsOf"><span class="asof">截至 {{ secAsOf }}</span><span v-if="staleHint" class="asof stale">{{ staleHint }}</span></template></div>
+      <div v-if="temperament" class="pf">
+        <div class="fl">气质</div>
+        <div class="fx"><div v-for="(s, i) in profSegs(temperament)" :key="i" class="ln"
+          ><b v-if="s.lab" class="lb">{{ s.lab }}</b>{{ s.text }}</div></div>
+      </div>
+      <div v-if="language" class="pf">
+        <div class="fl">语言</div>
+        <div class="fx"><div v-for="(s, i) in profSegs(language)" :key="i" class="ln"
+          ><b v-if="s.lab" class="lb">{{ s.lab }}</b>{{ s.text }}</div></div>
+      </div>
+      <div v-if="hasPref" class="pf">
+        <div class="fl">偏好</div>
+        <div class="fx chips">
+          <span v-if="comfort" class="ptag"><i>安抚物</i>{{ cnpunct(comfort) }}</span>
+          <span v-if="activities" class="ptag"><i>活动</i>{{ cnpunct(activities) }}</span>
+          <span v-if="books" class="ptag"><i>绘本</i>{{ cnpunct(books) }}</span>
+        </div>
+      </div>
+      <div v-if="allergies" class="pf">
+        <div class="fl">过敏</div>
+        <div class="fx"><div v-for="(s, i) in profSegs(allergies)" :key="i" class="ln"
+          ><b v-if="s.lab" class="lb">{{ s.lab }}</b>{{ s.text }}</div></div>
+      </div>
+      <div v-if="healthNotes" class="pf">
+        <div class="fl">健康</div>
+        <div class="fx"><div v-for="(s, i) in profSegs(healthNotes)" :key="i" class="ln"
+          ><b v-if="s.lab" class="lb">{{ s.lab }}</b>{{ s.text }}</div></div>
+      </div>
+      <div v-if="familyNotes" class="pf">
+        <div class="fl">家庭口径</div>
+        <div class="fx muted"><div v-for="(s, i) in profSegs(familyNotes)" :key="i" class="ln"
+          ><b v-if="s.lab" class="lb">{{ s.lab }}</b>{{ s.text }}</div></div>
+      </div>
     </div>
 
     <div v-if="hist.length" class="psec">
-      <div class="plabel">画像变迁</div>
-      <div v-for="(h, i) in histShown" :key="i" class="phist">
-        <div class="phd">{{ h.date }} · {{ FIELD_LABELS[h.field] || h.field }}</div>
-        <div class="pvals"><span class="pv old">{{ h.from ? cnpunct(h.from) : '（未填）' }}</span><span class="parr">→</span><span class="pv">{{ cnpunct(h.to) }}</span></div>
-      </div>
-      <button v-if="histMore > 0 && !histOpen && !capForce" class="tgl"
-              @click="histOpen = true">更多 {{ histMore }} 条 ▸</button>
-      <button v-else-if="histMore > 0 && histOpen && !capForce" class="tgl"
-              @click="histOpen = false">收起 ▴</button>
+      <div class="sec-t">画像变迁</div>
+      <template v-if="histOpen || capForce">
+        <div v-for="(h, i) in hist" :key="i" class="phist">
+          <div class="phd">{{ h.date }} · {{ FIELD_LABELS[h.field] || h.field }}</div>
+          <div class="pvals"><span class="pv old">{{ h.from ? cnpunct(h.from) : '（未填）' }}</span><span class="parr">→</span><span class="pv">{{ cnpunct(h.to) }}</span></div>
+        </div>
+        <button v-if="!capForce" class="tgl" @click="histOpen = false">收起 ▴</button>
+      </template>
+      <button v-else class="tgl" @click="histOpen = true">展开 {{ hist.length }} 条 ▸</button>
     </div>
 
     <div v-if="!hasPref && !temperament && !language && !allergies" class="src">
@@ -163,11 +192,9 @@ const histMore = computed(() => hist.value.length - HIST_SHOW)
   display: flex; align-items: center; justify-content: center;
   font-size: 20px; font-weight: 700; color: var(--ink-blue); }
 .psec { margin-top: 12px; }
-.plabel { display: flex; align-items: baseline; gap: 8px; font-size: 11.5px;
-  color: var(--sub); margin-bottom: 5px; letter-spacing: .08em; }
-.plabel .asof { margin-left: auto; letter-spacing: 0; font-size: 11.5px;
-  font-variant-numeric: tabular-nums; }
-.plabel .asof.stale { color: var(--watch); }
+/* asof 主样式在全局 .sec-t .asof;此处只留 tabular 数字与超期色变体 */
+.sec-t .asof { font-variant-numeric: tabular-nums; }
+.sec-t .asof.stale { color: var(--watch); }
 .phist { padding: 6px 0; border-bottom: 1px dashed var(--grid-line); }
 .phist:last-child { border-bottom: none; }
 .phd { font-size: 11.5px; color: var(--sub); margin-bottom: 3px;
@@ -192,10 +219,14 @@ const histMore = computed(() => hist.value.length - HIST_SHOW)
 .tgl { border: 0; background: none; color: var(--ink-blue); font-size: 12.5px;
   cursor: pointer; padding: 4px 0 0; display: block; font: inherit; }
 .tgl:hover { text-decoration: underline; }
-.kv { display: flex; gap: 10px; font-size: 12.5px; padding: 6px 0;
-  border-bottom: 1px dashed var(--grid-line); align-items: baseline; }
-.kv:last-child { border-bottom: none; }
-.kv b { flex: none; width: 4em; color: var(--sub); font-weight: 500; font-size: 12.5px; }
-.kv span { flex: 1; min-width: 0; line-height: 1.55; }
-.kv .muted { color: var(--sub); }
+.pf { margin-top: 10px; }
+.fl { font-size: 11.5px; color: var(--sub); margin-bottom: 2px; letter-spacing: 0; }
+.fx { font-size: 14px; line-height: 1.6; }
+.fx.muted { color: var(--sub); }
+.fx .ln { padding: 4px 0 4px 12px; border-bottom: 1px dashed var(--grid-line);
+  position: relative; }
+.fx .ln:last-child { border-bottom: none; }
+.fx .ln::before { content: '·'; position: absolute; left: 1px; color: var(--ink-blue); }
+.fx .lb { color: var(--ink-blue); font-weight: 700; }
+.fx.chips { padding: 3px 0; }
 </style>

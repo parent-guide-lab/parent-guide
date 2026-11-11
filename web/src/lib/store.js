@@ -59,7 +59,7 @@ export async function init() {
     state.data = readEmbedded('pg-embedded-data')
   }
   if (state.serverMode && retiredStripped) persistPage()   // 存量清理写回
-  document.title = cnpunct(state.page?.title) || '成长视图'
+  document.title = cnpunct(state.page?.title) || '育儿指南'
   state.ready = true
 }
 

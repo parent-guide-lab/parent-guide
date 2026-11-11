@@ -7,7 +7,7 @@ import { linkifyHtml, cnpunct } from '../lib/util.js'
 
 const emit = defineEmits(['close'])
 
-// 可选初始文档(顶部知识轮播条跳转用):在官方清单里则直接定位打开
+// 可选初始文档(顶部知识轮播条跳转用):官方或自建清单里则直接定位打开
 const props = defineProps({ file: { type: String, default: '' } })
 
 const tab = ref('official') // 'official' | 'user'
@@ -30,8 +30,12 @@ async function loadList() {
     official.value = d.official || []
     user.value = d.user || []
     if (official.value.length) {
-      const target = props.file && official.value.some(o => o.file === props.file)
-        ? props.file : official.value[0].file
+      // 深链文件在官方或自建清单里都直接定位;user/ 前缀须先切到自建区,
+      // 否则 pick 会把选择记错区、左栏高亮对不上(2026-11-10 自建贴士跳转)
+      const known = props.file &&
+        [...official.value, ...user.value].some(o => o.file === props.file)
+      if (known && props.file.startsWith('user/')) tab.value = 'user'
+      const target = known ? props.file : official.value[0].file
       await pick(target)
     }
   } catch (e) {
@@ -100,7 +104,7 @@ onUnmounted(() => window.removeEventListener('keydown', onKey))
   <Teleport to="body">
     <div class="kbp">
       <header class="kbp-top">
-        <button class="kbp-back" @click="emit('close')">← 成长视图</button>
+        <button class="kbp-back" @click="emit('close')">← 育儿指南</button>
         <span class="kbp-title">知识库</span>
         <div class="kbp-tabs">
           <button :class="{ on: tab === 'official' }" @click="switchTab('official')">官方库</button>

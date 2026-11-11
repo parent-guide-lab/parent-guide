@@ -271,8 +271,10 @@ async function doExport() {
   display: flex; align-items: center; justify-content: center;
   font-size: 16px; font-weight: 700; font-family: Georgia, "Times New Roman", serif; }
 .sc-sec { padding: 4px 22px; }
-.sc-sec-title { font-size: 12.5px; font-weight: 600; color: var(--sub);
-  letter-spacing: .2em; margin: 10px 0 2px; }
+.sc-sec-title { display: flex; align-items: center; gap: 7px; font-size: 14px;
+  font-weight: 700; color: var(--ink); letter-spacing: 0; margin: 12px 0 4px; }
+.sc-sec-title::before { content: ''; width: 3px; height: 14px; border-radius: 2px;
+  background: var(--hint); flex: none; }   /* cream 纸锚=茶棕(印章色系),与白底卡身份锚同构 */
 .sc-row { padding: 9px 0; border-bottom: 1px dashed var(--cream-line); }
 .sc-row:last-child { border-bottom: none; }
 .sc-row .main { display: block; }

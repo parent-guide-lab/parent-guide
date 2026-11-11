@@ -62,7 +62,8 @@ const events = computed(() => {
   if (!i) return []
   const ev = [{ date: i.opened, dstr: fullDate(i.opened), big: '立案',
                 text: `${i.name} 开题${i.status === 'watching' ? '（观察）' : ''}` }]
-  if (i.judged && i.brief?.what) ev.push({ date: i.judged, dstr: fullDate(i.judged), big: '判定', text: i.brief.what })
+  // 判定节点只报事件本身:判定内容在左列口径卡(带「判于」日期),时间线不重复正文
+  if (i.judged && i.brief?.what) ev.push({ date: i.judged, dstr: fullDate(i.judged), big: '判定', text: i.name })
   if (i.status === 'resolved' && i.closed)
     ev.push({ date: i.closed, dstr: fullDate(i.closed), big: '结案', closed: true,
               text: `${i.name} 已解决 · ${issueDayNo(i)}` })
@@ -79,16 +80,21 @@ const events = computed(() => {
       ev.push({ date: f.due, dstr: fullDate(f.due), text: f.topic, fu: true, status: f.status || 'pending' })
   return ev.sort((a, b) => evKey(b).localeCompare(evKey(a)))   // 倒序:最新在最上
 })
+// what=一段话(p);why/how=要点行(rows 同款:Georgia 序号+虚线分隔,与页面卡一族)。
+// 结构在数据层就拆好(每条一事,conversation.md 写作判例),渲染只认 string[]。
 const briefSections = computed(() => {
   const b = issue.value?.brief || {}
   const out = []
-  if (b.what) out.push({ key: 'what',
+  if (b.what) out.push({ key: 'what', kind: 'p',
     title: '这是什么问题' + (issue.value?.judged ? ` · 判于 ${issue.value.judged}` : ''),
     body: [b.what] })
-  if (b.why?.length) out.push({ key: 'why', title: '为什么这么做', body: b.why })
-  if (b.how?.length) out.push({ key: 'how', title: '全家怎么做', body: b.how })
+  if (b.why?.length) out.push({ key: 'why', kind: 'rows', title: '为什么这么做', body: b.why })
+  if (b.how?.length) out.push({ key: 'how', kind: 'rows', title: '全家怎么做', body: b.how })
   return out
 })
+// redline 按 · 拆行(数据层约定分隔符,渲染机械拆)
+const redlineItems = computed(() =>
+  (issue.value?.brief?.redline || '').split('·').map(s => s.trim()).filter(Boolean))
 </script>
 
 <template>
@@ -108,7 +114,7 @@ const briefSections = computed(() => {
         <div class="is-cols">
           <div class="is-left">
             <div class="now-card">
-              <div class="nc-tag">当前状态</div>
+              <div class="sec-t">当前状态</div>
               <div v-if="issue.pendingCare" class="act care">
                 <span class="alab">就医待办</span>
                 <span class="atxt">{{ cnpunct(issue.pendingCare) }}</span>
@@ -125,13 +131,19 @@ const briefSections = computed(() => {
             </div>
 
             <div v-for="sec in briefSections" :key="sec.key" class="brief">
-              <h4>{{ sec.title }}</h4>
-              <ul><li v-for="(b, i) in sec.body" :key="i">{{ cnpunct(b) }}</li></ul>
+              <h4 class="sec-t">{{ sec.title }}</h4>
+              <p v-if="sec.kind === 'p'" class="bp">{{ cnpunct(sec.body[0]) }}</p>
+              <div v-else class="brows">
+                <div v-for="(b, i) in sec.body" :key="i" class="brow">
+                  <span class="idx num-serif">{{ i + 1 }}</span>
+                  <span class="tx">{{ cnpunct(b) }}</span>
+                </div>
+              </div>
             </div>
 
             <div v-if="issue.brief?.redline" class="redline">
-              <h4>出现这些直接就医，不等观察</h4>
-              <p>{{ cnpunct(issue.brief.redline) }}</p>
+              <h4 class="sec-t">出现这些直接就医，不等观察</h4>
+              <ul class="rl-list"><li v-for="(r, i) in redlineItems" :key="i">{{ cnpunct(r) }}</li></ul>
             </div>
 
             <div v-if="issue.brief?.sources?.length" class="srcbox">
@@ -142,7 +154,7 @@ const briefSections = computed(() => {
 
           <div class="is-right">
             <div class="tl-panel">
-              <h3>时间线<span class="tag">对话自动归集</span></h3>
+              <h3 class="sec-t">时间线<span class="tag">对话自动归集</span></h3>
               <div class="tl">
                 <div v-for="(e, i) in events" :key="i" class="tl-item"
                      :class="{ big: e.big, closed: e.closed, future: e.fu && e.status === 'pending' }">
@@ -209,13 +221,10 @@ const briefSections = computed(() => {
   color: #fff; border-radius: 8px; padding: 5px 14px; font-size: 12.5px; cursor: pointer; }
 .is-head .x { flex: none; border: 0; background: none; color: var(--sub); font-size: 16px;
   cursor: pointer; padding: 2px 4px; }
-h3 { font-size: 12.5px; color: var(--sub); font-weight: 600; letter-spacing: .2em; margin: 16px 0 10px; }
 h3 .tag { font-size: 11.5px; font-weight: 400; letter-spacing: 0;
   border: 1px solid var(--line); border-radius: 5px; padding: 1px 8px; }
 .now-card { border: 1.5px solid var(--ink-blue); border-radius: 10px;
   background: rgba(255,255,255,.85); padding: 14px 16px; margin-bottom: 6px; }
-.now-card .nc-tag { font-size: 11.5px; letter-spacing: .2em; color: var(--ink-blue);
-  font-weight: 600; margin-bottom: 8px; }
 .act { display: flex; gap: 12px; align-items: baseline; padding: 8px 12px;
   border: 1px solid var(--line); border-radius: 6px; margin-bottom: 8px;
   font-size: 14px; line-height: 1.55; }
@@ -229,14 +238,22 @@ h3 .tag { font-size: 11.5px; font-weight: 400; letter-spacing: 0;
 .now-card .nc-main { font-size: 15px; line-height: 1.6; color: var(--ink); }
 .brief { border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px;
   margin-top: 10px; background: rgba(255,255,255,.7); }
-.brief h4 { font-size: 12.5px; color: var(--ink-blue); font-weight: 600;
-  letter-spacing: .08em; margin-bottom: 4px; }
 .brief ul { padding-left: 18px; }
 .brief li { font-size: 14px; margin: 3px 0; }
+.bp { font-size: 14px; line-height: 1.7; color: var(--ink); margin: 2px 0 0; }
+.brows { margin-top: 2px; }
+.brow { display: flex; gap: 10px; align-items: baseline; font-size: 14px;
+  line-height: 1.6; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.brow:last-child { border-bottom: none; }
+.brow .idx { flex: none; min-width: 1.4em; text-align: right; color: var(--ink-blue);
+  font-weight: 600; font-size: 14px; }
+.brow .tx { min-width: 0; }
 .redline { border: 1px solid var(--todo); background: var(--todo-bg);
   border-radius: 10px; padding: 12px 16px; margin-top: 10px; }
-.redline h4 { font-size: 12.5px; color: var(--todo); font-weight: 600; margin-bottom: 4px; }
-.redline p { font-size: 14px; }
+.redline .sec-t { color: var(--todo); }
+.redline .sec-t::before { background: var(--todo); }
+.rl-list { padding-left: 18px; margin: 0; }
+.rl-list li { font-size: 14px; margin: 3px 0; }
 .srcbox { border-top: 1px dashed var(--line); margin-top: 12px; padding-top: 8px; }
 .srcbox h4 { font-size: 11.5px; color: var(--sub); font-weight: 600;
   letter-spacing: .2em; margin-bottom: 3px; }

@@ -131,7 +131,7 @@ function exportReport() {
   const blob = new Blob(['<!DOCTYPE html>\n' + doc.outerHTML], { type: 'text/html' })
   const a = document.createElement('a')
   a.href = URL.createObjectURL(blob)
-  a.download = `成长视图-${currentChild().name || 'report'}.html`
+  a.download = `育儿指南-${currentChild().name || 'report'}.html`
   a.click()
   URL.revokeObjectURL(a.href)
 }
@@ -140,13 +140,12 @@ function exportReport() {
 <template>
   <template v-if="state.ready">
     <div class="toolbar">
-      <span class="brand">🧸 成长视图<small>parent-guide</small></span>
-      <span class="mode-badge" :class="{ on: state.serverMode }" :title="state.serverMode
-        ? '已连接本地后端（server.py）：拖拽/拉伸/编辑直接写回 data/page.json'
-        : '未检测到本地服务；想体验布局编辑，运行 python3 server.py --open'">
-        {{ state.serverMode ? '🔌 本地服务 · 编辑即保存' : '📄 文件模式 · 只读' }}
-      </span>
-      <button v-if="state.serverMode" class="btn" title="官方循证知识 + 我的自建（knowledge/user/，仅本机）" @click="kbOpen = true">📖 知识库</button>
+      <span class="brand">
+        <svg class="brand-mark" width="19" height="19" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-8"/><path d="M12 13C12 9 9 6 4 6c0 4 3 7 8 7z"/><path d="M12 13c0-4 3-7 8-7 0 4-3 7-8 7z"/></svg>育儿指南<span class="en">parent-guide</span></span>
+      <span v-if="!state.serverMode" class="mode-badge"
+        title="未检测到本地服务；想体验布局编辑，运行 python3 server.py --open">文件模式 · 只读</span>
+      <button v-if="state.serverMode" class="btn" title="官方循证知识 + 我的自建（knowledge/user/，仅本机）" @click="kbOpen = true">知识库</button>
       <button class="btn" :class="{ active: state.editing }" :disabled="!state.serverMode || isNarrow"
               :title="isNarrow ? '窄屏为只读浏览，布局编辑请在桌面进行'
                 : state.editing ? '收起面板并退出拖拽' : '拖拽调布局；底部面板管卡片显隐与添加'"

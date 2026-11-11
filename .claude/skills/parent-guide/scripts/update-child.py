@@ -670,6 +670,9 @@ def execute(argv=None):
             issue["judged"] = _norm_short(args.judged)
         if args.pending_care:
             issue["pendingCare"] = args.pending_care
+        bad = _brief_format_problems(iid, brief)
+        if bad:
+            return 1, "ERROR: 拒绝写入(brief 条目格式门禁):\n" + "\n".join(bad)
         child.setdefault("issues", []).append(issue)
         extra = (f", judged {issue['judged']}" if "judged" in issue else "") \
             + (", 就医待办√" if "pendingCare" in issue else "")
@@ -726,6 +729,10 @@ def execute(argv=None):
         if not touched:
             return 1, ("ERROR: 至少传一个 "
                        "--name/--summary/--what/--why/--how/--redline/--pending-care/--judged")
+        bad = _brief_format_problems(args.id, it.get("brief") or {})
+        if bad:
+            return 1, ("ERROR: 拒绝写入(brief 条目格式门禁;"
+                       "本次改动已回滚未落盘):\n" + "\n".join(bad))
         msg = (f"updated issue {args.id}: {'/'.join(touched)}"
                "(why/how 整组覆盖,先读全量再写;brief=分享卡唯一素材源)")
 
@@ -797,6 +804,27 @@ def execute(argv=None):
     _ensure_profile_asof(child)
     _save(path, doc)
     return 0, msg + f" | saved {path.name} (backup: child.json.bak)"
+
+
+CIRCLED = re.compile(r"[\u2460-\u2473]")   # ①-⑳
+
+
+def _brief_format_problems(iid, brief):
+    """口径卡条目格式门禁(2026-11-10 P4 返工判例):一线一事,禁内联编号糊条。
+    why/how/sources 每条=一个动机/动作/来源,what=1-3 句;①②③内联=该拆没拆
+    ——详情层 rows 与分享卡 chips 都按「条」取材,一条糊多事渲染必烂。
+    双挂点:写入即拒(fail fast)+ check 抓手改档案。判例:conversation.md §2.8。"""
+    problems = []
+    hit = "含内联编号(①②③类)——一线一事拆成多条,见 conversation.md §2.8 写作判例"
+    for field in ("what", "redline"):
+        val = brief.get(field)
+        if val and CIRCLED.search(str(val)):
+            problems.append(f"issue {iid}: brief.{field} {hit}")
+    for field in ("why", "how", "sources"):
+        for j, item in enumerate(brief.get(field) or []):
+            if CIRCLED.search(str(item)):
+                problems.append(f"issue {iid}: brief.{field}[{j}] {hit}")
+    return problems
 
 
 def _check(child):
@@ -949,6 +977,7 @@ def _check(child):
             problems.append(f"issue {iid}: resolved 须带 closed(用 set-issue-status 关闭)")
         if not str(it.get("summary") or "").strip():
             problems.append(f"issue {iid}: summary 必填(当前状态一句话)")
+        problems += _brief_format_problems(iid, it.get("brief") or {})
 
     for sec, loc in (("notes", lambda r: f"{r.get('date', '')} {str(r.get('text', ''))[:12]}"),
                      ("strategies", lambda r: str(r.get("id", ""))),
