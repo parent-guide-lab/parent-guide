@@ -27,7 +27,9 @@
 > FAQ·BC 教师版音素图表页(原文级)+常青动画出品方与渠道(摘要/转述级,
 > 底稿 §14);2026-10-25 R10 优先级+记忆个体差异+低暴露预期=Weisleder & Fernald 2013·Masek 2021·Storkel 2019·Pillinger & Vardy 2022·Kucker 2025·Nakamura 2023·Speciale 2004·Adlof & Patten 2017(原文级)+Ojima 2011(摘要级)+NAEYC 反闪卡页(机构级)+Flege 1999·Muñoz·Lauricella 2011·Hirsh-Pasek 2015·Spiegel & Halberda 2011(转述/检索级),底稿 docs/english-32m-priority-research-2026-10-25.md;
 > 2026-11-11 R11 牛津选购增补=两版书目实例对照+毛毛虫笔×牛津树兼容现状
-> 核验(Oxford Owl 官方页复核,原文级;书目与渠道多源转述级,底稿 §15);URL 与分级=文末 §7 来源清单,逐轮调研细节/引语逐字归档/
+> 核验+音频边界(奇奇学音频=套装配套不覆盖家庭版/家庭版不带音频走
+> Oxford Owl 免费/Storyteller 视频仅 Stage 4-5 直读核)
+> (Oxford Owl 官方页复核,原文级;书目与渠道多源转述级,底稿 §15/§16);URL 与分级=文末 §7 来源清单,逐轮调研细节/引语逐字归档/
 > 矛盾处理见各轮底稿**
 
 ## 0. 一句话结论与三条纪律
@@ -337,8 +339,14 @@ Courage 2021 原文级);**成人支架优于 app 内置反馈**(Walter-Laager 20
   仅库存尾货/二手可点;已购点读包本地存储可续用**)、小达人/小蝌蚪
   (开放生态,靠点读包覆盖无官方引进的书源,宣称兼容约 98%)、奇奇学
   Floppy 笔(只配套自家套装)——**三家互不通用**(转述级)。
-- 音频:奇奇学 App 含免费官方音频(摘要级);分级 app 自带音频;无笔
-  也能跑通——音频+家长共读本就是证据层的主力形态(§2)。
+- 音频:奇奇学 App 含免费官方音频(摘要级)——但那是**自家套装(校园版
+  体系)的配套**,不覆盖家庭版书目;家庭版进口原版不带音频、不可点读
+  (英国母语市场产品,无音频码),音频免费走 Oxford Owl——注册后免费
+  eBook 库部分书目可在线听读(BCK Storyteller 作者朗读视频仅覆盖
+  Stage 4-5 两本,2026-11-11 直读核,低龄段发音参照走 eBook 库带音频
+  书目或通用词典)+喜马拉雅/B 站用户自制伴读专辑(免费,非官方);
+  分级 app 自带音频;无笔也能跑通——音频+家长共读本就是证据层的主力
+  形态(§2)。**音频全程无需单独付费**(2026-11-11 核)。
 
 **价格带**(2026-10,转述级):正版分级读物单级约 ¥200-400、全套普遍
 千元级(培生偏低,牛津树家庭版入门装 1-3 级 33 册约 ¥300);祖国版
@@ -564,6 +572,7 @@ docs/english-enlightenment-research-2026-10-17.md(§5 矛盾/§7 来源/
 | IMDb(Numberblocks 3-6 岁) | 转述级 | — |
 | 海尼曼新东方首发(中国日报)/外研社大猫/知乎家庭版校园版深度文 | 摘要级 | —(底稿 §12) |
 | 知乎牛津树版本详解(两版书目实例/每册共读 tips 形态;R11 2026-11-11 经 WebSearch 复核) | 转述级 | [zhuanlan.zhihu.com](https://zhuanlan.zhihu.com/p/142790681) |
+| Oxford Owl:BCK Storyteller videos(仅 Stage 4-5 两本;R11 音频边界直读核 2026-11-11) | 原文级 | [home.oxfordowl.co.uk](https://home.oxfordowl.co.uk/storyteller-videos/storyteller-videos-biff-chip-kipper/) |
 | 新华网双减《意见》全文 | 原文级 | [xinhuanet.com](http://www.xinhuanet.com/politics/zywj/2021-07/24/c_1127691094.htm) |
 | 教育部变相违规查处通知(2021-09) | 原文级 | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202109/t20210908_560508.html) |
 | 学科类鉴别通知(教监管厅函〔2021〕3 号) | 转述级(经摘要转引) | [moe.gov.cn](http://www.moe.gov.cn/srcsite/A29/202107/t20210730_547807.html) |
