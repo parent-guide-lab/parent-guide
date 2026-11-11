@@ -74,8 +74,8 @@ const nextStep = computed(() => {
 .mn i { display: block; font-style: normal; font-size: 27px; font-weight: 700; line-height: 1.15; }
 .mn small { font-size: 10.5px; color: var(--sub); letter-spacing: .06em; }
 .alldone { font-size: 12.5px; color: var(--ok); margin: 2px 0 4px; }
-.tgl { border: 0; background: none; color: var(--ink-blue); font-size: 12.5px;
-  cursor: pointer; padding: 2px 0; font: inherit; display: block; }
+.tgl { border: 0; background: none; color: var(--ink-blue); font: inherit;
+  font-size: 12.5px; cursor: pointer; padding: 2px 0; display: block; }
 .tgl:hover { text-decoration: underline; }
 /* 窄屏触控目标(规范:命中区 ≥44px) */
 @media (max-width: 720px) { .tgl { padding: 10px 0; } }

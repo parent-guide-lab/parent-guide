@@ -18,6 +18,11 @@
 #   6. font-weight whitelist 400/500/600/700 —— **全部文件**(600=拍板 4b 保留)
 #   7. letter-spacing whitelist(2026-10-23 token 化:徽章 .04/卡头 .06/卡内标签
 #      .08/详情与分享层小节标题 .2/serif 数字补偿 -.01~-.02/0=显式重置)—— 全部文件
+#   8. 简写覆盖长写(2026-11-11 tgl 字号失效三连修判例):同一声明块内 font/
+#      background/margin/padding/border/flex/transition/overflow/animation 简写
+#      不得出现在相关长写之后——font 短简写会重置一切字属性,font-size 写在
+#      font: inherit 前=静默失效(Milestone 曾因父容器恰好同值侥幸未炸)。
+#      长写在简写后是合法覆盖,不报;门禁盲区判例:值扫描查不出顺序 bug
 # Run: bash tests/check-card-style.sh
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -84,6 +89,43 @@ for p in files:
     for ls in ls_hits:
         if ls not in LS_ALLOW:
             problems.append(f"{p.name}: 字距 {ls} 不在白名单(-.02/-.01/0/.04/.06/.08/.2em)")
+
+# 规则 8:简写覆盖长写(同声明块内,简写在相关长写之后=静默重置,2026-11-11)
+SHORTHAND_MAP = {
+    "font": ["font-style", "font-variant", "font-weight", "font-stretch",
+             "font-size", "line-height", "font-family"],
+    "background": ["background-color", "background-image", "background-repeat",
+                   "background-position", "background-size"],
+    "margin": ["margin-top", "margin-right", "margin-bottom", "margin-left"],
+    "padding": ["padding-top", "padding-right", "padding-bottom", "padding-left"],
+    "border": ["border-width", "border-style", "border-color", "border-top",
+               "border-right", "border-bottom", "border-left"],
+    "flex": ["flex-grow", "flex-shrink", "flex-basis"],
+    "transition": ["transition-property", "transition-duration",
+                   "transition-timing-function", "transition-delay"],
+    "overflow": ["overflow-x", "overflow-y"],
+    "animation": ["animation-name", "animation-duration", "animation-timing-function",
+                  "animation-iteration-count", "animation-direction", "animation-fill-mode"],
+}
+for p in files:
+    text = p.read_text("utf-8")
+    css = "\n".join(re.findall(r"<style[^>]*>(.*?)</style>", text, re.S)) \
+        if p.suffix == ".vue" else text
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    for m in re.finditer(r"([^{}]+)\{([^{}]*)\}", css):
+        seen = []
+        for d in m.group(2).split(";"):
+            if ":" not in d:
+                continue
+            prop = d.split(":", 1)[0].strip()
+            if prop.startswith("-") or prop.startswith("--"):
+                continue
+            if prop in SHORTHAND_MAP:
+                hit = [lh for lh in seen if lh in SHORTHAND_MAP[prop]]
+                if hit:
+                    problems.append(f"{p.name}: 简写 {prop}: 在同一块内重置了先声明的 "
+                                    f"{','.join(hit)}(顺序对调或删长写)")
+            seen.append(prop)
 
 if problems:
     print("FAIL: 排版/风格门禁发现问题:")

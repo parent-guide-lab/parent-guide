@@ -65,7 +65,8 @@ function open() {
 .tk-src { margin-left: 8px; font-size: 11.5px; color: var(--sub); white-space: nowrap; }
 .tk-refresh { flex: none; width: 26px; height: 26px; display: inline-flex;
   align-items: center; justify-content: center; border: 1px solid var(--line);
-  background: none; color: var(--sub); border-radius: 6px; cursor: pointer; }
+  background: none; color: var(--sub); border-radius: 6px; cursor: pointer;
+  font: inherit; font-size: 12.5px; }   /* 图标钮无文本,但 UA 默认 13.33px 会漏出计算值扫(2026-11-11 全页扫判例) */
 .tk-refresh:hover { color: var(--accent); border-color: var(--accent); }
 .tk-fade-enter-active, .tk-fade-leave-active { transition: opacity .35s; }
 .tk-fade-enter-from, .tk-fade-leave-to { opacity: 0; }

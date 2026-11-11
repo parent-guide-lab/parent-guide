@@ -216,8 +216,8 @@ const histOpen = ref(false)
   background: rgba(255,255,255,.75); }
 .ptag i { font-style: normal; color: var(--sub); margin-right: 4px; }
 /* 画像变迁展开/收起(.tgl=导出期全局隐藏类,见 style.css body.capturing) */
-.tgl { border: 0; background: none; color: var(--ink-blue); font-size: 12.5px;
-  cursor: pointer; padding: 4px 0 0; display: block; font: inherit; }
+.tgl { border: 0; background: none; color: var(--ink-blue); font: inherit;
+  font-size: 12.5px; cursor: pointer; padding: 4px 0 0; display: block; }
 .tgl:hover { text-decoration: underline; }
 .pf { margin-top: 10px; }
 .fl { font-size: 11.5px; color: var(--sub); margin-bottom: 2px; letter-spacing: 0; }

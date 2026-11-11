@@ -101,8 +101,8 @@ const startedLabel = (s) => {
 .plink { color: var(--id, var(--ink-blue)); cursor: pointer; font-weight: 600;
   font-family: Georgia, serif; margin: 0 2px; }
 .plink:hover { text-decoration: underline; }
-.tgl { border: 0; background: none; color: var(--ink-blue); font-size: 12.5px;
-  cursor: pointer; padding: 6px 0 0; display: block; font: inherit; }
+.tgl { border: 0; background: none; color: var(--ink-blue); font: inherit;
+  font-size: 12.5px; cursor: pointer; padding: 6px 0 0; display: block; }
 .tgl:hover { text-decoration: underline; }
 /* 窄屏触控(规范:命中区 ≥44px) */
 @media (max-width: 720px) { .tgl { padding: 10px 0; } }

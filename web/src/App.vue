@@ -9,8 +9,20 @@ import IssueDetail from './components/IssueDetail.vue'
 import KnowledgePage from './components/KnowledgePage.vue'
 import TickerBar from './components/TickerBar.vue'
 import { CARD_META } from './components/cards/index.js'
+import { computedStyleSweep } from './lib/computedSweep.js'
 
 onMounted(async () => {
+  // 计算值全页扫探针(测试挂具用,平时零开销):#style-sweep hash 触发,
+  // 结果注入隐藏节点供 --dump-dom 断言;违规定位信息见 lib/computedSweep.js 头注
+  if (location.hash.includes('style-sweep')) {
+    setTimeout(() => {
+      const pre = document.createElement('pre')
+      pre.id = 'style-sweep-result'
+      pre.style.display = 'none'
+      pre.textContent = JSON.stringify({ violations: computedStyleSweep() })
+      document.body.appendChild(pre)
+    }, 300)
+  }
   await init()
   const h = window.location.hash
   if (/^#issue-P\d+$/.test(h)) issueOpen.value = h.slice(7)
